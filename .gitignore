@@ -1,0 +1,12 @@
+*.out
+*.pdf
+*.aux
+*.log
+*.out
+*.dvi
+.vscode/
+__pycache__/
+*.gch
+.DS_Store
+analysis
+temp
