@@ -1,0 +1,1 @@
+# swedish-olympiad-2026
