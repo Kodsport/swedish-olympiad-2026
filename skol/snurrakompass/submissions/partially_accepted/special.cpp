@@ -17,8 +17,20 @@ int main() {
    	ll a, b;
 	cin >> a >> b;
 
-	ll G = gcd(gcd(a, b), 360LL);
+	ll ans = 0;
 
-	cout << 360 / G << '\n';
+	rep(k, 0, 360) {
+		rep(x, 0, 361) {
+			ll s = ((k - x * a) % 360 + 2 * 360) + 360;
+			if (s % b == 0) {
+				ll y = s / b;	
+				if (y >= 0) {
+					ans++;
+					break;
+				}
+			}
+		}
+	}
 
+	cout << ans << '\n';
 }
