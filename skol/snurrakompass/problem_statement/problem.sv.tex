@@ -1,19 +1,30 @@
 \problemname{Snurra Kompass}
 
-Du har en kompass som kan pekas åt 360 olika riktningar.
+Du har en kompass som kan pekas åt $360$ olika riktningar.
 
-Initialt pekar den mot rakt uppåt, (alltså på talet 360).
+Initialt pekar den mot rakt uppåt, på talet $360$.
 
 Tyvärr så funkar inte kompassen, och det endas sättet du kan få kompassen att pekas mot andra riktningar är genom lyfta på kompassen och rotera den antal grader motsols.
 
 Du har som tur två robotarmar, där den första robotarmen kan snurra kompassen $a$ grader motsols, och den andra robotarmen kan snurra $b$ grader motsols.
 
-Genom att använda dessa två robotarmar oändligt antal gånger, hur många riktningar går det att peka kompassen mot?
+Genom att använda dessa två robotarmar oändligt antal gånger, hur många unika riktningar går det att peka kompassen mot?
 
-\section*{Input}
+\section*{Indata}
+Indatan består av två tal $a$ och $b$ ($1 \leq a, b \leq 360$).
 
-Indatan består av två tal: $1 \leq a, b \leq 360$.
+\section*{Utdata}
+Skriv ut ett tal: antal unika riktningar det går att peka kompassen mot.
 
-\section*{Output}
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-Skriv ut ett tal: antal riktningar det går att peka kompassen mot.
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $30$  & $a = b$ \\ \hline
+  $2$    & $70$  & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+

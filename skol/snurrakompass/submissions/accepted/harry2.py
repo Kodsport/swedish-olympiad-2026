@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 vis = [0]*360
 vis[0] = 1
 a,b = map(int,input().split())
