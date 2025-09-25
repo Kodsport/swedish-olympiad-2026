@@ -1,20 +1,26 @@
 \problemname{Snurra Kompass}
 
-Du har en kompass som kan pekas åt $360$ olika riktningar.
+Du har en kompass som kan peka i $360$ olika riktningar. Just nu pekar den rakt uppåt, på talet $360$.
 
-Initialt pekar den mot rakt uppåt, på talet $360$.
+Tyvärr så funkar inte kompassen, och det enda sättet du kan få den att peka i andra riktningar
+är genom lyfta på hela kompassen och rotera den ett antal grader motsols. Till din hjälp har du
+två robotarmar. Dessa är dock inte perfekta: den första robotarmen kan
+snurra kompassen exakt $a$ grader motsols och den andra robotarmen kan snurra $b$ grader motsols.
+Eftersom robotarmarna inte bara kan rotera kompassen exakt $a$ eller $b$ grader varje gång
+de används, varken mer eller mindre, så går det ibland inte att få kompassen att peka
+i alla riktningar.
 
-Tyvärr så funkar inte kompassen, och det endas sättet du kan få kompassen att pekas mot andra riktningar är genom lyfta på kompassen och rotera den antal grader motsols.
+Detta får dig att undra, hur många unika riktningar kan kompassen peka åt? Skriv ett program
+som listar ut detta givet talen $a$ och $b$. Notera att eftersom vi roterar i en cirkel,
+så är en rotation av $10$ grader motsols samma som en rotation av $370$ grader motsols.
+Mer allmänt bryr vi oss alltså bara om resten av antalet grader roterade delade med $360$.
 
-Du har som tur två robotarmar, där den första robotarmen kan snurra kompassen $a$ grader motsols, och den andra robotarmen kan snurra $b$ grader motsols.
-
-Genom att använda dessa två robotarmar oändligt antal gånger, hur många unika riktningar går det att peka kompassen mot?
 
 \section*{Indata}
-Indatan består av två tal $a$ och $b$ ($1 \leq a, b \leq 360$).
+Indatan består av två tal $a$ och $b$ ($1 \leq a, b \leq 360$), vars betydelse beskrivits ovan.
 
 \section*{Utdata}
-Skriv ut ett tal: antal unika riktningar det går att peka kompassen mot.
+Skriv ut ett heltal: antal unika riktningar det går att peka kompassen mot.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
