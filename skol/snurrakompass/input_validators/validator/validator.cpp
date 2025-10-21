@@ -12,13 +12,11 @@ typedef vector<int> vi;
 
 
 void run() {
-	int ab = Arg("ab", 0);
-    
 	int a = Int(1, 360);
 	Space();
 	int b = Int(1, 360);
 
-	if (ab == 1) assert(a == b);
+	if (Arg("ab", 0)) assert(a == b);
 
 	Endl();
 }

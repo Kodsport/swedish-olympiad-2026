@@ -3,8 +3,6 @@
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-ulimit -s unlimited # vad gör detta?
-
 use_solution raunak.cpp
 
 # Möjligen Jobbiga testfall
@@ -12,8 +10,8 @@ use_solution raunak.cpp
 compile gen_rand.py
 
 samplegroup
-sample_manual 1
-sample_manual 2
+sample 1
+sample 2
 
 group group1 30
 limits ab=1
