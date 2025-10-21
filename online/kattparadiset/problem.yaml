@@ -1,0 +1,21 @@
+#problem_format_version: 2023-07-draft
+
+#name: Kattparadiset
+
+#credits:
+author: Erik Hedin
+#  contributors:
+#    - Harry Zhang
+
+source: Programmeringsolympiadens skolkval 2026
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+validation: custom
+
+grading:
+    show_test_data_groups: true
+
+limits:
+    time_multiplier: 2.5
