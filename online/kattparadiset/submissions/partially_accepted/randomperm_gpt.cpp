@@ -18,8 +18,8 @@ int main() {
     }
 
     auto check = [&]() -> bool {
-        for (int i = 1; i < n; ++i) {
-            if (out[i] == out[i - 1])
+        for (int i = 0; i < n; ++i) {
+            if (out[i] == out[(i + 1)%n])
                 return false;
         }
         return true;
