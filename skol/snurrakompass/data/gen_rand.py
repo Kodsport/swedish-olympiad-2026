@@ -16,8 +16,13 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 ab = int(cmdlinearg('ab', 0))
+prime = int(cmdlinearg('prime', 0))
 
-if ab == 1:
+if prime == 1:
+    a = 13
+    b = randint(1, 360)
+    print(a, b)
+elif ab == 1:
     a = randint(1, 360) 
     print(a, a)
 else:

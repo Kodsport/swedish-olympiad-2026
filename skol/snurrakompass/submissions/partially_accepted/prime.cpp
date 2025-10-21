@@ -1,24 +1,21 @@
-#include "validator.h"
-
+#include <bits/stdc++.h>
 using namespace std;
 
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
-#define trav(i, a) for(auto& i : a)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
+#define dbg(x) cout << #x << " = " << x << endl;
 
-void run() {
-	int a = Int(1, 360);
-	Space();
-	int b = Int(1, 360);
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	cin.exceptions(cin.failbit);
 
-	if (Arg("ab", 0)) assert(a == b);
-	if (Arg("prime", 0)) assert(a == 13);
+   	ll a, b;
+	cin >> a >> b;
 
-	Endl();
+	cout << 360 << '\n';
 }
-
