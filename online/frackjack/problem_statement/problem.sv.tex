@@ -1,0 +1,60 @@
+\problemname{Frack Jack}
+Det går rykten om att skolans miniräknare kan trimmas med en hemlig kod.
+Du har hört att om du kan få miniräknaren att visa den hemliga kålnami-koden på displayen och sedan
+trycker på likhetstecknet, så kommer miniräknaren att låsa upp flera
+stycken hemliga matematikfunktioner.
+
+Din kompis har lyckats lista ut vad kålnami-koden är, men hen berättar för dig
+att du inte får gå tillväga hur som helst för att skriva in koden i miniräknaren.
+Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
+\begin{itemize}
+  \item Multiplicera talet som visas med talet $M$.
+  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq M-1$.
+\end{itemize}
+
+Som tur är har din kompis även lyckats lista ut vad talet $M$ är. 
+Denna komplicerade process kommer endast fungera om du gör så få operationer
+som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
+givet kålnami-koden och talet $M$.
+
+\section*{Indata}
+Den första raden innehåller heltalet $N$ ($1 \le N \le 10^9$), innehållet av kålnami-koden.
+
+Nästa rad innehåller siffran $M$ ($2 \leq M \leq 9$), som beskrivits ovan.
+
+\section*{Utdata}
+Skriv ut ett heltal: minsta antalet operationer som krävs för att få miniräknaren att visa
+kålnami-koden $N$.
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & $M=3, N \leq 10$. \\ \hline
+  $2$    & $20$       & $M=2$ \\ \hline
+  $3$    & $20$       & $N \leq 10^5$ \\ \hline
+  $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+I exempelfall 1 är ett sätt att skriva in koden med minsta antalet operationer som följande:
+\begin{enumerate}
+  \item $+1$
+  \item $\times 2$
+  \item $\times 2$
+\end{enumerate}
+
+
+I exempelfall 2 är en optimal lösning är att utföra följande operationer:
+\begin{enumerate}
+  \item $+1$
+  \item $\times 3$
+  \item $\times 3$
+  \item $+2$
+  \item $\times 3$
+\end{enumerate}

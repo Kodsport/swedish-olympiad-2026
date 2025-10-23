@@ -1,0 +1,9 @@
+# this is a copy of the real problem
+# uuid: 58b909df-5f9a-409e-878e-eab5cd547ecf
+author: Joshua Andersson
+source: Programmeringsolympiadens skolkval 2025
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+grading:
+  show_test_data_groups: true
