@@ -5,11 +5,13 @@ using namespace std;
 
 
 void run() {
-	int n = Int(1, Arg("maxn", int(1e9))); Endl();
-	int m = Int(2, 9); Endl();
+	int maxa=Arg("maxa",30);
+	int maxb=Arg("maxb",30);
+	int a = Int(0,30); Endl();
+	int b = Int(0,30); Endl();
 
-	int m_is = Arg("m",-1);
-	if (m_is!=-1) assert(m==m_is);
+	assert(a<=30);
+	assert(b<=30);
 
 	Eof();
 }

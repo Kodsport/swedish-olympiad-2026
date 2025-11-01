@@ -15,7 +15,7 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('a',30))
-m = int(cmdlinearg("b",30))
+m = int(cmdlinearg('b',30))
 
 print(random.randint(0,30))
 print(random.randint(0,30))
