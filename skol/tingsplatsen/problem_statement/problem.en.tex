@@ -1,0 +1,36 @@
+\problemname{The Monument}
+
+Arvid the archaeologist is searching for a lost Iron Age monument somewhere in central Sweden. 
+He has mapped a number of houses that existed in the area and has concluded that the monument 
+must be at roughly the same distance from the different houses.
+
+The area Arvid has investigated can be represented by a grid with $N$ rows and $M$ columns. 
+It takes one minute for an Iron Age person to move between two adjacent cells. Two cells are 
+adjacent if they share one of their four sides. You are given a map of the grid marking where the 
+different houses that Arvid investigated are located. It is known that it takes the same amount 
+of time to travel from each house to the lost monument. Your task is to find which cells 
+the monument could be in.
+
+\section*{Input}
+The first line consists of two integers $N$ and $M$ ($1 \leq N,M \leq 10$), the number of rows and columns of the grid.
+
+The following $N$ lines each contain a string of length $M$, consisting of the characters \verb|.|'' and \verb|*|''. 
+These are the rows of the grid. The character \verb|*|'' means there is a house at the corresponding position 
+in the grid, and \verb|.|'' means there is no house.
+
+There will be at least two houses in the grid. The input has been generated so that there is always at least one cell where the monument can be.
+
+\section*{Output}
+Print $N$ lines with a string of length $M$ on each line, a copy of the input grid, 
+but with ``\verb|X|'' marking the cells where the monument could be located.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+\hline
+\textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+$1$ & $20$ & $N = 1$ \\ \hline
+$2$ & $80$ & No additional constraints. \\ \hline
+\end{tabular}
