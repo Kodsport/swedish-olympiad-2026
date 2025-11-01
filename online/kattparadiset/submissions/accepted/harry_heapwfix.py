@@ -33,13 +33,14 @@ for i in range(n):
         heapq.heappush(priority_queue, (amount, color))
         heapq.heappush(priority_queue, (amount2+1, color2))
 
-
 if out[-1] == out[0]:
     for i in range(2,n-1):
         out[-1],out[i] = out[i],out[-1]
 
         if out[-2] != out[-1] != out[0] and out[i-1] != out[i] != out[i+1]:
             break
+
+        out[-1],out[i] = out[i],out[-1]
     else:
         assert(0)
 

@@ -18,4 +18,4 @@ grading:
     show_test_data_groups: true
 
 limits:
-    time_multiplier: 2.5
+    time_multiplier: 2

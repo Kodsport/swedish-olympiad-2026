@@ -9,6 +9,7 @@ use_solution harry.py
 
 compile gen_rand.py
 compile gen_uniform.py
+compile gen_spike.py
 
 samplegroup
 sample_manual 1
@@ -54,12 +55,17 @@ tc g3-2
 tc g4-1 gen_rand n=3
 tc g4-2 gen_rand n=5
 tc g4-3 gen_rand n=8
+tc g4-4 gen_spike n=8 k=3 a=4
+tc g4-5 gen_spike n=8 k=4 a=5
+tc g4-6 gen_spike n=7 k=3 a=4
 
 for i in {1..5}; do
     tc_manual ../manual/n8_${i}.in
 done
 
-
+for i in {1..6}; do
+    tc_manual ../manual/n8_p${i}.in
+done
 
 group group5 28
 limits maxn=2000
@@ -70,26 +76,43 @@ tc g2-3
 tc g2-5
 tc g3-3
 tc g3-4 
-tc g5-1 gen_rand n=100
-tc g5-2 gen_rand n=500
-tc g5-3 gen_rand n=2000
-tc g5-4 gen_rand n=2000 k=2000
-tc g5-5 gen_rand n=2000 k=1234
+tc g5-01 gen_rand n=100
+tc g5-02 gen_rand n=500
+tc g5-03 gen_rand n=2000
+tc g5-04 gen_rand n=2000 k=2000
+tc g5-05 gen_rand n=2000 k=1234
+tc g5-06 gen_spike n=100 k=25 a=50
+tc g5-07 gen_spike n=2000 k=399 a=1000
+tc g5-08 gen_spike n=1999 k=399 a=1000
+tc g5-09 gen_spike n=2000 k=3 a=1000 b=999
+tc g5-10 gen_spike n=2000 k=927 a=1001
 
-for i in {1..4}; do
+for i in {1..5}; do
     tc_manual ../manual/n2000_${i}.in
+done
+for i in {1..6}; do
+    tc_manual ../manual/n2000_p${i}.in
 done
 
 group group6 24
 include_group group2
 include_group group3
 include_group group5
-tc g6-1 gen_rand n=40000
-tc g6-2 gen_rand n=200000 k=40000
-tc g6-3 gen_rand n=200000 k=123456
-tc g6-4 gen_rand n=200000 k=11
-tc g6-5 gen_rand n=200000 k=200000
+tc g6-01 gen_rand n=40000
+tc g6-02 gen_rand n=200000 k=40000
+tc g6-03 gen_rand n=200000 k=123456
+tc g6-04 gen_rand n=200000 k=11
+tc g6-05 gen_rand n=200000 k=200000
+tc g6-06 gen_spike n=200000 k=3 a=100000 b=99999
+tc g6-07 gen_spike n=200000 k=15815 a=100000
+tc g6-08 gen_spike n=199999 k=25815 a=100000
+tc g6-09 gen_spike n=200000 k=99815 a=100001 b=100
+tc g6-10 gen_spike n=200000 k=97815 a=100005 b=1000
 
 for i in {1..6}; do
     tc_manual ../manual/n2e5_${i}.in
+done
+
+for i in {1..6}; do
+    tc_manual ../manual/n2e5_p${i}.in
 done
