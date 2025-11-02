@@ -1,13 +1,31 @@
-\problemname{Compass Rotations}
+\problemname{Cat Paradise}
+
+When cats want to sleep, they deserve the coziest beds in the world.
+
+Yoh is a volunteer at the cat shelter Cat Paradise, which takes care of cats before they get a permanent home.
+The shelter has received $N$ new cat beds in $K$ different colors.
+Yoh wants to arrange the cat beds in a circle so that no two adjacent cat beds have the same color.
+Yoh thinks this will make every cat feel extra special, unique, and cared for.
+
+Help Yoh arrange the cat beds, or determine that it is not possible to arrange them as Yoh wants.
+
 
 
 \section*{Input}
+The first line contains two integers $N$ and $K$ ($3 \le N \le 2 \cdot 10^5, 2 \le K \le N$), the number of cat beds and the number of colors.
+Then follow $K$ lines, one for each color.
+On each of these $K$ lines, there is first a string $s$ that is the name of the color, and an integer $c$, the number of cat beds of color $s$.
+
+The sum of the numbers over all colors is guaranteed to be $N$.
+All colors have unique names, and the names consist of up to 6 letters among \texttt{a}-\texttt{z}.
 
 
 \section*{Output}
-Print an integer: the number of unique directions the compass can be pointed in.
+If it is not possible to arrange the cat beds as Yoh wants, print \texttt{''No''}.
+Otherwise, print a line with the word \texttt{''Yes''}, followed by a new line with the colors of the $N$ cat beds in the same order as they are placed around the circle.
 
-If multiple solutions exist, you may output any of them.
+If there are multiple solutions, you may output any of them.
+
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
@@ -16,6 +34,10 @@ Your solution will be tested on a set of test groups, each worth a number of poi
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
-  $1$    & $30$  & $a = b$ \\ \hline
-  $2$    & $70$  & No additional constraints. \\ \hline
+  $1$    & $20$       & The subtask has a single testcase, the one on the poster (\url{https://www.progolymp.se/2026/affisch.pdf}). \\ \hline
+  $2$    & $7$        & There are cat beds in only two colors. In other words, $K = 2$. \\ \hline
+  $3$    & $9$        & There are exactly the same number of cat beds in each of the $K$ colors. \\ \hline
+  $4$    & $12$       & $N \le 8$ \\ \hline
+  $5$    & $28$       & $N \le 2000$ \\ \hline
+  $6$    & $24$       & No additional constraints. \\ \hline
 \end{tabular}
