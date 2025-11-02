@@ -41,3 +41,25 @@ Your solution will be tested on a set of test groups, each worth a number of poi
   $5$    & $28$       & $N \le 2000$ \\ \hline
   $6$    & $24$       & No additional constraints. \\ \hline
 \end{tabular}
+
+\section*{Explanation of Sample 1}
+There are 3 pink (rosa) beds, 1 white (vit) bed, 2 yellow (gul) beds, and 4 orange beds.
+
+One possible ordering of the beds is:
+\begin{verbatim}
+orange rosa orange gul orange rosa gul vit orange rosa
+\end{verbatim}
+
+Another possible ordering is:
+\begin{verbatim}
+orange gul orange rosa gul rosa orange vit orange rosa
+\end{verbatim}
+
+In both of these orders, the colors occur exactly as specified. No two adjacent beds share the same color, including the last and the first in the ring, so both placements are valid.
+
+Regardless of which of these two orders you output, you get the correct answer for that test case.
+
+\section*{Explanation of Sample 2}
+There are 8 black (svart) beds and 2 beds in the color indigo.
+
+There is no possible ordering of the beds that satisfies Yoh's requirement.
