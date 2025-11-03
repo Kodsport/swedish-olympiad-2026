@@ -53,6 +53,7 @@ void AssertUnique(const Vec& v);
 
 namespace IO {
 	IntType Int(long long lo, long long hi);
+	IntType Int(long long lo, long long hi, string s);
 	double Float(double lo, double hi, bool strict = true);
 	template<class T>
 	vector<T> SpacedInts(long long count, T lo, T hi);
@@ -238,8 +239,7 @@ string _describe(char ch) {
 	return string("'") + ch + "'";
 }
 
-IntType IO::Int(long long lo, long long hi) {
-	string s = _token();
+IntType IO::Int(long long lo, long long hi, string s) {
 	if (s.empty()) die_line("Expected number, saw " + _describe(_peek1()));
 	try {
 		long long mul = 1;
@@ -267,6 +267,11 @@ IntType IO::Int(long long lo, long long hi) {
 	} catch (bool) {
 		die_line("Unable to parse \"" + s + "\" as integer");
 	}
+}
+
+IntType IO::Int(long long lo, long long hi) {
+	string s = _token();
+	return IO::Int(lo, hi, s);
 }
 
 template<class T>

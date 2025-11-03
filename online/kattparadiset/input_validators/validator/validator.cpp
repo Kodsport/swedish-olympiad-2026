@@ -23,37 +23,30 @@ void run() {
 
 	assert(n >= k);
 
-	int ratio = n/k;
+	if (sameAmount) assert(n % k == 0);
 
 	set<string> names;
 	int totbeds = 0;
 
 	rep(i,0,k) {
 		string line = Line();
-		string name;
-		int cnt;
 
-		rep(j,0,sz(line)){
-			if (line[j] == ' ') {
-				name = line.substr(0,j);
-				cnt = stoi(line.substr(j+1,sz(line)-j-1));
-				break;
-			}
+		int space_ind = line.find(' ');
+		assert(space_ind != string::npos);
+		string name = line.substr(0, space_ind);
+		assert(sz(name) >= 1 && sz(name) <= 6);
+		names.insert(name);
+		for (char c : name) {
+			assert(c >= 'a' && c <= 'z');
 		}
 
-		assert(sz(name) <= 6);
-
-		names.insert(name);
+		int cnt = Int(1, n, line.substr(space_ind + 1));
 		totbeds += cnt;
 
-		if (sameAmount) assert(ratio == cnt);
+		if (sameAmount) assert(cnt == n / k);
 	}
 
 
 	assert(sz(names) == k);
 	assert(totbeds == n);
-
-	Eof();
-
 }
-
