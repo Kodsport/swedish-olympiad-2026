@@ -1,6 +1,8 @@
 #include "validate.h"
 
-#include <bits/stdc++.h>
+#include <string>
+#include <vector>
+#include <map>
 using namespace std;
 
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
@@ -25,7 +27,6 @@ int main(int argc, char **argv) {
         judge_in >> names[i] >> cnts[i];
         largest = max(largest, cnts[i]);
     }
-
 
 
     auto check = [&](istream& sol, feedback_function feedback){
@@ -65,47 +66,28 @@ int main(int argc, char **argv) {
                 if (counter[names[i]] != 0) feedback("Answer does not use all input beds.");
             }
 
-            // Check if the ring has no consequtive two that are the same color
+            // Check if the ring has no consecutive two that are the same color
             rep(i,0,n) {
                 if (ans[i] == ans[(i+1)%n]) {
                     string temp = (string) ("Answer contains two beds next to each other with the same color at index " + to_string(i) + ". The colors are " + ans[i] + " and " + ans[(i+1)%n] + ".");
                     feedback(temp.c_str());
-                } 
+                }
             }
 
             return true;
-
         }
         else {
             feedback("The output is neither Nej or Ja.");
         }
+        return false;
     };
 
-    bool judge_judgement = check(judge_ans, judge_error);
-    bool author_judgement = check(author_out, wrong_answer);
+    bool judge_solved = check(judge_ans, judge_error);
+    // technically redundant: the return false branch is unreachable
+    assert(judge_solved);
+    bool author_solved = check(author_out, wrong_answer);
+    assert(author_solved);
 
-    assert(judge_judgement == true);
-    assert(author_judgement == true);
 
     accept();
-
-    /*
-    if (!possible){
-        assert(judge_array[0] == -1 && author_array[0] == -1);
-
-        accept();
-    }
-    
-
-    if (judge_array == author_array){
-        accept_with_score(1.0);
-    }
-
-    rep(i,0,n){
-        if (judge_array[i] == author_array[i]) continue;
-        if (judge_array[i] > author_array[i]) judge_error("Author found a better answer than the judge.");
-        if (judge_array[i] < author_array[i]) accept_with_score(0.5);
-    }
-    */
-
 }

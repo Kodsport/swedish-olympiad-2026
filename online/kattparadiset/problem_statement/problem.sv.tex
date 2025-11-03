@@ -11,17 +11,20 @@ Hjälp Yoh att placera ut kattsängarna, eller avgör att det inte är möjligt 
 
 \section*{Indata}
 Den första raden innehåller två heltal $N$ och $K$ $(3 \le N \le 2 \cdot 10^5, 2 \le K \le N)$, antalet kattsängar och antalet färger på dem.
-Sedan följer $K$ rader, en för varje färg. 
-På vardera av de $K$ raderna kommer först en sträng $s$ som beskriver namnet på färgen, samt ett heltal $c$, antalet kattsängar av färg $s$.
 
-Summan av antalet sängar av vardera färg är garanterat att vara $N$.
+Sedan följer $K$ rader, en för varje färg. 
+På vardera av de $K$ raderna kommer först en sträng $s$ som beskriver namnet på färgen, samt ett heltal $c$ ($1 \leq c \leq N$), antalet kattsängar av färg $s$.
+
+Summan av antalet sängar av vardera färg är garanterat att vara exakt $N$.
 Alla färger har unika namn, och namnen består av upp till 6 bokstäver bland bokstäverna \texttt{a}-\texttt{z}.
 
 \section*{Utdata}
-Om det inte är möjligt att placera kattsängarna som Yoh vill, skriv ut \texttt{''Nej''}.
-Annars skriv ut en rad med ordet \texttt{''Ja''}, följt av en ny rad med färgerna av de $N$ kattsängarna i samma ordning som de är utplacerade utmed ringen.
+Om det inte är möjligt att placera kattsängarna som Yoh vill, skriv ut ''\texttt{Nej}''.
 
+Annars, skriv ut en rad med ordet ''\texttt{Ja}'', följt av en ny rad med färgerna av de $N$ kattsängarna i samma ordning som de är utplacerade utmed ringen.
 Om det finns flera lösningar kan du skriva ut vilken som helst.
+Notera att eftersom placeringen är cirkulär så spelar det ingen roll vart du start i ringen.
+Detta innebär också att sängarna kan skrivas ut antingen medurs eller moturs, eftersom båda riktningarna funkar.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -53,9 +56,11 @@ En annan möjlig ordning är:
 orange gul orange rosa gul rosa orange vit orange rosa
 \end{verbatim}
 
-I båda dessa ordningar förekommer färgerna exakt så många gånger som angivits. Två intilliggande sängar har aldrig samma färg, inte heller mellan den sista och den första i ringen, så båda placeringarna är giltiga.
+I båda dessa ordningar förekommer färgerna exakt så många gånger som angivits.
+Två intilliggande sängar har aldrig samma färg, inte heller mellan den sista och den första i ringen, så båda placeringarna är giltiga.
 
 Oavsett vilken av dessa två ordningar man anger får man rätt svar på testfallet.
+Det finns även fler giltiga ordningar, och dessa funkar självklart också.
 
 \section*{Förklaring av exempelfall 2}
 Det finns 8 svarta sängar och 2 sängar i färgen indigo.
