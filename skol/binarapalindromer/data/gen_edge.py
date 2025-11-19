@@ -36,12 +36,12 @@ b = int("".join(map(str,b)),2)
 
 
 
-k = int(cmdlinearg('k',random.randint(1,round(len(bin(b)[2:])))))
+k = int(cmdlinearg('k',[bin(a).count("1"),bin(b).count("1")][random.randint(0,1)]))
 
 if cmdlinearg("shift",0):
     a += random.randint(-1,1)
     b += random.randint(-1,1)
-    
+
 if b < a:
     a,b = b,a
 
