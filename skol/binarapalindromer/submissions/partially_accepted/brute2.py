@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# @EXPECTED_GRADES@ AC TLE TLE TLE TLE
+
 from itertools import combinations
 
 a,b,k = map(int,input().split())

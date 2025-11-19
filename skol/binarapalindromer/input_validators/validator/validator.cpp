@@ -15,6 +15,7 @@ void run() {
     ll k = Int(1, maxk);
     Endl();
 
+    assert(a <= b);
 
     Eof();
 }

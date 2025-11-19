@@ -1,7 +1,18 @@
 #!/usr/bin/python3
+# @EXPECTED_GRADES@ TLE AC TLE TLE TLE
+
+
 from itertools import combinations
 
 a,b,k = map(int,input().split())
+
+
+if k == 1:
+    if a <= 1 <= b:
+        print(1)
+    else:
+        print(0)
+    exit()
 
 out = 0
 for comb in combinations([*range(0,30)],k//2):
@@ -14,12 +25,17 @@ for comb in combinations([*range(0,30)],k//2):
     
     if k%2:
         temp = num[::-1]+[1]+num
+        temp = sum(1<<i for i in range(len(temp)) if temp[i])
+        out += a <= temp <= b
     else:
-        temp = num[::-1]+num
-    
-    temp = sum(1<<i for i in range(len(temp)) if temp[i])
 
-    out += a <= temp <= b
+        temp = num[::-1]+num
+        temp = sum(1<<i for i in range(len(temp)) if temp[i])
+        out += a <= temp <= b
+
+        temp = num[::-1]+[0] + num
+        temp = sum(1<<i for i in range(len(temp)) if temp[i])
+        out += a <= temp <= b
 
 print(out)
 
