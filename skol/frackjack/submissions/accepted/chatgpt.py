@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Read input
 A=int(input())
 B=int(input())
