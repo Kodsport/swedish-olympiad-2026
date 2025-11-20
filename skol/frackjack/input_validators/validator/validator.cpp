@@ -1,6 +1,6 @@
 #include "validator.h"
 
-using namepsace std;
+using namespace std;
 
 void run() {
 	int maxval = Arg("maxval",30);
