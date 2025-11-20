@@ -1,22 +1,43 @@
 \problemname{Binära Palindromer}
 \noindent
 
-...
+Mikael studerar intressanta positiva heltal, och vill nu undersöka tal som är ett \emph{binärt palindrom}. För att formellt beskriva detta
+definierar vi följande funktioner:
 
-Ett heltal $n$ är en binär palindrom, om talet på binärform uppfyller att det blir samma tal om man vänder på det.
+\[
+\text{bin}(n) = \text{den binära representationen av heltalet } n \text{ utan inledande nollor},
+\]
 
-%\begin{comment}
-%An integer n is a special integer if
-%bin(n) == bin(n[::-1]).
-%hitta alla nummer mellan a och b that are special
-%\end{comment}
+\[
+\text{reverse}(s) = \text{strängen } s \text{ skriven baklänges}.
+\]
 
-Räkna antalet binära palindromer $x$ som uppfyller $l \leq x \leq r$ samt har exakt $k$ ettor i den binära formen.
+Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
+\[
+\text{bin}(n) = \text{reverse}(\text{bin}(n)).
+\]
+
+Notera att ett palindrom är en sträng som läses likadant framifrån som bakifrån.
+
+
+Mikael gillar de binära palindromer som innehåller exakt $k$ ettor i dess binära representation, 
+och vill nu veta hur många sådana tal som finns inom intervallet $[l,r]$.
+
+Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
+\begin{enumerate}
+    \item Talet $x$ är mellan $l$ och $r$, alltså att $l \leq x \leq r$,
+    \item Talet $x$ är ett tal som Mikael gillar (dvs.\ ett binärt palindrom),
+    \item Binärrepresentationen av $x$ innehåller exakt $k$ ettor.
+\end{enumerate}
+
+% Uppgiften är alltså att räkna antalet tal i intervallet $[l, r]$ som är ett binärt palindrom och som dessutom har exakt $k$ ettor i sin binära form.
+
 
 \section*{Indata}
-$1 \leq l \leq r \leq 10^{18}$, $1 \leq k < 60$.
+Indatan består av en rad med tre heltal $l, r, k$ $(1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60)$.
 
 \section*{Utdata}
+Skriv ut ett heltal, antalet tal i intervallet $[l, r]$ som är binära palindromer och har exakt $k$ ettor i sin binära representation.
 
 
 \section*{Poängsättning}
@@ -27,7 +48,39 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $20$       & $a,b \leq 10^9$ \\ \hline
+  $1$    & $20$       & $l,r \leq 10^9$ \\ \hline
   $2$    & $20$       & $k \leq 4$ \\ \hline
   $3$    & $60$       & Inga ytterligare begränsningar \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+
+Vi söker tal i intervallet $[7, 10]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
+
+Det finns endast 4 tal i intervallet:
+
+\begin{align*}
+7 &= 111_2 \quad (\text{palindrom, tre ettor}) \\
+8 &= 1000_2 \quad (\text{ej palindrom}) \\
+9 &= 1001_2 \quad (\text{palindrom, två ettor}) \\
+10 &= 1010_2 \quad (\text{ej palindrom})
+\end{align*}
+
+Det enda talet som uppfyller båda villkoren är $9$, så svaret är $1$.
+
+\section*{Förklaring av exempelfall 2}
+
+Vi söker tal i intervallet $[1, 6]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
+
+Det finns endast 6 tal i intervallet:
+
+\begin{align*}
+1 &= 1_2 \quad (\text{palindrom, en etta}) \\
+2 &= 10_2 \quad (\text{ej palindrom}) \\
+3 &= 11_2 \quad (\text{palindrom, två ettor}) \\
+4 &= 100_2 \quad (\text{ej palindrom}) \\
+5 &= 101_2 \quad (\text{palindrom, två ettor}) \\
+6 &= 110_2 \quad (\text{ej palindrom})
+\end{align*}
+
+Talen som uppfyller båda villkoren är $3$ och $5$, så svaret är $2$.
