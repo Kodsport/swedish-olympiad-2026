@@ -1,7 +1,9 @@
 #!/bin/bash
 . ../../../testdata_tools/gen.sh
 
-use_solution ruiming.cpp
+# TODO: add the subtasks and stronger testcases
+
+use_solution joshua.py
 
 compile gen_rand.py
 
@@ -9,13 +11,9 @@ samplegroup
 sample 1
 sample 2
 
-# Intentionally do not merge groups to see what solutions actually get during skolkval
-
 group group1 100
-limits maxa=30 maxb=30  
+include_group sample
 #tc_manual ../manual/secret_${i}.in
-tc 1
-tc 2
 tc_manual ../manual/secret_1.in
 tc_manual ../manual/secret_2.in
 tc_manual ../manual/secret_3.in

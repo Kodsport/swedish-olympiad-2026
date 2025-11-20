@@ -1,20 +1,20 @@
 \problemname{Frack Jack}
-Alice och Bertil kastar boll i en park. Exakt 21 meter framför Alice och Bertil finns en stolpe, och en domare utmanar Alice och Bertil till en liten utmaning.
+Alice och Bertil kastar boll i en park. Exakt 21 meter framför Alice och Bertil finns en stolpe, och Jack utmanar Alice och Bertil till en liten utmaning.
 
 Utmaningen är att Alice och Bertil ska kasta varsin boll så nära stolpen som möjligt, men bollen får inte kastas förbi stolpen.
-Den som kastar närmast 21 meter, utan att kasta förbi 21 meter, vinner. Om både Alice och Bertil kastar över 21 meter, eller om de kastar lika långt så vinner domaren.
+Den som kastar närmast 21 meter, utan att kasta förbi 21 meter, vinner. Om både Alice och Bertil kastar över 21 meter, eller om de kastar lika långt så vinner Jack.
 
 \section*{Indata}
-Första raden innehåller två heltal $A$, $B$ ($0 \leq A,B \leq 30$), antal meter som Alice respektive Bertil har kastat.
+Den första och enda raden av indata innehåller heltalen $A$ och $B$ ($0 \leq A,B \leq 30$), antal meter som Alice respektive Bertil har kastat.
 
 \section*{Utdata}
 
 \begin{itemize}
-  \item Om Alice vinner skriv ``Alice''.
-  \item Om Bertil vinner skriv ``Bertil''.
-  \item Om domaren vinner skriv, print ``Domare''.
+  \item Om Alice vinner, skriv ''Alice''.
+  \item Om Bertil vinner, skriv ''Bertil''.
+  \item Om Jack vinner, skriv, print ''Jack''.
 \end{itemize}
-Notera att du ska inte skriva ut utan citattecken.
+Notera att du ska inte skriva ut några citationstecken.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -24,5 +24,8 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $100$       & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $20$       & $a \neq b$, $a,b \leq 21$ \\ \hline
+  $2$    & $20$       & $a,b \leq 21$ \\ \hline
+  $3$    & $20$       & Jack vinner inte. \\ \hline
+  $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
