@@ -12,6 +12,8 @@ use_solution harry.py
 
 compile gen_rand.py
 compile gen_edge.py
+compile gen_edge2.py
+
 
 samplegroup
 sample 1
@@ -34,14 +36,16 @@ tc g1-11 gen_rand a=387506974 b=387506974 k=15
 tc g1-12 gen_rand a=1 b=1000000000 k=12
 tc g1-13 gen_rand a=1 b=1000000000 k=17
 for i in {14..20}; do
-  tc g1-$i gen_edge maxbits=30 shift=1
+  tc g1-$i gen_edge maxbits=27 shift=1
 done
+tc g1-21 gen_edge2 shift=1 k=20 maxbits=28
+tc g1-22 gen_edge2 shift=1 k=9 maxbits=30 seed=5
 
 group group2 20
 limits maxk=4
 tc_manual ../manual/secret_2.in
-#tc g1-06
-#tc g1-07
+tc g1-06
+tc g1-07
 for i in {01..05}; do
   tc g2-$i gen_rand a=$((RANDOM + 1)) b=$((1000000000000000000 - RANDOM )) k=$((RANDOM % 4 + 1))
 done
@@ -51,12 +55,20 @@ tc g2-07 gen_rand a=1 b=1000000000000000000 k=3
 tc g2-08 gen_rand a=1 b=1000000000000000000 k=2
 tc g2-09 gen_rand a=1 b=1000000000000000000 k=1
 
-for i in {10..18}; do
+for i in {10..12}; do
   tc g2-$i gen_edge maxbits=59 shift=1 k=$(($i % 4 + 1))
 done
 
-group group3 20
+for i in {13..19}; do
+  tc g2-$i gen_edge2 shift=1 k=$(($i % 4 + 1))
+done
+tc g2-20 gen_edge2 shift=1 k=3 seed=2
+
+group group3 60
+include_group group1 group2
 tc_manual ../manual/secret_3.in
+tc_manual ../manual/secret_4.in
+tc_manual ../manual/secret_5.in
 
 for i in {01..05}; do
   tc g3-$i gen_rand 
@@ -65,13 +77,6 @@ for i in {06..14}; do
   tc g3-$i gen_edge maxbits=59 shift=1 
 done
 
-
-group group4 20
-tc_manual ../manual/secret_4.in
-
-group group5 20
-tc_manual ../manual/secret_5.in
-
 tc g3-15 gen_rand a=1 b=1000000000000000000 k=30
 tc g3-16 gen_rand a=1 b=1000000000000000000 k=31
 tc g3-17 gen_rand a=1 b=1000000000000000000 k=47
@@ -79,3 +84,5 @@ tc g3-18 gen_rand a=1 b=1000000000000000000 k=48
 tc g3-19 gen_rand a=1 b=1000000000000000000 k=59
 tc g3-20 gen_rand a=1 b=1000000000000000000 k=58
 
+tc g3-21 gen_edge2 shift=1 k=35
+tc g3-22 gen_edge2 shift=1 k=36
