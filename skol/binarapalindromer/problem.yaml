@@ -5,6 +5,6 @@ license: cc by-sa
 type: scoring
 
 grading:
-  show_test_data_groups: yes
+  show_test_data_groups: true
 limits:
   time_multiplier: 2

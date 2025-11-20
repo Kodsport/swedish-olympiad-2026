@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Efficient Python3 program to find n-th palindrome
 INT_SIZE = 150
 
