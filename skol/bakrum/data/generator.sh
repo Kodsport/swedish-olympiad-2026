@@ -41,5 +41,4 @@ group group4 40
 include_group sample
 include_group group1
 include_group group3
-#tc_manual ../manual/nils.in
 gen_rand_cases 4 5 5 1000000000
