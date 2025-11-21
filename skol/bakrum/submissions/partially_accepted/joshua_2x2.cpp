@@ -21,6 +21,8 @@ int main()
 	cin >> r >> c;
 	vector<string> grid(r);
 	repe(row, grid) cin >> row;
+	reverse(all(grid));
+
 	int block_cnt = 0;
 	rep(i, r) rep(j, c) block_cnt += grid[i][j] == '#';
 	assert(block_cnt <= 3);
@@ -37,11 +39,11 @@ int main()
 		p2 b = blocked[1];
 		if (a.first == b.first)
 		{
-			return start.first == start.first;
+			return start.first == goal.first;
 		}
-		else if (a.second==b.second)
+		else if (a.second == b.second)
 		{
-			return start.second == start.second;
+			return start.second == goal.second;
 		}
 		else // diagonal
 		{

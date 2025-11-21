@@ -28,6 +28,7 @@ int main()
 
 	vector<string> grid(r);
 	repe(row, grid) cin >> row;
+	reverse(all(grid));
 
 	auto mod = [](ll a, ll b)
 	{

@@ -23,7 +23,7 @@ grid = []
 for i in range(r):
     row = "".join('#' if random.random() < p_blocked else '.' for j in range(c))
     grid.append(row)
-    print(row)
+[print(grid[-i] ) for i in range(1, r+1)]
 
 def is_blocked(a,b):
     return grid[a%r][b%c] == '#'

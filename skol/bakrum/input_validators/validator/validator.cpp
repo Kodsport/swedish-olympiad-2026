@@ -18,6 +18,7 @@ void run() {
 			assert(ch == '.' || ch == '#');
 		}
 	}
+	reverse(grid.begin(), grid.end());
 
 	auto is_blocked = [&](int row, int col) {
 		return grid[row % r][col % c] == '#';

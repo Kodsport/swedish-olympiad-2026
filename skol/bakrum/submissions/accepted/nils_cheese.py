@@ -9,7 +9,7 @@ D = 500 # make this many copies of the grid
 grid = []
 
 for r in range(n):
-    grid.append(input())
+    grid.insert(0,input())
 
 comp = [[-1]*(D*m) for _ in range(D*n)]
 c = 0

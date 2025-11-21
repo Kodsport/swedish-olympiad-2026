@@ -6,17 +6,15 @@ from collections import deque
 import sys
 
 def read_input():
-    data = sys.stdin.read().strip().split()
-    it = iter(data)
-    R = int(next(it)); C = int(next(it))
+    R,C=map(int, input().split())
     grid = []
     for _ in range(R):
-        row = next(it).strip()
+        row = input()
         assert len(row) == C
-        grid.append(row)
+        grid.insert(0, row)
     queries = []
     for _ in range(5):
-        c1 = int(next(it)); r1 = int(next(it)); c2 = int(next(it)); r2 = int(next(it))
+        c1,r1,c2,r2=map(int, input().split())
         queries.append((r1, c1, r2, c2))
     return R, C, grid, queries
 

@@ -13,7 +13,7 @@ const ll inf = 1e18;
 #define all(x) begin(x),end(x)
 #define sz(x) ((ll)(x).size())
 
-
+// I think that ~2RC max(R,C) suffices
 const ll offset = 500;
 const int max_coord = 500;
 char vis[max_coord + offset][max_coord + offset];
@@ -28,6 +28,7 @@ int main()
 
 	vector<string> grid(r);
 	repe(row, grid) cin >> row;
+	reverse(all(grid));
 
 	auto mod = [](ll a, ll b)
 	{
@@ -128,6 +129,7 @@ int main()
 		vector<pair<p2, p2>> recs;
 		repp(i, -r * 2, r * 2) repp(j, -c * 2, c * 2)
 		{
+			// I think that ~RC suffices
 			repp(a, -100, 100) repp(b, -100, 100) if (rec_valid(p2(i, j), p2(a, b))) recs.emplace_back(p2(i, j), p2(a, b));
 		}
 
