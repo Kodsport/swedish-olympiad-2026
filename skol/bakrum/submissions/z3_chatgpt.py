@@ -16,7 +16,7 @@ def read_input():
         grid.append(row)
     queries = []
     for _ in range(5):
-        r1 = int(next(it)); c1 = int(next(it)); r2 = int(next(it)); c2 = int(next(it))
+        c1 = int(next(it)); r1 = int(next(it)); c2 = int(next(it)); r2 = int(next(it))
         queries.append((r1, c1, r2, c2))
     return R, C, grid, queries
 

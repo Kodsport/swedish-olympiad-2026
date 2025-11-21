@@ -112,7 +112,7 @@ for vi in range(c):
 
 
 for _ in range(q):
-    i1, j1, i2, j2 = map(int, input().split())
+    j1, i1, j2, i2 = map(int, input().split())
     # no endpoints on blocked squares
     assert comp_small[i1%n][j1%m] != -1 and comp_small[i2%n][j2%m] != -1
     if comp_small[i1%n][j1%m] == comp_small[i2%n][j2%m]:

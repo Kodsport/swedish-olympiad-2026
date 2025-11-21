@@ -33,7 +33,7 @@ for i in range(n*D):
             c += 1
 
 for _ in range(q):
-    i1, j1, i2, j2 = map(int, input().split())
+    j1, i1, j2, i2 = map(int, input().split())
     i1 %= (n*D)
     j1 %= (m*D)
     i2 %= (n*D)

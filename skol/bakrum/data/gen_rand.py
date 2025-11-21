@@ -37,5 +37,5 @@ for _ in range(5):
         c2 = random.randint(0, max_coord)
         if is_blocked(r1,c1) or is_blocked(r2,c2):
             continue
-        print(r1, c1, r2, c2)
+        print(c1, r1, c2, r2)
         break

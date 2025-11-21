@@ -14,21 +14,23 @@ const ll inf = 1e18;
 #define sz(x) ((ll)(x).size())
 
 
-const int offset = 100;
-const int max_coord = 1000;
-int vis[max_coord + offset][max_coord + offset];
+struct node_hash {
+	std::size_t operator()(const p2& _node) const {
+		return _node.first * 1e9 + _node.second;
+	}
+};
 
 int main()
 {
 	cin.tie(0)->sync_with_stdio(0);
 
-	int r, c;
+	ll r, c;
 	cin >> r >> c;
 
 	vector<string> grid(r);
 	repe(row, grid) cin >> row;
 
-	auto mod = [](int a, int b)
+	auto mod = [](ll a, ll b)
 	{
 		a %= b;
 		a += b;
@@ -36,36 +38,37 @@ int main()
 		return a;
 	};
 
-	auto is_blocked = [&](int a, int b)
+	auto is_blocked = [&](ll a, ll b)
 	{
 		return grid[mod(a, r)][mod(b, c)] == '#';
 	};
 
-	auto in_grid = [&](int a, int b)
+	auto dist = [](p2 a, p2 b)
 	{
-		return a + offset >= 0 && a + offset < max_coord && b + offset >= 0 && b + offset < max_coord;
+		return abs(a.first - b.first) + abs(a.second - b.second);
 	};
 
 	vector<p2> dirs = { {0,1},{0,-1},{1,0},{-1,0} };
+	unordered_set<p2, node_hash> seen;
+	seen.reserve(3e6);
 	rep(i, 5)
 	{
-		memset(vis, 0, sizeof(vis));
+		ll r1, c1, r2, c2;
+		cin >> c1 >> r1 >> c2 >> r2;
+		seen.clear();
 
-		int r1, c1, r2, c2;
-		cin >> r1 >> c1 >> r2 >> c2;
-		
 		bool found = false;
-		queue<p2> q;
-		q.emplace(r1, c1);
+		priority_queue<pair<ll, p2>> q;
+		p2 goal = { r2,c2 };
+		q.emplace(0, p2(r1, c1));
 		while (sz(q))
 		{
-			p2 p = q.front();
+			auto [d, p] = q.top();
 			q.pop();
 
-			if (vis[p.first + offset][p.second + offset]) continue;
-			vis[p.first + offset][p.second + offset] = 1;
+			if (sz(seen) > 1e6) break;
 
-			if (p == p2(r2,c2))
+			if (p == goal)
 			{
 				found = true;
 				break;
@@ -74,9 +77,10 @@ int main()
 			repe(dir, dirs)
 			{
 				p2 np = p2(p.first + dir.first, p.second + dir.second);
-				if (!in_grid(np.first, np.second)) continue;
 				if (is_blocked(np.first, np.second)) continue;
-				q.push(np);
+                if (seen.count(np)) continue;
+                seen.insert(np);
+				q.emplace(-dist(np,goal), np);
 			}
 		}
 

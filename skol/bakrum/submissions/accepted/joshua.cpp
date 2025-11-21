@@ -164,7 +164,7 @@ int main()
 	rep(i, 5)
 	{
 		ll r1, c1, r2, c2;
-		cin >> r1 >> c1 >> r2 >> c2;
+		cin >> c1 >> r1 >> c2 >> r2;
 
 		cout << (solve(p2(r1, c1), p2(r2, c2)) ? "Ja" : "Nej") << '\n';
 	}
