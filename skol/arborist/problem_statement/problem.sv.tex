@@ -1,0 +1,48 @@
+\problemname{Arborist}
+
+Teo har äntligen landat sitt drömjobb: han har börjat jobba som arborist!
+En viktig del av en arborists arbete är plantera träd.
+
+Han behöver nu hjälp med att plantera $N$ träd längs med en $x$-axel.
+Han har redan bestämt vilken $x$-koordinat varje träd ska planteras vid.
+Han befinner sig just nu vid $x$-koordinat $0$, där alla hans $N$ träd ligger.
+För att plantera träden kan han göra följande:
+\begin{itemize}
+  \item Röra sig ett steg åt höger. Detta tar en sekund.
+  \item Röra sig ett steg åt vänster. Detta tar en sekund.
+  \item Om han befinner sig vid $x$-koordinat $0$ kan han plocka upp ett av de $N$ träden. Detta tar en sekund.
+  \item Plantera att av träden han bär på där han befinner sig. Detta tar en sekund.
+\end{itemize}
+Tyvärr orkar han bara bära $K$ kg träd åt gången. Varje träd väger antingen $20$ eller $40$ kg.
+
+När han väl planterat alla träd måste han återvända till $x$-koordinat $0$.
+Givet vart varje träd ska planteras och hur mycket det väger, hur lång tid tar det att plantera alla
+träd om han gör detta på det snabbaste möjliga sättet?
+
+\section*{Indata}
+Den första raden av indatan innehåller $N$ och $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$),
+antalet träd och antalet kg som Teo orkar bära.
+
+Den andra raden innehåller $N$ heltal $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), där $x_i$
+är $x$-koordinaten där träd nummer $i$ ska planteras.
+
+Den tredje raden innehåller $N$ heltal $k_1, \dots, k_N$ ($k_i \in \{20, 40\}$, $k_i \leq K$), där $k_i$
+är vikten av träd nummer $i$.
+
+\section*{Utdata}
+Skriv ut ett heltal: minsta antalet sekunder Teo behöver för att plantera alla träd.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$  & $K = 25$ \\ \hline
+  $2$    & $20$  & $k_i = 20$ \\ \hline
+  $3$    & $20$  & Alla träd ska planteras på samma $x$-koordinat. \\ \hline
+  $4$    & $40$  & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
