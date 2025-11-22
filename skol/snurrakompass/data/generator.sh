@@ -5,8 +5,6 @@ PPATH=$(realpath ..)
 
 use_solution raunak.cpp
 
-# Möjligen Jobbiga testfall
-
 compile gen_rand.py
 
 samplegroup

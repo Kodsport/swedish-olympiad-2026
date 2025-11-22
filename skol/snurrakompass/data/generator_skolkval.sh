@@ -2,22 +2,22 @@
 REQUIRE_SAMPLE_REUSE=0
 . ../../../testdata_tools/gen.sh
 
-use_solution joshua.py
+use_solution harry1.py
 
 samplegroup
 sample 1
 sample 2
 
 group group1 20
-limits a_neq_b=1 maxval=21
+limits prime=1
 tc_manual ../skolkval_tests/skol_1.in
 
 group group2 20
-limits maxval=21
+limits ab=1
 tc_manual ../skolkval_tests/skol_2.in
 
 group group3 20
-limits jack_not_win=1
+limits ab=1
 tc_manual ../skolkval_tests/skol_3.in
 
 group group4 20

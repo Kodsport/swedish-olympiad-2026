@@ -7,5 +7,3 @@ type: scoring
 
 grading:
     show_test_data_groups: true
-
-
