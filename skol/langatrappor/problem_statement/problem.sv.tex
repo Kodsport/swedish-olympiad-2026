@@ -1,0 +1,61 @@
+\problemname{Långa trappor}
+
+Det sägs att uppe i Alperna bor det $C$ stycken systrar som vardera har ett eget favorittal $f$.
+Varje syster har därför byggt ett hus $f$ höjdenheter över vattenytan.
+Dessa husen är byggda på ett koordinatsystem.
+Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(0,1)$ och så vidare.
+
+När husen befinner sig så högt uppe blir det svårt att ta sig upp och ner.
+Därför har varje syster byggt en trappa genom att bygga uppåt, där hon
+sänkar höjden med $1$ för varje koordinat hon går uppåt.
+Exempelvis, om systerns hus befinner sig på $(0,2)$ och har höjd $10$, så bygger hon ett trappsteg vid $(1,2)$ med höjd $9$, ett trappsteg vid $(2,2)$ med höjd $8$, och så vidare.
+
+Du befinner dig just nu vid dessa trappor.
+Mer exakt befinner du dig på koordinaterna $(s_x, s_y)$ och vill ta dig till $(g_x, g_y)$.
+Du kan röra dig till rutor som intilliggande antingen upp, vänster, ner eller höger.
+Det är aldrig problem att gå höger eller vänster, även om det finns stora höjdskillnader.
+Självfallet kan du inte röra dig till en koordinat som varken har ett hus eller ett trappsteg.
+Du vägrar även att röra dig till en koordinat vars $y$-värde är större än eller lika med talet $R$.
+
+De höga höjderna är ganska jobbiga för dig, så ditt mål är att minimera tiden du spenderar på hög höjd.
+Mer exakt, om du under din vandring från $(s_x, s_y)$ till $(g_x, g_y)$ besöker en viss mängd rutor, så definierar vi jobbigheten av vandringen som summan av höjden av alla rutor du besöker.
+Om du vandrar optimalt, vad är minsta möjliga jobbigheten?
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.3\textwidth]{sample1.pdf}
+    \\Bilden visar hur höjderna ser ut i exempelfall 1. Raden längst ner innehåller systrarnas hus.
+    Start- och mål är även markerade, samt den mest minst jobbiga vandringar mellan dem.
+\end{figure}
+
+\section*{Indata}
+Den första raden av indatan innehåller $R$ och $C$ ($1 \leq R \leq 10^9$, $1 \leq C \leq 10$),
+antalet rader och kolumner i rutnätet.
+
+Den andra raden innehåller $C$ heltal $f_1, \dots, f_N$ ($r-1 \leq f_i \leq 10^9$),
+höjden där vardera systers hus befinner sig på.
+$f_1$ är höjden på huset vid $(0,0)$ och så vidare.
+Notera att höjderna är valda så att det aldrig kan finnas negativa höjder innanför rutnätet där du kan gå.
+
+Den tredje raden innehåller heltan $s_x$ och $s_y$ ($0 \leq s_x < c$, $0 \leq s_y < r$),
+koordinaten där du börjar.
+
+Den fjärde raden innehåller heltan $g_x$ och $g_y$ ($0 \leq g_x < c$, $0 \leq g_y < r$),
+koordinaten du vill ta dig till.
+
+\section*{Utdata}
+Skriv ut ett heltal: jobbigheten av den minst jobbiga vandring från start till koordinaterna du vill ta dig till.
+\textbf{Notera: svaret ryms inte nödvändigtvis i ett 32-bitars heltal.}
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$  & $C = 2$ \\ \hline
+  $2$    & $40$  & $R \leq 10^4$ \\ \hline
+  $3$    & $40$  & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}

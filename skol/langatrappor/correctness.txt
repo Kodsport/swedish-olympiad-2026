@@ -1,0 +1,99 @@
+Note to reader: this is not formal, but should be good enough when combined with exhaustive stress-testing.
+
+WLOG, swap start/goal such that we walk upwards (in direction of decreasing cost)
+
+Lemma 1: no cycles.
+
+This is well-known to hold for shortest paths with positive weights.
+
+Lemma 2: per column, we only ever walk upwards in one segment, and possibly a single extra point
+
+Proof: Assume it's cheaper to walk in two segments [a,b] (a<=b) and [c,d]. This means that we deviate
+from b, travel some amount arbitrarily, then return c. Denote this walk by W. W pays some horizontal cost, and
+some vertical cost. The only way for W to be cheaper is if the vertical costs are improved. However, if the
+vertical costs are improved, this means that it gets to a cheaper column, so we might as well walk up to d there.
+Since we are further up, the cost for walking back is even cheaper than walking back to c. This argument can be
+repeated on an arbitrary set of intervals until we're left with one interval and a point.
+
+Lemma 3: every path starts by increasing in y (possibly by nothing), then decreasing in y (possibly by nothing)
+
+Proof: consider our height as a function. Suppose that there's a local minima. Then, we could choose to just
+delete the downwards movements (and corresponding upwards), and end up with the same path with less cost. This is
+because cells will have larger values down below.
+
+.......    .......
+.#.###. -> .#####.
+#.#....    #......
+
+Lemma 4: it's never optimal to increase y in more than one column
+
+Proof: assume that we have a kink
+
+....###
+....#..
+..###..
+..#....
+..#....
+
+Then, one of
+
+..#####
+..#....
+..#....
+..#....
+..#....
+
+and
+
+....###
+....#..
+....#..
+....#..
+....#..
+
+will be better.
+
+Lemma 5: it's never optimal to decrease y in more than one column
+
+Proof: similar to lemma 4
+
+Lemma 6: we never go much further than the goal's y
+
+Proof: suppose we have same y as goal. We can pay some quantity x
+to go straight into the goal
+If we go up by 1, then x decreases by c, and we pay the value at that cell
+So if our current cell is <= C, it might be profitable to go upwards. Otherwise, we instantly lose from it. But if our current cell value is <= C, then
+we can only move upwards at most C times more.
+
+
+Theorem: it suffices to brute over the pair of columns we will use. Denote these by c1, c2
+we will walk
+s -> c1
+c1 -> c2
+c2 -> g
+The height at c1 must be at least the height of the goal. By lemma 6, there are not many candidates
+
+Sample path:
+. * * * * * * * * * . . . . . . . . . .
+. * . . . . . . . * . . . . . . . . . .
+. * . . . . . . . * . . . . . . . . . .
+. * . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * . . . . . . . . . .
+. . . . . . . . . * * * * * . . . . . .
+. . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . .
+0 . . . . . . . . . . . . . . . . . . .
+^
+|
+This is (0,0)
