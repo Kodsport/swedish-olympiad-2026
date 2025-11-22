@@ -10,22 +10,24 @@ sample 1
 sample 2
 sample 3
 
-# Intentionally do not merge groups to see what solutions actually get during skolkval
-
 group group1 20
 limits maxn=1
 tc 2
-tc_manual ../manual/secret_1.in
+tc_manual ../skolkval_tests/skol_1.in
 tc line-1 gen_rand n=1 m=8 p=2
 
-group group2 80
+group group2 20
+limits rectangle=1
+tc_manual ../skolkval_tests/skol_2.in
+
+group group3 60
 include_group group1
+include_group group2
 tc 1
 tc 3
-tc_manual ../manual/secret_2.in
-tc_manual ../manual/secret_3.in
-tc_manual ../manual/secret_4.in
-tc_manual ../manual/secret_5.in
+tc_manual ../skolkval_tests/skol_3.in
+tc_manual ../skolkval_tests/skol_4.in
+tc_manual ../skolkval_tests/skol_5.in
 tc g2-1 gen_rand n=10 m=10 p=2
 tc g2-2 gen_rand n=10 m=10 p=2
 tc g2-3 gen_rand n=10 m=10 p=2
@@ -38,6 +40,3 @@ tc g2-9 gen_rand n=10 m=10 p=6
 tc g2-10 gen_rand n=10 m=10 p=10
 tc g2-11 gen_rand n=10 m=10 p=40
 tc g2-12 gen_rand n=10 m=10 p=40
-
-
-

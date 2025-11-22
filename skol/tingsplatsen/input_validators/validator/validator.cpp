@@ -4,6 +4,22 @@
 
 using namespace std;
 
+bool isAxisAlignedRectangle(const vector<pair<int,int>>& p) {
+    if (p.size() != 4) return false;
+
+    set<int> xs, ys;
+    for (auto& [x,y] : p) xs.insert(x), ys.insert(y);
+
+    if (xs.size() != 2 || ys.size() != 2) return false;
+
+    set<pair<int,int>> S(p.begin(), p.end());
+    for (int x : xs)
+        for (int y : ys)
+            if (!S.count({x,y})) return false;
+
+    return true;
+}
+
 
 void run() {
 	int n = Int(1, Arg("maxn", 10)); 
@@ -23,6 +39,12 @@ void run() {
 	}
 	assert(houses >= 2);
 
+	if (Arg("rectangle", 0)) {
+		assert(houses == 4);
+		vector<pair<int,int>> locs;
+		rep(i,0,n) rep(j,0,m) if (grid[i][j]=='*') locs.emplace_back(i,j);
+		assert(isAxisAlignedRectangle(locs));
+	}
 
 	bool hasatleastone = false;
 	rep(i,0,n) {
