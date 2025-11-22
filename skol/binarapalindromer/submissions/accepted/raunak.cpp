@@ -85,10 +85,9 @@ int main() {
 			}
 		}
 		else {
-			ll K = k;
-			if (K % 2 == 1) K--;
+			ll half = k / 2;
+			if (k % 2 == 1) half = (k - 1) / 2;
 
-			ll half = K / 2;
 			ll cnt = 1;
 			rep(i, 1, sz(b) / 2) {
 				if (b[i] == 1) {
@@ -109,7 +108,6 @@ int main() {
 				if (2 * onehalf == k) ans++; 
 			}
 
-			// x = left + reverse(left)
 			ll pal = 0;
 			rep(i, 0, halfb) pal = (pal << 1) | b[i];
 			pal = (pal << 1) | b[halfb];
@@ -117,7 +115,6 @@ int main() {
 			if (pal < x && (2 * onehalf + b[halfb]) == k) ans++;
 	    	}
 	    	else {
-			// x = left + reverse(left)
 			ll pal = 0;
 			rep(i, 0, halfb) pal = (pal << 1) | b[i];
 			for(int i = halfb - 1; i >= 0; i--) pal = (pal << 1) | b[i];
