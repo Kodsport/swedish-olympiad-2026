@@ -2,7 +2,8 @@
 
 vis = [0]*360
 vis[0] = 1
-a,b = map(int,input().split())
+a=int(input())
+b=int(input())
 BFS = [0]
 for cur in BFS:
   for dx in [a,b,-a,-b]:

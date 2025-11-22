@@ -21,13 +21,16 @@ prime = int(cmdlinearg('prime', 0))
 if prime == 1:
     a = 13
     b = randint(1, 360)
-    print(a, b)
+    print(a)
+    print(b)
 elif ab == 1:
     a = randint(1, 360) 
-    print(a, a)
+    print(a)
+    print(a)
 else:
     a = randint(1, 360)
     b = randint(1, 360)
-    print(a, b)
+    print(a)
+    print(b)
 
 

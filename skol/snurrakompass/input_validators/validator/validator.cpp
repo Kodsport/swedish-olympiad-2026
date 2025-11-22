@@ -13,12 +13,11 @@ typedef vector<int> vi;
 
 void run() {
 	int a = Int(1, 360);
-	Space();
+	Endl();
 	int b = Int(1, 360);
+	Endl();
 
 	if (Arg("ab", 0)) assert(a == b);
 	if (Arg("prime", 0)) assert(a == 13);
-
-	Endl();
 }
 
