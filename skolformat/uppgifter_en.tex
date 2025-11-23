@@ -75,7 +75,7 @@ BOI in Finland and IOI in Uzbekistan are at stake.
 Alice and Bertil are throwing a ball in a park. Exactly $21$ meters in front of Alice and Bertil is a post, and Jack challenges Alice and Bertil to a little contest.
 
 The challenge is for Alice and Bertil to each throw a ball as close to the post as possible, but the ball must not go past the post.
-The one who throws closest to $21$ meters, without going over $21$ meters, wins. If both Alice and Bertil throw over $21$ meters, or if they throw the same distance, Jack wins instead. They have now thrown and need help to determine who won.
+The one who throws closest to $21$ meters, without going past $21$ meters, wins. If both Alice and Bertil throw past $21$ meters, or if they throw the same distance, Jack wins instead. They have now thrown and need help to determine who won.
 
 Write a program that first reads the numbers $A$ and $B$, the number of meters Alice and Bertil each threw.
 
@@ -123,7 +123,7 @@ Answer: Jack
 %  \ku{Example of a misunderstanding that can occur with Alice's new cipher.}
 %\end{center}
 
-You have a compass that can point in $360$ different directions. Right now it points straight up, at number $360$.
+You have a compass that can point in $360$ different directions. Right now it points straight up, at number $0$.
 
 Unfortunately, the compass is broken, and the only way to make it point in other directions
 is by lifting the entire compass and rotating it a number of degrees counterclockwise. To help you, you have
@@ -162,7 +162,6 @@ Answer: 36
 \end{verbatim}
 \fe{Explanation:} With this set of robotic arms, the compass
 can point to every integer multiple of $10$: $0, 10, 20, \dots, 350$.
-Note that $0$ and $360$ are the same angle.
 For example, if she takes the arm with $a=50$ and uses it $8$ times, she can make the compass point $40$ degrees counterclockwise.
 
 \vspace{0.4cm}
@@ -190,13 +189,13 @@ The number line starts at position $0$, and the value increases by $1$ for each 
 For all $N$ trees, Teo has already decided the exact integer positions on the number line where they should be planted.
 These positions are all positive integers.
 
-Teo is currently at position $0$, together with $N$ large tree seedlings.
+Teo is currently at position $0$, together with $N$ large saplings.
 To plant the trees, he can perform the following actions:
 \begin{itemize}
 \item Move one step to the right (increase position by $1$).
 \item Move one step to the left (decrease position by $1$).
-\item If he is at position $0$, pick up one of the $N$ tree seedlings.
-\item Take one of the seedlings he is carrying and plant it at his current position.
+\item If he is at position $0$, pick up one of the $N$ saplings.
+\item Take one of the saplings he is carrying and plant it at his current position.
 \end{itemize}
 Each such action takes exactly one second.
 
@@ -207,8 +206,8 @@ When all trees have been planted, Teo must also return to position $0$.
 Your task is to calculate how long it takes for Teo to plant all the trees and then return to position $0$ if he works in the fastest possible way.
 
 Write a program that first reads $N$ and $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$), the number of trees to plant and the maximum weight Teo can carry.
-Then read on the next line $N$ integers $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), the positions where each tree seedling should be planted.
-On the last line, read $N$ integers $k_1, \dots, k_N$ ($k_i \leq K$), the weight of each tree seedling in kilograms.
+Then read on the next line $N$ integers $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), the positions where each sapling should be planted.
+On the last line, read $N$ integers $k_1, \dots, k_N$ ($k_i \leq K$), the weight of each tree sapling in kilograms.
 The input thus describes $N$ trees numbered $1$ to $N$, where tree $i$ should be planted at position $x_i$ and weighs $k_i$ kilograms.
 Each $k_i$ is either $20$ or $40$.
 
@@ -288,7 +287,7 @@ Your task is to write a program that finds which cells could have contained the 
 
 The program should first read the integers $N$ and $M$ ($1 \leq N,M \leq 10$), the number of rows and columns in the grid.
 Then it should read $N$ rows with $M$ characters each, representing the grid.
-The character `\verb|*|'' indicates that there was a farm at that cell, and `\verb|.|'' indicates that there was no farm.
+The character ``\verb|*|'' indicates that there was a farm at that cell, and ``\verb|.|'' indicates that there was no farm.
 
 It is guaranteed that there are at least two farms in the grid,
 and it is guaranteed that there is always at least one cell where the town square can be.
