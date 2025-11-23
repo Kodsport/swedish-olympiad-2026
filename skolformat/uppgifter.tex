@@ -68,7 +68,7 @@ De högst placerade i kvalet går vidare till finalen i Göteborg där landslags
 \setlength{\parskip}{\oldparskip}
 
 \newpage
-\specialsection*{Uppgift 1 -- Triangelfabriken}
+\specialsection*{Uppgift 1 -- Frack Jack}
 
 Alice och Bertil kastar boll i en park. Exakt $21$ meter framför Alice och Bertil finns en stolpe, och Jack utmanar Alice och Bertil till en liten utmaning.
 
@@ -235,7 +235,7 @@ K ? 45
 Trädens positioner ? 1 2
 Trädens vikt ? 20 40
 
-Svar: 8
+Svar: 10
 \end{verbatim}
 \fe{Förklaring:} Det finns två träd i detta exempelfall. Ett väger $20$ kilogram och ska planteras vid position $1$, och det andra väger $40$ kilogram och ska planteras vid position $2$.
 I exempelfallet är en optimal lösning för Teo att göra följande:
@@ -372,20 +372,20 @@ Det tar två minuter att ta sig från varje gård till den här rutan.
 
 Det sägs att uppe i Alperna bor det $C$ stycken systrar som vardera har ett eget favorittal $f$.
 Varje syster har därför byggt ett hus $f$ höjdenheter över vattenytan.
-Dessa husen är byggda på ett koordinatsystem.
-Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(0,1)$ och så vidare.
+Dessa hus är byggda på ett $R \times C$ stort rutnät, där $x$-axeln går österut och $y$-axeln norrut.
+Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(1,0)$ och så vidare.
+Det vill säga, husen är byggda längs med rutnätets bottenrad.
 
 När husen befinner sig så högt uppe blir det svårt att ta sig upp och ner.
-Därför har varje syster byggt en trappa genom att bygga uppåt, där hon
-sänkar höjden med $1$ för varje koordinat hon går uppåt.
-Exempelvis, om systerns hus befinner sig på $(0,2)$ och har höjd $10$, så bygger hon ett trappsteg vid $(1,2)$ med höjd $9$, ett trappsteg vid $(2,2)$ med höjd $8$, och så vidare.
+Därför har varje syster byggt en trappa från sitt hus till de ovanstående $R-1$ raderna.
+För varje ruta hon går upp minskar hon höjden med $1$.
+Exempelvis, om systerns hus befinner sig på $(2,0)$ och har höjd $10$, så bygger hon ett trappsteg vid $(2,1)$ med höjd $9$, ett trappsteg vid $(2,2)$ med höjd $8$, och så vidare.
 
-Du befinner dig just nu vid dessa trappor.
+Du befinner dig just nu på detta rutnätet.
 Mer exakt befinner du dig på koordinaterna $(s_x, s_y)$ och vill ta dig till $(g_x, g_y)$.
-Du kan röra dig till rutor som intilliggande antingen upp, vänster, ner eller höger.
-Det är aldrig problem att gå höger eller vänster, även om det finns stora höjdskillnader.
-Självfallet kan du inte röra dig till en koordinat som varken har ett hus eller ett trappsteg.
-Du vägrar även att röra dig till en koordinat vars $y$-värde är större än eller lika med talet $R$.
+Du kan röra dig till rutor som är intilliggande antingen upp, vänster, ner eller höger.
+Det är aldrig ett problem att gå höger eller vänster, även om det finns stora höjdskillnader.
+Självfallet kan du inte röra dig till en koordinat utanför rutnätet.
 
 De höga höjderna är ganska jobbiga för dig, så ditt mål är att minimera tiden du spenderar på hög höjd.
 Mer exakt, om du under din vandring från $(s_x, s_y)$ till $(g_x, g_y)$ besöker en viss mängd rutor, så definierar vi jobbigheten av vandringen som summan av höjden av alla rutor du besöker.
@@ -394,7 +394,7 @@ Om du vandrar optimalt, vad är minsta möjliga jobbigheten?
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{sample1.pdf}
-    \\Bilden visar hur höjderna ser ut i exempelfall 1. Raden längst ner innehåller systrarnas hus.
+    \\Bilden visar hur rutnätet ser ut i exempelfall 1. Raden längst ner innehåller systrarnas hus.
     Start- och mål är även markerade, samt den mest minst jobbiga vandringar mellan dem.
 \end{figure}
 
@@ -416,8 +416,8 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
-R ? 4
-C ? 2
+R ? 5
+C ? 3
 Bottenraden ? 15 12 5
 Start-x ? 0
 Start-y ? 0
