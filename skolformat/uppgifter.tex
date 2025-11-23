@@ -258,12 +258,15 @@ Det är känt att det tar lika lång tid att ta sig från var och en av gårdarn
 
 Din uppgift är att skriva ett program som hittar vilka rutor där tingsplatsen skulle kunna funnits.
 
-Programmet ska först läsa in heltalen $N$ och $M$ ($1 \leq N,M \leq 10$), antalet rader och kolumner i rutnätet. Läs sedan $N$ rader, som innehåller
-rutnätets rader.
-Tecknet ''\verb|*|'' betyder att det finns en gård på motsvarande plats i rutnätet, och
-''\verb|.|'' betyder att det inte finns en gård.
+Programmet ska först läsa in heltalen $N$ och $M$ ($1 \leq N,M \leq 10$), antalet rader och kolumner i rutnätet. 
+Därefter ska programmet läsa in $N$ rader med $M$ karaktärer vardera, som innehåller rutnätets rader.
+Tecknet ''\verb|*|'' betyder att det finns en gård på motsvarande plats i rutnätet, 
+och ''\verb|.|'' betyder att det inte finns en gård.
 
-Programmet ska sedan skriva ut en kopia av rutnätet i indatan, men där det markerat med ''\verb|X|'' de rutor som tingsplatsen kan vara belägen på.
+Det är garanterat att det finns minst två gårdar på rutnätet, 
+och det garanteras att alltid finnas minst en ruta där tingsplatsen kan vara.
+
+Programmet ska sedan skriva ut en kopia av rutnätet från indatan, men de rutor som tingsplatsen kan vara belägen på är markerat med ''\verb|X|''.
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
@@ -292,9 +295,54 @@ Svar:
 ..X..
 
 \end{verbatim}
-\fe{Förklaring:} TODO
+\fe{Förklaring:} 
+Gårdarna ligger i första och sista kolumnen på översta raden. 
+Den tredje rutan på översta raden ligger två minuter från båda gårdarna (två steg åt vänster respektive två steg åt höger). 
+Alla rutor rakt under den har samma avståndspar: gå upp till översta raden och sedan lika långt åt vänster som åt höger. 
+Därför markeras hela den kolumnen med ''\verb|X|''. Övriga rutor har olika avstånd och markeras inte.
+
+\vspace{0.5cm}
+\fe{Körningsexempel 2}\\
+%\vspace{-0.3cm}
+\begin{verbatim}
+N ? 1
+M ? 10
+Rad 1 ? *.....*...
+
+Svar:
+*..X..*...
+\end{verbatim}
+\fe{Förklaring:} 
+Gårdarna ligger i första och sjunde kolumnen. 
+Rutan i fjärde kolumnen ligger tre minuter ifrån båda gårdarna. 
+Ingen annan ruta på raden har samma avstånd till båda, därför markeras endast den med ''\verb|X|''.
 
 
+\vspace{0.5cm}
+\fe{Körningsexempel 3}\\
+%\vspace{-0.3cm}
+\begin{verbatim}
+N ? 5
+M ? 5
+Rad 1 ? ..*..
+Rad 2 ? .....
+Rad 3 ? *...*
+Rad 4 ? .....
+Rad 5 ? ..*..
+
+Svar:
+..*..
+.....
+*.X.*
+.....
+..*..
+\end{verbatim}
+\fe{Förklaring:} 
+Den markerade rutan i mitten är den enda möjliga positionen för tingsplatsen.
+Det tar två minuter att ta sig från varje gård till den här rutan.
+
+
+\newpage
 \specialsection*{Uppgift 5 -- Långa trappor}
 
 Det sägs att uppe i Alperna bor det $C$ stycken systrar som vardera har ett eget favorittal $f$.
