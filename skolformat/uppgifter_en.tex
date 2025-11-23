@@ -7,7 +7,7 @@
 % ----------------------------------------------------
 
 \begin{center}
-\Huge{Programmeringsolympiaden 2025}
+\Huge{Programmeringsolympiaden 2026}
 \end{center}
 \vspace{-1.2cm} 
 \specialsection*{Competition rules for skolkvalet}
@@ -18,7 +18,7 @@
     In both of these cases, the student must write skolkvalet in an agreed-upon location
     in the school.
     
-\item The competition consists of seven tasks that shall each be solved by using a computer
+\item The competition consists of six tasks that shall each be solved by using a computer
   program in your programming language of choice.
 \item {\bf Input can be read into the program in any way}, e.g., through the program interacting
 with the user (as in the sample runs in the tasks), being entered into a graphical interface,
@@ -53,9 +53,12 @@ It is \ku{not} allowed to actively communicate on the internet (e.g., chatting o
 only searching for information is permitted.  
 {\bf It is also not allowed to use generative AI such as ChatGPT or GitHub Copilot.}  
 Calculators are allowed.  
-\item Submissions must be made in the form of source code files (e.g., uppg1...uppg7 with appropriate
-file extensions) uploaded to the agreed location. Other files will not be considered. Make sure to
+\item Submissions must be made in the form of source code files (e.g., uppg1...uppg6 with appropriate
+file extensions) uploaded to an agreed location. Other files will not be considered. Make sure to
 submit the correct version of your program.  
+
+The top performers in the qualifier advance to the finals in Gothenburg, where spots in the national team to
+BOI in Finland and IOI in Uzbekistan are at stake.
 
 \end{lista}
 
@@ -66,503 +69,542 @@ submit the correct version of your program.
 %\end{document}
 
 \newpage
-\specialsection*{Task 1 -- The Triangle Factory}
 
-Tristian works at a triangle factory.  
-His job is to classify different types of triangles produced in the factory.  
-Tristian now asks you to write a program that can replace him.  
+\specialsection*{Task 1 -- Frack Jack}
 
-Tristian will give you three positive integers, $a$, $b$, and $c$.  
-These are the three angles of a triangle, given in degrees.  
+Alice and Bertil are throwing a ball in a park. Exactly $21$ meters in front of Alice and Bertil is a post, and Jack challenges Alice and Bertil to a little contest.
 
-Your program should do the following:  
+The challenge is for Alice and Bertil to each throw a ball as close to the post as possible, but the ball must not go past the post.
+The one who throws closest to $21$ meters, without going over $21$ meters, wins. If both Alice and Bertil throw over $21$ meters, or if they throw the same distance, Jack wins instead. They have now thrown and need help to determine who won.
+
+Write a program that first reads the numbers $A$ and $B$, the number of meters Alice and Bertil each threw.
+
+It is guaranteed that $(0 \leq A,B \leq 30)$ holds.
+
+Then the program should print who won: either `Alice'', `Bertil'', or ``Jack''. Note that you should not print the quotation marks.
+
+\fe{Scoring:}\
+The five test cases, each worth 1 point, have the following restrictions:
 \begin{itemize}
-  \item If the triangle is obtuse, the program should print ``Trubbig Triangel''.
-  \item If the triangle is acute, the program should print ``Spetsig Triangel''.
-  \item If the triangle is right-angled, the program should print ``Ratvinklig Triangel''.  
-\end{itemize}  
-
-To remind you of the definitions of obtuse, acute, and right-angled triangles:  
-\begin{itemize}
-  \item A triangle is obtuse if any of its angles are greater than $90$ degrees.  
-  \item A triangle is acute if all its angles are less than $90$ degrees.  
-  \item A triangle is right-angled if one of its angles is exactly $90$ degrees.  
-\end{itemize}  
-
-Your program should read the three angles $a$, $b$, $c$.  
-
-It is guaranteed that $(1 \leq a, b, c < 180)$ holds. It is also guaranteed that the input forms a valid triangle, meaning $a + b + c = 180$.  
-
-The program should then print whether the triangle formed by the angles $a$, $b$, and $c$ is acute, obtuse, or right-angled.  
-
-\textbf{Scoring:} The program will be run on 5 test cases, each worth $1$ point.
+\item[(1)] $\;\;\;\;$ $A \neq B$ and $A,B \leq 21$
+\item[(2)] $\;\;\;\;$ $A, B \leq 21$
+\item[(3)] $\;\;\;\;$ Jack did not win in this test case.
+\item[(4-5)] $\;\;\;\;$ No additional restrictions.
+\end{itemize}
 
 \vspace{1cm}
-\fe{Sample run 1}
+\fe{Example Run 1}
 \begin{verbatim}
-Angle 1 ? 100
-Angle 2 ? 40
-Angle 3 ? 40
+Alice throw? 7
+Bertil throw? 5
 
-Answer: Trubbig Triangel
+Answer: Alice
 \end{verbatim}
-The next page contains more sample runs.
+\fe{Explanation:} Alice is closer to $21$, so she won.
 
-\newpage
+\vspace{1cm}
 
-\fe{Sample run 2}
+\fe{Example Run 2}
 \begin{verbatim}
-Angle 1 ? 60
-Angle 2 ? 40
-Angle 3 ? 80
+Alice throw? 26
+Bertil throw? 22
 
-Answer: Spetsig Triangel
+Answer: Jack
 \end{verbatim}
+\fe{Explanation:} Since both threw farther than $21$ meters, Jack won.
 
-\fe{Sample run 3}
-\begin{verbatim}
-Angle 1 ? 30
-Angle 2 ? 60
-Angle 3 ? 90
-
-Answer: Ratvinklig Triangel
-\end{verbatim}
 
 
 \newpage
-\specialsection*{Task 2 -- Truls' Troubles}
-
+\specialsection*{Problem 2 -- Spinning Compass}
 
 %\begin{center}
-%  \includegraphics[width=12cm]{sifferkrypto.pdf} \\ ~\\
-%  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
+%  \includegraphics[width=12cm]{sifferkrypto.pdf} \ ~\
+%  \ku{Example of a misunderstanding that can occur with Alice's new cipher.}
 %\end{center}
 
-Truls and Henry are playing table tennis against each other.
+You have a compass that can point in $360$ different directions. Right now it points straight up, at number $360$.
 
-Both Truls and Henry strongly dislike math.  
-More than anything, they hate calculating how many points each of them has during the game.  
-To simplify scoring, they have come up with their own solution:
+Unfortunately, the compass is broken, and the only way to make it point in other directions
+is by lifting the entire compass and rotating it a number of degrees counterclockwise. To help you, you have
+two robotic arms. These are unfortunately not perfect: the first robotic arm can
+rotate the compass exactly $a$ degrees counterclockwise, and the second robotic arm can rotate $b$ degrees counterclockwise.
+The robotic arms can only rotate the compass exactly $a$ or $b$ degrees each time
+they are used, no more, no less.
+Because of this, it may not be possible to make the compass point
+in all $360$ directions.
 
-Instead of constantly keeping track of their points, they write a ``\texttt{T}'' if Truls
-scores a point and an ``\texttt{H}'' if Henry scores a point, immediately after each won rally.
+This makes you wonder how many unique directions the compass can point in.
+The compass can only be rotated by using the robotic arms multiple times.
 
-When Truls and Henry play table tennis, the scoring system works according to these three rules:  
-\begin{enumerate}
-  \item One point is awarded after each rally.  
-  \item A player wins a match if both of the following conditions are met:  
-  \begin{itemize}
-    \item The player leads by at least 2 points over their opponent.  
-    \item The player has at least 11 points.  
-  \end{itemize}  
-  For example, if Truls has 11 points and Henry has 9 points, Truls is declared the winner.
-  But if Truls has 11 points and Henry has 10 points, there is no winner yet.  
+Write a program that reads the numbers $a$ and $b$, the number of degrees that the first and second robotic arms rotate the compass.
 
-  \item When a player wins according to the criteria above, the points for both players are reset to zero, and a new match begins.  
-\end{enumerate}  
+It is guaranteed that $(1 \leq a,b \leq 360)$.
 
-Now Truls and Henry have been playing for a long time, and both want to know the current score.  
-They ask you to write a program that calculates the current score for them based on their notes.
+Then the program should output the number of unique directions the compass can point to if you rotate it multiple times using the robotic arms.
 
-Your program should first read the score string, which consists of multiple letters on a single line. The number of letters is between 1 and 30.  
-Each letter will be either ``\texttt{T}'' or ``\texttt{H}''.
-
-The program should then output the score of the ongoing match as ``\textit{$T$-$H$}'', where $T$ is
-the number of points Truls has, and $H$ is the number of points Henry has.
-
-\textbf{Scoring:}\\  
-The five test cases, each worth $1$ point, have the following constraints:  
+\fe{Scoring:}\
+The five test cases, each worth $1$ point, have the following constraints:
 \begin{itemize}
-  \item[(1-2)] $\;\;\;\;$A match always ends as soon as one player reaches 11 points.  
-  \item[(3-5)] $\;\;\;\;$No additional constraints.  
+\item[(1)] $\;\;\;\;$ $a = 13$
+\item[(2-3)] $\;\;\;\;$ $a = b$
+\item[(4-5)] $\;\;\;\;$ No additional constraints.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\fe{Example Run 1}
+\begin{verbatim}
+Angle a ? 50
+Angle b ? 180
+
+Answer: 36
+\end{verbatim}
+\fe{Explanation:} With this set of robotic arms, the compass
+can point to every integer multiple of $10$: $0, 10, 20, \dots, 350$.
+Note that $0$ and $360$ are the same angle.
+For example, if she takes the arm with $a=50$ and uses it $8$ times, she can make the compass point $40$ degrees counterclockwise.
+
+\vspace{0.4cm}
+
+\fe{Example Run 2}
+\begin{verbatim}
+Angle a ? 360
+Angle b ? 360
+
+Answer: 1
+\end{verbatim}
+\fe{Explanation:} No matter how many times you rotate the compass with this set of robotic arms, it will continue pointing $0$ degrees counterclockwise.
+
+
+
+\newpage
+\specialsection*{Problem 3 -- Arborist}
+
+Teo has finally landed his dream job; he has started working as an arborist!
+An important part of an arborist's work is planting trees.
+
+Teo now needs help planting $N$ trees at integer positions along a number line.
+The number line starts at position $0$, and the value increases by $1$ for each step to the right (and decreases by $1$ to the left).
+
+For all $N$ trees, Teo has already decided the exact integer positions on the number line where they should be planted.
+These positions are all positive integers.
+
+Teo is currently at position $0$, together with $N$ large tree seedlings.
+To plant the trees, he can perform the following actions:
+\begin{itemize}
+\item Move one step to the right (increase position by $1$).
+\item Move one step to the left (decrease position by $1$).
+\item If he is at position $0$, pick up one of the $N$ tree seedlings.
+\item Take one of the seedlings he is carrying and plant it at his current position.
+\end{itemize}
+Each such action takes exactly one second.
+
+Unfortunately, Teo can carry at most $K$ kilograms of trees at a time.
+Each tree weighs either $20$ or $40$ kilograms.
+
+When all trees have been planted, Teo must also return to position $0$.
+Your task is to calculate how long it takes for Teo to plant all the trees and then return to position $0$ if he works in the fastest possible way.
+
+Write a program that first reads $N$ and $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$), the number of trees to plant and the maximum weight Teo can carry.
+Then read on the next line $N$ integers $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), the positions where each tree seedling should be planted.
+On the last line, read $N$ integers $k_1, \dots, k_N$ ($k_i \leq K$), the weight of each tree seedling in kilograms.
+The input thus describes $N$ trees numbered $1$ to $N$, where tree $i$ should be planted at position $x_i$ and weighs $k_i$ kilograms.
+Each $k_i$ is either $20$ or $40$.
+
+The program should then output the number of seconds it takes for Teo to plant all the trees and then return to $0$, assuming he does this in the fastest possible way.
+
+\vspace{0.5cm}
+\fe{Scoring:}\
+The five test cases, each worth $1$ point, have the following constraints:
+\begin{itemize}
+\item[(1)] $\;\;\;\;$ $K=25$
+\item[(2)] $\;\;\;\;$ $k_i = 20$ for all $i$.
+\item[(3)] $\;\;\;\;$ All trees must be planted at the same position.
+\item[(4-5)] $\;\;\;\;$ No additional constraints.
 \end{itemize}
 
 \vspace{1cm}
 
-\fe{Sample run 1}
-\begin{verbatim}
-The notes ? TTTHHHTHH
-
-Answer: 4-5
-\end{verbatim}
-
-The next page contains more sample runs.
-
+\begin{center}
+{\LARGE Example runs are on the next page.}
+\end{center}
 
 \newpage
 
-\fe{Sample run 2}
+\fe{Example Run 1}
 \begin{verbatim}
-The notes ? TTTTTTTTTTT
-
-Answer: 0-0
-\end{verbatim}
-
-\fe{Explanation:} Since Truls won the match when the score reached \texttt{11-0}, the score was reset to \texttt{0-0}.
-
-\vspace{0.5cm}
-
-\fe{Sample run 3}
-\begin{verbatim}
-The notes ? THTHTHTHTHTHTHTHTHTHTHTH
-
-Answer: 12-12
-\end{verbatim}
-\fe{Explanation:} Even though both have more than 11 points, neither leads by 2 points. Therefore, no winner has been declared yet.
-
-
-\fe{Sample run 4}
-\begin{verbatim}
-The notes ? THTHTHTHTHTHTHTHTHTHTHTHHHH
-
-Answer: 0-1
-\end{verbatim}
-\fe{Explanation:} This game is a continuation of sample run 3, where Henry wins the match after scoring two more points.  
-The score is reset, and Henry then wins another point. Therefore, the score is \texttt{0-1}.
-
-
-\newpage
-\specialsection*{Task 3 -- Virus}
-
-Boschua isn't very good at cybersecurity. Last month, he turned off the firewall
-because it wouldn't let him download cat pictures. Unfortunately, this led to him getting a virus.  
-The virus did something very strange: it added a lot of letters to all filenames.  
-
-For example, it might have changed the filename \texttt{katt.png} to \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.  
-The virus can add letters but never remove them.  
-
-Now he is looking for the file named $F$, but he has a huge number of files. Can you write a
-program that reads the filename $F$ and the name of a file $H$ on his computer and determines
-whether $F$ could have been transformed into $H$ by the virus?  
-In other words, is it possible that the virus took the filename $F$ and added letters such that the file is now named $H$?  
-
-Write a program that reads $F$ and $H$. Let $|F|$ be the number of characters in $F$, and the same for $|H|$.  
-It holds that $1 \leq |F| \leq |H| \leq 32$. $F$ and $H$ contain only letters \texttt{a}-\texttt{z} and periods.  
-It is guaranteed that $F$ contains exactly one period. The virus can add periods and any letter from \texttt{a}-\texttt{z}.  
-
-Your program should then print ``Ja'' if $H$ could be the file Boschua is looking for, otherwise ``Nej''.  
-
-\vspace{0.5cm}  
-\textbf{Scoring:}\\  
-This problem has five \textit{pairs} of test cases. In each pair, the answer to one test case is Ja and
-the answer to the other is Nej.  
-This ensures you do not score points if your program always prints ``Ja'' or always prints ``Nej''.  
-
-The five pairs of test cases, each worth $1$ point, have the following constraints in addition to those already mentioned:  
-\begin{itemize}  
-    \item[(Pair 1)] $\;\;\;\;$Each character (and period) appears at most once in each string.  
-    \item[(Pair 2)] $\;\;\;\;|H| = |F|+1$  
-    \item[(Pair 3)] $\;\;\;\;|H| = |F|+2$  
-    \item[(Pairs 4-5)] $\;\;\;\;$No additional constraints.  
-\end{itemize} 
-
-\vspace{0.5cm}
-\fe{Sample run 1}
-\begin{verbatim}
-F ? katt.png
-H ? kattegatto.ping
-
-Answer: Ja
-\end{verbatim}
-\fe{Explanation:} The virus could have made the following changes to change $F$ to $H$:
-\texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
-
-The next page contains more sample runs.
-
-\newpage
-
-\fe{Sample run 2}
-\begin{verbatim}
-F ? antivirus.exe
-H ? aaantivisiiruis.egxe
-
-Answer: Ja
-\end{verbatim}
-\fe{Explanation:} The virus could have made the following changes to change $F$ to $H$: \\
-\texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
-
-\fe{Sample run 3}
-\begin{verbatim}
-F ? kattenmilly.png
-H ? kaaatttenmilly.pgn
-
-Answer: Nej
-\end{verbatim}
-\fe{Explanation:} $F$ and $H$ differ by \texttt{png} and \texttt{pgn}. Because the virus cannot change the order
-of letters, it could not have changed $F$ to $H$. 
-
-
-
-\newpage
-\specialsection*{Task 4 -- Siffrid's Digit Sum}
-
-Siffrid loves playing with numbers! Right now, she is playing with the integer $N$.  
-
-She is wondering how to create the smallest and largest numbers that have the same 
-digit sum and the same number of digits as $N$.  
-Can you help her?  
-
-The digit sum of a number is defined as the sum of all its digits.  
-
-For example, the digit sum of the number $1234$ is:  
-$$
-1 + 2 + 3 + 4 = 10,
-$$  
-
-and the digit sum of the number $220$ is:  
-$$
-2 + 2 + 0 = 4.
-$$  
-
-Write a program that first reads the integer $N$ ($1 \leq N \leq 10^9$), the number Siffrid is playing with.  
-
-The program should then output the smallest and the largest numbers that have the same digit sum 
-and the same number of digits as the number $N$.  
-
-\vspace{0.5cm}  
-\fe{Scoring:}\\  
-The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:  
-
-\begin{itemize}
-    \item[(1-2)] $\;\;\;\;$ $N \leq 10^5$    
-    \item[(3-5)] $\;\;\;\;$ No additional constraints.
-\end{itemize}
-
-\vspace{0.3cm}  
-\fe{Sample run 1}\\
-\vspace{-0.3cm}
-\begin{verbatim}
-N ? 101
-
-Answer: 101 200
-\end{verbatim}
-\fe{Explanation:} We cannot get a number smaller than 101. 
-Numbers like 11 and 2 have the same digit sum as $N$ and are smaller than 101, 
-but they do not have the same number of digits as $N$.
-
-
-\vspace{0.2cm}
-\fe{Sample run 2}\\
-\vspace{-0.3cm}
-\begin{verbatim}
-N ? 878
-
-Answer: 599 995
-\end{verbatim}
-\vspace{0.2cm}
-
-\fe{Sample run 3}\\
-\vspace{-0.3cm}
-\begin{verbatim}
-N ? 1337
-
-Answer: 1049 9500
-\end{verbatim}
-
-
-\newpage
-\specialsection*{Task 5 -- The Calculator}
-
-Rumors are spreading that the school's calculator can be hacked using a secret code.  
-You've heard that if you can make the calculator display the secret Kålnami code and then press the equals button, 
-it will unlock several secret mathematical functions.  
-
-Your friend has figured out what the Kålnami code is but tells you that you can't just enter it in any way you like.  
-Initially, the calculator displays $0$. After that, you are allowed to perform the following operations:  
-\begin{itemize}
-  \item Multiply the number displayed by $M$.
-  \item Add any number $k$ to the number displayed, where $0 \leq k \leq M-1$.
-\end{itemize}  
-
-Fortunately, your friend has also figured out what $M$ is.  
-This complicated process will only work if you use the minimum number of operations possible.  
-You now want to determine how many operations are required, given the Kålnami code and the number $M$.  
-
-Write a program that first reads the integer $N$ ($1 \leq N \leq 10^9$), representing the Kålnami code.  
-Then it should read the digit $M$ ($2 \leq M \leq 9$), as described above.  
-
-The program should then output a single integer: the minimum number of operations required to make the calculator display the Kålnami code, $N$.  
-
-\fe{Scoring:}\\  
-The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:  
-\begin{itemize}
-    \item[(1)] $\;\;\;\;M=3, N \leq 10$ 
-    \item[(2)] $\;\;\;\;M=2$ 
-    \item[(3)] $\;\;\;\;N \leq 10^5$
-    \item[(4-5)] $\;\;\;\; $No additional constraints.
-\end{itemize}  
-
-\fe{Sample run 1}  
-\begin{verbatim}
-N ? 4
-M ? 2
-
-Answer: 3
-\end{verbatim}  
-
-\fe{Explanation:}  
-One way to enter the code using the minimum number of operations is as follows:  
-\begin{enumerate}
-  \item $+1$
-  \item $\times 2$
-  \item $\times 2$
-\end{enumerate}  
-
-See the next page for another example run.  
-
-\newpage  
-
-\fe{Sample run 2}  
-\begin{verbatim}
-N ? 33
-M ? 3
-
-Answer: 5
-\end{verbatim}  
-
-\fe{Explanation:}  
-An optimal solution is to perform the following operations:  
-\begin{enumerate}
-  \item $+1$
-  \item $\times 3$
-  \item $\times 3$
-  \item $+2$
-  \item $\times 3$
-\end{enumerate}  
-
-
-
-\newpage
-\specialsection*{Task 6 -- The Wizard Theodor}
-
-A smaller army of $N$ monsters is just outside Tästerås! 
-Now it's up to Trollkarlen Theodor to defeat them and save the city. 
-Each monster has a certain amount of health. To damage the monsters, 
-Theodor can fire magical explosions. Each time he fires an explosion, 
-he targets a specific monster. Then the following happens:  
-\begin{itemize}
-  \item All monsters lose $A$ health from the explosion.
-  \item The monster Theodor targets loses an additional $S$ health because it is at the center of the explosion. Thus, the targeted monster loses $S+A$ health in total from that explosion.
-\end{itemize}
-He can freely choose which monster to target each time he fires an explosion.  
-Since firing explosions is exhausting, he wants to know the minimum number of explosions he needs to fire to defeat all the monsters if he targets optimally.  
-
-Write a program that first reads the integers $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$), and $A$ ($0 \leq A \leq 10^9$), as described above. 
-Then, the program should read $N$ integers $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), representing the health of each monster.  
-
-The program should output the minimum number of explosions Theodor needs to fire to defeat all the monsters. A monster is defeated if its health is reduced to $0$ or less.  
-
-\fe{Scoring:}\\  
-The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
-
-\begin{itemize}
-    \item[(1)] $\;\;\;\; A=0$
-    \item[(2-3)] $\;\;\;\; h_i \leq 100$
-    \item[(4-5)] $\;\;\;\; $No additional constraints.
-\end{itemize}
-
-
-\fe{Sample run 1}
-\begin{verbatim}
-N, S, A ? 3 2 1
-Monsters' health ? 7 2 3
-
-Answer: 3
-\end{verbatim}
-\fe{Explanation:} An optimal way to fire explosions is as follows:
-\vspace{-0.2cm}
-\begin{enumerate}
-  \item Fire an explosion at the monster with 7 health. The monsters now have \verb+4,1,2+ health remaining.
-  \item Fire an explosion at the monster with 4 health. The monster with 1 health is defeated. The remaining monsters have \verb+1,1+ health left.
-  \item Fire an explosion at either of the remaining monsters. All monsters are now defeated, and Theodor is finished.
-\end{enumerate}
-
-\vspace{-0.2cm}
-\fe{Sample run 2}
-\begin{verbatim}
-N, S, A ? 4 3 2
-Monsters' health ? 7 8 9 10
-
-Answer: 4
-\end{verbatim}
-
-
-
-\specialsection*{Task 7 -- Theodor, The Wizard}
-
-
-This problem is based on the problem \textit{The Wizard Theodor}.  
-
-Evil Olle, the mastermind behind all evil, is tired of Theodor always ruining his plans. 
-Now, Olle has come up with a new devious scheme, and to carry it out, he needs to keep Theodor occupied. 
-At his disposal, he has $N$ monsters, and since he is immensely powerful, he can assign these monsters different amounts of health. 
-Olle now wants to count the number of ways he can distribute different health values among the monsters such that 
-Theodor needs to fire exactly $K$ magical explosions to defeat all the monsters. 
-The only requirement for a monster's health is that it must be greater than $0$.  
-
-Just like in the problem \textit{The Wizard Theodor}, 
-Theodor damages monsters by targeting a specific one and firing an explosion. 
-The targeted monster loses $S$ health, and then all monsters (including the targeted one) lose $A$ health each. 
-A monster is defeated if it has $0$ or less health. Theodor targets monsters in such a way as to minimize the number of explosions he needs to fire.  
-
-Write a program that reads the integers $N, K, S, A$ ($1 \leq N, K, S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), which are the four numbers described above.  
-
-The program should then output the number of ways Olle can assign health values to the 
-monsters such that Theodor needs to fire exactly $K$ explosions to defeat all of them. 
-Since this number can be very large, it should be output \textit{modulo} $10^9+7$. 
-If you only want to solve the first test case, you do not need to worry about modulo as the answer will be small.
-
-
-
-\fe{Scoring:}\\
-The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
-\begin{itemize}
-    \item[(1)] $\;\;\;\; A = 0$, $N, K, S \leq 5$
-    \item[(2)] $\;\;\;\; A = 0$, $S \leq 10$, $N, K \leq 70$
-    \item[(3)] $\;\;\;\; N, K, S, A \leq 150$
-    \item[(4)] $\;\;\;\; N, K, S, A \leq 1000$
-    \item[(5)] $\;\;\;\;$No additional constraints.
-\end{itemize}
-
-
-\fe{Sample run 1}
-\begin{verbatim}
-N, K, S, A ? 1 1 5 0
-
-Answer: 5
-\end{verbatim}
-\fe{Explanation:} There is one monster, and the possible health values it can have such that Theodor defeats it with exactly one explosion are \verb+1, 2, 3, 4, 5+.
-
-See the next page for more sample runs.
-
-\newpage
-
-\fe{Sample run 2}
-\begin{verbatim}
-N, K, S, A ? 2 2 1 1
+N and K ? 2 45
+Tree positions ? 1 2
+Tree weights ? 20 40
 
 Answer: 10
 \end{verbatim}
-\fe{Explanation:} The 10 possible distributions of health values for the monsters such that Theodor defeats both with exactly two explosions are:
+\fe{Explanation:} There are two trees in this example.
+One tree weighs $20$ kilograms and should be planted at position $1$, and the other weighs $40$ kilograms and should be planted at position $2$.
+In this example, an optimal solution for Teo is as follows:
+\begin{itemize}
+\item Pick up the tree to be planted at position $1$.
+\item Move right.
+\item Plant the tree at position $1$.
+\item Move left.
+\item Pick up the tree to be planted at position $2$.
+\item Move right.
+\item Move right.
+\item Plant the tree at position $2$.
+\item Move left.
+\item Move left. He has now returned to position $0$ and is done.
+\end{itemize}
+There are other ways to plant the trees equally fast, but it cannot be done in
+less than $10$ seconds.
+
+\vspace{0.5cm}
+\fe{Example Run 2}
 \begin{verbatim}
-  1 3
-  1 4
-  2 2
-  2 3
-  2 4
-  3 1
-  3 2
-  3 3
-  4 1
-  4 2
+N and K ? 4 42
+Tree positions ? 10 9 7 8
+Tree weights ? 20 40 20 20
+
+Answer: 60
+\end{verbatim}
+\fe{Explanation:} In this example, an optimal solution is to first plant the tree at position $9$, then the ones at positions $10$ and $8$ in the same trip, and finally the one at position $7$.
+
+
+
+\newpage
+\specialsection*{Problem 4 -- The Town Square}
+
+The archaeologist Arvid is searching for an unknown Iron Age town square somewhere in central Sweden. He has mapped
+a number of farms in the area and has concluded that the town square must be at the same distance
+from the different farms.
+
+The area Arvid has studied can be represented by a grid with $N$ rows and $M$ columns. It takes one minute for an
+Iron Age person to move between two adjacent cells. Two cells are adjacent if they share one of their four sides.
+
+You are given a map of the grid marking all farm positions.
+It is known that it takes the same amount of time to reach the unknown town square from each of the farms.
+
+Your task is to write a program that finds which cells could have contained the town square.
+
+The program should first read the integers $N$ and $M$ ($1 \leq N,M \leq 10$), the number of rows and columns in the grid.
+Then it should read $N$ rows with $M$ characters each, representing the grid.
+The character `\verb|*|'' indicates that there was a farm at that cell, and `\verb|.|'' indicates that there was no farm.
+
+It is guaranteed that there are at least two farms in the grid,
+and it is guaranteed that there is always at least one cell where the town square can be.
+
+The program should then output a copy of the input grid, but the cells where the town square could be located are marked with ``\verb|X|''.
+
+\vspace{0.5cm}
+\fe{Scoring:}\
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
+\begin{itemize}
+\item[(1)] $\;\;\;\;$ $N = 1$
+\item[(2)] $\;\;\;\;$ There are exactly $4$ farms, all located at the corners of a rectangle.
+\item[(3-5)] $\;\;\;\;$ No additional constraints.
+\end{itemize}
+
+\vspace{3cm}
+
+\begin{center}
+{\LARGE Example runs are on the next page.}
+\end{center}
+
+\newpage
+
+\fe{Explanation of Example Run 1:}
+The farms are in the first and last columns of the top row.
+The third cell in the top row is two minutes from both farms (two steps left and two steps right).
+All cells directly below it have the same distance to both farms: go up to the top row and then equally left or right.
+Therefore, the entire column is marked with ``\verb|X|''. Other cells have different distances and are not marked.
+
+\vspace{0.4cm}
+\fe{Example Run 1}
+\vspace{-0.2cm}
+\begin{verbatim}
+N M ? 4 5
+Row 1 ? *...*
+Row 2 ? .....
+Row 3 ? .....
+Row 4 ? .....
+
+Answer:
+*.X.*
+..X..
+..X..
+..X..
+\end{verbatim}
+
+\vspace{0.5cm}
+\fe{Example Run 2}\
+\begin{verbatim}
+N M ? 1 10
+Row 1 ? *.....*...
+
+Answer:
+*..X..*...
+\end{verbatim}
+\fe{Explanation:}
+The farms are in the first and seventh columns.
+The cell in the fourth column is three minutes from both farms.
+No other cell in the row has the same distance to both, so only that cell is marked with ``\verb|X|''.
+
+\vspace{3cm}
+
+\begin{center}
+{\LARGE The example runs continue on the next page.}
+\end{center}
+
+\newpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.2\textwidth]{tingsplatsen_sample.png}
+\\The image shows the solution for example case 3. The marked cell in the middle is the only possible position for the town square.
+It takes two minutes to reach this cell from each farm.
+\end{figure}
+
+\vspace{0.5cm}
+\fe{Example Run 3}\
+\begin{verbatim}
+N M ? 5 5
+Row 1 ? ..*..
+Row 2 ? .....
+Row 3 ? *...*
+Row 4 ? .....
+Row 5 ? ..*..
+
+Answer:
+..*..
+.....
+*.X.*
+.....
+..*..
+\end{verbatim}
+\fe{Explanation:}
+The marked cell in the middle is the only possible position for the town square.
+It takes two minutes to reach each farm from this cell.
+
+
+
+\newpage
+\specialsection*{Problem 5 -- Long Stairs}
+
+It is said that up in the Alps live $C$ sisters, each of whom has a favorite number $f$.
+Each sister has therefore built a house $f$ height units above sea level.
+The houses are built on an $R \times C$ grid, where the $x$-axis points east and the $y$-axis points north.
+The first sister built her house at $(0,0)$, the second at $(1,0)$, and so on.
+In other words, the houses are built along the bottom row of the grid.
+
+Since the houses are so high up, it becomes difficult to go up and down.
+Therefore, each sister has built a staircase from her house to the $R-1$ rows above.
+For every step upward in the grid, the height decreases by $1$.
+For example: if the sister’s house is at $(2,0)$ and has height $10$, then a stair step is built at $(2,1)$ with height $9$,
+a step at $(2,2)$ with height $8$, and so on.
+
+You are currently located on this grid.
+More precisely, you are at coordinates $(s_x, s_y)$ and want to get to $(g_x, g_y)$.
+You can move to cells adjacent up, left, down, or right.
+It is never a problem to move left or right, even if there may be large height differences.
+Naturally, you cannot move outside the grid.
+
+High altitudes are quite tiring, so your goal is to minimize the time you spend at high height.
+More precisely, if during your walk from $(s_x, s_y)$ to $(g_x, g_y)$ you visit some sequence of cells,
+we define the difficulty of the walk as the sum of the heights of all cells you visit.
+If you pass the same cell multiple times, each visit counts separately.
+If you walk optimally, what is the minimum possible difficulty?
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{langatrappor_sample1.pdf}
+\\The image shows what the grid looks like in Example Run 1.
+The bottom row contains the sisters’ houses.
+The start and goal are also marked, as well as the least tiring path between them.
+\end{figure}
+
+\begin{center}
+{\LARGE The problem description continues on the next page.}
+\end{center}
+
+\newpage
+
+Write a program that first reads the integers $R$ and $C$ ($1 \leq R \leq 10^9$, $1 \leq C \leq 10$),
+the grid dimensions.
+It should then read $C$ integers $f_1, \dots, f_N$ ($R-1 \leq f_i \leq 10^9$),
+the height where each sister’s house is located.
+$f_1$ is the height of the house at $(0,0)$, $f_2$ at $(1,0)$, and so on.
+
+\textbf{Note} that the heights $f_i$ are chosen so that the remaining heights in the grid are never negative.
+
+Then read the integers $s_x$ and $s_y$ ($0 \leq s_x < C$, $0 \leq s_y < R$),
+the coordinates where you start.
+Finally, read the integers $g_x$ and $g_y$ ($0 \leq g_x < C$, $0 \leq g_y < R$),
+the coordinates you want to reach.
+
+The program should then output the difficulty of the least tiring walk from the start to the goal coordinates.
+\textbf{Note: the answer does not necessarily fit in a 32-bit integer.}
+
+\fe{Scoring:}\
+The five test cases, each worth $1$ point, have the following additional constraints:
+\begin{itemize}
+\item[(1)] $\;\;\;\;$ $C=2$
+\item[(2-3)] $\;\;\;\;$ $R \leq 10^4$
+\item[(4-5)] $\;\;\;\;$ No additional constraints.
+\end{itemize}
+
+\vspace{0.6cm}
+
+\fe{Example Run 1}
+\begin{verbatim}
+R C ? 5 3
+Bottom row ? 15 12 5
+Start-x and start-y ? 0 0
+Goal-x and goal-y ? 0 4
+
+Answer: 61
+\end{verbatim}
+
+\fe{Explanation:} An image of this grid appears earlier in the problem description.
+The least tiring route goes right, right, up, up, up, up, left, left.
+The difficulty is $15+12+5+4+3+2+1+8+11=61$.
+
+\vspace{1cm}
+
+\begin{center}
+{\LARGE The example runs continue on the next page.}
+\end{center}
+
+\newpage
+
+\fe{Example Run 2}
+\begin{verbatim}
+R C ? 5 3
+Bottom row ? 5 20 25
+Start-x and start-y ? 1 4
+Goal-x and goal-y ? 2 0
+
+Answer: 76
 \end{verbatim}
 
 \vspace{1cm}
-\fe{Sample run 3}
-\begin{verbatim}
-N, K, S, A ? 10 20 30 40
 
-Answer: 435462573
+\fe{Example Run 3}
+\begin{verbatim}
+R C ? 100000 6
+Bottom row ? 218849 99999 100019 100003 100000 264319
+Start-x and start-y ? 1 8493
+Goal-x and goal-y ? 5 99998
+
+Answer: 4186884119
 \end{verbatim}
+
+
+
+
+\newpage
+\specialsection*{Problem 6 -- Binary Palindromes}
+
+Mikaela studies interesting positive integers, and now wants to investigate numbers that are \emph{binary palindromes}.
+To formally describe this, we define the following functions:
+\begin{align*}
+\text{bin}(n) &= \text{the binary representation of the integer } n \text{ without leading zeros},\\
+\text{reverse}(s) &= \text{the string } s \text{ written backwards}.
+\end{align*}
+
+An integer $n$ is thus a \emph{binary palindrome} if
+\[
+\text{bin}(n) = \text{reverse}(\text{bin}(n)).
+\]
+
+Note that a palindrome is a string that reads the same forwards and backwards.
+
+Mikaela is particularly interested in binary palindromes that contain exactly $k$ ones in their binary representation,
+and now wants to know how many such numbers exist in the interval $[l,r]$.
+
+Given three integers $l$, $r$, and $k$, determine how many integers $x$ satisfy:
+\begin{enumerate}
+\item The number $x$ is between $l$ and $r$, i.e.\ $l \leq x \leq r$,
+\item The number $x$ is a number Mikaela likes (i.e.\ a binary palindrome),
+\item The binary representation of $x$ contains exactly $k$ ones.
+\end{enumerate}
+
+Write a program that reads the integers $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
+
+The program should then output how many integers in the interval $[l, r]$ are binary palindromes and have exactly $k$ ones in their binary representation.
+
+\fe{Scoring:}\
+The five test cases, each worth $1$ point, have the following additional constraints:
+\begin{itemize}
+\item[(1)] $\;\;\;\;$ $l,r \leq 10^9$
+\item[(2)] $\;\;\;\;$ $k \leq 4$
+\item[(3-5)] $\;\;\;\;$ No additional constraints.
+\end{itemize}
+
+\vspace{2cm}
+
+\fe{Example Run 1}
+\begin{verbatim}
+l r k ? 7 10 2
+
+Answer: 1
+\end{verbatim}
+
+\vspace{1cm}
+
+\begin{center}
+{\LARGE The example runs continue on the next page.}
+\end{center}
+
+\newpage
+
+\fe{Explanation of Example Run 1:}
+We seek numbers in the interval $[7, 10]$ that are both binary palindromes and have exactly two ones in their binary representation.
+
+There are only 4 numbers in the interval, and their binary representations are:
+
+\begin{align*}
+7 &= 111_2 \quad (\text{palindrome, three ones}) \\
+8 &= 1000_2 \quad (\text{not a palindrome}) \\
+9 &= 1001_2 \quad (\text{palindrome, two ones}) \\
+10 &= 1010_2 \quad (\text{not a palindrome})
+\end{align*}
+
+The only number satisfying both conditions is $9$, so the answer is $1$.
+
+\vspace{1cm}
+
+\fe{Example Run 2}
+\begin{verbatim}
+l r k ? 1 6 2
+
+Answer: 2
+\end{verbatim}
+\fe{Explanation:}
+We seek numbers in the interval $[1, 6]$ that are both binary palindromes and have exactly two ones in their binary representation.
+
+There are only 6 numbers in the interval:
+
+\begin{align*}
+1 &= 1_2 \quad (\text{palindrome, one one}) \\
+2 &= 10_2 \quad (\text{not a palindrome}) \\
+3 &= 11_2 \quad (\text{palindrome, two ones}) \\
+4 &= 100_2 \quad (\text{not a palindrome}) \\
+5 &= 101_2 \quad (\text{palindrome, two ones}) \\
+6 &= 110_2 \quad (\text{not a palindrome})
+\end{align*}
+
+The numbers satisfying both conditions are $3$ and $5$, so the answer is $2$.
+
+\vspace{1cm}
+
+\fe{Example Run 3}
+\begin{verbatim}
+l r k ? 999 99999 6
+
+Answer: 94
+\end{verbatim}
+
+
+
 
 \end{document}
