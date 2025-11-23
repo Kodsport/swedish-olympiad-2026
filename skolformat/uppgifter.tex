@@ -303,9 +303,11 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
     \item[(3-5)] $\;\;\;\;$ Inga ytterligare begränsningar.
 \end{itemize}
 
-\vspace{0.5cm}
-\fe{Körningsexempel 1}\\
-\vspace{-0.3cm}
+
+
+\vspace{0.4cm}
+\fe{Körningsexempel 1}
+\vspace{-0.2cm}
 \begin{verbatim}
 N ? 4
 M ? 5
@@ -319,13 +321,19 @@ Svar:
 ..X..
 ..X..
 ..X..
-
 \end{verbatim}
-\fe{Förklaring:} 
+
+
+\begin{center}
+    {\LARGE Körningsexemplen fortsätter på nästa sida.}
+\end{center}
+
+\fe{Förklaring av körningsexempel 1:} 
 Gårdarna ligger i första och sista kolumnen på översta raden. 
 Den tredje rutan på översta raden ligger två minuter från båda gårdarna (två steg åt vänster respektive två steg åt höger). 
 Alla rutor rakt under den har samma avståndspar: gå upp till översta raden och sedan lika långt åt vänster som åt höger. 
 Därför markeras hela den kolumnen med ''\verb|X|''. Övriga rutor har olika avstånd och markeras inte.
+
 
 \vspace{0.5cm}
 \fe{Körningsexempel 2}\\
@@ -394,14 +402,27 @@ Om du vandrar optimalt, vad är minsta möjliga jobbigheten?
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.3\textwidth]{sample1.pdf}
-    \\Bilden visar hur rutnätet ser ut i exempelfall 1. Raden längst ner innehåller systrarnas hus.
-    Start- och mål är även markerade, samt den mest minst jobbiga vandringar mellan dem.
+  \includegraphics[width=0.3\textwidth]{langatrappor_sample1.pdf}
+    \\Bilden visar hur rutnätet ser ut i körningsexempel 1. Raden längst ner innehåller systrarnas hus.
+    Start- och mål är även markerade, samt den mest minst jobbiga vandringen mellan dem.
 \end{figure}
 
-Indataformat bla bla jag orkar inte
-Skriv ett program som först läser in heltalet $N$ ($1 \le N \le 10^9$), som utgör kålnami-koden.
-Det ska sedan läsa in siffran $M$ ($2 \leq M \leq 9$), som beskrivits ovan.
+\begin{center}
+    {\LARGE Problembeskrivningen fortsätter på nästa sida.}
+\end{center}
+
+\newpage
+
+Skriv ett program som först läser in heltalen $R$ och $C$ ($1 \leq R \leq 10^9$, $1 \leq C \leq 10$), rutnätets dimensioner.
+Det ska sedan läsa in $C$ heltal $f_1, \dots, f_N$ ($R-1 \leq f_i \leq 10^9$),
+höjden där vardera systers hus befinner sig på.
+$f_1$ är höjden på huset vid $(0,0)$ och så vidare.
+
+Läs sedan in heltalen $s_x$ och $s_y$ ($0 \leq s_x < C$, $0 \leq s_y < R$),
+koordinaten där du börjar. Läs till sist in heltalen $g_x$ och $g_y$ ($0 \leq g_x < C$, $0 \leq g_y < R$),
+koordinaten du vill ta dig till.
+
+Notera att höjderna är valda så att \textbf{inga} höjder innanför rutnätet är negativa.
 
 Programmet ska sedan skriva ut jobbigheten av den minst jobbiga vandring från start till koordinaterna du vill ta dig till.
 \textbf{Notera: svaret ryms inte nödvändigtvis i ett 32-bitars heltal.}
@@ -414,6 +435,7 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
     \item[(4-5)] $\;\;\;\;$ Inga ytterligare begränsningar.
 \end{itemize}
 
+\vspace{0.6cm}
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
@@ -428,12 +450,16 @@ Mål-y ? 4
 Svar: 61
 \end{verbatim}
 
-\fe{Förklaring:}
-TODO
-
-Se nästa sida för ett till körningsexempel.
+\fe{Förklaring:} En bild av hur detta rutnätet ser ut finns finns tidigare i uppgiftsbeksrivningen. Den minsta jobbiga vandringen går höger, höger, upp, upp, upp, upp, vänster, vänster.
+Jobbigheten är $15+12+5+4+3+2+1+8+11=61$.
 
 \vspace{1cm}
+
+\begin{center}
+    {\LARGE Fler körningsexempel finns på nästa sida.}
+\end{center}
+
+\newpage
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
