@@ -73,14 +73,14 @@ De högst placerade i kvalet går vidare till finalen i Göteborg där landslags
 Alice och Bertil kastar boll i en park. Exakt $21$ meter framför Alice och Bertil finns en stolpe, och Jack utmanar Alice och Bertil till en liten utmaning.
 
 Utmaningen är att Alice och Bertil ska kasta varsin boll så nära stolpen som möjligt, men bollen får inte kastas förbi stolpen.
-Den som kastar närmast $21$ meter, utan att kasta förbi $21$ meter, vinner. Om både Alice och Bertil kastar över $21$ meter, eller om de kastar lika långt så vinner Jack. De har nu kastat och hjälp att avgöra vem som vann.
+Den som kastar närmast $21$ meter, utan att kasta förbi $21$ meter, vinner. Om både Alice och Bertil kastar över $21$ meter, eller om de kastar lika långt så vinner Jack istället. De har nu kastat och behöver hjälp att avgöra vem som vann.
 
-Skriv ett program som läser in talen $A$ och $B$, antalet meter som Alice och
-bertil har kastat vardera, och sedan skriver ut vem som vunnit.
+Skriv ett program som först läser in talen $A$ och $B$, antalet meter som Alice och
+Bertil har kastat vardera.
 
 Det är garanterat att $(0 \leq A,B \leq 30)$ håller.
 
-Sedan ska programmet skriva vem som vann: antingen ''Alice'', ''Bertil'' eller ''Jack''. Notera att du inte ska skriva ut citationstecken.
+Sedan ska programmet skriva ut vem som vann: antingen ''Alice'', ''Bertil'' eller ''Jack''. Notera att du inte ska skriva ut citationstecken.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
@@ -125,15 +125,16 @@ Svar: Jack
 Du har en kompass som kan peka i $360$ olika riktningar. Just nu pekar den rakt uppåt, på talet $360$.
 
 Tyvärr så funkar inte kompassen, och det enda sättet du kan få den att peka i andra riktningar
-är genom lyfta på hela kompassen och rotera den ett antal grader motsols. Till din hjälp har du
+är genom att lyfta på hela kompassen och rotera den ett antal grader motsols. Till din hjälp har du
 två robotarmar. Dessa är tyvärr inte perfekta: den första robotarmen kan
 snurra kompassen exakt $a$ grader motsols och den andra robotarmen kan snurra $b$ grader motsols.
-Robotarmarna kan endast rotera kompassen $a$ respektive $b$ grader varje gång
+Robotarmarna kan endast rotera kompassen exakt $a$ respektive $b$ grader varje gång
 de används, varken mer eller mindre.
 På grund av detta går det kanske inte att få kompassen att peka
 i alla $360$ riktningar.
 
 Detta får dig att undra hur många unika riktningar kompassen kan peka åt?
+Kompassen kan endast roteras genom att använda robotarmarna ett flertal gånger.
 
 Skriv ett program som läser in talen $a$ och $b$, antalet grader som den första respektive andra robotarmen snurrar kompassen.
 
@@ -160,10 +161,10 @@ Svar: 36
 \end{verbatim}
 \fe{Förklaring:} Med denna uppsättningen robotarmar går det att få kompassen
 att peka på varje heltalsmultipel av $10$: $0, 10, 20, \dots, 350$.
-Notera att $0$ och $360$ är samma gradtal. Om hon använder robotatarm $a$
-$8$ gånger kan hon exempelvis få kompassen att peka mot $40$ grader.
+Notera att $0$ och $360$ är samma gradtal.
+Om hon tar robotarmen med $a=50$ och använder den $8$ gånger kan hon exempelvis få kompassen att peka $40$ grader motsols.
 
-\vspace{0.7cm}
+\vspace{0.4cm}
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
@@ -172,7 +173,7 @@ Gradtal b ? 360
 
 Svar: 1
 \end{verbatim}
-\fe{Förklaring:} Hur många gånger du än roterar kompassen kommer den fortsätta vara riktad åt $0$.
+\fe{Förklaring:} Hur många gånger du än roterar kompassen med denna uppsättning robotarmar kommer den fortsätta vara riktad $0$ grader motsols.
 
 
 \newpage
@@ -193,7 +194,7 @@ För att plantera träden kan han göra följande:
   \item Förflytta sig ett steg åt höger (öka positionen med $1$).
   \item Förflytta sig ett steg åt vänster (minska positionen med $1$).
   \item Om han befinner sig vid position $0$ kan han plocka upp en av de $N$ trädplantorna.
-  \item Ta en av trädplantorna han bär på, och plantera det där han befinner sig.
+  \item Ta en av trädplantorna han bär på, och plantera den där han befinner sig.
 \end{itemize}
 Varje sådan handling tar exakt en sekund.
 
@@ -201,7 +202,7 @@ Tyvärr klarar Teo av att bära som mest $K$ kilogram träd åt gången.
 Varje träd väger antingen $20$ eller $40$ kilogram.
 
 När alla träd har planterats måste Teo dessutom återvända till position $0$.
-Din uppgift är att beräkna hur lång tid detta tar om Teo arbetar på snabbast möjliga sätt.
+Din uppgift är att beräkna hur lång tid det tar för Teo att plantera alla träd och sedan återvända till position $0$ om han arbetar på snabbast möjliga sätt.
 
 Skriv ett program som först läser in $N$ och $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$), antalet träd som ska planteras, respektive antalet kilogram som Teo orkar bära.
 Därefter ska programmet läsa in på nästa rad $N$ heltal $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), positionerna där varje trädplanta ska planteras. 
@@ -216,7 +217,7 @@ Programmet ska sedan skriva ut antalet sekunder det tar för Teo att plantera al
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
 \begin{itemize}
     \item[(1)] $\;\;\;\;$ $K=25$
-    \item[(2)] $\;\;\;\;$ $k_i = 20$
+    \item[(2)] $\;\;\;\;$ $k_i = 20$ för alla $i$.
     \item[(3)] $\;\;\;\;$ Alla träd ska planteras på samma position.
     \item[(4-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
 \end{itemize}
@@ -238,8 +239,9 @@ Trädens vikt ? 20 40
 
 Svar: 10
 \end{verbatim}
-\fe{Förklaring:} Det finns två träd i detta exempelfall. Ett väger $20$ kilogram och ska planteras vid position $1$, och det andra väger $40$ kilogram och ska planteras vid position $2$.
-I exempelfallet är en optimal lösning för Teo att göra följande:
+\fe{Förklaring:} Det finns två träd i detta körningsexempel.
+Ett av träden väger $20$ kilogram och ska planteras vid position $1$, och det andra väger $40$ kilogram och ska planteras vid position $2$.
+I körningsexemplet är en optimal lösning för Teo att göra följande:
 \begin{itemize}
   \item Plocka upp trädet som ska planteras vid position $1$.
   \item Gå höger.
@@ -252,7 +254,7 @@ I exempelfallet är en optimal lösning för Teo att göra följande:
   \item Gå vänster.
   \item Gå vänster. Han har nu återvänt till position $0$ och är därmed färdig.
 \end{itemize}
-Det finns andra sätt att plantera träden lika snabbt, men det går inte att få
+Det finns andra sätt att plantera träden lika snabbt, men det går inte att göra det på
 mindre än $10$ sekunder.
 
 
@@ -266,7 +268,7 @@ Trädens vikt ? 20 40 20 20
 
 Svar: 60
 \end{verbatim}
-\fe{Förklaring:} I det här exempelfallet är en optimal lösning att först plantera trädet vid position $9$, sen de vid position $10$ och $8$ i en och samma tur, och till sist det vid position $7$.
+\fe{Förklaring:} I det här körningsexemplet är en optimal lösning att först plantera trädet vid position $9$, sen de vid position $10$ och $8$ i en och samma tur, och till sist det vid position $7$.
 
 
 \newpage
@@ -285,11 +287,11 @@ Det är känt att det tar lika lång tid att ta sig från var och en av gårdarn
 Din uppgift är att skriva ett program som hittar vilka rutor där tingsplatsen skulle kunna funnits.
 
 Programmet ska först läsa in heltalen $N$ och $M$ ($1 \leq N,M \leq 10$), antalet rader och kolumner i rutnätet. 
-Därefter ska programmet läsa in $N$ rader med $M$ karaktärer vardera, som innehåller rutnätets rader.
-Tecknet ''\verb|*|'' betyder att det finns en gård på motsvarande plats i rutnätet, 
-och ''\verb|.|'' betyder att det inte finns en gård.
+Därefter ska programmet läsa in $N$ rader med $M$ tecken vardera, som innehåller rutnätets rader.
+Tecknet ''\verb|*|'' betyder att det fanns en gård på motsvarande plats i rutnätet, 
+och ''\verb|.|'' betyder att det inte fanns en gård.
 
-Det är garanterat att det finns minst två gårdar på rutnätet, 
+Det är garanterat att det finns minst två gårdar i rutnätet, 
 och det garanteras att alltid finnas minst en ruta där tingsplatsen kan vara.
 
 Programmet ska sedan skriva ut en kopia av rutnätet från indatan, men de rutor som tingsplatsen kan vara belägen på är markerat med ''\verb|X|''.
@@ -331,7 +333,7 @@ Svar:
 \fe{Förklaring av körningsexempel 1:} 
 Gårdarna ligger i första och sista kolumnen på översta raden. 
 Den tredje rutan på översta raden ligger två minuter från båda gårdarna (två steg åt vänster respektive två steg åt höger). 
-Alla rutor rakt under den har samma avståndspar: gå upp till översta raden och sedan lika långt åt vänster som åt höger. 
+Alla rutor rakt under den har samma avstånd till båda gårdarna: gå upp till översta raden och sedan lika åt vänster eller höger. 
 Därför markeras hela den kolumnen med ''\verb|X|''. Övriga rutor har olika avstånd och markeras inte.
 
 
@@ -373,38 +375,38 @@ Svar:
 \end{verbatim}
 \fe{Förklaring:} 
 Den markerade rutan i mitten är den enda möjliga positionen för tingsplatsen.
-Det tar två minuter att ta sig från varje gård till den här rutan.
+Det tar två minuter att ta sig till varje gård från den här rutan.
 
 
 \newpage
 \specialsection*{Uppgift 5 -- Långa trappor}
 
-Det sägs att uppe i Alperna bor det $C$ stycken systrar som vardera har ett eget favorittal $f$.
+Det sägs att uppe i Alperna bor $C$ systrar som vardera har ett eget favorittal $f$.
 Varje syster har därför byggt ett hus $f$ höjdenheter över vattenytan.
-Dessa hus är byggda på ett $R \times C$ stort rutnät, där $x$-axeln går österut och $y$-axeln norrut.
-Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(1,0)$ och så vidare.
-Det vill säga, husen är byggda längs med rutnätets bottenrad.
+Husen är byggda på ett $R \times C$ stort rutnät, där $x$-axeln pekar österut och $y$-axeln pekar norrut.
+Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(1,0)$, och så vidare.
+Med andra ord är husen byggda längs rutnätets bottenrad.
 
 När husen befinner sig så högt uppe blir det svårt att ta sig upp och ner.
-Därför har varje syster byggt en trappa från sitt hus till de ovanstående $R-1$ raderna.
-För varje ruta hon går upp minskar hon höjden med $1$.
-Exempelvis, om systerns hus befinner sig på $(2,0)$ och har höjd $10$, så bygger hon ett trappsteg vid $(2,1)$ med höjd $9$, ett trappsteg vid $(2,2)$ med höjd $8$, och så vidare.
+Därför har varje syster byggt en trappa från sitt hus till de $R-1$ raderna ovanför.
+För varje ruta uppåt i rutnätet hon går upp minskar hon höjden med $1$.
+Till exempel: om systerns hus ligger vid $(2,0)$ och har höjd $10$, byggs ett trappsteg vid $(2,1)$ med höjd $9$, ett steg vid $(2,2)$ med höjd $8$, och så vidare.
 
 Du befinner dig just nu på detta rutnätet.
 Mer exakt befinner du dig på koordinaterna $(s_x, s_y)$ och vill ta dig till $(g_x, g_y)$.
 Du kan röra dig till rutor som är intilliggande antingen upp, vänster, ner eller höger.
-Det är aldrig ett problem att gå höger eller vänster, även om det finns stora höjdskillnader.
+Det är aldrig ett problem att gå höger eller vänster, även om det kan finnas stora höjdskillnader.
 Självfallet kan du inte röra dig till en koordinat utanför rutnätet.
 
-De höga höjderna är ganska jobbiga för dig, så ditt mål är att minimera tiden du spenderar på hög höjd.
-Mer exakt, om du under din vandring från $(s_x, s_y)$ till $(g_x, g_y)$ besöker en viss mängd rutor, så definierar vi jobbigheten av vandringen som summan av höjden av alla rutor du besöker.
+Höga höjder är ganska jobbiga, så ditt mål är att minimera den tid du spenderar på hög höjd.
+Mer exakt, om du under din vandring från $(s_x, s_y)$ till $(g_x, g_y)$ besöker en viss mängd rutor, så definierar vi jobbigheten av vandringen som summan av höjden av alla rutor du besöker. Om du passerar samma ruta flera gånger räknas varje besök separat.
 Om du vandrar optimalt, vad är minsta möjliga jobbigheten?
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{langatrappor_sample1.pdf}
     \\Bilden visar hur rutnätet ser ut i körningsexempel 1. Raden längst ner innehåller systrarnas hus.
-    Start- och mål är även markerade, samt den mest minst jobbiga vandringen mellan dem.
+    Start och mål är även markerade, samt den minst jobbiga vandringen mellan dem.
 \end{figure}
 
 \begin{center}
@@ -450,7 +452,7 @@ Mål-y ? 4
 Svar: 61
 \end{verbatim}
 
-\fe{Förklaring:} En bild av hur detta rutnätet ser ut finns finns tidigare i uppgiftsbeksrivningen. Den minsta jobbiga vandringen går höger, höger, upp, upp, upp, upp, vänster, vänster.
+\fe{Förklaring:} En bild av hur detta rutnätet ser ut finns tidigare i uppgiftsbeksrivningen. Den minsta jobbiga vandringen går höger, höger, upp, upp, upp, upp, vänster, vänster.
 Jobbigheten är $15+12+5+4+3+2+1+8+11=61$.
 
 \vspace{1cm}
