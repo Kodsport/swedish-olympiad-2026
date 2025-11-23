@@ -145,8 +145,8 @@ Sedan ska programmet skriva ut antal unika riktningar som kompassen kan peka åt
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
 \begin{itemize}
   \item[(1)] $\;\;\;\;$ $a = 13$
-  \item[(1-2)] $\;\;\;\;$ $a = b$
-  \item[(3-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
+  \item[(2-3)] $\;\;\;\;$ $a = b$
+  \item[(4-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
 \end{itemize}
 
 \vspace{0.3cm}
@@ -161,7 +161,7 @@ Svar: 36
 \fe{Förklaring:} Med denna uppsättningen robotarmar går det att få kompassen
 att peka på varje heltalsmultipel av $10$: $0, 10, 20, \dots, 350$.
 Notera att $0$ och $360$ är samma gradtal. Om hon använder robotatarm $a$
-$8$ gånger kan hon exempelvis på kompassen att peka mot $40$ grader.
+$8$ gånger kan hon exempelvis få kompassen att peka mot $40$ grader.
 
 \vspace{0.7cm}
 
@@ -207,7 +207,7 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
 \begin{itemize}
     \item[(1)] $\;\;\;\;$ $K=25$
     \item[(2)] $\;\;\;\;$ $k_i = 20$
-    \item[(3)] $\;\;\;\;$ Alla träd ska planteras på samma $x$-koordinat.
+    \item[(3)] $\;\;\;\;$ Alla träd ska planteras på samma koordinat.
     \item[(4-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
 \end{itemize}
 
@@ -221,7 +221,7 @@ Trädens vikt ? 20 20
 
 Svar: 8
 \end{verbatim}
-\fe{Förklaring:} Denna indatan betyder att det finns två träd. Ett väger $20$kg och ska planteras vid koordinat $1$, och det andra väger också $20$kg och ska planteras vid koordinat $2$.
+\fe{Förklaring:} Det finns två träd i denna indata. Ett väger $20$kg och ska planteras vid koordinat $1$, och det andra väger också $20$kg och ska planteras vid koordinat $2$.
 I exempelfallet är det optimalt att för Teo att göra följande:
 \begin{itemize}
   \item Plocka upp trädet med koordinat $1$.
@@ -266,7 +266,7 @@ Programmet ska sedan skriva ut en kopia av rutnätet i indatan, men där det mar
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
     \item[(1)] $\;\;\;\;$ $N = 1$
-    \item[(2)] $\;\;\;\;$ Det finns exakt $4$ gårdar som alla ligger på hörnet av en rektangel.
+    \item[(2)] $\;\;\;\;$ Det finns exakt $4$ gårdar som alla ligger på hörnen av en rektangel.
     \item[(3-5)] $\;\;\;\;$ Inga ytterligare begränsningar.
 \end{itemize}
 
@@ -291,7 +291,7 @@ Svar:
 \fe{Förklaring:} TODO
 
 
-\specialsection*{Uppgift 5 -- Miniräknaren}
+\specialsection*{Uppgift 5 -- Långa trappor}
 
 
 Det sägs att uppe i Alperna bor det $C$ stycken systrar som vardera har ett eget favorittal $f$.
@@ -390,17 +390,14 @@ Svar: 4186884119
 \newpage
 \specialsection*{Uppgift 6 -- Binära palindrom}
 
-
 Mikaela studerar intressanta positiva heltal, och vill nu undersöka tal som är ett \emph{binärt palindrom}. 
 För att formellt beskriva detta definierar vi följande funktioner:
+\begin{align*}
+\text{bin}(n) &= \text{den binära representationen av heltalet } n \text{ utan inledande nollor},\\
+\text{reverse}(s) &= \text{strängen } s \text{ skriven baklänges}.
+\end{align*}
 
-\[
-\text{bin}(n) = \text{den binära representationen av heltalet } n \text{ utan inledande nollor},
-\]
 
-\[
-\text{reverse}(s) = \text{strängen } s \text{ skriven baklänges}.
-\]
 
 Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
 \[
@@ -410,7 +407,7 @@ Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
 Notera att ett palindrom är en sträng som läses likadant framifrån som bakifrån.
 
 
-Mikaela gillar de binära palindromer som innehåller exakt $k$ ettor i dess binära representation, 
+Mikaela gillar de binära palindrom som innehåller exakt $k$ ettor i dess binära representation, 
 och vill nu veta hur många sådana tal som finns inom intervallet $[l,r]$.
 
 Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
@@ -420,9 +417,9 @@ Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
     \item Binärrepresentationen av $x$ innehåller exakt $k$ ettor.
 \end{enumerate}
 
-Skriv ett program som läser in heltalen $l, r, k$ $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
+Skriv ett program som läser in heltalen $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
 
-Programmet ska skriva ut antalet tal i intervallet $[l, r]$ som är binära palindromer och har exakt $k$ ettor i sin binära representation.
+Programmet ska skriva ut antalet heltal i intervallet $[l, r]$ som är ett binärt palindrom och har exakt $k$ ettor i sin binära representation.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
@@ -440,9 +437,9 @@ l, r, k ? 7 10 2
 Svar: 1
 \end{verbatim}
 \fe{Förklaring:} 
-Vi söker tal i intervallet $[7, 10]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
+Vi söker tal i intervallet $[7, 10]$ som både är ett binärt palindrom och har exakt två ettor i sin binära representation.
 
-Det finns endast 4 tal i intervallet:
+Det finns endast 4 tal i intervallet, och deras binära representation är:
 
 \begin{align*}
 7 &= 111_2 \quad (\text{palindrom, tre ettor}) \\
@@ -451,7 +448,7 @@ Det finns endast 4 tal i intervallet:
 10 &= 1010_2 \quad (\text{ej palindrom})
 \end{align*}
 
-Det enda talet som uppfyller båda villkoren är $9$, så svaret är $1$.
+Det enda talet som uppfyller båda villkoren är talet $9$, så svaret är $1$.
 
 \vspace{1cm}
 
@@ -462,7 +459,7 @@ l, r, k ? 1 6 2
 Svar: 2
 \end{verbatim}
 \fe{Förklaring:} 
-Vi söker tal i intervallet $[1, 6]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
+Vi söker tal i intervallet $[1, 6]$ som både är ett binärt palindrom och har exakt två ettor i sin binära representation.
 
 Det finns endast 6 tal i intervallet:
 
@@ -475,7 +472,7 @@ Det finns endast 6 tal i intervallet:
 6 &= 110_2 \quad (\text{ej palindrom})
 \end{align*}
 
-Talen som uppfyller båda villkoren är $3$ och $5$, så svaret är $2$.
+Talen som uppfyller båda villkoren är talen $3$ och $5$, så svaret är $2$.
 
 \vspace{1cm}
 
