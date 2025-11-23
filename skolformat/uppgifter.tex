@@ -418,13 +418,13 @@ Om du vandrar optimalt, vad är minsta möjliga jobbigheten?
 Skriv ett program som först läser in heltalen $R$ och $C$ ($1 \leq R \leq 10^9$, $1 \leq C \leq 10$), rutnätets dimensioner.
 Det ska sedan läsa in $C$ heltal $f_1, \dots, f_N$ ($R-1 \leq f_i \leq 10^9$),
 höjden där vardera systers hus befinner sig på.
-$f_1$ är höjden på huset vid $(0,0)$ och så vidare.
+$f_1$ är höjden på huset vid $(0,0)$, $f_2$ vid $(1, 0)$, och så vidare.
+
+\textbf{Notera} att höjderna $f_i$ är valda så att resterande höjder i rutnätet inte är negativa.
 
 Läs sedan in heltalen $s_x$ och $s_y$ ($0 \leq s_x < C$, $0 \leq s_y < R$),
 koordinaten där du börjar. Läs till sist in heltalen $g_x$ och $g_y$ ($0 \leq g_x < C$, $0 \leq g_y < R$),
 koordinaten du vill ta dig till.
-
-Notera att höjderna är valda så att \textbf{inga} höjder innanför rutnätet är negativa.
 
 Programmet ska sedan skriva ut jobbigheten av den minst jobbiga vandring från start till koordinaterna du vill ta dig till.
 \textbf{Notera: svaret ryms inte nödvändigtvis i ett 32-bitars heltal.}
@@ -458,7 +458,7 @@ Jobbigheten är $15+12+5+4+3+2+1+8+11=61$.
 \vspace{1cm}
 
 \begin{center}
-    {\LARGE Fler körningsexempel finns på nästa sida.}
+    {\LARGE Körningsexemplen fortsätter på nästa sida.}
 \end{center}
 
 \newpage
@@ -495,7 +495,7 @@ Svar: 4186884119
 \newpage
 \specialsection*{Uppgift 6 -- Binära palindrom}
 
-Mikaela studerar intressanta positiva heltal, och vill nu undersöka tal som är ett \emph{binärt palindrom}. 
+Mikaela studerar intressanta positiva heltal, och vill nu undersöka tal som är \emph{binära palindrom}. 
 För att formellt beskriva detta definierar vi följande funktioner:
 \begin{align*}
 \text{bin}(n) &= \text{den binära representationen av heltalet } n \text{ utan inledande nollor},\\
@@ -512,7 +512,7 @@ Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
 Notera att ett palindrom är en sträng som läses likadant framifrån som bakifrån.
 
 
-Mikaela gillar de binära palindrom som innehåller exakt $k$ ettor i dess binära representation, 
+Mikaela är särskilt intresserad av de binära palindrom som innehåller exakt $k$ ettor i dess binära representation, 
 och vill nu veta hur många sådana tal som finns inom intervallet $[l,r]$.
 
 Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
@@ -524,7 +524,7 @@ Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
 
 Skriv ett program som läser in heltalen $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
 
-Programmet ska skriva ut antalet heltal i intervallet $[l, r]$ som är ett binärt palindrom och har exakt $k$ ettor i sin binära representation.
+Programmet ska sedan skriva ut antalet heltal i intervallet $[l, r]$ som är ett binärt palindrom och har exakt $k$ ettor i sin binära representation.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
@@ -534,6 +534,7 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
     \item[(3-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
 \end{itemize}
 
+\vspace{2cm}
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
@@ -541,7 +542,17 @@ l, r, k ? 7 10 2
 
 Svar: 1
 \end{verbatim}
-\fe{Förklaring:} 
+
+
+\vspace{1cm}
+
+\begin{center}
+  {\LARGE Körningsexemplen fortsätter på nästa sida.}
+\end{center}
+
+\newpage
+
+\fe{Förklaring av körningsexempel 1:} 
 Vi söker tal i intervallet $[7, 10]$ som både är ett binärt palindrom och har exakt två ettor i sin binära representation.
 
 Det finns endast 4 tal i intervallet, och deras binära representation är:
