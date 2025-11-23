@@ -38,17 +38,18 @@
   \draw[->,thick] (0,0) -- (0,\Ny+0.3) node[above] {$y$};
 
   % ---------- Path visualization ----------
-  % First right move
-  \draw[red,thick]    (0.5,4.2) -- (2.26,4.2);
-  \draw[red,thick,->] (0.5,4.2) -- (1.55,4.2); % arrow
-
-  % Down move
+  
+  % Up move
   \draw[red,thick]    (2.25,4.2) -- (2.25,0.74);
-  \draw[red,thick,->] (2.25,4.2) -- (2.25,2.42); % arrow
-
-  % Left move
+  \draw[red,thick,->] (2.25,1.42) -- (2.25,2.55); % arrow
+  
+  % Right move
   \draw[red,thick]    (2.25,0.75) -- (0.5,0.75);
-  \draw[red,thick,->] (2.25,0.75) -- (1.45,0.75); % arrow
+  \draw[red,thick,->] (1,0.75) -- (1.55,0.75); % arrow
+  
+  % Left move
+  \draw[red,thick]    (0.5,4.2) -- (2.26,4.2);
+  \draw[red,thick,->] (2.2,4.2) -- (1.45,4.2); % arrow
 
   % Mark the path nodes
   \foreach \x/\y in {0.5/4.2,0.5/0.75} {
