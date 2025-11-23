@@ -6,6 +6,7 @@ use_solution joshua_greedy.py
 
 samplegroup
 sample 1
+sample 2
 
 group group1 20
 limits k_25=1

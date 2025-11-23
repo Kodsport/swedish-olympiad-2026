@@ -9,6 +9,7 @@ compile gen_rand.py
 
 samplegroup
 sample 1
+sample 2
 
 group group1 20
 limits k_25=1
