@@ -1,0 +1,306 @@
+\documentclass[a4paper,12pt,oneside]{amsbook}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp,hyperref}
+%\usepackage{euler}
+%\usepackage{garamond}
+
+\usepackage{newcent}
+%\fontfamily{fxm}\selectfont
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Detta paket skoter grafiken
+\usepackage[dvips]{graphicx}
+%\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[swedish]{babel}
+% For bortkommentering
+\usepackage{verbatim}
+% For att slippa indentering av Sections och SubSections
+\usepackage{indentfirst}
+\usepackage{hyperref}
+
+% Har stalls paragrafindentering och avstand mellan stycken och rader mm
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\baselineskip}{12pt}
+% Har definieras sidan
+\setlength{\voffset}{-20mm}
+\setlength{\hoffset}{-5.5mm}
+
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{10mm}
+\setlength{\headsep}{8mm}
+\setlength{\footskip}{8mm}
+
+\setlength{\evensidemargin}{0mm}
+\setlength{\oddsidemargin}{0mm}
+
+\setlength{\marginparsep}{0mm}
+\setlength{\marginparwidth}{0mm}
+
+\setlength{\textwidth}{170mm}
+\setlength{\textheight}{240mm}
+\setlength{\paperwidth}{210mm}
+\setlength{\paperheight}{297mm}
+\setlength{\headwidth}{170mm}
+% Huvud och Fot
+%\fancypagestyle{}{
+\fancyhf{}\fancyhead[c]{\small{\textit{Svar och rättningsanvisningar
+      till Programmeringsolympiadens skolkval 2025}}}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newenvironment{lista}
+{\begin{itemize}
+\setlength{\parindent}{0pt}
+\setlength{\itemsep}{6pt}}
+{\end{itemize}}
+% Uppgifter
+\newcounter{probnr}
+\newenvironment{tal}{%
+\begin{list}
+%{\textbf{\arabic{section}.\arabic{probnr}}} {\usecounter{probnr}
+{\textbf{\arabic{probnr}}} {\usecounter{probnr}
+\setlength{\leftmargin}{0mm}
+\setlength{\rightmargin}{0mm}
+\setlength{\labelwidth}{-1mm}
+\setlength{\labelsep}{1mm}}
+\setlength{\itemsep}{6pt}
+}{\end{list}}
+% Definition av avsnitt: FAKTA, EXEMPEL, PASTAENDE
+\newtheorem{fakta}{Fakta}
+\newtheorem{exempel}{Exempel}
+\newtheorem{problem}{Problem}
+%
+\newtheoremstyle{test}% NAME
+{20pt}      % ABOVESPACE
+{10pt}      % BELOWSPACE
+{\sffamily} % BODYFONT
+{0pt}       % INDENT
+{\scshape}  % HEADFONT
+{}          % HEADPUNCT
+{\newline}  % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{test}
+\newtheorem{program}{Program}
+\newcommand{\sv}[1]{\textsc{#1}}            % Sma versaler
+\newcommand{\fe}[1]{\textbf{#1}}            % FET
+\newcommand{\ku}[1]{\textit{#1}}            % KURSIV
+\newcommand{\cu}[1]{\texttt{#1}}            % Courier
+\newcommand{\sk}[1]{\texttt{#1}}            % Courier
+\newcommand{\rubrik}[1]{\begin{center}\sf\huge{#1}\normalsize\rm\end{center}}
+\begin{document}
+%\DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png,.eps}
+
+
+\specialsection*{Svar och rättningsanvisningar}
+\thispagestyle{fancy}
+\lhead{}
+\begin{itemize}
+%\setlength\itemsep{0.2cm}
+\item Läs igenom \textit{tävlingsreglerna}.
+\item Programmen tas i tur och ordning in i editorn och kompileras.
+Uppstår kompileringsfel betraktas programmet som felaktigt och lösningen
+ges $0$ poäng.
+\item Programmet körs med givna indata enligt nedan. Alternativt, om eleven förberett programmet för det, kan de bifogade indatafilerna användas istället.
+\item Varje testfall
+  med korrekt svar ger 1 poäng. Svaret anses endast korrekt om det stämmer överens exakt med det anvigna svaret.
+\item
+Totalt kan man
+  alltså få 5 poäng för varje uppgift.
+\item Om exekveringstiden för ett testexempel, kört på en modern dator,
+\textit{överskrider 3 sekunder} betraktas körningen av testexemplet som felaktigt.
+\item Det kan vara viktigt att programmet körs i en miljö liknande den som
+programmet utvecklats i, samma version av kompilator eller
+interpretator.
+\item Vid problem i samband med rättningen är det viktigt att det sunda
+förnuftet får råda!
+\item Ett förslag till rättningsprocedur kan vara att låta eleven
+sitta vid datorn.
+\end{itemize}
+
+\vspace{1cm}
+
+\subsection*{Uppgift 1 -- Frack Jack}
+
+.
+
+Det är acceptabelt om deltagaren råkat skriva ut citationstecken i svaret.
+~\\
+{\tt 
+\begin{tabular}{||l||c|c||c||}\hline\hline
+& \multicolumn{2}{c||}{\fe{Indata}} & \multicolumn{1}{c||}{\fe{Utdata}} \\ 
+& Alice kastlängd & Bertils kastlängd &  \\ \hline \hline
+\fe{Test 1} & 21 & 3  & Alice\\ \hline
+\fe{Test 2} & 10 & 10 & Jack\\ \hline
+\fe{Test 3} & 30 & 0  & Bertil\\ \hline
+\fe{Test 4} & 22 & 30 & Jack\\ \hline
+\fe{Test 5} & 29 & 29 & Jack\\ \hline\hline
+\end{tabular}
+}
+%\vspace{1cm}
+
+
+\subsection*{Uppgift 2 -- Snurra kompass}
+~\\
+{\tt 
+\begin{tabular}{||l||c|c||c||}\hline\hline
+& \multicolumn{2}{c||}{\fe{Indata}} & \multicolumn{1}{c||}{\fe{Utdata}} \\ 
+& Gradtal A & Gradtal B &  \\ \hline \hline
+\fe{Test 1} & 13  & 256 & 360 \\ \hline
+\fe{Test 2} & 180 & 180 & 2 \\ \hline
+\fe{Test 3} & 24  & 24  & 15 \\ \hline
+\fe{Test 4} & 20  & 34  & 180 \\ \hline
+\fe{Test 5} & 147 & 221 & 360 \\ \hline\hline
+\end{tabular}
+}
+
+
+\subsection*{Uppgift 3 -- Arborist}
+
+~\\
+{\tt 
+\begin{tabular}{||l||c|c|l|l||c||}\hline\hline
+& \multicolumn{4}{c||}{\fe{Indata}} & \fe{Utdata} \\ 
+& N & K & Koordinater & Vikter &  \\ \hline \hline
+\fe{Test 1} & 6 & 25 & 10 2 1 25 14 12 & 20 20 20 20 20 20 & 140 \\ \hline
+\fe{Test 2} & 7 & 42 & 15 10 29 16 20 20 10 & 20 20 20 20 20 20 20 & 162 \\ \hline
+\fe{Test 3} & 5 & 42 & 5 5 5 5 5 & 20 40 20 20 40 & 50 \\ \hline
+\fe{Test 4} & 5 & 42 & 29 10 27 25 10 & 20 40 40 20 20 & 162 \\ \hline
+\fe{Test 5} & 7 & 42 & 30 29 29 1 10 9 11 & 20 40 20 20 40 20 20 & 176 \\ \hline
+\hline\hline
+\end{tabular}
+}
+\vspace{1cm}
+
+\subsection*{Uppgift 4 -- Tingsplatsen}
+
+~\\
+{\tt
+\begin{tabular}{||l||c|c|l||l||}\hline\hline
+& \multicolumn{3}{c||}{\fe{Indata}} & \fe{Utdata} \\
+& $N$ & $M$ & Rader & \\ \hline \hline
+\fe{Test 1} &1&10&....*...*. & ....*.X.*. \\
+\hline
+\fe{Test 2} &9&9&......... & ......... \\
+&&&.*...*...&.*...*...\\
+&&&.........&.........\\
+&&&.........&.........\\
+&&&.........&...X.....\\
+&&&.........&.........\\
+&&&.........&.........\\
+&&&.*...*...&.*...*...\\
+&&&.........&.........\\
+\hline
+\fe{Test 3} &10&10&.......*.. & .......*.. \\
+&&&........*.&........*.\\
+&&&..........&..........\\
+&&&..........&..........\\
+&&&..........&XXXXXXX...\\
+&&&..........&.......X..\\
+&&&..........&..........\\
+&&&..........&..........\\
+&&&..........&..........\\
+&&&......*...&......*...\\
+\hline
+\fe{Test 4} &10&9&......... & ....XXXXX \\
+&&&.........&....XXXXX\\
+&&&.*.......&.*..XXXXX\\
+&&&.........&...X.....\\
+&&&.........&..X......\\
+&&&....*....&XX..*....\\
+&&&.........&XX.......\\
+&&&.........&XX.......\\
+&&&.........&XX.......\\
+&&&.........&XX.......\\
+\hline
+\fe{Test 5} &10&10&..*....... & ..*....... \\
+&&&..........&..........\\
+&&&*.........&*.........\\
+&&&..........&..........\\
+&&&......*...&......*...\\
+&&&..........&..X.......\\
+&&&..........&..........\\
+&&&.....*....&.....*....\\
+&&&*...*.....&*...*.....\\
+&&&.*........&.*........\\
+\hline\hline
+\end{tabular}
+}
+\vspace{3cm}
+
+\subsection*{Uppgift 5 -- Långa trappor} .
+
+Precis som trapporna är indatan lång. Detta tvingade oss tyvärr
+att dela upp indatan per testfall i två tabeller.
+
+~\\
+{\tt 
+\begin{tabular}{||l||c|c|c||}\hline\hline
+& \multicolumn{3}{c||}{\fe{Indata}} \\ 
+& R & C & Bottenraden  \\ \hline \hline
+\fe{Test 1} & 923456789 & 2 & 977777777 941111111\\ \hline
+\fe{Test 2} & 10000 & 10 & 9999 9999 10004 10014 10008\\
+&&& 10004 10002 10004 9999 10002 \\ \hline
+
+\fe{Test 3} & 10000 & 10 & 10004 10003 10011 9999 10005\\
+&&& 10001 10004 9999 10004 10006 \\ \hline
+
+\fe{Test 4} & 700000000 & 10 & 699999999 825493196 937342883 998903925 896090514\\
+&&& 768426638 852560961 700000006 814808589 700000005 \\ \hline
+
+\fe{Test 5} & 900000000 & 10 & 900000000 922580416 997215756 907792280 947131371\\
+&&& 988495167 900000017 900000000 965023170 959759769 \\ \hline
+
+\hline\hline
+\end{tabular}
+}
+
+\vspace{0.1cm}
+
+Fortsättning...
+
+~\\
+{\tt 
+\begin{tabular}{||l||c|c|c|c||c||}\hline\hline
+& \multicolumn{4}{c||}{\fe{Indata}} & \multicolumn{1}{c||}{\fe{Utdata}} \\ 
+& $s_x$ & $s_y$ & $g_x$ & $g_y$ &  \\ \hline \hline
+\fe{Test 1} & 1 & 5 & 0 & 911111111 & 442395057470493837 \\ \hline
+\fe{Test 2} & 1 & 3218 & 7 & 9996 & 22994427 \\ \hline
+\fe{Test 3} & 0 & 7322 & 8 & 9995 & 3592587 \\ \hline
+\fe{Test 4} & 2 & 338563662 & 9 & 699999998 & 65318115312042441 \\ \hline
+\fe{Test 5} & 1 & 234084934 & 9 & 899999997 & 221721438972343157 \\ \hline
+\end{tabular}
+}
+
+\vspace{1cm}
+
+\subsection*{Uppgift 6 -- Binära palindrom}
+
+~\\
+{\tt 
+\begin{tabular}{||l||c|c|c||c||} \hline\hline
+  & \multicolumn{3}{c||}{\fe{Indata}} & \fe{Utdata} \\ 
+  & l & r & k &  \\ \hline \hline
+  \fe{Test 1} & 123456789 & 987654321 & 16 & 38 \\ \hline
+  \fe{Test 2} & 268451841 & 4503599694479361 & 3 & 13 \\ \hline
+  \fe{Test 3} & 123456789123456789 & 989999999999999992 & 29 & 42468528 \\ \hline
+  \fe{Test 4} & 664545914252227017 & 909090909090909090 & 34 & 28061113 \\ \hline
+  \fe{Test 5} & 77777777777 & 510407950671893831 & 31 & 68774807 \\ \hline
+
+\end{tabular}  
+}
+\vspace{1cm}
+
+
+\end{document}
+
+
+
+
+\end{document}
+
+
