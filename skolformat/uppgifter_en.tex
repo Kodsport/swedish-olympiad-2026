@@ -311,12 +311,6 @@ The five test cases, each worth $1$ point, have the following additional constra
 
 \newpage
 
-\fe{Explanation of Example Run 1:}
-The farms are in the first and last columns of the top row.
-The third cell in the top row is two minutes from both farms (two steps left and two steps right).
-All cells directly below it have the same distance to both farms: go up to the top row and then equally left or right.
-Therefore, the entire column is marked with ``\verb|X|''. Other cells have different distances and are not marked.
-
 \vspace{0.4cm}
 \fe{Example Run 1}
 \vspace{-0.2cm}
@@ -333,6 +327,13 @@ Answer:
 ..X..
 ..X..
 \end{verbatim}
+
+\fe{Explanation of Example Run 1:}
+The farms are in the first and last columns of the top row.
+The third cell in the top row is two minutes from both farms (two steps left and two steps right).
+All cells directly below it have the same distance to both farms: go up to the top row and then equally left or right.
+Therefore, the entire column is marked with ``\verb|X|''. Other cells have different distances and are not marked.
+
 
 \vspace{0.5cm}
 \fe{Example Run 2}\
@@ -391,14 +392,14 @@ It takes two minutes to reach each farm from this cell.
 
 It is said that up in the Alps live $C$ sisters, each of whom has a favorite number $f$.
 Each sister has therefore built a house $f$ height units above sea level.
-The houses are built on an $R \times C$ grid, where the $x$-axis points east and the $y$-axis points north.
-The first sister built her house at $(0,0)$, the second at $(1,0)$, and so on.
+The houses are built on an $R \times C$ grid such that the cell in the bottom left is $(0,0)$ and the cell in the top right is $(C,R)$.
+The first sister built her house at $(0,0)$, the second at $(1,0)$, and so on, so the last sister built her house at $(C-1,0)$.
 In other words, the houses are built along the bottom row of the grid.
 
 Since the houses are so high up, it becomes difficult to go up and down.
 Therefore, each sister has built a staircase from her house to the $R-1$ rows above.
 For every step upward in the grid, the height decreases by $1$.
-For example: if the sister’s house is at $(2,0)$ and has height $10$, then a stair step is built at $(2,1)$ with height $9$,
+For example: if a sister's house is at $(2,0)$ and has height $10$, then a stair step is built at $(2,1)$ with height $9$,
 a step at $(2,2)$ with height $8$, and so on.
 
 You are currently located on this grid.
@@ -417,7 +418,7 @@ If you walk optimally, what is the minimum possible difficulty?
 \centering
 \includegraphics[width=0.3\textwidth]{langatrappor_sample1.pdf}
 \\The image shows what the grid looks like in Example Run 1.
-The bottom row contains the sisters’ houses.
+The bottom row contains the sisters' houses.
 The start and goal are also marked, as well as the least tiring path between them.
 \end{figure}
 
@@ -430,7 +431,7 @@ The start and goal are also marked, as well as the least tiring path between the
 Write a program that first reads the integers $R$ and $C$ ($1 \leq R \leq 10^9$, $1 \leq C \leq 10$),
 the grid dimensions.
 It should then read $C$ integers $f_1, \dots, f_N$ ($R-1 \leq f_i \leq 10^9$),
-the height where each sister’s house is located.
+the height where each sister's house is located.
 $f_1$ is the height of the house at $(0,0)$, $f_2$ at $(1,0)$, and so on.
 
 \textbf{Note} that the heights $f_i$ are chosen so that the remaining heights in the grid are never negative.
