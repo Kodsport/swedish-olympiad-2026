@@ -68,6 +68,7 @@ De högst placerade i kvalet går vidare till finalen i Göteborg där landslags
 \setlength{\parskip}{\oldparskip}
 
 \newpage
+
 \specialsection*{Uppgift 1 -- Frack Jack}
 
 Alice och Bertil kastar boll i en park. Exakt $21$ meter framför Alice och Bertil finns en stolpe, och Jack utmanar Alice och Bertil till en liten utmaning.
@@ -78,7 +79,7 @@ Den som kastar närmast $21$ meter, utan att kasta förbi $21$ meter, vinner. Om
 Skriv ett program som först läser in talen $A$ och $B$, antalet meter som Alice och
 Bertil har kastat vardera.
 
-Det är garanterat att $(0 \leq A,B \leq 30)$ håller.
+Det är garanterat att $A$ och $B$ uppfyller $0 \leq A \leq 30$ och $0 \leq B \leq 30$.
 
 Sedan ska programmet skriva ut vem som vann: antingen ''Alice'', ''Bertil'' eller ''Jack''. Notera att du inte ska skriva ut citationstecken.
 
@@ -138,7 +139,7 @@ Kompassen kan endast roteras genom att använda robotarmarna ett flertal gånger
 
 Skriv ett program som läser in talen $a$ och $b$, antalet grader som den första respektive andra robotarmen snurrar kompassen.
 
-Det är garanterat att $(1 \leq a,b \leq 360)$ håller.
+Det är garanterat att $a$ och $b$ uppfyller $1 \leq a \leq 360$ och $1 \leq b \leq 360$.
 
 Sedan ska programmet skriva ut antal unika riktningar som kompassen kan peka åt om man snurrar den ett flertal gånger med robotarmarna.
 
@@ -324,8 +325,7 @@ Därför markeras hela den kolumnen med ''\verb|X|''. Övriga rutor har olika av
 \fe{Körningsexempel 1}
 \vspace{-0.2cm}
 \begin{verbatim}
-N ? 4
-M ? 5
+N M ? 4 5
 Rad 1 ? *...*
 Rad 2 ? .....
 Rad 3 ? .....
@@ -343,8 +343,7 @@ Svar:
 \fe{Körningsexempel 2}\\
 %\vspace{-0.3cm}
 \begin{verbatim}
-N ? 1
-M ? 10
+N M ? 1 10
 Rad 1 ? *.....*...
 
 Svar:
@@ -374,8 +373,7 @@ Ingen annan ruta på raden har samma avstånd till båda, därför markeras enda
 \fe{Körningsexempel 3}\\
 %\vspace{-0.3cm}
 \begin{verbatim}
-N ? 5
-M ? 5
+N M ? 5 5
 Rad 1 ? ..*..
 Rad 2 ? .....
 Rad 3 ? *...*
@@ -459,7 +457,7 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
-R och C ? 5 3
+R C ? 5 3
 Bottenraden ? 15 12 5
 Start-x och start-y ? 0 0
 Mål-x och mål-y ? 0 4
@@ -467,7 +465,7 @@ Mål-x och mål-y ? 0 4
 Svar: 61
 \end{verbatim}
 
-\fe{Förklaring:} En bild av hur detta rutnätet ser ut finns tidigare i uppgiftsbeksrivningen. Den minsta jobbiga vandringen går höger, höger, upp, upp, upp, upp, vänster, vänster.
+\fe{Förklaring:} En bild av hur detta rutnätet ser ut finns tidigare i uppgiftsbeksrivningen. Den minst jobbiga vandringen går höger, höger, upp, upp, upp, upp, vänster, vänster.
 Jobbigheten är $15+12+5+4+3+2+1+8+11=61$.
 
 \vspace{1cm}
@@ -480,7 +478,7 @@ Jobbigheten är $15+12+5+4+3+2+1+8+11=61$.
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-R och C ? 5 3
+R C ? 5 3
 Bottenraden ? 5 20 25
 Start-x och start-y ? 1 4
 Mål-x och mål-y ? 2 0
@@ -492,7 +490,7 @@ Svar: 76
 
 \fe{Körningsexempel 3}
 \begin{verbatim}
-R och C ? 100000 6
+R C ? 100000 6
 Bottenraden ? 218849 99999 100019 100003 100000 264319
 Start-x och start-y ? 1 8493
 Mål-x och mål-y ? 5 99998
@@ -547,7 +545,7 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
-l, r, k ? 7 10 2
+l r k ? 7 10 2
 
 Svar: 1
 \end{verbatim}
@@ -579,7 +577,7 @@ Det enda talet som uppfyller båda villkoren är talet $9$, så svaret är $1$.
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-l, r, k ? 1 6 2
+l r k ? 1 6 2
 
 Svar: 2
 \end{verbatim}
@@ -603,7 +601,7 @@ Talen som uppfyller båda villkoren är talen $3$ och $5$, så svaret är $2$.
 
 \fe{Körningsexempel 3}
 \begin{verbatim}
-l, r, k ? 999 99999 6
+l r k ? 999 99999 6
 
 Svar: 94
 \end{verbatim}
