@@ -300,7 +300,7 @@ Programmet ska sedan skriva ut en kopia av rutnätet från indatan, men de rutor
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
     \item[(1)] $\;\;\;\;$ $N = 1$
-    \item[(2)] $\;\;\;\;$ Det finns exakt $4$ gårdar som alla ligger på hörnen av en och samma rektangel.
+    \item[(2)] $\;\;\;\;$ Det finns exakt $4$ gårdar som alla ligger på hörnen av samma rektangel.
     \item[(3-5)] $\;\;\;\;$ Inga ytterligare begränsningar.
 \end{itemize}
 
@@ -398,12 +398,12 @@ Det tar två minuter att ta sig till varje gård från den här rutan.
 
 Det sägs att uppe i Alperna bor $C$ systrar som vardera har ett eget favorittal $f$.
 Varje syster har därför byggt ett hus $f$ höjdenheter över vattenytan.
-Husen är byggda på ett $R \times C$ stort rutnät, sådan att rutan längst ner till vänster är $(0,0)$, och rutan längst upp till höger är $(C,R)$.
+Husen är byggda på ett $R \times C$ stort rutnät, sådan att rutan längst ner till vänster är $(0,0)$, och rutan längst upp till höger är $(C-1,R-1)$.
 Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(1,0)$, och så vidare så att sista systern har byggt sitt hus vid $(C-1,0)$.
 Med andra ord är husen byggda längs rutnätets bottenrad.
 
 När husen befinner sig så högt uppe blir det svårt att ta sig upp och ner.
-Därför har varje syster byggt en trappa från sitt hus till de $R-1$ raderna ovanför.
+Därför har varje syster byggt en trappa från sitt hus till de $R-1$ raderna ovanför, där höjden minskar med $1$ för varje trappsteg.
 För varje ruta som inte är på bottenraden, finns det alltså en ruta nedanför, där höjden är $1$ mer än rutan ovan. 
 Till exempel: om systerns hus ligger vid $(2,0)$ och har höjd $10$, byggs ett trappsteg vid $(2,1)$ med höjd $9$, ett steg vid $(2,2)$ med höjd $8$, och så vidare.
 
