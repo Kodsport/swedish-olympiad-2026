@@ -178,32 +178,37 @@ Svar: 1
 \newpage
 \specialsection*{Uppgift 3 -- Arborist}
 
-Teo har äntligen landat sitt drömjobb; Han har börjat jobba som arborist!
+Teo har äntligen landat sitt drömjobb; han har börjat jobba som arborist!
 En viktig del av en arborists arbete är att plantera träd.
 
-Teo behöver nu hjälp med att plantera $N$ träd längs med heltalspositionerna på en tallinje. 
-Talinjen utgår från position $0$ och värdena ökar med $1$ för varje steg åt höger (och minskar med $1$ åt vänster).
+Teo behöver nu hjälp med att plantera $N$ träd på heltalspositioner längs en tallinje. 
+Tallinjen börjar vid position $0$ och värdet ökar med $1$ för varje steg åt höger (och minskar med $1$ åt vänster).
 
-För alla $N$ träd, har Teo redan bestämt det heltalsposition längs tallinjen som trädet ska planteras vid. 
-De bestämda positionerna är garanterat att vara positiva heltal.
+För alla $N$ träd har Teo redan bestämt exakt vilken heltalsposition på tallinjen som de ska planteras på. 
+Dessa positioner är alla positiva heltal.
+
 Teo befinner sig just nu vid position $0$, tillsammans med $N$ stora trädplantor.
 För att plantera träden kan han göra följande:
 \begin{itemize}
-  \item Förflytta sig ett steg åt höger (öka positionen med $1$). Detta tar en sekund.
-  \item Förflytta sig ett steg åt vänster (minska positionen med $1$). Detta tar en sekund.
-  \item Om han befinner sig vid position $0$ kan han plocka upp ett av de $N$ trädplantorna. Detta tar en sekund.
-  \item Ta ett av trädplantorna han bär på, och plantera det där han befinner sig. Detta tar en sekund.
+  \item Förflytta sig ett steg åt höger (öka positionen med $1$).
+  \item Förflytta sig ett steg åt vänster (minska positionen med $1$).
+  \item Om han befinner sig vid position $0$ kan han plocka upp en av de $N$ trädplantorna.
+  \item Ta en av trädplantorna han bär på, och plantera det där han befinner sig.
 \end{itemize}
-Tyvärr orkar Teo bära som mest $K$ kilogram träd åt gången. Varje träd väger antingen $20$ eller $40$ kilogram.
+Varje sådan handling tar exakt en sekund.
 
-När han väl planterat alla träd måste han återvända till position $0$. Han behöver nu din hjälp att lista ut hur lång tid detta kommer ta om han gör detta på snabbaste möjligaste vis.
+Tyvärr klarar Teo av att bära som mest $K$ kilogram träd åt gången.
+Varje träd väger antingen $20$ eller $40$ kilogram.
 
-Skriv ett program som först läser in $N$ och $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$), som representerar antalet träd som ska planteras, respektive antalet kilogram som Teo orkar bära.
-Därefter ska programmet läsa in på nästa rad $N$ heltal $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), som representerar positionerna där varje trädplanta ska planteras. 
-På sista raden ska det läsas in $N$ heltal $k_1, \dots, k_N$ ($k_i \leq K$), vikterna som representerar vikten av varje trädplanta i kilogram. 
+När alla träd har planterats måste Teo dessutom återvända till position $0$.
+Din uppgift är att beräkna hur lång tid detta tar om Teo arbetar på snabbast möjliga sätt.
+
+Skriv ett program som först läser in $N$ och $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$), antalet träd som ska planteras, respektive antalet kilogram som Teo orkar bära.
+Därefter ska programmet läsa in på nästa rad $N$ heltal $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), positionerna där varje trädplanta ska planteras. 
+På sista raden ska det läsas in $N$ heltal $k_1, \dots, k_N$ ($k_i \leq K$), vikten av varje trädplanta i kilogram. 
 Det är även garanterat att varje träd antingen väger $20$ eller $40$ kilogram.
 
-Programmet ska sedan skriva ut antalet sekunder det tar för Teo att plantera alla träd och återvända till $0$ om han gör detta på det snabbaste möjliga sättet.
+Programmet ska sedan skriva ut antalet sekunder det tar för Teo att plantera alla träd och därefter återvända till $0$, givet att han gör detta på det snabbast möjliga sätt.
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
@@ -215,32 +220,52 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
     \item[(4-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{1cm}
+
+\begin{center}
+    {\LARGE Körningsexempel finns på nästa sida.}
+\end{center}
+
+\newpage
+
 \fe{Körningsexempel 1}
 \begin{verbatim}
 N ? 2
 K ? 45
 Trädens positioner ? 1 2
-Trädens vikt ? 20 20
+Trädens vikt ? 20 40
 
 Svar: 8
 \end{verbatim}
-\fe{Förklaring:} Det finns två träd i denna indata. Ett väger $20$ kilogram och ska planteras vid position $1$, och det andra väger också $20$ kilogram och ska planteras vid position $2$.
+\fe{Förklaring:} Det finns två träd i detta exempelfall. Ett väger $20$ kilogram och ska planteras vid position $1$, och det andra väger $40$ kilogram och ska planteras vid position $2$.
 I exempelfallet är det optimalt att för Teo att göra följande:
 \begin{itemize}
   \item Plocka upp trädet som ska planteras vid position $1$.
-  \item Plocka upp trädet som ska planteras vid position $2$.
   \item Gå höger.
   \item Plantera trädet som ska planteras vid position $1$.
+  \item Gå vänster.
+  \item Plocka upp trädet som ska planteras vid position $2$.
+  \item Gå höger.
   \item Gå höger.
   \item Plantera trädet som ska planteras vid position $2$.
   \item Gå vänster.
   \item Gå vänster. Han har nu återvänt till position $0$ och är därmed färdig.
 \end{itemize}
 Det finns andra sätt att plantera träden lika snabbt, men det går inte på
-mindre än $8$ sekunder.
+mindre än $10$ sekunder.
 
 
+\vspace{0.5cm}
+\fe{Körningsexempel 2}
+\begin{verbatim}
+N ? 4
+K ? 42
+Trädens positioner ? 10 9 7 8
+Trädens vikt ? 20 40 20 20
+
+Svar: 60
+\end{verbatim}
+\fe{Förklaring:} I det här exempelfallet är en optimal lösning att först plantera trädet vid position $9$, sen de vid position $10$ och $8$ i en och samma tur, och till sist det vid position $7$.
 
 
 \newpage
