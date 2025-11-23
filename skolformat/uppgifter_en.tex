@@ -1,0 +1,568 @@
+%\usepackage [ISO-8859-1]{inputenc}
+\input{Olympiad}
+
+\thispagestyle{fancy}
+\lstset{basicstyle=\ttfamily,
+  breaklines=true}
+% ----------------------------------------------------
+
+\begin{center}
+\Huge{Programmeringsolympiaden 2025}
+\end{center}
+\vspace{-1.2cm} 
+\specialsection*{Competition rules for skolkvalet}
+\begin{lista}
+\item The competition takes place on a date determined by the school under {\bf four hours.
+    No extra time is given for lunch or breaks.} Before the competition starts, the student
+    shall decide together with the teacher whether they will use their own or a school computer.
+    In both of these cases, the student must write skolkvalet in an agreed-upon location
+    in the school.
+    
+\item The competition consists of seven tasks that shall each be solved by using a computer
+  program in your programming language of choice.
+\item {\bf Input can be read into the program in any way}, e.g., through the program interacting
+with the user (as in the sample runs in the tasks), being entered into a graphical interface,
+or data files being sent to {\em standard input}. Just agree with your teacher on how the program will be tested.
+\item Your solutions will be tested with prepared input data. Each task is typically tested
+with 5 test cases, each awarding 1 point if your program outputs the correct answer within
+an execution time limit of {\bf 3 seconds}. No input validation is required, as it adheres
+to the specifications in the task.
+\item There are often different constraints for the various test cases, such as the size of
+the input or other limitations. These are specified in the task. {\bf Note that the difficulty
+level of a task can vary significantly depending on these differences. Therefore, it might
+be easier to score partial points on a seemingly difficult task than to score full points
+on a seemingly easier task.} The information about partial scoring is thus extremely
+important for planning your competition.
+\item The grading is performed on the same or an equivalent computer as where the code was written.
+Changes to the source code are not allowed after the competition. If the program cannot be
+compiled, the task will be awarded 0 points.
+
+\item If any of the following happens, 0 points are awarded on the particular {\em testcase} being tested,
+  but the program shall still be tested on the rest of the testcases.
+\begin{lista}
+\item The execution time of the program exceeds 3 seconds \vspace{-0.2cm}
+\item Execution error (run time error) \vspace{-0.2cm}
+\item Wrong answer \vspace{-0.2cm}
+\end{lista}
+
+\item Participation is individual, which means, among other things, that no exchange
+of ideas or files is allowed during the competition.  
+\item Permitted resources: Any written material, material installed on the computer,
+and material available on the internet. 
+It is \ku{not} allowed to actively communicate on the internet (e.g., chatting or asking questions in a forum);
+only searching for information is permitted.  
+{\bf It is also not allowed to use generative AI such as ChatGPT or GitHub Copilot.}  
+Calculators are allowed.  
+\item Submissions must be made in the form of source code files (e.g., uppg1...uppg7 with appropriate
+file extensions) uploaded to the agreed location. Other files will not be considered. Make sure to
+submit the correct version of your program.  
+
+\end{lista}
+
+%De högst placerade i kvalet går vidare till finalen i Göteborg där landslagsplatser till BOI i Polen och IOI i Bolivia står på spel.
+\begin{center}
+\Large Good luck!!
+\end{center}
+%\end{document}
+
+\newpage
+\specialsection*{Task 1 -- The Triangle Factory}
+
+Tristian works at a triangle factory.  
+His job is to classify different types of triangles produced in the factory.  
+Tristian now asks you to write a program that can replace him.  
+
+Tristian will give you three positive integers, $a$, $b$, and $c$.  
+These are the three angles of a triangle, given in degrees.  
+
+Your program should do the following:  
+\begin{itemize}
+  \item If the triangle is obtuse, the program should print ``Trubbig Triangel''.
+  \item If the triangle is acute, the program should print ``Spetsig Triangel''.
+  \item If the triangle is right-angled, the program should print ``Ratvinklig Triangel''.  
+\end{itemize}  
+
+To remind you of the definitions of obtuse, acute, and right-angled triangles:  
+\begin{itemize}
+  \item A triangle is obtuse if any of its angles are greater than $90$ degrees.  
+  \item A triangle is acute if all its angles are less than $90$ degrees.  
+  \item A triangle is right-angled if one of its angles is exactly $90$ degrees.  
+\end{itemize}  
+
+Your program should read the three angles $a$, $b$, $c$.  
+
+It is guaranteed that $(1 \leq a, b, c < 180)$ holds. It is also guaranteed that the input forms a valid triangle, meaning $a + b + c = 180$.  
+
+The program should then print whether the triangle formed by the angles $a$, $b$, and $c$ is acute, obtuse, or right-angled.  
+
+\textbf{Scoring:} The program will be run on 5 test cases, each worth $1$ point.
+
+\vspace{1cm}
+\fe{Sample run 1}
+\begin{verbatim}
+Angle 1 ? 100
+Angle 2 ? 40
+Angle 3 ? 40
+
+Answer: Trubbig Triangel
+\end{verbatim}
+The next page contains more sample runs.
+
+\newpage
+
+\fe{Sample run 2}
+\begin{verbatim}
+Angle 1 ? 60
+Angle 2 ? 40
+Angle 3 ? 80
+
+Answer: Spetsig Triangel
+\end{verbatim}
+
+\fe{Sample run 3}
+\begin{verbatim}
+Angle 1 ? 30
+Angle 2 ? 60
+Angle 3 ? 90
+
+Answer: Ratvinklig Triangel
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Task 2 -- Truls' Troubles}
+
+
+%\begin{center}
+%  \includegraphics[width=12cm]{sifferkrypto.pdf} \\ ~\\
+%  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
+%\end{center}
+
+Truls and Henry are playing table tennis against each other.
+
+Both Truls and Henry strongly dislike math.  
+More than anything, they hate calculating how many points each of them has during the game.  
+To simplify scoring, they have come up with their own solution:
+
+Instead of constantly keeping track of their points, they write a ``\texttt{T}'' if Truls
+scores a point and an ``\texttt{H}'' if Henry scores a point, immediately after each won rally.
+
+When Truls and Henry play table tennis, the scoring system works according to these three rules:  
+\begin{enumerate}
+  \item One point is awarded after each rally.  
+  \item A player wins a match if both of the following conditions are met:  
+  \begin{itemize}
+    \item The player leads by at least 2 points over their opponent.  
+    \item The player has at least 11 points.  
+  \end{itemize}  
+  For example, if Truls has 11 points and Henry has 9 points, Truls is declared the winner.
+  But if Truls has 11 points and Henry has 10 points, there is no winner yet.  
+
+  \item When a player wins according to the criteria above, the points for both players are reset to zero, and a new match begins.  
+\end{enumerate}  
+
+Now Truls and Henry have been playing for a long time, and both want to know the current score.  
+They ask you to write a program that calculates the current score for them based on their notes.
+
+Your program should first read the score string, which consists of multiple letters on a single line. The number of letters is between 1 and 30.  
+Each letter will be either ``\texttt{T}'' or ``\texttt{H}''.
+
+The program should then output the score of the ongoing match as ``\textit{$T$-$H$}'', where $T$ is
+the number of points Truls has, and $H$ is the number of points Henry has.
+
+\textbf{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following constraints:  
+\begin{itemize}
+  \item[(1-2)] $\;\;\;\;$A match always ends as soon as one player reaches 11 points.  
+  \item[(3-5)] $\;\;\;\;$No additional constraints.  
+\end{itemize}
+
+\vspace{1cm}
+
+\fe{Sample run 1}
+\begin{verbatim}
+The notes ? TTTHHHTHH
+
+Answer: 4-5
+\end{verbatim}
+
+The next page contains more sample runs.
+
+
+\newpage
+
+\fe{Sample run 2}
+\begin{verbatim}
+The notes ? TTTTTTTTTTT
+
+Answer: 0-0
+\end{verbatim}
+
+\fe{Explanation:} Since Truls won the match when the score reached \texttt{11-0}, the score was reset to \texttt{0-0}.
+
+\vspace{0.5cm}
+
+\fe{Sample run 3}
+\begin{verbatim}
+The notes ? THTHTHTHTHTHTHTHTHTHTHTH
+
+Answer: 12-12
+\end{verbatim}
+\fe{Explanation:} Even though both have more than 11 points, neither leads by 2 points. Therefore, no winner has been declared yet.
+
+
+\fe{Sample run 4}
+\begin{verbatim}
+The notes ? THTHTHTHTHTHTHTHTHTHTHTHHHH
+
+Answer: 0-1
+\end{verbatim}
+\fe{Explanation:} This game is a continuation of sample run 3, where Henry wins the match after scoring two more points.  
+The score is reset, and Henry then wins another point. Therefore, the score is \texttt{0-1}.
+
+
+\newpage
+\specialsection*{Task 3 -- Virus}
+
+Boschua isn't very good at cybersecurity. Last month, he turned off the firewall
+because it wouldn't let him download cat pictures. Unfortunately, this led to him getting a virus.  
+The virus did something very strange: it added a lot of letters to all filenames.  
+
+For example, it might have changed the filename \texttt{katt.png} to \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.  
+The virus can add letters but never remove them.  
+
+Now he is looking for the file named $F$, but he has a huge number of files. Can you write a
+program that reads the filename $F$ and the name of a file $H$ on his computer and determines
+whether $F$ could have been transformed into $H$ by the virus?  
+In other words, is it possible that the virus took the filename $F$ and added letters such that the file is now named $H$?  
+
+Write a program that reads $F$ and $H$. Let $|F|$ be the number of characters in $F$, and the same for $|H|$.  
+It holds that $1 \leq |F| \leq |H| \leq 32$. $F$ and $H$ contain only letters \texttt{a}-\texttt{z} and periods.  
+It is guaranteed that $F$ contains exactly one period. The virus can add periods and any letter from \texttt{a}-\texttt{z}.  
+
+Your program should then print ``Ja'' if $H$ could be the file Boschua is looking for, otherwise ``Nej''.  
+
+\vspace{0.5cm}  
+\textbf{Scoring:}\\  
+This problem has five \textit{pairs} of test cases. In each pair, the answer to one test case is Ja and
+the answer to the other is Nej.  
+This ensures you do not score points if your program always prints ``Ja'' or always prints ``Nej''.  
+
+The five pairs of test cases, each worth $1$ point, have the following constraints in addition to those already mentioned:  
+\begin{itemize}  
+    \item[(Pair 1)] $\;\;\;\;$Each character (and period) appears at most once in each string.  
+    \item[(Pair 2)] $\;\;\;\;|H| = |F|+1$  
+    \item[(Pair 3)] $\;\;\;\;|H| = |F|+2$  
+    \item[(Pairs 4-5)] $\;\;\;\;$No additional constraints.  
+\end{itemize} 
+
+\vspace{0.5cm}
+\fe{Sample run 1}
+\begin{verbatim}
+F ? katt.png
+H ? kattegatto.ping
+
+Answer: Ja
+\end{verbatim}
+\fe{Explanation:} The virus could have made the following changes to change $F$ to $H$:
+\texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
+
+The next page contains more sample runs.
+
+\newpage
+
+\fe{Sample run 2}
+\begin{verbatim}
+F ? antivirus.exe
+H ? aaantivisiiruis.egxe
+
+Answer: Ja
+\end{verbatim}
+\fe{Explanation:} The virus could have made the following changes to change $F$ to $H$: \\
+\texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
+
+\fe{Sample run 3}
+\begin{verbatim}
+F ? kattenmilly.png
+H ? kaaatttenmilly.pgn
+
+Answer: Nej
+\end{verbatim}
+\fe{Explanation:} $F$ and $H$ differ by \texttt{png} and \texttt{pgn}. Because the virus cannot change the order
+of letters, it could not have changed $F$ to $H$. 
+
+
+
+\newpage
+\specialsection*{Task 4 -- Siffrid's Digit Sum}
+
+Siffrid loves playing with numbers! Right now, she is playing with the integer $N$.  
+
+She is wondering how to create the smallest and largest numbers that have the same 
+digit sum and the same number of digits as $N$.  
+Can you help her?  
+
+The digit sum of a number is defined as the sum of all its digits.  
+
+For example, the digit sum of the number $1234$ is:  
+$$
+1 + 2 + 3 + 4 = 10,
+$$  
+
+and the digit sum of the number $220$ is:  
+$$
+2 + 2 + 0 = 4.
+$$  
+
+Write a program that first reads the integer $N$ ($1 \leq N \leq 10^9$), the number Siffrid is playing with.  
+
+The program should then output the smallest and the largest numbers that have the same digit sum 
+and the same number of digits as the number $N$.  
+
+\vspace{0.5cm}  
+\fe{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:  
+
+\begin{itemize}
+    \item[(1-2)] $\;\;\;\;$ $N \leq 10^5$    
+    \item[(3-5)] $\;\;\;\;$ No additional constraints.
+\end{itemize}
+
+\vspace{0.3cm}  
+\fe{Sample run 1}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 101
+
+Answer: 101 200
+\end{verbatim}
+\fe{Explanation:} We cannot get a number smaller than 101. 
+Numbers like 11 and 2 have the same digit sum as $N$ and are smaller than 101, 
+but they do not have the same number of digits as $N$.
+
+
+\vspace{0.2cm}
+\fe{Sample run 2}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 878
+
+Answer: 599 995
+\end{verbatim}
+\vspace{0.2cm}
+
+\fe{Sample run 3}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 1337
+
+Answer: 1049 9500
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Task 5 -- The Calculator}
+
+Rumors are spreading that the school's calculator can be hacked using a secret code.  
+You've heard that if you can make the calculator display the secret Kålnami code and then press the equals button, 
+it will unlock several secret mathematical functions.  
+
+Your friend has figured out what the Kålnami code is but tells you that you can't just enter it in any way you like.  
+Initially, the calculator displays $0$. After that, you are allowed to perform the following operations:  
+\begin{itemize}
+  \item Multiply the number displayed by $M$.
+  \item Add any number $k$ to the number displayed, where $0 \leq k \leq M-1$.
+\end{itemize}  
+
+Fortunately, your friend has also figured out what $M$ is.  
+This complicated process will only work if you use the minimum number of operations possible.  
+You now want to determine how many operations are required, given the Kålnami code and the number $M$.  
+
+Write a program that first reads the integer $N$ ($1 \leq N \leq 10^9$), representing the Kålnami code.  
+Then it should read the digit $M$ ($2 \leq M \leq 9$), as described above.  
+
+The program should then output a single integer: the minimum number of operations required to make the calculator display the Kålnami code, $N$.  
+
+\fe{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:  
+\begin{itemize}
+    \item[(1)] $\;\;\;\;M=3, N \leq 10$ 
+    \item[(2)] $\;\;\;\;M=2$ 
+    \item[(3)] $\;\;\;\;N \leq 10^5$
+    \item[(4-5)] $\;\;\;\; $No additional constraints.
+\end{itemize}  
+
+\fe{Sample run 1}  
+\begin{verbatim}
+N ? 4
+M ? 2
+
+Answer: 3
+\end{verbatim}  
+
+\fe{Explanation:}  
+One way to enter the code using the minimum number of operations is as follows:  
+\begin{enumerate}
+  \item $+1$
+  \item $\times 2$
+  \item $\times 2$
+\end{enumerate}  
+
+See the next page for another example run.  
+
+\newpage  
+
+\fe{Sample run 2}  
+\begin{verbatim}
+N ? 33
+M ? 3
+
+Answer: 5
+\end{verbatim}  
+
+\fe{Explanation:}  
+An optimal solution is to perform the following operations:  
+\begin{enumerate}
+  \item $+1$
+  \item $\times 3$
+  \item $\times 3$
+  \item $+2$
+  \item $\times 3$
+\end{enumerate}  
+
+
+
+\newpage
+\specialsection*{Task 6 -- The Wizard Theodor}
+
+A smaller army of $N$ monsters is just outside Tästerås! 
+Now it's up to Trollkarlen Theodor to defeat them and save the city. 
+Each monster has a certain amount of health. To damage the monsters, 
+Theodor can fire magical explosions. Each time he fires an explosion, 
+he targets a specific monster. Then the following happens:  
+\begin{itemize}
+  \item All monsters lose $A$ health from the explosion.
+  \item The monster Theodor targets loses an additional $S$ health because it is at the center of the explosion. Thus, the targeted monster loses $S+A$ health in total from that explosion.
+\end{itemize}
+He can freely choose which monster to target each time he fires an explosion.  
+Since firing explosions is exhausting, he wants to know the minimum number of explosions he needs to fire to defeat all the monsters if he targets optimally.  
+
+Write a program that first reads the integers $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$), and $A$ ($0 \leq A \leq 10^9$), as described above. 
+Then, the program should read $N$ integers $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), representing the health of each monster.  
+
+The program should output the minimum number of explosions Theodor needs to fire to defeat all the monsters. A monster is defeated if its health is reduced to $0$ or less.  
+
+\fe{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
+
+\begin{itemize}
+    \item[(1)] $\;\;\;\; A=0$
+    \item[(2-3)] $\;\;\;\; h_i \leq 100$
+    \item[(4-5)] $\;\;\;\; $No additional constraints.
+\end{itemize}
+
+
+\fe{Sample run 1}
+\begin{verbatim}
+N, S, A ? 3 2 1
+Monsters' health ? 7 2 3
+
+Answer: 3
+\end{verbatim}
+\fe{Explanation:} An optimal way to fire explosions is as follows:
+\vspace{-0.2cm}
+\begin{enumerate}
+  \item Fire an explosion at the monster with 7 health. The monsters now have \verb+4,1,2+ health remaining.
+  \item Fire an explosion at the monster with 4 health. The monster with 1 health is defeated. The remaining monsters have \verb+1,1+ health left.
+  \item Fire an explosion at either of the remaining monsters. All monsters are now defeated, and Theodor is finished.
+\end{enumerate}
+
+\vspace{-0.2cm}
+\fe{Sample run 2}
+\begin{verbatim}
+N, S, A ? 4 3 2
+Monsters' health ? 7 8 9 10
+
+Answer: 4
+\end{verbatim}
+
+
+
+\specialsection*{Task 7 -- Theodor, The Wizard}
+
+
+This problem is based on the problem \textit{The Wizard Theodor}.  
+
+Evil Olle, the mastermind behind all evil, is tired of Theodor always ruining his plans. 
+Now, Olle has come up with a new devious scheme, and to carry it out, he needs to keep Theodor occupied. 
+At his disposal, he has $N$ monsters, and since he is immensely powerful, he can assign these monsters different amounts of health. 
+Olle now wants to count the number of ways he can distribute different health values among the monsters such that 
+Theodor needs to fire exactly $K$ magical explosions to defeat all the monsters. 
+The only requirement for a monster's health is that it must be greater than $0$.  
+
+Just like in the problem \textit{The Wizard Theodor}, 
+Theodor damages monsters by targeting a specific one and firing an explosion. 
+The targeted monster loses $S$ health, and then all monsters (including the targeted one) lose $A$ health each. 
+A monster is defeated if it has $0$ or less health. Theodor targets monsters in such a way as to minimize the number of explosions he needs to fire.  
+
+Write a program that reads the integers $N, K, S, A$ ($1 \leq N, K, S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), which are the four numbers described above.  
+
+The program should then output the number of ways Olle can assign health values to the 
+monsters such that Theodor needs to fire exactly $K$ explosions to defeat all of them. 
+Since this number can be very large, it should be output \textit{modulo} $10^9+7$. 
+If you only want to solve the first test case, you do not need to worry about modulo as the answer will be small.
+
+
+
+\fe{Scoring:}\\
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
+\begin{itemize}
+    \item[(1)] $\;\;\;\; A = 0$, $N, K, S \leq 5$
+    \item[(2)] $\;\;\;\; A = 0$, $S \leq 10$, $N, K \leq 70$
+    \item[(3)] $\;\;\;\; N, K, S, A \leq 150$
+    \item[(4)] $\;\;\;\; N, K, S, A \leq 1000$
+    \item[(5)] $\;\;\;\;$No additional constraints.
+\end{itemize}
+
+
+\fe{Sample run 1}
+\begin{verbatim}
+N, K, S, A ? 1 1 5 0
+
+Answer: 5
+\end{verbatim}
+\fe{Explanation:} There is one monster, and the possible health values it can have such that Theodor defeats it with exactly one explosion are \verb+1, 2, 3, 4, 5+.
+
+See the next page for more sample runs.
+
+\newpage
+
+\fe{Sample run 2}
+\begin{verbatim}
+N, K, S, A ? 2 2 1 1
+
+Answer: 10
+\end{verbatim}
+\fe{Explanation:} The 10 possible distributions of health values for the monsters such that Theodor defeats both with exactly two explosions are:
+\begin{verbatim}
+  1 3
+  1 4
+  2 2
+  2 3
+  2 4
+  3 1
+  3 2
+  3 3
+  4 1
+  4 2
+\end{verbatim}
+
+\vspace{1cm}
+\fe{Sample run 3}
+\begin{verbatim}
+N, K, S, A ? 10 20 30 40
+
+Answer: 435462573
+\end{verbatim}
+
+\end{document}

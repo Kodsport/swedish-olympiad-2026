@@ -1,0 +1,489 @@
+%\usepackage [ISO-8859-1]{inputenc}
+\input{Olympiad}
+
+\thispagestyle{fancy}
+\lstset{basicstyle=\ttfamily,
+  breaklines=true}
+% ----------------------------------------------------
+
+% Some ugly hacking to ensure the intro stays 1 page long
+\newlength{\oldparskip}
+\setlength{\oldparskip}{\parskip}
+
+\setlength{\parskip}{0.5pt}
+
+\begin{center}
+\Huge{Programmeringsolympiaden 2026}
+\end{center}
+\vspace{-1.2cm} 
+\specialsection*{Tävlingsregler för skolkvalet}
+{
+\setlength{\itemsep}{0.5pt}
+\begin{lista}
+\item Tävlingen äger rum på av skolan bestämt datum under {\bf fyra
+    timmar. Ingen förlängning ges för lunch eller raster.} Eleven ska i förväg komma överens med läraren om att använda egen dator eller en som skolan tillhandahåller. I vilket fall som helst måste eleven befinna sig i avtalad lokal på skolan. 
+
+\item Tävlingen består av sex uppgifter som vardera ska lösas genom ett
+  datorprogram i valfritt programmeringsspråk.
+\item {\bf Indata kan läsas in i programmet på valfritt sätt}, t.ex. genom att programmet för en dialog med användaren (som i körningsexemplena i uppgifterna), att de skrivs in i ett grafiskt gränssnitt eller att datafiler skickas till {\em standard input}. Kom bara överens med din lärare om hur programmet ska testas.
+\item Dina lösningar kommer att testköras med förpreparerade
+  indata. Varje uppgift testas normalt med 5 testfall, som vardera ger
+  1 poäng om ditt program skriver ut korrekt svar inom en exekveringstidsgräns av
+  {\bf 3 sekunder}. Ingen test av indata behöver göras, den följer specifikationerna 
+i uppgiften.
+\item Det är ofta olika begränsningar på de olika testfallen, t.ex.\ storleken på
+indata eller andra inskränkningar. Detta anges i uppgiften. {\bf Observera att det kan vara
+helt olika svårighetsgrad på en uppgift beroende på dessa skillnader. Det kan därför vara
+lättare att få delpoäng på en uppgift som verkar svår än att få full
+poäng på en uppgift som verkar lättare.} Informationen om delpoäng är
+därför extremt viktig för att planera sin
+tävling.
+\item Rättningen utförs på samma eller likvärdig dator. Ändringar
+  i källkoden tillåts ej efter tävlingen. Om programmet
+  inte kan kompileras ges 0 p.\ på uppgiften. 
+\item Om något av följande inträffar ger
+  det {\em testfallet} 0 poäng, men programmet fortsätter testas med övriga testfall.
+\begin{lista}
+\item Exekveringstiden överstiger 3 sekunder \vspace{-0.2cm}
+\item Exekveringsfel (run time error) \vspace{-0.2cm}
+\item Fel svar \vspace{-0.2cm}
+\end{lista}
+
+\item Deltagandet är individuellt vilket bland annat innebär att inget utbyte av idéer eller 
+filer får ske under tävlingen.  
+\item Hjälpmedel: Valfritt skriftligt material, material som finns installerat på datorn samt material som finns tillgängligt på internet.
+Det är \ku{inte} tillåtet att aktivt kommunicera på internet (t.ex. chatta eller ställa frågor till ett forum) utan endast att söka efter information.
+{\bf Det är heller inte tillåtet att använda generativ AI såsom ChatGPT eller Github Copilot.}
+Miniräknare är tillåten.
+\item Tävlingsbidraget ska lämnas in i form av källkodsfiler (uppg1...uppg6 med passande filtillägg) som läggs på överenskommen plats. Ingen hänsyn tas till andra filer. Var noga 
+med att lämna in den korrekta versionen av ditt program.  
+\end{lista}
+}
+De högst placerade i kvalet går vidare till finalen i Göteborg där landslagsplatser till BOI i Finland och IOI i Uzbekistan står på spel. Lycka till!
+\begin{center}
+% \Large Lycka till!
+\end{center}
+%\end{document}
+
+\setlength{\parskip}{\oldparskip}
+
+\newpage
+\specialsection*{Uppgift 1 -- Triangelfabriken}
+
+Alice och Bertil kastar boll i en park. Exakt $21$ meter framför Alice och Bertil finns en stolpe, och Jack utmanar Alice och Bertil till en liten utmaning.
+
+Utmaningen är att Alice och Bertil ska kasta varsin boll så nära stolpen som möjligt, men bollen får inte kastas förbi stolpen.
+Den som kastar närmast $21$ meter, utan att kasta förbi $21$ meter, vinner. Om både Alice och Bertil kastar över $21$ meter, eller om de kastar lika långt så vinner Jack. De har nu kastat och hjälp att avgöra vem som vann.
+
+Skriv ett program som läser in talen $A$ och $B$, antalet meter som Alice och
+bertil har kastat vardera, och sedan skriver ut vem som vunnit.
+
+Det är garanterat att $(0 \leq A,B \leq 30)$ håller.
+
+Sedan ska programmet skriva vem som vann: antingen ''Alice'', ''Bertil'' eller ''Jack''. Notera att du inte ska skriva ut citationstecken.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
+\begin{itemize}
+  \item[(1)] $\;\;\;\;$ $A \neq B$ och $A,B \leq 21$
+  \item[(2)] $\;\;\;\;$ $A, B \leq 21$
+  \item[(3)] $\;\;\;\;$ Jack vann inte i det här testfallet.
+  \item[(4-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
+\end{itemize}
+
+
+\vspace{1cm}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Alice kast ? 7
+Bertils kast ? 5
+
+Svar: Alice
+\end{verbatim}
+\fe{Förklaring:} Alice är närmare $21$, därmed vann hon.
+
+\vspace{1cm}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Alice kast ? 26
+Bertils kast ? 22
+
+Svar: Jack
+\end{verbatim}
+\fe{Förklaring:} Eftersom båda kastade längre än $21$ meter vann Jack.
+
+\newpage
+\specialsection*{Uppgift 2 -- Snurra kompass}
+
+
+%\begin{center}
+%  \includegraphics[width=12cm]{sifferkrypto.pdf} \\ ~\\
+%  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
+%\end{center}
+
+Du har en kompass som kan peka i $360$ olika riktningar. Just nu pekar den rakt uppåt, på talet $360$.
+
+Tyvärr så funkar inte kompassen, och det enda sättet du kan få den att peka i andra riktningar
+är genom lyfta på hela kompassen och rotera den ett antal grader motsols. Till din hjälp har du
+två robotarmar. Dessa är tyvärr inte perfekta: den första robotarmen kan
+snurra kompassen exakt $a$ grader motsols och den andra robotarmen kan snurra $b$ grader motsols.
+Robotarmarna kan endast rotera kompassen $a$ respektive $b$ grader varje gång
+de används, varken mer eller mindre.
+På grund av detta går det kanske inte att få kompassen att peka
+i alla $360$ riktningar.
+
+Detta får dig att undra hur många unika riktningar kompassen kan peka åt?
+
+Skriv ett program som läser in talen $a$ och $b$, antalet grader som den första respektive andra robotarmen snurrar kompassen.
+
+Det är garanterat att $(1 \leq a,b \leq 360)$ håller.
+
+Sedan ska programmet skriva ut antal unika riktningar som kompassen kan peka åt om man snurrar den ett flertal gånger med robotarmarna.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
+\begin{itemize}
+  \item[(1)] $\;\;\;\;$ $a = 13$
+  \item[(1-2)] $\;\;\;\;$ $a = b$
+  \item[(3-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Gradtal a ? 50
+Gradtal b ? 180
+
+Svar: 36
+\end{verbatim}
+\fe{Förklaring:} Med denna uppsättningen robotarmar går det att få kompassen
+att peka på varje heltalsmultipel av $10$: $0, 10, 20, \dots, 350$.
+Notera att $0$ och $360$ är samma gradtal. Om hon använder robotatarm $a$
+$8$ gånger kan hon exempelvis på kompassen att peka mot $40$ grader.
+
+\vspace{0.7cm}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Gradtal a ? 360
+Gradtal b ? 360
+
+Svar: 1
+\end{verbatim}
+\fe{Förklaring:} Hur många gånger du än roterar kompassen kommer den fortsätta vara riktad åt $0$.
+
+
+\newpage
+\specialsection*{Uppgift 3 -- Arborist}
+
+Teo har äntligen landat sitt drömjobb; Han har börjat jobba som arborist!
+En viktig del av en arborists arbete är att plantera träd.
+
+Teo behöver nu hjälp med att plantera $N$ träd längs med en tallinje.
+För alla $N$ träd, har Teo redan bestämt det koordinat längs tallinjen som trädet ska planteras vid. 
+De bestämda kooridnaterna är garanterat att vara positiva heltal.
+Teo befinner sig just nu vid koordinat $0$, tillsammans med $N$ stora trädplantor.
+För att plantera träden kan han göra följande:
+\begin{itemize}
+  \item Röra sig ett steg åt höger. Detta tar en sekund.
+  \item Röra sig ett steg åt vänster. Detta tar en sekund.
+  \item Om han befinner sig vid koordinat $0$ kan han plocka upp ett av de $N$ trädplantorna. Detta tar en sekund.
+  \item Ta ett av trädplantorna han bär på, och plantera det där han befinner sig. Detta tar en sekund.
+\end{itemize}
+Tyvärr orkar Teo bära som mest $K$ kilogram träd åt gången. Varje träd väger antingen $20$ eller $40$ kilogram.
+
+När han väl planterat alla träd måste han återvända till koordinat $0$. Han behöver nu din hjälp att lista ut hur lång tid detta kommer ta om han gör detta på snabbaste möjligaste vis.
+
+Skriv ett program som först läser in $N$ och $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$), antalet träd, och antalet kilogram som Teo orkar bära.
+På nästa rad ska  programmet därefter läsa in de $N$ koordinaterna $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$) där varje trädplanta ska planteras. På sista raden ska det läsa in de $N$ vikterna $k_1, \dots, k_N$ ($k_i \leq K$),  hur mycket varje trädplanta väger. Det är även garanterat att varje träd antingen väger $20$ eller $40$ kilogram.
+
+Programmet ska sedan skriva ut antalet sekunder det tar för Teo att plantera alla träd och återvända till $0$ om han gör detta på det snabbaste möjliga sättet.
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;$ $K=25$
+    \item[(2)] $\;\;\;\;$ $k_i = 20$
+    \item[(3)] $\;\;\;\;$ Alla träd ska planteras på samma $x$-koordinat.
+    \item[(4-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
+\end{itemize}
+
+\vspace{0.5cm}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+N ? 2
+K ? 45
+Trädens koordinater ? 1 2
+Trädens vikt ? 20 20
+
+Svar: 8
+\end{verbatim}
+\fe{Förklaring:} Denna indatan betyder att det finns två träd. Ett väger $20$kg och ska planteras vid koordinat $1$, och det andra väger också $20$kg och ska planteras vid koordinat $2$.
+I exempelfallet är det optimalt att för Teo att göra följande:
+\begin{itemize}
+  \item Plocka upp trädet med koordinat $1$.
+  \item Plocka upp trädet med koordinat $2$.
+  \item Gå höger.
+  \item Plantera trädet med koordinat $1$.
+  \item Gå höger.
+  \item Plantera trädet med koordinat $2$.
+  \item Gå vänster.
+  \item Gå vänster. Han har nu återvänt till koordinat $0$ och är därmed färdig.
+\end{itemize}
+Det finns andra sätt att plantera träden lika snabbt, men det går inte på
+mindre än $8$ sekunder.
+
+
+
+
+\newpage
+\specialsection*{Uppgift 4 -- Tingsplatsen}
+
+Arkeologen Arvid är på jakt efter en okänd tingsplats från järnåldern någonstans i Mellansverige. Han har kartlagt
+ett antal gårdar som fanns i området, och har kommit fram till att tingsplatsen måste ligga på samma avstånd
+till de olika gårdarna.
+
+Området som Arvid undersökt kan representeras av ett rutnät med $N$ rader och $M$ kolumner. Det tar en minut för en
+järnåldersmänniska att ta sig mellan två närliggande rutor. Två rutor är närliggande om de delar en av sina fyra sidor.
+
+Du får givet en karta av rutnätet som markerar alla positioner av gårdar. 
+Det är känt att det tar lika lång tid att ta sig från var och en av gårdarna till den okända tingsplatsen. 
+
+Din uppgift är att skriva ett program som hittar vilka rutor där tingsplatsen skulle kunna funnits.
+
+Programmet ska först läsa in heltalen $N$ och $M$ ($1 \leq N,M \leq 10$), antalet rader och kolumner i rutnätet. Läs sedan $N$ rader, som innehåller
+rutnätets rader.
+Tecknet ''\verb|*|'' betyder att det finns en gård på motsvarande plats i rutnätet, och
+''\verb|.|'' betyder att det inte finns en gård.
+
+Programmet ska sedan skriva ut en kopia av rutnätet i indatan, men där det markerat med ''\verb|X|'' de rutor som tingsplatsen kan vara belägen på.
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;$ $N = 1$
+    \item[(2)] $\;\;\;\;$ Det finns exakt $4$ gårdar som alla ligger på hörnet av en rektangel.
+    \item[(3-5)] $\;\;\;\;$ Inga ytterligare begränsningar.
+\end{itemize}
+
+\vspace{0.5cm}
+\fe{Körningsexempel 1}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 4
+M ? 5
+Rad 1 ? *...*
+Rad 2 ? .....
+Rad 3 ? .....
+Rad 4 ? .....
+
+Svar:
+*.X.*
+..X..
+..X..
+..X..
+
+\end{verbatim}
+\fe{Förklaring:} TODO
+
+
+\specialsection*{Uppgift 5 -- Miniräknaren}
+
+
+Det sägs att uppe i Alperna bor det $C$ stycken systrar som vardera har ett eget favorittal $f$.
+Varje syster har därför byggt ett hus $f$ höjdenheter över vattenytan.
+Dessa husen är byggda på ett koordinatsystem.
+Den första systern har byggt sitt hus vid $(0,0)$, den andra vid $(0,1)$ och så vidare.
+
+När husen befinner sig så högt uppe blir det svårt att ta sig upp och ner.
+Därför har varje syster byggt en trappa genom att bygga uppåt, där hon
+sänkar höjden med $1$ för varje koordinat hon går uppåt.
+Exempelvis, om systerns hus befinner sig på $(0,2)$ och har höjd $10$, så bygger hon ett trappsteg vid $(1,2)$ med höjd $9$, ett trappsteg vid $(2,2)$ med höjd $8$, och så vidare.
+
+Du befinner dig just nu vid dessa trappor.
+Mer exakt befinner du dig på koordinaterna $(s_x, s_y)$ och vill ta dig till $(g_x, g_y)$.
+Du kan röra dig till rutor som intilliggande antingen upp, vänster, ner eller höger.
+Det är aldrig problem att gå höger eller vänster, även om det finns stora höjdskillnader.
+Självfallet kan du inte röra dig till en koordinat som varken har ett hus eller ett trappsteg.
+Du vägrar även att röra dig till en koordinat vars $y$-värde är större än eller lika med talet $R$.
+
+De höga höjderna är ganska jobbiga för dig, så ditt mål är att minimera tiden du spenderar på hög höjd.
+Mer exakt, om du under din vandring från $(s_x, s_y)$ till $(g_x, g_y)$ besöker en viss mängd rutor, så definierar vi jobbigheten av vandringen som summan av höjden av alla rutor du besöker.
+Om du vandrar optimalt, vad är minsta möjliga jobbigheten?
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.3\textwidth]{sample1.pdf}
+    \\Bilden visar hur höjderna ser ut i exempelfall 1. Raden längst ner innehåller systrarnas hus.
+    Start- och mål är även markerade, samt den mest minst jobbiga vandringar mellan dem.
+\end{figure}
+
+Indataformat bla bla jag orkar inte
+Skriv ett program som först läser in heltalet $N$ ($1 \le N \le 10^9$), som utgör kålnami-koden.
+Det ska sedan läsa in siffran $M$ ($2 \leq M \leq 9$), som beskrivits ovan.
+
+Programmet ska sedan skriva ut jobbigheten av den minst jobbiga vandring från start till koordinaterna du vill ta dig till.
+\textbf{Notera: svaret ryms inte nödvändigtvis i ett 32-bitars heltal.}
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;$ $C=2$ 
+    \item[(2-3)] $\;\;\;\;$ $R \leq 10^4$ 
+    \item[(4-5)] $\;\;\;\;$ Inga ytterligare begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+R ? 4
+C ? 2
+Bottenraden ? 15 12 5
+Start-x ? 0
+Start-y ? 0
+Mål-x ? 0
+Mål-y ? 4
+
+Svar: 61
+\end{verbatim}
+
+\fe{Förklaring:}
+TODO
+
+Se nästa sida för ett till körningsexempel.
+
+\vspace{1cm}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+R ? 5
+C ? 3
+Bottenraden ? 5 20 25
+Start-x ? 1
+Start-y ? 4
+Mål-x ? 2
+Mål-y ? 0
+
+Svar: 76
+\end{verbatim}
+
+\vspace{1cm}
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+R ? 100000
+C ? 6
+Bottenraden ? 218849 99999 100019 100003 100000 264319
+Start-x ? 1
+Start-y ? 8493
+Mål-x ? 5
+Mål-y ? 99998
+
+Svar: 4186884119
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Uppgift 6 -- Binära palindrom}
+
+
+Mikael studerar intressanta positiva heltal, och vill nu undersöka tal som är ett \emph{binärt palindrom}. 
+För att formellt beskriva detta definierar vi följande funktioner:
+
+\[
+\text{bin}(n) = \text{den binära representationen av heltalet } n \text{ utan inledande nollor},
+\]
+
+\[
+\text{reverse}(s) = \text{strängen } s \text{ skriven baklänges}.
+\]
+
+Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
+\[
+\text{bin}(n) = \text{reverse}(\text{bin}(n)).
+\]
+
+Notera att ett palindrom är en sträng som läses likadant framifrån som bakifrån.
+
+
+Mikael gillar de binära palindromer som innehåller exakt $k$ ettor i dess binära representation, 
+och vill nu veta hur många sådana tal som finns inom intervallet $[l,r]$.
+
+Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
+\begin{enumerate}
+    \item Talet $x$ är mellan $l$ och $r$, alltså att $l \leq x \leq r$,
+    \item Talet $x$ är ett tal som Mikael gillar (dvs.\ ett binärt palindrom),
+    \item Binärrepresentationen av $x$ innehåller exakt $k$ ettor.
+\end{enumerate}
+
+Skriv ett program som läser in heltalen $l, r, k$ $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
+
+Programmet ska skriva ut antalet tal i intervallet $[l, r]$ som är binära palindromer och har exakt $k$ ettor i sin binära representation.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;$ $l,r \leq 10^9$
+    \item[(2)] $\;\;\;\;$ $k \leq 4$
+    \item[(3-5)] $\;\;\;\; $ Inga ytterligare begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+l, r, k ? 7 10 2
+
+Svar: 1
+\end{verbatim}
+\fe{Förklaring:} 
+Vi söker tal i intervallet $[7, 10]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
+
+Det finns endast 4 tal i intervallet:
+
+\begin{align*}
+7 &= 111_2 \quad (\text{palindrom, tre ettor}) \\
+8 &= 1000_2 \quad (\text{ej palindrom}) \\
+9 &= 1001_2 \quad (\text{palindrom, två ettor}) \\
+10 &= 1010_2 \quad (\text{ej palindrom})
+\end{align*}
+
+Det enda talet som uppfyller båda villkoren är $9$, så svaret är $1$.
+
+\vspace{1cm}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+l, r, k ? 1 6 2
+
+Svar: 2
+\end{verbatim}
+\fe{Förklaring:} 
+Vi söker tal i intervallet $[1, 6]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
+
+Det finns endast 6 tal i intervallet:
+
+\begin{align*}
+1 &= 1_2 \quad (\text{palindrom, en etta}) \\
+2 &= 10_2 \quad (\text{ej palindrom}) \\
+3 &= 11_2 \quad (\text{palindrom, två ettor}) \\
+4 &= 100_2 \quad (\text{ej palindrom}) \\
+5 &= 101_2 \quad (\text{palindrom, två ettor}) \\
+6 &= 110_2 \quad (\text{ej palindrom})
+\end{align*}
+
+Talen som uppfyller båda villkoren är $3$ och $5$, så svaret är $2$.
+
+\vspace{1cm}
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+l, r, k ? 999 99999 6
+
+Svar: 94
+\end{verbatim}
+
+\end{document}
