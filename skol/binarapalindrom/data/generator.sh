@@ -22,7 +22,7 @@ sample 3
 
 group group1 20
 limits maxn=1000000000
-tc_manual ../manual/secret_1.in
+tc_manual ../skolkval_tests/skol_1.in
 
 for i in {01..05}; do
   tc g1-$i gen_rand a=$((RANDOM * RANDOM % 1000 + 1))  b=$((RANDOM * RANDOM % 1000000 + 1)) 
@@ -43,7 +43,7 @@ tc g1-22 gen_edge2 shift=1 k=9 maxbits=30 seed=5
 
 group group2 20
 limits maxk=4
-tc_manual ../manual/secret_2.in
+tc_manual ../skolkval_tests/skol_2.in
 tc g1-06
 tc g1-07
 for i in {01..05}; do
@@ -66,9 +66,9 @@ tc g2-20 gen_edge2 shift=1 k=3 seed=2
 
 group group3 60
 include_group group1 group2
-tc_manual ../manual/secret_3.in
-tc_manual ../manual/secret_4.in
-tc_manual ../manual/secret_5.in
+tc_manual ../skolkval_tests/skol_3.in
+tc_manual ../skolkval_tests/skol_4.in
+tc_manual ../skolkval_tests/skol_5.in
 
 for i in {01..05}; do
   tc g3-$i gen_rand 
