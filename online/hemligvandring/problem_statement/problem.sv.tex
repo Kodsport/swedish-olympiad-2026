@@ -1,21 +1,65 @@
 \problemname{Hemlig vandring}
 
 
+I staden den exotiska och varma staden Mänhettan, bor Harry tillsammans med sin virrige kompis Tobias. 
+Staden är ett $N \times N$-rutnät med koordinater $(x,y)$ där $0 \le x,y < N$. Det finns hus på alla rutor där både $x$ och $y$ är udda tal.
 
-\section*{Indata}
+Tobias bor i ett av dessa hus, och hans skola ligger i ett annat. 
+De ligger inte på samma rad eller kolumn, eftersom Harry har varit hemma hos Tobias och inte kunnat se skolan genom fönstret.
+
+Varje dag går han den kortaste vägen till skolan och skickar meddelanden som ``On my way now!'' och ``Just arrived!'', 
+vilket innebär att Harry vet exakt hur lång tid det tar för Tobias att röra sig från hans hus till skolan.
+
+Trots att Harry har varit hemma hos Tobias, har Harry nu glömt var Tobias bor, men även var Tobias skola är placerad.
+
+För att lista ut denna information, kan Harry varje dag få magiskt trolla fram väggar på valfria rutor som inte innehåller hus. 
+Den dagen tar Tobias väg $k$ minuter längre än vanligt, eller $k = -1$ om han fastnar helt. Efter den dagen försvinner alla väggar som Harry hade trollat fram.
+
+Din uppgift är att hjälpa Harry bestämma vilket hus Tobias bor i och vilket hus hans skola ligger i, med genom att spendera så få dagar som möjligt. 
+Harry får spendera upp till 365 dagar på sig, men du får fler poäng ju färre dagar du använder.
+
+\section*{Interaktion}
+Det här är ett interkativt problem.
+
+\begin{itemize}
+  \item Ditt program ska först läsa in en rad med ett tal $N$ $(5 \le N \le 75, N \text{ är ett udda tal.})$, höjden och bredden av rutnätet. 
+  Därefter ska ditt program läsa in $N$ rader, med $N$ karaktärer på vardera rad som beskriver rutnätet. 
+  Tecknet \texttt{``\#''} innebär att den rutan är ockuperad av ett hus, medan \texttt{``.''} innebär att det inte är ockuperad av något hus.
+
+  \item Sen ska ditt program interagera med gradern. För att 
+
+\end{itemize}
 
 
-\section*{Utdata}
+\textbf{Se till att flusha outputen efter varje query}, annars kan du få \textit{Time Limit Exceeded}.
+I C++ kan detta göras med exempelvis \texttt{cout << flush;}
+eller \texttt{fflush(stdout);},
+i Python med \texttt{stdout.flush()}
+och i Java med \texttt{System.out.flush();}.
 
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
-För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+För att få poäng för en grupp så måste Harry klara alla testfall i gruppen.
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $40$       & $N \leq 10$ \\ \hline
-  $2$    & $60$       & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $14$       & $N \leq 7$ \\ \hline
+  $2$    & $11$       & Tobias hus är på ruta $(1,1)$ (huset längst upp till vänster). \\ \hline
+  $3$    & $\text{upp till } 75$     & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
+
+I den sista testgruppen \textbf{beror din poäng på antalet dagar som används} enligt följande formel:
+
+\[
+score = \begin{cases}
+... & \text{om } 75 \le Q \le 365, \\
+... & \text{om } 10 \le Q < 75, \\
+... & \text{om } 6 \le Q < 10, \\
+... & \text{om } Q \le 5,
+\end{cases}
+\]
+
+där $Q$ är det maximala antalet tester som användes för något testfall. Poängen avrundas till närmaste heltal.
