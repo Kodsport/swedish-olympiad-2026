@@ -12,5 +12,17 @@ typedef vector<int> vi;
 
 
 void run() {
+    int n = Int(1, Arg("maxn", int(2e5)));
+    Space();
+    int t = Int(1, Arg("maxt", int(1e6)));
+    Endl();
+
+    int maxl = Arg("maxl", 5);
+    for (int i = 0; i < n; i++) {
+        Int(1, maxl);
+        Space();
+        Int(1, int(1e6));
+        Endl();
+    }
 }
 

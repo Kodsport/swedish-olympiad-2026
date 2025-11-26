@@ -1,7 +1,5 @@
-# uuid: 3fe53ae6-cef0-4a7c-b3f1-1c27e20bc367
-author: Harry Zhang
-#contributors:
-#  - Raunak Redkar
+uuid: 87550e6a-259b-444a-a490-bc90082ec753
+author: Joshua Andersson
 source: Programmeringsolympiadens onlinekval 2026
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
@@ -10,4 +8,5 @@ type: scoring
 grading:
     show_test_data_groups: true
 
-
+limits:
+    time_multiplier: 6
