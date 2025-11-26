@@ -6,7 +6,4 @@
 - Swe statement
 - Eng statement
 
-- Data
-
-- Output validator
 
