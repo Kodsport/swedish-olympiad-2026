@@ -1,0 +1,116 @@
+\problemname{Tina poängtavla}
+
+ICPC är en programmeringstävling där man får fem timmar på sig att lösa så många problem som möjligt.
+I denna får man inte poäng per inskick, utan antingen får man \textit{Accepted} eller inte.
+
+I slutet av tävlingen etablerar man en rangordning av lag på följande vis.
+Först räknar man hur många problem som varje lag löst, låt detta betecknas av $p$.
+Sedan beräknar man varje lags \textit{inskick-straff}.
+För varje problem där ett lag får Accepted är inskick-straffet lika med antal felaktiga inskick laget gjorde på problemet.
+Inskick-straffet för ett lag är summan av inskick-straff över alla problem de löste, vilket vi betecknar med $t$.
+Varje lags resultat kan därmed beskrivas med talparet $(p,t)$.
+Notera att inskick på problem som ett lag inte löser under hela tävlingen inte ökar inskick-straffet.
+
+Rangen av ett visst lag är antalet lag som är \textit{strikt bättre}.
+Ett lag $i$ är strikt bättre över ett annat lag $j$ om antingen
+$$(p_i>p_j) \text{ eller } (p_i=p_j \text{ och } t_i < t_j)$$
+håller.
+
+I nedanstående tabell följer ett exempel på rangen olika lag får, givet en uppsättning $p$ och $t$-värden.
+
+\begin{center}
+\noindent
+\begin{tabular}{| c | c | c |}
+  \hline
+  Rang & $p$ & $t$ \\ \hline
+  $0$ & $10$ & $500$ \\ \hline
+  $1$ & $9$ & $1000$ \\ \hline
+  $2$ & $8$ & $500$ \\ \hline
+  $3$ & $7$ & $300$ \\ \hline
+  $3$ & $7$ & $300$ \\ \hline
+  $5$ & $6$ & $250$ \\ \hline
+\end{tabular}
+\end{center}
+
+Notera alltså att om två lag har exakt samma resultat får de samma rang.
+
+De första fyra timmarna under tävlingen får varje lag se vare sig deras inskick fick Accepted.
+De kan även se resultaten av andra lags inskick genom poängtavlan.
+
+Den sista timmen blir poängtavlan \textit{fryst}, och därmed kan lagen endast se resultatet av sina egna inskick.
+Varje lag kan fortfarande se när nya inskick sker av andra lag, men inte deras resultat.
+
+När tävlingen är slut, är det dags att \textit{tina} poängtavlan.
+Detta sker genom att resultatet av varje inskick avslöjas en åt gången.
+Beroende på ordningen detta sker kan det bli mer eller mindre spännande för lagen.
+Detta beror på att man i första hand etablerar rangen av ett lag baserat på hur många problem de har löst.
+Exempelvis, om ett visst lag har löst $4$ problem och det avslöjas att alla andra i tävlingen har löst fler,
+så tappar laget intresset.
+Om inskicken istället hade avslöjats i en ordning så att det tar längre tid för de att få reda på detta blir det självfallet mer spännande.
+
+Lidia har som målsättning att göra ICPC mer spännande.
+Hon har därför föreslagit en ordning på hur resultat av inskick ska avslöjas.
+Givet denna ordningen vill hon för varje lag beräkna antalet inskick som avslöjas innan de tappar intresset.
+
+Mer exakt, anta att varje lag efter varje inskickning betraktar alla möjliga utfall av att poängtavlan tinas färdigt.
+Om ett visst lag har samma slutposition i alla dessa tappar det laget intresset.
+Lidia vill då veta för varje lag, antalet inskickningar som avslöjas innan de tappade intresset.
+
+För att ordningen ska vara rimlig garanterar hon att varje lags inskick på ett givet problem är ordnade på tid,
+så att tidigare inskick kommer först.
+
+\section*{Indata}
+Den första raden innehåller tre heltal $N$, $P$, $H$ och $F$
+($1 \leq N, F \leq 2 \cdot 10^5$, $0 \leq H \leq 2 \cdot 10^5$, $1 \leq P \leq 15$),
+antalet lag, antalet problem, antalet inskick före frysen och antalet inskick under frysen.
+
+De följande $H$ raderna beskriver inskicken som skedde före frysen.
+Varje sådant inskick beskrivs av heltalen $w$, $p$ och $r$
+($1 \leq w \leq N$, $1 \leq p \leq P$, $r \in \{A,W\}$),
+som beskriver att laget med index $w$ skickade in till problem $p$,
+vars resultat var $r$. Om $r$ är A betyder det att inskicket fick Accepted, annars fick det inte det.
+Dessa inskick är ordnade i kronologisk ordning, det vill säga är de sorterade på $t$.
+
+De följande $F$ raderna beskriver inskicken som skedde före frysen.
+Formatet på dessa är identiska till inskicken som skedde innan poängtavlan frystes.
+Dessa är givna i ordningen som Lidia undrar om.
+Det är garanterat att problemen är ordnade så att varje lags inskick på ett visst problem kommer i kronologisk ordning.
+Hon ger inga garantier utöver detta.
+
+\textbf{Not:} det är dessutom garanterat att ett lag aldrig kommer göra inskick till ett problem de redan löst,
+varken innan eller under det att poängtavlan är fryst.
+
+\section*{Utdata}
+För varje lag, skriv ut hur många submissions det tog för de att tappa intresset.
+Skriv ut dessa värden mellanslagsseparerade på en rad.
+Notera att om ett lag vet sin slutposition innan tiningen påbörjats ska du skriva ut $0$ för det laget.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $7$        & $N,F \leq 50$, $H=0$, $P=1$ och varje lag gör som mest ett inskick per problem. \\ \hline
+  $2$    & $9$        & $N,F \leq 50$, $P=1$ och varje lag gör som mest ett inskick per problem. \\ \hline
+  $3$    & $15$       & $N,F,H \leq 50$ och varje lag gör som mest ett inskick per problem. \\ \hline
+  $4$    & $30$       & $N,F,H \leq 50$ \\ \hline
+  $4$    & $80$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+% Add description of sample cases
+\section*{Förklaring av exempelfall}
+Exempelfall 1: innan poängtavlan blir fryst vet lag $2$ redan att de kommer sluta på $1$ problem löst med $0$ inskick-straff.
+Därmed vet de redan sin slutgiltiga rang.
+Lag $1$ vet inte om lag lag $2$ kommer lösa problemet eller inte, men även om det andra laget löser problemet,
+så kan deras resultat inte försämra rangen av lag $1$.
+
+Exempelfall 2: likt exempelfall $1$, så har lag $2$ redan all information.
+Lag $1$ kan däremot inte vara säkra på sin slutgiltiga plats direkt efter tävlingen, eftersom om lag $2$ löste problemet så tappar lag $1$ en rang.
+När resultatet väl klagjorts blir de säkra.
+
+Exempefall 3: även om det inte verkar så kan lag $1$ lista ut direkt att de har vunnit tävlingen.
+Eftersom ett lag aldrig skickar in på problem de redan löst vet lag $1$ att det enda inskicket från som lag 2 som kan få Accepted är den sista.
+Även om de får Accepted på denna, så kommer det inte påverka deras rang.
