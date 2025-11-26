@@ -1,18 +1,21 @@
 \problemname{Tina poängtavla}
 
-ICPC är en programmeringstävling, där man ska försöka lösa så många problem som möjligt på fem timmar.
+ICPC är en programmeringstävling där man får fem timmar på sig att lösa så många problem som möjligt.
 I denna får man inte poäng per inskick, utan antingen får man \textit{Accepted} eller inte.
+
 I slutet av tävlingen etablerar man en rangordning av lag på följande vis.
-Först räknar man hur många problem som varje lag löst, låt detta vara $p$.
+Först räknar man hur många problem som varje lag löst, låt detta betecknas av $p$.
 Sedan beräknar man varje lags \textit{inskick-straff}.
-För varje problem där ett lag får Accepted är inskick-straff lika med antal felaktiga inskick laget gjorde på problemet.
+För varje problem där ett lag får Accepted är inskick-straffet lika med antal felaktiga inskick laget gjorde på problemet.
 Inskick-straffet för ett lag är summan av inskick-straff över alla problem de löste, vilket vi betecknar med $t$.
-Varje lags resultat kan därmed beskrivas med talen $(p,t)$.
-Notera att inskick på problem som ett lag inte löser under hela tävlingen inte ökar tidsstraffet.
+Varje lags resultat kan därmed beskrivas med talparet $(p,t)$.
+Notera att inskick på problem som ett lag inte löser under hela tävlingen inte ökar inskick-straffet.
+
 Rangen av ett visst lag är antalet lag som är \textit{strikt bättre}.
-Ett lag $i$ är strikt bättre om lag $j$ om antingen
+Ett lag $i$ är strikt bättre över ett annat lag $j$ om antingen
 $$(p_i>p_j) \text{ eller } (p_i=p_j \text{ och } t_i < t_j)$$
 håller.
+
 I nedanstående tabell följer ett exempel på rangen olika lag får, givet en uppsättning $p$ och $t$-värden.
 
 \begin{center}
@@ -31,18 +34,19 @@ I nedanstående tabell följer ett exempel på rangen olika lag får, givet en u
 
 Notera alltså att om två lag har exakt samma resultat får de samma rang.
 
-De första fyra timmarna får varje lag se vare sig varje av deras inskick fick Accepted eller inte genom Kattis.
+De första fyra timmarna under tävlingen får varje lag se vare sig deras inskick fick Accepted.
 De kan även se resultaten av andra lags inskick genom poängtavlan.
-Den sista timmen blir poängtavlan \textit{fryst}, och därmed lagen endast se resultatet av sina egna inskick.
+
+Den sista timmen blir poängtavlan \textit{fryst}, och därmed kan lagen endast se resultatet av sina egna inskick.
 Varje lag kan fortfarande se när nya inskick sker av andra lag, men inte deras resultat.
 
-Efter tävlingen är över är det dags att \textit{tina} poängtavlan.
+När tävlingen är slut, är det dags att \textit{tina} poängtavlan.
 Detta sker genom att resultatet av varje inskick avslöjas en åt gången.
 Beroende på ordningen detta sker kan det bli mer eller mindre spännande för lagen.
 Detta beror på att man i första hand etablerar rangen av ett lag baserat på hur många problem de har löst.
 Exempelvis, om ett visst lag har löst $4$ problem och det avslöjas att alla andra i tävlingen har löst fler,
 så tappar laget intresset.
-Om problemen istället hade avslöjats i en ordning så att det tar längre tid för de att få reda på detta blir det självfallet mer spännande.
+Om inskicken istället hade avslöjats i en ordning så att det tar längre tid för de att få reda på detta blir det självfallet mer spännande.
 
 Lidia har som målsättning att göra ICPC mer spännande.
 Hon har därför föreslagit en ordning på hur resultat av inskick ska avslöjas.
