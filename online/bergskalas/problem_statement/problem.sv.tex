@@ -1,0 +1,82 @@
+\problemname{Bergkalas}
+Bergaburgir är en stad som är belägen på ett berg.
+I staden finns det $M$ människor och $N$ hus.
+I varje hus bor det som mest en person.
+Vissa hus kan stå tomma, men varje person bor i ett hus.
+Eftersom det tar lång tid promenera i berget finns det en rutschkana från varje hus till ett hus längre ner i berget (förutom huset längst ner).
+
+Uppe på ett berg finns det inte så mycket att göra, så byborna har hittat på seder.
+Dessa har blivit så konstiga att byborna behöver din hjälp för att kunna fortsätta med sederna.
+
+Den första seden är relativt simpel, men inte alltid önskvärd.
+Denna är att byborna bestämmer att invånarna i två hus ska byta hus.
+Detta görs genom att välja två hus, $a$ och $b$.
+Om en person bor i hus $a$ tvingas den flytta till hus $b$.
+På samma vis, om en person bor i hus $b$ tvingas den flytta till hus $a$.
+
+Den andra aktiviteten är att hålla fester, som är betydligt mer komplicerad.
+Målet med varje fest är självklart att kunna bjuda så många som möjligt.
+Detta begränsas av bergets geografi och bergets konstiga vänskapskretser.
+Varje person känner nämligen exakt två andra personer.
+Att vara vän med någon är symmetriskt, det vill säga, om $a$ är vän med $b$, så är $b$ vän med $a$.
+Med andra ord formar grafen av vänskaper en cykel.
+
+För att ett kalas ska ske måste först en person $p$ ställe upp som värd.
+Den personen bestämmer först sedan hur roligt festen ska vara, vilket vi betecknar med $r$.
+Den personen får sedan välja vilket hus de vill hålla festen i.
+De kan välja vilket hus de vill.
+Sedan ska gästerna bjudas in.
+De bestämmer först antalet gäster förutom sig själva, $K$ ($K < N$).
+Sedan säger de till exakt en av sina vänner att de är inbjuden, och att de ska bjuda in $K-1$ vänner.
+Den vännen bjuder i sin tur in den enda av sina vänner som inte är inbjuden, och ber den bjuda in $K-2$ vänner.
+Denna processen fortsätter tills exakt $K$ personer är inbjuda, inklusive värden.
+För att festen inte ska bli en katastrof måste nu dessa personer orka ta sig till festhuset.
+För att en viss person ska orka inbjudna ta sig till kalaset måste de kunna ta sig dit endast genom att åka längs
+med som mest $r$ stycken rutschkanor, där $r$ är festens rolighet.
+
+Ditt jobb är nu att avgöra största antalet personer som kan bli inbjudna till varje fest om värden planerar den optimalt.
+Självklart måste du också betrakta alla husbyten.
+
+
+\section*{Indata}
+Den första raden av indata innehåller heltalen $N$, $M$ och $Q$ ($1 \leq N, M, Q \leq 2 \cdot 10^5$),
+antalet hus, antalet invånare och antalet seder som utförs.
+
+Den andra raden innehåller $N$ heltal $r_1, \dots, r_N$ ($0 \leq r_i \leq N$),
+där $r_i$ betyder att hus $i$ har en rutschkana till hus $r_i$.
+Det finns exakt ett hus som har $r_i=0$, och detta betyder att detta huset är längst ner och inte har en rutschkana.
+
+Den tredje raden innehåller $M$ heltal $h_1, \dots, h_M$ ($1 \leq h_i \leq N$),
+där $h_i$ betyder att person $i$ bor i hus $h_i$.
+Det är garanterat att det inte bor två personer i samma hus.
+
+De följande $M$ raderna beskriver vänskaperna. Den $i$:te av dessa rader innehåller heltalen $a$ och $b$ ($1 \leq a,b \leq M$, $a \neq b$),
+vilket betyder att person $i$ är vän med person $a$ och $b$.
+
+De sista $Q$ raderna beskriver vardera att en sed utförs. Varje rad börjar med heltalet $T$ ($1 \leq T \leq 2$).
+
+Om $T=1$ betyder det att ett husbyte skett. Då följer två heltal $a$ och $b$ ($1 \leq a, b \leq N$, $a \neq b$),
+vilket betyder att invånarna i hus $a$ och $b$ byts.
+
+Om $T=2$ betyder det att en bybo vill ha hjälp att planera en fest. Då följer två heltal $p$ och $r$ ($1 \leq p \leq N$, $0 \leq r < N$),
+vilket betyder att person $p$ vill hålla en fest med rolighet $r$.
+
+\section*{Utdata}
+För varje fråga där $T=2$, skriv ut ett heltal: det största antalet personer som kan bjudas på en fest
+om person $p$ är värd, och festen har rolighet $r$.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $7$   & $l_i=1$ \\ \hline
+  $2$    & $12$  & $N, T \leq 500$ \\ \hline
+  $3$    & $19$  & $N \leq 2000$ \\ \hline
+  $4$    & $22$  & $l_i \leq 2$ \\ \hline
+  $5$    & $40$  & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
