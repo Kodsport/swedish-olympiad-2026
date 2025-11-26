@@ -26,8 +26,18 @@ x1 y1 x2 y2
 // T = 0 (sample, must use less than 366 queries)
 // T = 1 (point system)
 
-// ./a.out ../../data/secret/group1/001-random-01.in  ../../data/secret/group1/001-random-01.ans . < ../../submissions/accepted/harry.py 
+// ./a.out ../../data/secret/group3/091-g3-38.in  ../../data/secret/group3/091-g3-38.ans . < ../../submissions/accepted/harry2.py 
 
+int test_group_score(int T) {
+    if (T == 0) {
+        return 0;
+    }
+    else if (T == 1) return 5;
+    else if (T == 2) return 9;
+    else if (T == 3) return 11;
+
+    assert(0);
+}
 
 int compute_score(int Q) {
     double score;
@@ -37,7 +47,7 @@ int compute_score(int Q) {
     } else if (Q <= 10) {
         score = 85.0 - (5.0 / 2.0) * Q;
     } else if (Q <= 75) {
-        score = 55.0 * pow(20.0 / 55.0, (Q - 11.0) / 64.0);
+        score = 59.0 * pow(12.0 / 59.0, (Q - 10.0) / 64.0);
     } else if (Q <= 365) {
         score = 5.0 * pow(1.0 / 5.0, (Q - 160.0) / 205.0);
     } else {
@@ -80,7 +90,7 @@ int main(int argc, char **argv) {
         }
 
         if(start != '?' && start != '!') {
-			wrong_answer("Query %d started with invalid char", c1+1);
+			wrong_answer("Query %d started with invalid char (%c)", c1+1, start);
 		}
 
         if (start == '?') {
@@ -184,12 +194,13 @@ int main(int argc, char **argv) {
 
     judge_message("Accepted, used %d queries.\n", usedQueries);
 
-    if (T == 0) {
-        accept();
+    if (T < 4) {
+        accept_with_score_integer(test_group_score(T));
     } 
-    else {
+    else if (T == 4){
         accept_with_score_integer(compute_score(usedQueries));
     }
   	
+    assert(0);
 
 }

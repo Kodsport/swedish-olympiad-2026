@@ -6,8 +6,12 @@ typedef vector<int> vi;
 
 void run() {
     int maxn = Arg("maxn",75);
-    int n = Int(5,maxn); Endl();
+    int n = Int(5,maxn); Space();
+    int T = Int(0,4); Endl();
     assert(n%2 == 1);
+
+    int graded = Arg("graded");
+    assert(graded == T);
 
     int x1,y1,x2,y2;
     x1 = Int(0,n-1); Space();

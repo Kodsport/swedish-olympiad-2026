@@ -8,7 +8,7 @@ type: scoring
 grading:
     show_test_data_groups: true
     
-validation: custom interactive
+validation: custom score interactive
 
 limits:
     time_multiplier: 4

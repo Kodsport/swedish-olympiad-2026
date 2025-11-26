@@ -1,0 +1,28 @@
+# uuid: 
+problem_format_version: 2023-07-draft
+
+name:
+  en: Hidden Walk
+  sv: Hemlig Vandring
+
+credits:
+    authors: Harry Zhang
+    testers:
+        - Emil Sandberg
+        - Tobias Glimmerfors
+source: Programmeringsolympiadens onlinekval 2026
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: 
+    - interactive
+    - scoring
+
+#grading:
+#    show_test_data_groups: true
+    
+#validation: custom interactive
+
+#time_multipliers:
+#  ac_to_time_limit: 4.0
+#  time_limit_to_tle: 1.5
+  #ac_to_time_limit: 4.0 

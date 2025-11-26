@@ -30,7 +30,7 @@ while lo < hi:
 x1 = lo*2-1
 
 # Search max(x1,x2)
-lo = lo+1
+lo = lo
 hi = (n-1)//2-1
 while lo < hi:
     mid = (lo+hi + 1)//2
@@ -78,7 +78,7 @@ while lo < hi:
 y1 = lo*2-1
 
 
-lo = lo+1
+lo = lo
 hi = (n-1)//2-1
 while lo < hi:
     mid = (lo+hi + 1)//2

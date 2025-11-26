@@ -58,6 +58,7 @@ const std::string FILENAME_AUTHOR_MESSAGE = "teammessage.txt";
 const std::string FILENAME_JUDGE_MESSAGE = "judgemessage.txt";
 const std::string FILENAME_JUDGE_ERROR = "judgeerror.txt";
 const std::string FILENAME_SCORE = "score.txt";
+const std::string FILENAME_SCORE_MULTIPLIER = "score_multiplier.txt";
 
 #define USAGE "%s: judge_in judge_ans feedback_dir < author_out\n"
 
@@ -117,6 +118,11 @@ void accept() {
 
 void accept_with_score(double scorevalue) {
     report_feedback(FILENAME_SCORE, "%.9le", scorevalue);
+    exit(EXITCODE_AC);
+}
+
+void accept_with_score_mult(double scoremult) {
+    report_feedback(FILENAME_SCORE_MULTIPLIER, "%.9le", scoremult);
     exit(EXITCODE_AC);
 }
 
