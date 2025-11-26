@@ -1,0 +1,41 @@
+\problemname{Byta delare}
+\noindent
+Du får givet en lista med $N$ positiva heltal $a_1, a_2, \dots, a_N$. Ditt mål är att sortera listan. I ett drag kan du byta plats på 
+två tal i listan, om ett av dem är en delare till den andra. Med andra ord, du kan byta plats på $a_i$ och $a_j$ om $a_i\%a_j = 0$ eller 
+$a_j\%a_i = 0$.
+
+Bestäm om det är möjligt att sortera listan, och skriv i så fall ut en sekvens drag som sorterar listan.
+
+
+\section*{Indata}
+Den första raden innehåller två heltal $N$ och $X$ ($1 \leq N \leq 1000$, $0 \leq X \leq 1$), där $N$ är antalet tal i listan och $X$ är ett 
+tal som är noll eller ett beroende på om du behöver skriva ut sekvensen med drag eller inte.
+
+Den andra raden innehåller $N$ heltal $a_1, a_2, \dots, a_N$ ($1 \leq a_i \leq 10^6$). 
+
+\section*{Utdata}
+Om det är omöjligt att sortera listan, skriv ut \verb|NEJ|. 
+
+Om det är möjligt att sortera listan, skriv först ut \verb|JA| på den första raden. Skriv därefter ut ett heltal $M$ på en rad, antalet drag
+du tänker göra. Detta tal får vara högst $10^6$. Skriv därefter ut $M$ rader som vardera innehåller två heltal $i, j$ ($1 \leq i,j \leq N$).
+Detta betyder att du byter plats på $a_i$ och $a_j$.
+
+Om $X = 0$ så räcker det med att du skriver ut \verb|JA| eller \verb|NEJ| korrekt. Du behöver alltså inte skriva ut dragen, men du får inte fel svar 
+om du gör det (inte ens om du skriver ut felaktiga drag).
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $17$       & $N \leq 10$ \\ \hline
+  $2$    & $10$        & Det finns som mest $2$ unika tal i listan. \\ \hline
+  $3$    & $13$        & Det finns som mest $3$ unika tal i listan. \\ \hline
+  $4$    & $30$       & $X = 0$ \\ \hline
+  $5$    & $12$       & $a_1 = 1$ \\ \hline
+  $6$    & $18$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
