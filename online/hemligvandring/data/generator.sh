@@ -188,6 +188,8 @@ tc g4-71 gen_rand T=4 n=75 x1=1 y1=1 x2=31 y2=73
 tc g4-72 gen_rand T=4 n=75 x1=1 y1=1 x2=25 y2=25
 tc g4-73 gen_rand T=4 n=75 x1=1 y1=1 x2=69 y2=67
 
-for i in {74..90}; do 
+for i in {74..88}; do 
     tc g4-$i gen_rand T=4 n=75
 done
+tc g4-89 gen_rand T=4 n=75 x1=1 y1=71 x2=3 y2=1
+tc g4-90 gen_rand T=4 n=75 x1=1 y1=1 x2=73 y2=25
