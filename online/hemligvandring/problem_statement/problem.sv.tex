@@ -1,19 +1,22 @@
 \problemname{Hemlig vandring}
 
 
-I staden den exotiska och varma staden Mänhettan, bor Harry tillsammans med sin virrige kompis Tobias. 
-Staden är ett $N \times N$-rutnät med koordinater $(x,y)$ där $0 \le x,y < N$. Det finns hus på alla rutor där både $x$ och $y$ är udda tal.
+I staden den exotiska och varma staden Mänhettan, bor Harry och sin virrige kompis Tobias. 
+Staden är ett $N \times N$-rutnät med koordinater $(x,y)$ där $0 \le x,y < N$. Det finns hus på alla rutor där både $x$ och $y$ är udda tal. 
+Rutan längst upp till vänster är $(0,0)$, rutan längst ner till vänster är $(N-1,0)$, och rutan längst ner till höger är $(N-1,N-1)$.
+
+% Insert bild här
 
 Tobias bor i ett av dessa hus, och hans skola ligger i ett annat. 
 De ligger inte på samma rad eller kolumn, eftersom Harry har varit hemma hos Tobias och inte kunnat se skolan genom fönstret.
 
-Varje dag går han den kortaste vägen till skolan och skickar meddelanden som ``On my way now!'' och ``Just arrived!'', 
-vilket innebär att Harry vet exakt hur lång tid det tar för Tobias att röra sig från hans hus till skolan.
+Tobias får röra sig mellan två rutor som delar en sida, och detta tar exakt en minut. Varje dag går han den kortaste vägen till skolan och skickar meddelanden som ``On my way now!'' och ``Just arrived!'', 
+vilket innebär att Harry vet exakt hur lång tid det tar för Tobias att röra sig från hans hus till skolan. 
 
-Trots att Harry har varit hemma hos Tobias, har Harry nu glömt var Tobias bor, men även var Tobias skola är placerad.
+Trots att Harry har varit hemma hos Tobias och känner till om hans skola, har Harry glömt både var Tobias bor och var Tobias skola är lokerad.
 
 För att lista ut denna information, kan Harry varje dag få magiskt trolla fram väggar på valfria rutor som inte innehåller hus. 
-Den dagen tar Tobias väg $k$ minuter längre än vanligt, eller $k = -1$ om han fastnar helt. Efter den dagen försvinner alla väggar som Harry hade trollat fram.
+Den dagen tar det $t$ minuter för Tobias att ta sig från sitt hus till skolan, eller $t = -1$ om han fastnar helt. Efter den dagen försvinner alla väggar som Harry hade trollat fram.
 
 Din uppgift är att hjälpa Harry bestämma vilket hus Tobias bor i och vilket hus hans skola ligger i, med genom att spendera så få dagar som möjligt. 
 Harry får spendera upp till 365 dagar på sig, men du får fler poäng ju färre dagar du använder.
@@ -24,17 +27,30 @@ Det här är ett interkativt problem.
 \begin{itemize}
   \item Ditt program ska först läsa in en rad med ett tal $N$ $(5 \le N \le 75, N \text{ är ett udda tal.})$, höjden och bredden av rutnätet. 
   Därefter ska ditt program läsa in $N$ rader, med $N$ karaktärer på vardera rad som beskriver rutnätet. 
-  Tecknet \texttt{``\#''} innebär att den rutan är ockuperad av ett hus, medan \texttt{``.''} innebär att det inte är ockuperad av något hus.
+  Tecknet \texttt{``H''} innebär att den rutan är ockuperad av ett hus, medan \texttt{``.''} innebär att det inte är ockuperad av något hus och är en tom ruta.
 
-  \item Sen ska ditt program interagera med gradern. För att 
+  \item Sen ska ditt program interagera med gradern. 
+  För att ta reda på antalet minuter $t$ som Tobias behöver när han tar den kortaste vägen, kan du ställa en query genom att Harry placerar ut några väggar. 
+  Detta görs genom att du först skriva ut en rad med ett frågetecken \texttt{``?''}. 
+  På de följande $N$ raderna ska du skriva $N \times N$ stort rutnät som är en kopia rutnätet som du läste in innan, 
+  med ett valfritt antal tomma rutor \texttt{``.''} ersatta med \texttt{``\#''} som representerar väggar.
 
+  Därefter ska ditt program läsa in ett heltal $t$ $(-1 \le t \le N^2)$, minsta antalet minuter som Tobias behöver för att ta sig från sitt hus till skolan, 
+  om han får passera andra hus (\texttt{``H''}) och tomma rutor (\texttt{``.''}), men inte väggar (\texttt{``\#''}).
+
+  \item När du vill skriva ut ett svar ska du skiva ut en rad med utropstecken \texttt{``!''}, följt med 4 heltal $x_1, y_1, x_2, y_2$ där $(x_1,y_1)$ och $(x_2, y_2)$ är koordinaterna av Tobias hus samt skolan i valfri ordning.
+  Formatet för det du skriver ut ska vara \texttt{``! $x_1$ $y_1$ $x_2$ $y_2$''}. 
+  För att att ditt svar ska accepteras, måste antingen Tobias hus vara $(x_1,y_1)$ och skolan vara vid $(x_2,y_2)$, eller Tobias hus vara $(x_2,y_2)$ och skolan vara vid $(x_1,y_1)$.
+
+  Efter detta ska ditt program avslutas.
 \end{itemize}
+
+Gradern är icke-anpassningsbar, vilket innebär att positionerna av Tobias hus och skolan är bestämt innan interaktinoen med ditt program påbörjas.
 
 
 \textbf{Se till att flusha outputen efter varje query}, annars kan du få \textit{Time Limit Exceeded}.
-I C++ kan detta göras med exempelvis \texttt{cout << flush;}
-eller \texttt{fflush(stdout);},
-i Python med \texttt{stdout.flush()}
+I Python sker detta automatiskt så länge \texttt{input()} används för att läsa in raderna. 
+I C++ flushar \texttt{cout << endl;}, men annars kan detta göras med exempelvis \texttt{cout << flush;} eller \texttt{fflush(stdout);},
 och i Java med \texttt{System.out.flush();}.
 
 
@@ -46,20 +62,38 @@ För att få poäng för en grupp så måste Harry klara alla testfall i gruppen
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $14$       & $N \leq 7$ \\ \hline
-  $2$    & $11$       & Tobias hus är på ruta $(1,1)$ (huset längst upp till vänster). \\ \hline
-  $3$    & $\text{upp till } 75$     & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $5$        & $N \leq 5$ \\ \hline
+  $2$    & $9$        & $N \leq 9$ \\ \hline
+  $3$    & $11$       & Tobias hus är på ruta $(1,1)$ (huset längst upp till vänster). \\ \hline
+  $4$    & $\text{upp till } 75$     & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
 I den sista testgruppen \textbf{beror din poäng på antalet dagar som används} enligt följande formel:
 
 \[
-score = \begin{cases}
-... & \text{om } 75 \le Q \le 365, \\
-... & \text{om } 10 \le Q < 75, \\
-... & \text{om } 6 \le Q < 10, \\
-... & \text{om } Q \le 5,
+score =
+\begin{cases}
+75, & \text{om } Q \le 5,\\
+
+85 - (5/2) Q, & \text{om } 5 < Q \le 10,\\
+
+55 \cdot \left( 20/55 \right)^{ (Q-11)/64}, & \text{om } 10 < Q \le 75,\\
+
+5 \cdot \left(1/5\right)^{ (Q-160)/205}, & \text{om } 75 < Q \le 365,\\
+
+0, & \text{om } Q > 365.
 \end{cases}
 \]
 
-där $Q$ är det maximala antalet tester som användes för något testfall. Poängen avrundas till närmaste heltal.
+där $Q$ är det maximala antalet dagar som användes för något testfall. Poängen avrundas till närmaste heltal.
+
+
+% score(Q) = If(Q ≤ 5, 
+%               75,
+%            If(Q ≤ 10, 
+%               85 - (5/2)*Q,
+%            If(Q ≤ 75,
+%               55 * (20/55)^((Q-11)/64),
+%            If(Q ≤ 365,
+%               5 * (1/5)^((Q-160)/205),
+%               0))))

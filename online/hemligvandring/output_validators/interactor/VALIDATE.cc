@@ -19,32 +19,61 @@ int elapsedmillis() { return chrono::duration_cast<chrono::milliseconds>(chrono:
 /*
 Input contains the information of how the judge should behave.
 Inputformat:
-N Q T
-x1 x2 x3 ... xN
+N T
+x1 y1 x2 y2
 */
 
+// T = 0 (sample, must use less than 366 queries)
+// T = 1 (point system)
 
 // ./a.out ../../data/secret/group1/001-random-01.in  ../../data/secret/group1/001-random-01.ans . < ../../submissions/accepted/harry.py 
 
-vector<vector<int>> g;
+
+int compute_score(int Q) {
+    double score;
+
+    if (Q <= 5) {
+        score = 75.0;
+    } else if (Q <= 10) {
+        score = 85.0 - (5.0 / 2.0) * Q;
+    } else if (Q <= 75) {
+        score = 55.0 * pow(20.0 / 55.0, (Q - 11.0) / 64.0);
+    } else if (Q <= 365) {
+        score = 5.0 * pow(1.0 / 5.0, (Q - 160.0) / 205.0);
+    } else {
+        score = 0.0;
+    }
+
+    // Round to nearest integer
+    return (int) lround(score);
+}
 
 int main(int argc, char **argv) {
     init_io(argc, argv);
+
+    const int Q = 365;
     
-    int n,q,t;
-    judge_in >> n >> q >> t;
+    int N,T,x1,y1,x2,y2;
+    judge_in >> N >> T >> x1 >> y1 >> x2 >> y2;
 
-    vi pos(n);
-    rep(i,0,n) judge_in >> pos[i];
+    cout << N << "\n";
+    rep(i,0,N) {
+        rep(j,0,N) {
+            if (i % 2 == 1 and j % 2 == 1) cout << "H";
+            else cout << ".";
+        }
+        cout << "\n";
+    }
 
-    sort(all(pos));
 
     //std::seed_seq seed(all(words[0])); 
     //std::mt19937 generator(seed);   // mt19937 is a standard mersenne_twister_engine
 
-    cout << t << "\n";
     // "game loop"
-    rep(c1,0,q+1) {
+
+    int usedQueries = 0;
+
+    rep(c1,0,Q+1) {
         char start;
         if(!(cin >> start)) {
             wrong_answer("Could not read first char of query %d", c1+1);
@@ -55,77 +84,96 @@ int main(int argc, char **argv) {
 		}
 
         if (start == '?') {
-            ll x;
-            if (!(cin >> x)) {
-				wrong_answer("Got a ? query but could not read x, query %d", c1+1);
-			}
-
-            if (x < -1e9 || x > 2e9) {
-                wrong_answer("x out of range (%d)", x);
+            usedQueries++;
+            if (c1 == Q) {
+                wrong_answer("Too many queries. Used more than %d queries.", c1+1);
             }
 
-            if (c1 == q) {
-                wrong_answer("Too many queries");
-            }
-
-
-            if (x >= pos[n-1]) cout << pos[n-1] << "\n";
-            else if (x <= pos[0]) cout << pos[0] << "\n";
-            else {
-
-                // Binary search to find the largest element <= x
-                int l = 0;
-                int r = n-1;
-
-                while (l < r) {
-                    int m = (l+r+1)/2;
-                    if (pos[m] <= x) l = m;
-                    else r = m-1;
+            vector<string> grid;
+            rep(i,0,N) {
+                string row;
+                if (!(cin >> row)) {
+                    wrong_answer("Got a ? query but could not read row %d, for query %d.", i+1, c1+1);
+                }
+                
+                if (sz(row) != N) {
+                    wrong_answer("Got a ? query but row %d does not contain N characters. It contains %d characters.", i+1, sz(row));
                 }
 
-                // Check wether l och l+1 is smaller
-                // If tiebreak, choose l.
-
-                ll best = pos[l+1];
-                if (abs((ll)best-(ll)x) >= abs((ll)pos[l]-(ll)x)) best = pos[l];
-                //cout << l << "\n";
-                //cout << pos[l] << " " << pos[l+1] << " " << x << "\n";
-                cout << best << "\n";
+                rep(j,0,N) {
+                    if (i % 2 == 1 and j % 2 == 1) {
+                        if (row[j] != 'H') {
+                            wrong_answer("Got a ? query, but cell (%d, %d) should be a house (H). Instead it was (%c).", i,j ,row[j]);
+                        }
+                    }
+                    else {
+                        if (row[j] != '#' and row[j] != '.') {
+                            wrong_answer("Got a ? query, but cell (%d, %d) should be a either a wall (#) or empty (.). Instead it was (%c).", i,j ,row[j]);
+                        }
+                    }
+                }
+                
+                grid.push_back(row);
             }
+            
+            // Do a BFS from (x1,y1) until it reaches (x2,y2)
+            
+            vector<vi> seen(N,vi(N,0));
+            seen[x1][y1] = 1;
+            vi dists(1,0);
+            vector<pii> BFS = {make_pair(x1,y1)};
+            vector<pii> adj = {{0,1},{1,0},{-1,0},{0,-1}};
+            int ind = 0;
+
+            int ret = -1;
+            while (ind < sz(BFS)) {
+                int cx,cy;
+                tie(cx,cy) = BFS[ind];
+
+                for (auto &[dx,dy]: adj) {
+                    if (0 <= cx+dx and cx+dx < N and 0 <= cy+dy and cy+dy < N) {
+                        if (grid[cx+dx][cy+dy] == '#') {
+                            continue;
+                        }
+
+                        if (seen[cx+dx][cy+dy]) continue;
+
+                        seen[cx+dx][cy+dy] = 1;
+                        BFS.push_back({cx+dx,cy+dy});
+                        dists.push_back(dists[ind]+1);
+                        if (cx+dx == x2 and cy+dy == y2) {
+                            ret = dists[ind]+1;
+                            break;
+                        }
+                    }
+                }
+
+                if (ret != -1) break;
+                ind++;
+            }
+
+            cout << ret << '\n';
+
         }
 
         if (start == '!') {
-            int n_ANS;
-            if (!(cin >> n_ANS)) {
-                wrong_answer("Could not read the number n when reading answer");
-            }
-
-            if (n_ANS != n) {
-                wrong_answer("Number of ducks found was incorrect (got %d wanted %d)", n_ANS, n);
-            }
-
-
-            // Necessary to check newline here? Maybe not?
-
-
-            vi X_ANS;
-            rep(c2,0,n) {
-                int x;
-                if (!(cin >> x)) {
-                    wrong_answer("Could not read %d:th number when reading answer", c2+1);
+            vi ANS(4);
+            rep(i,0,4) {
+                if (!(cin >> ANS[i])) {
+                    wrong_answer("Got a ! response, but could not read %d-th integer.", i+1);
                 }
-                X_ANS.push_back(x);
             }
-            sort(all(X_ANS));
 
-            rep(c2,0,n){
-				if(pos[c2] != X_ANS[c2]){
-					int a = X_ANS[c2];
-					int b = pos[c2];
-					wrong_answer("Number %d of answer was wrong (got %d wanted %d)", c2+1, a, b);
-				}
-			}
-			break;
+            if (ANS[0] == x1 and ANS[1] == y1 and ANS[2] == x2 and ANS[3] == y2) {
+                break;
+            }
+
+            if (ANS[0] == x2 and ANS[1] == y2 and ANS[2] == x1 and ANS[3] == y1) {
+                break;
+            }
+
+            wrong_answer("The output is incorrect. (%d, %d) and (%d, %d) were given.", ANS[0], ANS[1], ANS[2], ANS[3]);
+
         }
     }
 
@@ -134,6 +182,14 @@ int main(int argc, char **argv) {
 		wrong_answer("Trailing output");
 	}
 
-  	accept();
+    judge_message("Accepted, used %d queries.\n", usedQueries);
+
+    if (T == 0) {
+        accept();
+    } 
+    else {
+        accept_with_score_integer(compute_score(usedQueries));
+    }
+  	
 
 }

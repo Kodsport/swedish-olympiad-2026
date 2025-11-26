@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# 5 queries
+# 6 queries
 
 n = int(input())
 A = [input() for _ in range(n)]
@@ -37,16 +37,16 @@ for row in B:
 b = int(input())
 
 
-# B = [[*row] for row in A]
-# for i in range(0,n,2):
-#     for j in range(n-1):
-#         B[i][j] = "#"
+B = [[*row] for row in A]
+for i in range(0,n,2):
+    for j in range(n-1):
+        B[i][j] = "#"
 
-# print("?")
-# for row in B:
-#     print("".join(row))
+print("?")
+for row in B:
+    print("".join(row))
 
-# c = int(input())
+c = int(input())
 
 B = [[*row] for row in A]
 for i in range(0,n,2):
@@ -62,11 +62,8 @@ d = int(input())
 
 x1 = n-1 - (a-k)//2
 x2 = (b-k)//2
-#y1 = n-1 - (c-k)//2
+y1 = n-1 - (c-k)//2
 y2 = (d-k)//2
-
-dy = k - abs(x1-x2)
-y1 = y2+dy
 
 # antingen  (x1,y1) (x2,y2)
 # eller     (x1,y2) (x2,y1)

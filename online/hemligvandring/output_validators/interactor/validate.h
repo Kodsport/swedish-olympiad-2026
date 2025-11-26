@@ -120,6 +120,10 @@ void accept_with_score(double scorevalue) {
     exit(EXITCODE_AC);
 }
 
+void accept_with_score_integer(int scorevalue) {
+    report_feedback(FILENAME_SCORE, "%d", scorevalue);
+    exit(EXITCODE_AC);
+}
 
 bool is_directory(const char *path) {
     struct stat entry;

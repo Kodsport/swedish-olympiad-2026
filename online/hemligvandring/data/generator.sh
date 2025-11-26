@@ -3,14 +3,14 @@
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-use_solution joshua_chatgpt.cpp
+use_solution harry.py
 
 compile gen_rand.py
-compile gen2.py
+
 
 samplegroup
-sample sample01
-sample sample02
+sample 1.in
+sample 2.in
 
 group group1 40
 limits maxn=10
