@@ -2,7 +2,7 @@
 
 \illustration{0.25}{absolutecinema}{cc by-s}
 
-Winston jobbar på biografen ``Absolut Bio'', den biograf som är mest topp i hela landet.
+Winston jobbar på biografen ''Absolut Bio'', den biograf som är mest topp i hela landet.
 Salongen har $N$ numrerade platser, och Winstons jobb är att hålla exakt koll på
 vilka som är lediga och vilka som redan är tagna.
 
@@ -12,16 +12,16 @@ Under dagen sker $Q$ händelser. Besökare ställer sig då och ropar olika öns
 Winston har inte mycket tid på sig, så han måste svara snabbt och korrekt.
 
 
-När en besökare säger: ``Jag vill sätta mig på plats $i$'', tittar Winston i systemet:
+När en besökare säger: ''Jag vill sätta mig på plats $i$'', tittar Winston i systemet:
 \begin{itemize}
-  \item Om plats $i$ är ledig svarar Winston: ``Ledig'' och markerar den som upptagen.
-  \item Annars svarar Winston: ``Upptagen''.
+  \item Om plats $i$ är ledig svarar Winston: ''Ledig'' och markerar den som upptagen.
+  \item Annars svarar Winston: ''Upptagen''.
 \end{itemize}
 
-När en besökare säger: ``Jag vill flytta mig från plats $i$ till plats $j$'' kontrollerar Winston först plats $j$:
+När en besökare säger: ''Jag vill flytta mig från plats $i$ till plats $j$'' kontrollerar Winston först plats $j$:
 \begin{itemize}
-  \item Om plats $j$ är upptagen svarar Winston: ``Upptagen'' och inget ändras.
-  \item Om plats $j$ är ledig flyttar Winston personen: plats $i$ blir ledig och plats $j$ blir upptagen, och han svarar ``Ledig''.
+  \item Om plats $j$ är upptagen svarar Winston: ''Upptagen'' och inget ändras.
+  \item Om plats $j$ är ledig flyttar Winston personen: plats $i$ blir ledig och plats $j$ blir upptagen, och han svarar ''Ledig''.
 \end{itemize}
 
 Efter varje fråga måste Winston alltid meddela om den berörda platsen är ledig eller inte. Det är så Absolut Bio håller sin perfekta ordning, och det är framför allt tack vare Winston som biografen fungerar så bra.
@@ -61,16 +61,16 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 I det första exemplet finns det $5$ platser och $3$ händelser:
 \begin{itemize}
-  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig, så Winston svarar ``Ledig''.
-  \item En besökare vill sätta sig på plats $3$. Plats $3$ är ledig, så Winston svarar ``Ledig''.
-  \item En besökare vill sätta sig på plats $3$. Plats $3$ är upptagen, så Winston svarar ``Upptagen''.
+  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig, så Winston svarar ''Ledig''.
+  \item En besökare vill sätta sig på plats $3$. Plats $3$ är ledig, så Winston svarar ''Ledig''.
+  \item En besökare vill sätta sig på plats $3$. Plats $3$ är upptagen, så Winston svarar ''Upptagen''.
 \end{itemize}
 
 \section*{Förklaring av exempelfall 2}  
 I det andra exemplet finns det $5$ platser och $3$ händelser:
 \begin{itemize}
-  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig, så Winston svarar ``Ledig''.
-  \item En besökare på plats $1$ vill flytta sig till plats $2$. Plats $2$ är ledig, så Winston flyttar personen och svarar ``Ledig''.
-  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig (eftersom den tidigare besökaren flyttade sig), så Winston svarar ``Ledig''.
+  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig, så Winston svarar ''Ledig''.
+  \item En besökare på plats $1$ vill flytta sig till plats $2$. Plats $2$ är ledig, så Winston flyttar personen och svarar ''Ledig''.
+  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig (eftersom den tidigare besökaren flyttade sig), så Winston svarar ''Ledig''.
 \end{itemize} 
 

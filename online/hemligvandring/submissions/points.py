@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def g(Q):
     if Q <= 5:
         return 75
