@@ -38,7 +38,7 @@ tc g2-10 gen_rand n=500 l=5 t=500 mode=stair len=25 scale=2
 tc g2-11 gen_rand n=500 l=5 t=500 mode=stair len=50 scale=20
 tc g2-12 gen_rand n=500 l=5 t=500 mode=stair len=3 scale=50
 
-group group3 19
+group group3 24
 limits maxn=5000
 include_group group2
 tc g3-1 chatgpt_killer n=5000 t=$MAX_T
@@ -52,7 +52,7 @@ tc g3-8 gen_rand n=5000  l=5 t=$MAX_T mode=stair len=25 scale=2
 tc g3-9 gen_rand n=5000  l=5 t=$MAX_T mode=stair len=50 scale=20
 tc g3-10 gen_rand n=5000 l=5 t=$MAX_T mode=stair len=3 scale=50
 
-group group4 22
+group group4 17
 limits maxl=2
 include_group group1
 tc g4-1 gen_rand n=200000 l=2 t=$MAX_T mode=random

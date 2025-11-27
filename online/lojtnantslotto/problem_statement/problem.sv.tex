@@ -1,13 +1,12 @@
 \problemname{Löjtnant Slotto}
 Löjtnant Slotto befäster just nu $N$ stycken slott.
-Varje slott har rikedomar värda $l_i$ guldmynt, men vaktas av $g_i$ soldater.
-Du vill nu anfalla Slottos slott.
-Till ditt förfogande har du $T$ trupper.
+Varje slott innehåller rikedomar värda $l_i$ guldmynt och försvaras av $g_i$ soldater.
+Du planerar att anfalla Slottos slott och har totalt $T$ trupper till ditt förfogande.
 Varje trupp kan skickas för att anfalla exakt ett slott.
-Om du skickar $g_i$ eller mer soldater till slott $i$, så kan du plundra alla dess rikedomar.
-Annars kommer anfallet att misslyckas.
+Om du anfaller slott $i$ med minst $g_i$ soldater lyckas anfallet, och du kan då plundra dess rikedomaer.
+Om du skickar färre soldater kommer anfallet att misslyckas.
 
-Om du fördelar dina trupper för anfall optimalt, hur många guldmynt värt av rikedomar kan du få?
+Om du fördelar dina trupper optimalt, hur många guldmynt värt av rikedomar kan du få?
 
 \section*{Indata}
 Den första raden av indata innehåller heltalen $N$ och $T$ ($1 \leq N \leq 2 \cdot 10^5$, $1 \leq T \leq 10^6$),
@@ -30,8 +29,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $7$   & $l_i=1$ \\ \hline
   $2$    & $12$  & $N, T \leq 500$ \\ \hline
-  $3$    & $19$  & $N \leq 2000$ \\ \hline
-  $4$    & $22$  & $l_i \leq 2$ \\ \hline
+  $3$    & $24$  & $N \leq 2000$ \\ \hline
+  $4$    & $17$  & $l_i \leq 2$ \\ \hline
   $5$    & $40$  & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
-
