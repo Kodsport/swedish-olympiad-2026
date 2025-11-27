@@ -1,50 +1,49 @@
 \problemname{Säker diktatorsortering}
 
 Det är relativt välkänt att en korrekt sorteringsalgoritm inte kan använda färre än $O(N\log(N))$ jämförelser
-i värstafallet om algoritmen endast kan jämföra och byta plats på element.
-För att komma runt detta har algoritm \textit{diktatorsortering} utvecklats.
-Denna sorterar en lista på följande vis:
+i värsta fallet om algoritmen endast kan jämföra och byta plats på element.
+För att komma runt detta har algoritmen \textit{diktatorsortering} utvecklats.
+Den sorterar en lista på följande vis:
 
-Behåll alltid första elementet.
-För varje element $x$ efter det, jämför elementet $x$ med det senast behållna elementet.
-Om elementet $x$ är \emph{strikt} större, behåll det.
-Annars, ta bort elementet $x$ från listan och skicka iväg det till ett träningsläger.
-Träningslägret är en lista som man lägger till längst bak på.
+Behåll alltid det första elementet.
+För varje efterföljande element $x$, jämför $x$ med det senast behållna elementet.
+Om $x$ är \emph{strikt} större, behåll det.
+Annars ta bort elementet $x$ från listan och skicka det till ett träningsläger.
+Träningslägret är en lista där nya element läggs till längst bak.
 
-Exempelvis, om listan är $[2,1,4,5,3,7]$, kommer den kvarvarande listan vara $[2,4,5,7]$,
-och träningslägret innehålla $[1,3]$.
-Denna algoritmen går att implementera i $O(N)$ tid, men uppoffrar korrekthet.
+Exempelvis: om listan är $[2,1,4,5,3,7]$, kommer den kvarvarande listan att vara $[2,4,5,7]$,
+och träningslägret innehåller $[1,3]$.
+Den här algoritmen går att implementera i $O(N)$ tid, men offrar korrekthet.
 
 För att försöka fixa detta bestämmer du dig för att modifiera algoritmen.
 Din idé är att köra diktatorsortering igen på listan i träningslägret.
-Då får du ett nytt träningsläger som du kan köra diktatorsortering på, och så vidare tills du får ett träningsläger som är tomt.
-Efter algoritmen får du ett flertal listor som alla är sorterade, och då är du färdig.
-Det är högst oklart vad detta är bra för, men det känns som att du verkligen bidragit till forskningen.
+Då får du ett nytt träningsläger att köra diktatorsortering på, och så vidare tills träningslägret blir tomt.
+När algoritmen är klar har du flera listor som alla är sorterade; då är du färdig.
+Det är högst oklart vad detta är bra för, men det känns som att du verkligen har bidragit till forskningen.
 Därför bestämmer du dig för att döpa din nya algoritm till \textit{säker diktatorsortering}.
 
-Exempelvis, anta att säker diktatorsortering körs på följande lista: $[5,3,1,4]$.
-Efter första steget är resultatet listan $[5]$ och träningsläger $[3,1,4]$.
-Om diktatorsortering sedan körs på träningslägret blir resultatet $[3,4]$ och ett nytt träningsläger blir $[1]$.
+Exempelvis: anta att säker diktatorsortering körs på följande lista: $[5,3,1,4]$.
+Efter första steget är resultatet listan $[5]$ och träningslägret $[3,1,4]$.
+Om diktatorsortering sedan körs på träningslägret blir resultatet $[3,4]$ och det nya träningslägret $[1]$.
 Eftersom $[1]$ är sorterad är algoritmen klar.
 Det slutgiltiga resultatet blir då de tre listorna $[5]$, $[3,4]$ och $[1]$.
 
-Tyvärr kör inte säker diktatorsortering lika snabbt som vanlig diktatorsortering längre.
+Tyvärr går säker diktatorsortering inte lika snabbt som vanlig diktatorsortering.
 Kan du implementera algoritmen effektivt?
-Det vill säga, efter varje gång diktatorsortering körs, skriv ut den resulterande sorterade listan
-till algoritmen är färdig.
+Det vill säga: efter varje gång diktatorsortering körs, skriv ut den resulterande sorterade listan,
+tills algoritmen är färdig.
 
 
 \section*{Indata}
 Den första raden av indata innehåller heltalet $N$ ($1 \leq N \leq 2 \cdot 10^5$),
 antalet tal i listan.
 
-Den andra raden av indata innehåller $N$ heltal $a_1, \dots, a_N$ ($1 \leq a_i \leq 10^6$),
-talen i listan som ska ''sorteras''.
+Den andra raden av indata innehåller $N$ heltal $a_1, \dots, a_N$ ($1 \leq a_i \leq 10^6$):
+talen i listan som ska ``sorteras''.
 
 \section*{Utdata}
-Efter varje gång vanlig diktatorsortering körs, skriv ut innehållet av den sorterade listan
-på en egen rad.
-Skriv också ut den sista sorterade listan som skapas.
+Skriv ut innehållet i den sorterade listan på en egen rad efter varje gång vanlig diktatorsortering körs,
+inklusive den sista.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
