@@ -141,7 +141,7 @@ candidates = [(a,b) for a,b in candidates if distsmap1[a][b[0]][b[1]] == firstva
 
 #print(len(candidates))
 #print(firstval, secondval)
-print(candidates)
+#print(candidates)
 assert(len(candidates) <= 4)
 
 #######

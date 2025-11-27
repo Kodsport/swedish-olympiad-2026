@@ -44,12 +44,14 @@ int compute_score(int Q) {
 
     if (Q <= 5) {
         score = 75.0;
+    } else if (Q <= 6) {
+        score = 63.0;
     } else if (Q <= 10) {
-        score = 85.0 - (5.0 / 2.0) * Q;
+        score = 55.0 * pow(10.0/55.0, (Q-10.0)/85);
     } else if (Q <= 75) {
-        score = 59.0 * pow(12.0 / 59.0, (Q - 10.0) / 64.0);
+        score = 53.0 * pow(8.0 / 53.0, (Q - 10.0) / 64.0);
     } else if (Q <= 365) {
-        score = 5.0 * pow(1.0 / 5.0, (Q - 160.0) / 205.0);
+        score = 4.0 * pow(1.0 / 4.0, (Q - 160.0) / 205.0);
     } else {
         score = 0.0;
     }

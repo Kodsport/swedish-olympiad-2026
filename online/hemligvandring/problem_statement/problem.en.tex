@@ -1,0 +1,103 @@
+\problemname{Secret Walk}
+\illustration{0.25}{grid}{cc by-s}
+
+In the exotic and warm city of Mänhettan live Harry and his absent-minded friend Tobias.
+The city is an $N \times N$ grid with coordinates $(x,y)$ where $0 \le x,y < N$. There is a house on every cell where both $x$ and $y$ are odd.
+The top-left cell is $(0,0)$, the bottom-left cell is $(N-1,0)$, and the bottom-right cell is $(N-1,N-1)$.
+
+Tobias lives in one of these houses, and his school is in another.
+They are not on the same row or column, because Harry has visited Tobias and could not see the school through the window.
+
+Tobias may move between two cells that share a side; each such move takes exactly one minute. Every day he walks along a shortest path to school and sends messages like ``On my way now!'' and ``Just arrived!'', which means Harry knows exactly how long it takes Tobias to go from his house to the school.
+
+Although Harry has visited Tobias and knows whether a cell is a house, he has forgotten both where Tobias lives and where the school is located.
+
+To figure this out, each day Harry may magically create walls on any cells that do not contain houses.
+That day it takes $t$ minutes for Tobias to travel from his house to the school, or $t=-1$ if he gets completely stuck. After the day ends, all walls Harry created disappear.
+
+Your task is to help Harry determine which house Tobias lives in and which house the school is in, using as few days as possible.
+Harry may use up to 365 days, but you get more points the fewer days you use.
+
+\section*{Interaction}
+This is an interactive problem.
+
+\begin{itemize}
+  \item Your program must first read one line containing an integer $N$ $(5 \le N \le 75,$ $N$ is odd$)$, the height and width of the grid.
+  Then it reads $N$ lines, each with $N$ characters describing the grid.
+  The character \texttt{H} means that cell is occupied by a house, while \texttt{.} means it is empty.
+
+  \item Then your program interacts with the grader.
+  To learn the number of minutes $t$ Tobias needs when taking a shortest path, you can issue a query by placing walls.
+  Do this by printing a line containing a question mark \texttt{?}.
+  On the following $N$ lines print an $N \times N$ grid that is a copy of the input grid with any subset of empty cells \texttt{.} replaced by \texttt{\#} (walls).
+
+  Then read an integer $t$ ($-1 \le t \le N^2$), the minimum number of minutes Tobias needs to travel from his house to the school if he may pass through houses (\texttt{H}) and empty cells (\texttt{.}), but not walls (\texttt{\#}).
+
+  \item When you want to output your final answer, print a line starting with an exclamation mark \texttt{!} followed by four integers $x_1\ y_1\ x_2\ y_2$ where $(x_1,y_1)$ and $(x_2,y_2)$ are the coordinates of Tobias's house and the school in any order.
+  The format must be \texttt{! x1 y1 x2 y2}.
+  For your answer to be accepted, either Tobias's house is $(x_1,y_1)$ and the school is $(x_2,y_2)$, or vice versa.
+
+  After this your program should terminate.
+\end{itemize}
+
+The grader is non-adaptive: the positions of Tobias's house and the school are fixed before interaction starts.
+
+\textbf{Make sure to flush your output after every query}, otherwise you may get \textit{Time Limit Exceeded}.
+In Python this happens automatically as long as you use \texttt{input()} to read lines.
+In C++ \texttt{cout << endl;} flushes, but you can also use \texttt{cout << flush;} or \texttt{fflush(stdout);},
+and in Java \texttt{System.out.flush();}.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$ & $5$  & $N = 5$ \\ \hline
+  $2$ & $9$  & $N \le 9$ \\ \hline
+  $3$ & $11$ & Tobias's house is cell $(1,1)$ (the top-left house). \\ \hline
+  $4$ & up to $75$ & No additional constraints. \\ \hline
+\end{tabular}
+
+In the last test group \textbf{your score depends on the number of days used} according to:
+
+\[
+score =
+\begin{cases}
+75, & \text{if } Q \le 5,\\
+63, & \text{if } 5 < Q \le 6,\\
+55 \cdot \left( 10/55 \right)^{ (Q-10)/85}, & \text{if } 6 < Q \le 10,\\
+53 \cdot \left( 8/53 \right)^{ (Q-10)/64}, & \text{if } 10 < Q \le 75,\\
+4  \cdot \left( 1/4 \right)^{ (Q-160)/205}, & \text{if } 75 < Q \le 365,\\
+0, & \text{if } Q > 365.
+\end{cases}
+\]
+
+Here $Q$ is the maximum number of days used on any test case. The score is rounded to the nearest integer.
+
+To get full points in this group, Harry must solve every test case in at most $5$ days.
+
+Below is a table of scores for selected $Q$ values:
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c}
+\textbf{Q} & \textbf{Points} \\
+\hline
+5   & 75 \\
+6   & 63 \\
+10  & 55 \\
+11  & 51 \\
+30  & 29 \\
+75  & 8 \\
+160 & 4 \\
+300 & 2 \\
+365 & 1 \\
+366 & 0 \\
+\end{tabular}
+\end{table}
+
+Further down the page there is a file \texttt{points.txt} containing the score for every possible $Q$.
+There is also a \texttt{testing\_tool.py} you can use to test your solution locally.
+
