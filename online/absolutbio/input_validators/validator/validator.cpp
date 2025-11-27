@@ -12,14 +12,39 @@ typedef vector<int> vi;
 
 
 void run() {
-	ll N = Int(1, Arg("maxn",2e5)); Space();
-	ll Q = Int(1,2e5); Endl();
+	ll N = Int(1, Arg("maxn",1e9)); Space();
+	ll Q = Int(1, Arg("maxq",2e5)); Endl();
 
 
 	set<int> seen;
 
-	rep(i,0,Q) {
+	int onlyadd = Arg("onlyadd",0);
 
+	rep(i,0,Q) {
+		int type = Int(1,2); Space();
+
+		if (onlyadd) assert(type == 1);
+
+		if (type == 1) {
+			int x = Int(1,N); Endl();
+
+			seen.insert(x);
+		}
+		else {
+			int l = Int(1,N); Space();
+			int r = Int(1,N); Endl();
+
+			assert(l != r);
+			assert(seen.count(l) == 1);
+
+			if (seen.count(r) == 0) {
+				seen.insert(r);
+				seen.erase(l);
+			}
+		}
 	}
+
+	Eof();
+	
 }
 

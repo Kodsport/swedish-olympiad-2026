@@ -1,25 +1,45 @@
-\problemname{The Powers of Two}
+\problemname{Absolute Cinema}
 
-Louise and her close friend Elin have always been completely unstoppable together.
-They called their unbeatable duo-energy the Power of Friendship, and when they worked together, nothing could stop them.
+\illustration{0.25}{absolutecinema}{cc by-s}
 
-But one day, Louise discovered something even greater. Something so big that it might not fit in a 32-bit integer.
+Winston works at the cinema ``Absolute Cinema'', the peak cinema in the entire country.
+The auditorium has $N$ numbered seats, and Winston's job is to keep exact track of
+which seats are available and which are already taken.
 
-She was counting by the campfire and noticed that certain numbers grew in a special way: $1, 2, 4, 8, 16, 32, \dots$  
-Each number was twice as large as the previous one, which makes the numbers grow very quickly.
+At the start of the day all seats are available.
+During the day, $Q$ events occur. Visitors line up and shout various requests to Winston.
 
-\begin{align*}
-& \text{``This... this is more than the power of friendship,'' whispered Louise.} \\
-& \text{``It is the power of powers of two.''}
-\end{align*}
+Winston does not have much time, so he must answer quickly and correctly.
 
-Yes. The power of powers of two is truly something special. But now Louise and Elin wonder whether a given number $N$ will ever appear in the sequence of powers of two.
+When a visitor says: ``I want to sit at seat $i$'', Winston checks the system:
+\begin{itemize}
+  \item If seat $i$ is available, Winston replies ``Ledig'' (Swedish word for Available) and marks it as taken.
+  \item Otherwise Winston replies ``Upptagen'' (Swedish word for Occupied).
+\end{itemize}
+
+When a visitor says: ``I want to move from seat $i$ to seat $j$'', Winston first checks seat $j$:
+\begin{itemize}
+  \item If seat $j$ is occupied, Winston replies ``Upptagen'' and nothing changes.
+  \item If seat $j$ is available, Winston moves the person: seat $i$ becomes available and seat $j$ becomes taken, and he replies ``Ledig''.
+\end{itemize}
+
+After each request Winston must always report whether the relevant seat is available or not. This is how Absolute Cinema keeps its peak order, and it is thanks to Winston that the cinema runs so well.
 
 \section*{Input}
-The input consists of a single integer $N$ ($1 \leq N \leq 10^{18}$).
+The input consists of two integers $N$ and $Q$ ($1 \le N, Q \le 2 \cdot 10^{5}$). All $N$ seats are initially available.
+
+Then follow $Q$ lines describing events. Each line has one of the following formats:
+\begin{itemize}
+  \item \texttt{1 i}, a visitor wants to sit at seat $i$ $(1 \le i \le N)$.
+  \item \texttt{2 i j}, a visitor at seat $i$ wants to move to seat $j$ $(1 \le i, j \le N, i \ne j)$. For each such query it is guaranteed that seat $i$ is occupied.
+\end{itemize}
 
 \section*{Output}
-Print \texttt{``Ja''} if $N$ is a power of two, otherwise print \texttt{``Nej''}.
+For each event, print exactly one line:
+\begin{itemize}
+  \item Print \texttt{Ledig} if the target seat was available (and perform the change).
+  \item Otherwise print \texttt{Upptagen}.
+\end{itemize}
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
@@ -29,6 +49,25 @@ a set of test cases. To get the points for a test group you need to solve all te
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
-  $1$    & $20$  & $N \le 100$ \\ \hline
-  $2$    & $80$  & No additional constraints. \\ \hline
+  $1$    & $15$  & $Q \le 10^3, N \le 10^4$ \\ \hline
+  $2$    & $25$  & $N \le 10^4$ \\ \hline
+  $3$    & $20$  & No move requests will occur. \\ \hline
+  $4$    & $40$  & No additional constraints. \\ \hline
 \end{tabular}
+
+\section*{Explanation of Sample 1}
+
+In the first example, there are $5$ seats and $3$ events:
+\begin{itemize}
+  \item A visitor wants to sit in seat $1$. Seat $1$ is free, so Winston replies ``Ledig''.
+  \item A visitor wants to sit in seat $3$. Seat $3$ is free, so Winston replies ``Ledig''.
+  \item A visitor wants to sit in seat $3$. Seat $3$ is occupied, so Winston replies ``Upptagen''.
+\end{itemize}
+
+\section*{Explanation of Sample 2}
+In the second example, there are $5$ seats and $3$ events:
+\begin{itemize}
+  \item A visitor wants to sit in seat $1$. Seat $1$ is free, so Winston replies ``Ledig''.
+  \item A visitor in seat $1$ wants to move to seat $2$. Seat $2$ is free, so Winston moves the person and replies ``Ledig''.
+  \item A visitor wants to sit in seat $1$. Seat $1$ is free (since the previous visitor moved), so Winston replies ``Ledig''.
+\end{itemize}

@@ -31,10 +31,10 @@ Indatan består av två heltal $N$ och $Q$ ($1 \le N, Q \le 2 \cdot 10^{5}$). Al
 
 Sedan följer $Q$ rader som beskriver händelser. Varje rad är på något av följande format:
 \begin{itemize}
-  \item \texttt{1 i}, en besökare vill sätta sig på plats $i$.
-  \item \texttt{2 i j}, en besökare på plats $i$ vill flytta sig till plats $j$.
+  \item \texttt{1 i}, en besökare vill sätta sig på plats $i$ $(1 \le i \le N)$.
+  \item \texttt{2 i j}, en besökare på plats $i$ vill flytta sig till plats $j$ $(1 \le i, j \le N, i \neq j)$. För varje sådan fråga är det garanterat att plats $i$ är upptagen.
 \end{itemize}
-Här gäller $1 \le i, j \le N$. För en flyttförfrågan garanteras att plats $i$ är upptagen (dvs förfrågan är meningsfull).
+
 
 \section*{Utdata}
 För varje händelse ska du skriva ut exakt en rad:
@@ -51,8 +51,26 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $25$  & $N \le 10^4$ \\ \hline
-  $2$    & $20$  & Ingen kommer be om att förflytta sig. \\ \hline
-  $4$    & $55$  & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $15$  & $Q \le 10^3, N \le 10^4$ \\ \hline
+  $2$    & $25$  & $N \le 10^4$ \\ \hline
+  $3$    & $20$  & Ingen kommer be om att förflytta sig. \\ \hline
+  $4$    & $40$  & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+
+I det första exemplet finns det $5$ platser och $3$ händelser:
+\begin{itemize}
+  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig, så Winston svarar ``Ledig''.
+  \item En besökare vill sätta sig på plats $3$. Plats $3$ är ledig, så Winston svarar ``Ledig''.
+  \item En besökare vill sätta sig på plats $3$. Plats $3$ är upptagen, så Winston svarar ``Upptagen''.
+\end{itemize}
+
+\section*{Förklaring av exempelfall 2}  
+I det andra exemplet finns det $5$ platser och $3$ händelser:
+\begin{itemize}
+  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig, så Winston svarar ``Ledig''.
+  \item En besökare på plats $1$ vill flytta sig till plats $2$. Plats $2$ är ledig, så Winston flyttar personen och svarar ``Ledig''.
+  \item En besökare vill sätta sig på plats $1$. Plats $1$ är ledig (eftersom den tidigare besökaren flyttade sig), så Winston svarar ``Ledig''.
+\end{itemize} 
 
