@@ -193,3 +193,5 @@ for i in {74..88}; do
 done
 tc g4-89 gen_rand T=4 n=75 x1=1 y1=71 x2=3 y2=1
 tc g4-90 gen_rand T=4 n=75 x1=1 y1=1 x2=73 y2=25
+
+# add some n=73 tests

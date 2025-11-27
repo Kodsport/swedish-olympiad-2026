@@ -82,9 +82,11 @@ def queryT1(A):
         if i%4:
             B[i] = ["#"]*n
             B[i][-1] = "."
+            #B[i][-2] = "."
         else:
             B[i] = ["#"]*n
             B[i][0] = "."
+            #B[i][1] = "."
     return ["".join(row) for row in B]
 
 def queryT2(A):
@@ -118,7 +120,7 @@ def evaluate_query(query, candidates, houses, N):
     for (src, dst) in candidates:
         d = all_dist[src][dst[0]][dst[1]]
         bucket[d].append((src, dst))
-
+    #bucket = {36:bucket[36], 578:bucket[578]}
     return bucket
 
 
@@ -184,7 +186,7 @@ def eliminate_until_one(original_grid, wall_prob=0.10, trials_per_round=40, verb
             print(f"\n=== ROUND {round_id} ===")
             print(f"Candidates remaining: {len(candidates)}")
             print("Searching for best query...")
-            if len(candidates) < 10:
+            if len(candidates) < 25:
                 print(candidates)
         best_query, bucket = choose_best_query(
             round_id,
@@ -222,7 +224,7 @@ def eliminate_until_one(original_grid, wall_prob=0.10, trials_per_round=40, verb
 # Example for testing
 # --------------------------------------------------
 if __name__ == "__main__":
-    N = 75
+    N = 35
        # smaller N in example to run quickly; set to 75 if you want
     grid = [["."]*N for _ in range(N)]
     for i in range(1, N, 2):
@@ -230,8 +232,8 @@ if __name__ == "__main__":
             grid[i][j] = "H"
     g = ["".join(row) for row in grid]
 
-    #print(queryT1(g))
-    #print(queryT2(g))
+    print(queryT1(g))
+    print(queryT2(g))
 
     queries, answer = eliminate_until_one(
         g,
