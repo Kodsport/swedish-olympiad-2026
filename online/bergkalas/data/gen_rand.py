@@ -159,6 +159,7 @@ if 0:
     print("end tree")
 
 mint=int(cmdlinearg('mint',1))
+maxr=int(cmdlinearg('maxr',n-1))
 
 if querymode=='random':
     houses = [i+1 for i in range(n)]
@@ -168,13 +169,13 @@ if querymode=='random':
     for i in range(q):
         t = randint(mint,2)
         if t == 1:
-            a = randint(1,m)
-            b = randint(1,m)
+            a = randint(1,n)
+            b = randint(1,n)
             while a==b:
-                b = randint(1,m)
+                b = randint(1,n)
             print(t,a,b)
         else:
-            print(t,randint(1,m), randint(0,n-1))
+            print(t,randint(1,m), randint(1,maxr))
 elif querymode=='leafs':
     houses = get_leaves(parents)
     if len(houses) > m:
@@ -200,11 +201,30 @@ elif querymode=='leafs':
         if x==1 and mint==1:
             t=1
         if t == 1:
-            a = randint(1,m)
-            b = randint(1,m)
+            a = randint(1,n)
+            b = randint(1,n)
             while a==b:
-                b = randint(1,m)
+                b = randint(1,n)
             print(t,a,b)
         else:
-            print(t,houses[randint(0,num_leaf-1)], randint(0,n-1))
+            print(t,randint(1,min(m, num_leaf-1)), randint(1,maxr))
+elif querymode=="line":
+    houses = [i+1 for i in range(n)][:m]
+    for i in range(10):
+        a=randint(0,n-1)
+        b=randint(0,n-1)
+        houses[a],houses[b]=houses[b],houses[a]
+    print(*houses)
 
+    for i in range(q):
+        t = randint(mint,2)
+        if t == 1:
+            a = randint(1,n)
+            b = randint(1,n)
+            while a==b:
+                b = randint(1,n)
+            print(t,a,b)
+        else:
+            print(t,randint(1,m), randint(1,maxr))
+else:
+    assert 0

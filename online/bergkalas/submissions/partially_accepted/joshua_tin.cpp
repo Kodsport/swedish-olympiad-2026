@@ -103,17 +103,12 @@ int main()
     }
 
 
-    vi friendships(m);
-    rep(i,n) friendships[i]=i;
-    vi my_friend_index(m);
-    rep(i, m) my_friend_index[friendships[i]] = i;
-    
     MinTree tinmin(m);
     MaxTree tinmax(m);
     MaxTree depmax(m);
-    rep(i, m) tinmin.update(my_friend_index[i], tin[which_house[i]]);
-    rep(i, m) tinmax.update(my_friend_index[i], tin[which_house[i]]);
-    rep(i, m) depmax.update(my_friend_index[i], depth[which_house[i]]);
+    rep(i, m) tinmin.update(i, tin[which_house[i]]);
+    rep(i, m) tinmax.update(i, tin[which_house[i]]);
+    rep(i, m) depmax.update(i, depth[which_house[i]]);
 
 
     auto swap_houses = [&](int a, int b)
@@ -123,17 +118,17 @@ int main()
         {
             int person = who_lives[a];
             which_house[person] = a;
-            tinmin.update(my_friend_index[person], tin[which_house[person]]);
-            tinmax.update(my_friend_index[person], tin[which_house[person]]);
-            depmax.update(my_friend_index[person], depth[which_house[person]]);
+            tinmin.update(person, tin[which_house[person]]);
+            tinmax.update(person, tin[which_house[person]]);
+            depmax.update(person, depth[which_house[person]]);
         }
         if (who_lives[b] != -1)
         {
             int person = who_lives[b];
             which_house[person] = b;
-            tinmin.update(my_friend_index[person], tin[which_house[person]]);
-            tinmax.update(my_friend_index[person], tin[which_house[person]]);
-            depmax.update(my_friend_index[person], depth[which_house[person]]);
+            tinmin.update(person, tin[which_house[person]]);
+            tinmax.update(person, tin[which_house[person]]);
+            depmax.update(person, depth[which_house[person]]);
         }
     };
 
@@ -171,7 +166,7 @@ int main()
             cin >> p >> r;
             ll best = 0;
             p--;
-            int friend_ind = my_friend_index[p];
+            int friend_ind = p;
 
             int radius = r;
             rep(h, n)

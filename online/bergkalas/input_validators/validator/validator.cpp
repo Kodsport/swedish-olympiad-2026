@@ -25,20 +25,21 @@ struct UF {
 };
 
 void run() {
-    int n = Int(1, Arg("maxn", int(2e5)));
+    int n = Int(1, Arg("maxn", int(1e5)));
     Space();
-    int m = Int(1, Arg("maxm", int(2e5)));
+    int m = Int(1, Arg("maxm", int(1e5)));
     Space();
-    int q = Int(1, Arg("maxq", int(2e5)));
+    int q = Int(1, Arg("maxq", int(1e5)));
     Endl();
+    assert(m <= n);
 
     vector<int> par = SpacedInts(n, 1, n);
-    bool some_fixpoint = false;
+    int num_fixpoints = 0;
     for (int i = 0; i < n; i++) {
         par[i]--;
-        some_fixpoint |= par[i]==i;
+        num_fixpoints += par[i]==i;
     }
-    assert(some_fixpoint);
+    assert(num_fixpoints == 1);
     UF uf(n);
     rep(i,0,n) {
         if (i==par[i]) continue;
@@ -54,6 +55,7 @@ void run() {
     }
 
     int mint = Arg("mint", 1);
+    int maxr = Arg("maxr", n-1);
     while (q--) {
         int t = Int(mint, 2);
         Space();
@@ -64,9 +66,9 @@ void run() {
             assert(a!=b);
         }
         else {
-            Int(1,n);
+            Int(1,m);
             Space();
-            Int(0, n-1);
+            Int(1, maxr);
         }
         Endl();
     }

@@ -64,10 +64,6 @@ int main()
         who_lives[h] = i;
     }
     
-    vi friendships(m);
-    rep(i,n) friendships[i]=i;
-    vi my_friend_index(m);
-    rep(i, m) my_friend_index[friendships[i]] = i;
 
     auto swap_houses = [&](int a, int b)
     {
@@ -112,17 +108,17 @@ int main()
             cin >> p >> r;
             ll best = 0;
             p--;
-            int friend_ind = my_friend_index[p];
+            int friend_ind = p;
 
             rep(h, n)
             {
                 int ind = mod(friend_ind);
                 rep(steps, m)
                 {
-                    int curr_house = which_house[friendships[ind]];
-                    if (!is_ancestor(h, which_house[friendships[ind]])) break;
+                    int curr_house = which_house[ind];
+                    if (!is_ancestor(h, which_house[ind])) break;
                     if (depth[curr_house] - depth[h] > r) break;
-                    if (!close_enough(which_house[friendships[ind]], h, r)) break;
+                    if (!close_enough(which_house[ind], h, r)) break;
 
                     best = max(best, steps + 1);
                     ind = mod(ind + 1);
@@ -131,10 +127,10 @@ int main()
                 ind = mod(friend_ind);
                 rep(steps, m)
                 {
-                    int curr_house = which_house[friendships[ind]];
-                    if (!is_ancestor(h, which_house[friendships[ind]])) break;
+                    int curr_house = which_house[ind];
+                    if (!is_ancestor(h, which_house[ind])) break;
                     if (depth[curr_house] - depth[h] > r) break;
-                    if (!close_enough(which_house[friendships[ind]], h, r)) break;
+                    if (!close_enough(which_house[ind], h, r)) break;
 
                     best = max(best, steps + 1);
                     ind = mod(ind - 1);
