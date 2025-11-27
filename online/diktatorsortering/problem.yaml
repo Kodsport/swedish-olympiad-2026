@@ -1,0 +1,12 @@
+uuid: 7e05a243-8342-4621-8174-94813e1128df
+author: Joshua Andersson
+source: Programmeringsolympiadens onlinekval 2026
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+    show_test_data_groups: true
+
+limits:
+    time_multiplier: 6

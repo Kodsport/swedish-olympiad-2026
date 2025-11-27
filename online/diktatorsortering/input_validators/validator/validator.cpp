@@ -1,0 +1,20 @@
+#include "validator.h"
+
+using namespace std;
+
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define trav(i, a) for(auto& i : a)
+#define all(x) begin(x), end(x)
+#define sz(x) (int)(x).size()
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+
+
+void run() {
+    int n = Int(1, Arg("maxn", int(2e5)));
+    Endl();
+
+    SpacedInts(n, 1, (int)Arg("maxval", int(1e6)));
+}
+
