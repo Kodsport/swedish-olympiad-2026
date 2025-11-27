@@ -1,4 +1,3 @@
-#pragma GCC target("bmi,bmi2")
 #include <bits/stdc++.h>
 using namespace std;
 
