@@ -42,16 +42,17 @@ Självklart måste du också betrakta alla husbyten.
 Den första raden av indata innehåller heltalen $N$, $M$ och $Q$ ($1 \leq N, M, Q \leq 2 \cdot 10^5$),
 antalet hus, antalet invånare och antalet seder som utförs.
 
-Den andra raden innehåller $N$ heltal $r_1, \dots, r_N$ ($0 \leq r_i \leq N$),
+Den andra raden innehåller $N$ heltal $r_1, \dots, r_N$ ($1 \leq r_i \leq N$),
 där $r_i$ betyder att hus $i$ har en rutschkana till hus $r_i$.
-Det finns exakt ett hus som har $r_i=0$, och detta betyder att detta huset är längst ner och inte har en rutschkana.
+Det finns exakt ett hus som har $r_i=i$, och detta betyder att detta huset är längst ner och inte har en rutschkana.
 
 Den tredje raden innehåller $M$ heltal $h_1, \dots, h_M$ ($1 \leq h_i \leq N$),
 där $h_i$ betyder att person $i$ bor i hus $h_i$.
 Det är garanterat att det inte bor två personer i samma hus.
 
-De följande $M$ raderna beskriver vänskaperna. Den $i$:te av dessa rader innehåller heltalen $a$ och $b$ ($1 \leq a,b \leq M$, $a \neq b$),
-vilket betyder att person $i$ är vän med person $a$ och $b$.
+Den fjärde raden innehåller $M$ heltal $f_1, \dots, f_M$ ($1 \leq f_i \leq M$),
+som representerar vänskaperna. Detta är en cirkulär lista, där person $f_i$ är vän med
+nästa och föregående person. Det är garanterat att dessa utgör en permutation av talen $1$ till $M$.
 
 De sista $Q$ raderna beskriver vardera att en sed utförs. Varje rad börjar med heltalet $T$ ($1 \leq T \leq 2$).
 
@@ -73,10 +74,10 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $7$   & $l_i=1$ \\ \hline
-  $2$    & $12$  & $N, T \leq 500$ \\ \hline
-  $3$    & $19$  & $N \leq 2000$ \\ \hline
-  $4$    & $22$  & $l_i \leq 2$ \\ \hline
-  $5$    & $40$  & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $7$   & $N,M,Q \leq 100$ \\ \hline
+  $2$    & $12$  & $N,M,Q \leq 1000$ \\ \hline
+  $3$    & $10$  & $r_1=1$ och $r_i=i-1$ för alla $i \geq 2$. Med ord utgör trädet en linje. \\ \hline
+  $3$    & $10$  & $T=1$ \\ \hline
+  $5$    & $35$  & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
