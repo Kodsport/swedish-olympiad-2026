@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
         swap(A[i], A[j]);
     }
 
-    if(A != A2)wrong_answer("Did not sort list");
+    if(A != A2)wrong_answer("Did not sort list.");
 
     if(judge_impossible){
         judge_error("Contestant found solution but judge said impossible");
