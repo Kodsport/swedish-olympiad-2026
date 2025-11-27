@@ -19,7 +19,6 @@ n,_ = map(int,input().split())
 a = [*map(int,input().split())]
 pos = [*range(n)]
 
-
 g = [[] for _ in range(n)]
 
 UF = UnionFind(n)
@@ -55,9 +54,6 @@ e = [y for x,y in b]
 d = [0]*n
 for i,y in enumerate(e):
     d[y] = i
-# print(d)
-
-# print(g)
 
 active = [1]*n
 degs = [len(x) for x in g]
@@ -71,12 +67,6 @@ for _ in range(n):
             break
     else:
         break
-    
-    # print(len(moves))
-    # print(active,"active")
-    # print(pos,"pos")
-    # print(d,"d")
-    # print(degs,"degs")
 
     if pos[i] == d[i]:
         active[i] = 0
@@ -108,12 +98,9 @@ for _ in range(n):
 
     cur = BFS[-1]
     while par[cur] != cur:
-        #print(par[cur],cur)
-        #print(a[par[cur]],a[cur])
         moves.append((pos[par[cur]],pos[cur]))
         pos[par[cur]],pos[cur] = pos[cur], pos[par[cur]]
         cur = par[cur]
-        #print(cur)
 
     assert(pos[i] == d[i])
 

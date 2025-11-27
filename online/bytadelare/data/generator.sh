@@ -8,6 +8,7 @@ PPATH=$(realpath ..)
 use_solution nils.cpp
 
 compile gen.py
+compile gen_harry.py
 
 samplegroup
 sample_manual 1
@@ -29,9 +30,14 @@ tc g1-6 gen n=10 maxx=5
 tc g1-prime-power-1 gen n=10 maxx=10 mode=prime_power
 tc g1-prime-power-2 gen n=10 mode=prime_power
 tc g1-prime-forest-1 gen n=10 mode=prime_forest comps=3
+tc g1-cycle1 gen_harry n=10
+tc g1-cycle2 gen_harry n=10
+tc g1-cycle3 gen_harry n=2
+tc g1-cycle4 gen_harry n=6
 
 group group2 10
 limits max_unique=2
+tc g1-cycle3
 tc g2-1 gen n=$MAXN u=2 maxx=2
 tc g2-2 gen n=$MAXN u=2 maxx=4
 tc g2-3 gen n=$MAXN u=1
@@ -61,6 +67,8 @@ tc g4-prime-forest-2 gen n=$MAXN x=0 mode=prime_forest noise=10 comps=100
 tc g4-prime-line-1 gen n=$MAXN  x=0 mode=prime_line
 tc g4-prime-line-2 gen n=$MAXN  x=0 mode=prime_line noise=10
 tc g4-dense gen n=$MAXN x=0 mode=dense
+tc g4-cycle1 gen_harry n=1000 x=0
+
 
 group group5 12
 limits a1=1
@@ -87,4 +95,6 @@ tc g6-prime-forest-5 gen n=$MAXN mode=prime_forest comps=999
 tc g6-prime-forest-6 gen n=$MAXN mode=prime_forest comps=1 branch=1
 tc g6-prime-forest-7 gen n=$MAXN mode=prime_forest comps=2 branch=6
 tc g6-prime-line-1 gen n=$MAXN  mode=prime_line
-
+tc g6-cycle1 gen_harry n=1000
+tc g6-cycle2 gen_harry n=1000
+tc g6-cycle3 gen_harry n=300
