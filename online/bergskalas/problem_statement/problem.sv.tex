@@ -1,6 +1,7 @@
 \problemname{Bergkalas}
 Bergaburgir är en stad som är belägen på ett berg.
 I staden finns det $M$ människor och $N$ hus.
+Människorna är numrerad $1$ till $M$ och husen $1$ till $N$.
 I varje hus bor det som mest en person.
 Vissa hus kan stå tomma, men varje person bor i exakt ett hus.
 Eftersom det tar lång tid att promenera i berget, finns det en rutschkana från varje hus till ett hus längre ner i berget (förutom huset längst ner).
@@ -17,8 +18,9 @@ På samma vis, om en person bor i hus $b$ tvingas den flytta till hus $a$.
 Den andra aktiviteten är att hålla fester, som är betydligt mer komplicerad.
 Målet med varje fest är självklart att kunna bjuda så många som möjligt.
 Detta begränsas av bergets geografi och bergets konstiga vänskapskretser.
-Varje person känner nämligen exakt två andra personer.
-Att vara vän med någon är symmetriskt, det vill säga, om $a$ är vän med $b$, så är $b$ vän med $a$.
+Varje person känner nämligen två andra personer.
+Mer exakt, så känner person $i$ person $i-1$ och person $i+1$.
+Detta är cykliskt, så i synnerhet känner person $1$ och $M$ varandra.
 Med andra ord formar grafen av vänskaper en cykel.
 
 För att ett kalas ska ske måste först en person $p$ ställe upp som värd.
@@ -35,11 +37,11 @@ För att en viss person ska orka inbjudna ta sig till kalaset måste de kunna ta
 med som mest $r$ stycken rutschkanor, där $r$ är festens rolighet.
 
 Ditt jobb är nu att avgöra största antalet personer som kan bli inbjudna till varje fest om värden planerar den optimalt.
-Självklart måste du också betrakta alla husbyten.
+Självklart måste du också räkna in alla husbyten.
 
 
 \section*{Indata}
-Den första raden av indata innehåller heltalen $N$, $M$ och $Q$ ($1 \leq N, M, Q \leq 2 \cdot 10^5$),
+Den första raden av indata innehåller heltalen $N$, $M$ och $Q$ ($1 \leq N, M, Q \leq 10^5$),
 antalet hus, antalet invånare och antalet seder som utförs.
 
 Den andra raden innehåller $N$ heltal $r_1, \dots, r_N$ ($1 \leq r_i \leq N$),
@@ -49,10 +51,6 @@ Det finns exakt ett hus som har $r_i=i$, och detta betyder att detta huset är l
 Den tredje raden innehåller $M$ heltal $h_1, \dots, h_M$ ($1 \leq h_i \leq N$),
 där $h_i$ betyder att person $i$ bor i hus $h_i$.
 Det är garanterat att det inte bor två personer i samma hus.
-
-Den fjärde raden innehåller $M$ heltal $f_1, \dots, f_M$ ($1 \leq f_i \leq M$),
-som representerar vänskaperna. Detta är en cirkulär lista, där person $f_i$ är vän med
-nästa och föregående person. Det är garanterat att dessa utgör en permutation av talen $1$ till $M$.
 
 De sista $Q$ raderna beskriver vardera att en sed utförs. Varje rad börjar med heltalet $T$ ($1 \leq T \leq 2$).
 
@@ -74,10 +72,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $7$   & $N,M,Q \leq 100$ \\ \hline
-  $2$    & $12$  & $N,M,Q \leq 1000$ \\ \hline
-  $3$    & $10$  & $r_1=1$ och $r_i=i-1$ för alla $i \geq 2$. Med ord utgör trädet en linje. \\ \hline
-  $3$    & $10$  & $T=1$ \\ \hline
-  $5$    & $35$  & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $3$   & $N,M,Q \leq 100$, $T=2$ för alla seder. \\ \hline
+  $2$    & $7$   & $N,M,Q \leq 100$ \\ \hline
+  $3$    & $25$  & $N,M,Q \leq 1000$ \\ \hline
+  $4$    & $15$  & $r_1=1$ och $r_i=i-1$ för alla $i \geq 2$. Med ord utgör trädet en linje. \\ \hline
+  $5$    & $12$  & $R=1$ \\ \hline
+  $6$    & $20$  & $M \leq 100$ \\ \hline
+  $7$    & $5$   & $N,M,Q \leq 25000$ \\ \hline
+  $8$    & $13$  & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
-
