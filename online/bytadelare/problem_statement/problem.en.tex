@@ -1,0 +1,38 @@
+\problemname{Divisor Swap}
+\noindent
+You are given a list of $N$ positive integers $a_1, a_2, \dots, a_N$. Your goal is to sort the list. In one move, you may swap
+two numbers in the list if one of them is a divisor of the other. In other words, you may swap $a_i$ and $a_j$ if $a_i \equiv 0 \pmod{a_j}$ or 
+$a_j \equiv 0 \pmod{a_i}$.
+In many programming languages, you can check $a_i \equiv 0 \pmod{a_j}$ by testing whether $a_i \% a_j$ equals $0$ (i.e., the remainder of integer division is zero).
+
+\section*{Input}
+The first line contains two integers $N$ and $X$ ($1 \leq N \leq 1000$, $0 \leq X \leq 1$), where $N$ is the number of elements in the list and $X$
+is a flag indicating whether you need to output the sequence of moves.
+
+The second line contains $N$ integers $a_1, a_2, \dots, a_N$ ($1 \leq a_i \leq 10^6$).
+
+\section*{Output}
+If it is impossible to sort the list, output \verb|NO|.
+
+If it is possible to sort the list, first output \verb|YES| on the first line. Then output an integer $M$ on a line, the number of moves you will make.
+This number must be at most $10^6$. Then output $M$ lines, each containing two integers $i, j$ ($1 \leq i,j \leq N$),
+indicating that you swap $a_i$ and $a_j$.
+
+If $X = 0$, it suffices to output \verb|YES| or \verb|NO| correctly. You do not need to output the moves, and you will not be judged wrong
+if you do (even if the moves are incorrect).
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $17$       & $N \leq 10$ \\ \hline
+  $2$    & $10$       & There are at most $2$ unique values in the list. \\ \hline
+  $3$    & $13$       & There are at most $3$ unique values in the list. \\ \hline
+  $4$    & $30$       & $X = 0$ \\ \hline
+  $5$    & $12$       & $a_1 = 1$ \\ \hline
+  $6$    & $18$       & No additional constraints. \\ \hline
+\end{tabular}

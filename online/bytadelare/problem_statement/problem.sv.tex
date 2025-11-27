@@ -1,8 +1,9 @@
 \problemname{Byta delare}
 \noindent
 Du får givet en lista med $N$ positiva heltal $a_1, a_2, \dots, a_N$. Ditt mål är att sortera listan. I ett drag kan du byta plats på 
-två tal i listan, om ett av dem är en delare till den andra. Med andra ord, du kan byta plats på $a_i$ och $a_j$ om $a_i\%a_j = 0$ eller 
-$a_j\%a_i = 0$.
+två tal i listan, om ett av dem är en delare till den andra. Med andra ord, du kan byta plats på $a_i$ och $a_j$ om $a_i \equiv 0 \pmod{a_j}$ eller 
+$a_j \equiv 0 \pmod{a_i}$.
+I många programmeringsspråk kan man kontrollera $a_i \equiv 0 \pmod{a_j}$ genom att testa om $a_i \% a_j$ är lika med $0$ (dvs. att resten vid heltalsdivision är noll).
 
 Bestäm om det är möjligt att sortera listan, och skriv i så fall ut en sekvens drag som sorterar listan.
 
@@ -22,7 +23,6 @@ Detta betyder att du byter plats på $a_i$ och $a_j$.
 
 Om $X = 0$ så räcker det med att du skriver ut \verb|JA| eller \verb|NEJ| korrekt. Du behöver alltså inte skriva ut dragen, men du får inte fel svar 
 om du gör det (inte ens om du skriver ut felaktiga drag).
-
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
