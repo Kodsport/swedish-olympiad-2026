@@ -26,6 +26,8 @@ tc g1-3 gen n=5 maxx=4
 tc g1-4 gen n=10 maxx=4
 tc g1-5 gen n=10 maxx=10
 tc g1-6 gen n=10 maxx=5
+tc g1-prime-power-1 gen n=10 maxx=10 mode=prime_power
+tc g1-prime-power-2 gen n=10 mode=prime_power
 
 group group2 10
 limits max_unique=2
@@ -46,6 +48,7 @@ tc g4-2 gen n=$MAXN x=0 maxx=55
 tc g4-3 gen n=$MAXN x=0 maxx=555
 tc g4-4 gen n=$MAXN x=0 maxx=2000
 tc g4-5 gen n=$MAXN x=0 maxx=10000
+tc g4-prime-power-1 gen n=$MAXN x=0 mode=prime_power
 
 group group5 12
 limits a1=1
@@ -59,4 +62,7 @@ include_group group4
 include_group group5
 
 tc g6-1 gen n=$MAXN maxx=111 
-tc g6-2 gen n=$MAXN maxx=111111 
+tc g6-2 gen n=$MAXN maxx=111111
+tc g6-prime-power-1 gen n=$MAXN maxx=1000 mode=prime_power
+tc g6-prime-power-2 gen n=$MAXN mode=prime_power
+
