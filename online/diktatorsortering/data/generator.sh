@@ -10,6 +10,7 @@ compile gen_rand.py
 samplegroup
 sample 1
 sample 2
+sample 3
 
 MAXN=200000
 
@@ -38,6 +39,7 @@ tc g2-9 gen_rand n=5000 mode=almost_dec p_swaps=0.5
 
 group group3 10
 limits maxval=2
+tc 3
 tc g3-1 gen_rand n=$MAXN mode=random maxv=1
 tc g3-2 gen_rand n=$MAXN mode=random maxv=2
 tc g3-3 gen_rand n=$MAXN mode=random maxv=2
