@@ -142,7 +142,13 @@ elif mode == "prime_line":
             A.append(primes[-1])
     
 
-    A = valid_shuffle(A, True)        
+    A = valid_shuffle(A, True)       
+
+elif mode == "dense":
+    A = [small_primes[0]] * ((n-1) // 2)
+    A += [small_primes[1]] * ((n-1) // 2)
+    A.append(small_primes[0]*small_primes[1])
+    A = valid_shuffle(A, True) 
         
 
 

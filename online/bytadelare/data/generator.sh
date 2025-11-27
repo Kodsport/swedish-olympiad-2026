@@ -44,6 +44,7 @@ tc g3-1 gen n=$MAXN u=3 maxx=4
 tc g3-2 gen n=$MAXN u=3 mode=one_edge
 tc g3-3 gen n=$MAXN u=3 mode=one_edge noise=10
 tc g3-4 gen n=$MAXN u=3 mode=two_edge
+tc g3-dense-1 gen n=$MAXN mode=dense
 
 group group4 30
 limits maxx=0
@@ -59,11 +60,14 @@ tc g4-prime-forest-1 gen n=$MAXN x=0 mode=prime_forest comps=100
 tc g4-prime-forest-2 gen n=$MAXN x=0 mode=prime_forest noise=10 comps=100
 tc g4-prime-line-1 gen n=$MAXN  x=0 mode=prime_line
 tc g4-prime-line-2 gen n=$MAXN  x=0 mode=prime_line noise=10
+tc g4-dense gen n=$MAXN x=0 mode=dense
 
 group group5 12
 limits a1=1
 tc g5-1 gen n=$MAXN maxx=55 a1=1
 tc g5-2 gen n=$MAXN a1=1
+tc g5-3 gen n=$MAXN a1=1 mode=prime_forest
+tc g5-4 gen n=$MAXN a1=1 mode=prime_forest comps=1000
 
 group group6 18
 include_group group1
