@@ -1,0 +1,58 @@
+\problemname{Absolut bio}
+
+\illustration{0.25}{absolutcinema}{cc by-s}
+
+Winston jobbar på biografen ``Absolut Bio'', den biograf som är mest topp i hela landet.
+Salongen har $N$ numrerade platser, och Winstons jobb är att hålla exakt koll på
+vilka som är lediga och vilka som redan är tagna.
+
+I början av dagen är alla platser lediga.
+Under dagen sker $Q$ händelser. Besökare ställer sig då och ropar olika önskemål till Winston.
+
+Winston har inte mycket tid på sig, så han måste svara snabbt och korrekt.
+
+
+När en besökare säger: ``Jag vill sätta mig på plats $i$'', tittar Winston i systemet:
+\begin{itemize}
+  \item Om plats $i$ är ledig svarar Winston: ``Ledig'' och markerar den som upptagen.
+  \item Annars svarar Winston: ``Upptagen''.
+\end{itemize}
+
+När en besökare säger: ``Jag vill flytta mig från plats $i$ till plats $j$'' kontrollerar Winston först plats $j$:
+\begin{itemize}
+  \item Om plats $j$ är upptagen svarar Winston: ``Upptagen'' och inget ändras.
+  \item Om plats $j$ är ledig flyttar Winston personen: plats $i$ blir ledig och plats $j$ blir upptagen, och han svarar ``Ledig''.
+\end{itemize}
+
+Efter varje fråga måste Winston alltid meddela om den berörda platsen är ledig eller inte. Det är så Absolut Bio håller sin perfekta ordning, och det är framför allt tack vare Winston som biografen fungerar så bra.
+
+\section*{Indata}
+Indatan består av två heltal $N$ och $Q$ ($1 \le N, Q \le 2 \cdot 10^{5}$). Alla $N$ platser är lediga från början.
+
+Sedan följer $Q$ rader som beskriver händelser. Varje rad är på något av följande format:
+\begin{itemize}
+  \item \texttt{1 i}, en besökare vill sätta sig på plats $i$.
+  \item \texttt{2 i j}, en besökare på plats $i$ vill flytta sig till plats $j$.
+\end{itemize}
+Här gäller $1 \le i, j \le N$. För en flyttförfrågan garanteras att plats $i$ är upptagen (dvs förfrågan är meningsfull).
+
+\section*{Utdata}
+För varje händelse ska du skriva ut exakt en rad:
+\begin{itemize}
+  \item Skriv \texttt{Ledig} om målplatsen var ledig (och gör ändringen).
+  \item Annars skriv \texttt{Upptagen}.
+\end{itemize}
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $25$  & $N \le 10^4$ \\ \hline
+  $2$    & $20$  & Ingen kommer be om att förflytta sig. \\ \hline
+  $4$    & $55$  & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
