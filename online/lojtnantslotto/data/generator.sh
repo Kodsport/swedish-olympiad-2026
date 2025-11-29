@@ -25,6 +25,9 @@ tc g1-3 gen_1 n=200000 t=$MAX_T mode=arithm
 group group2 12
 limits maxn=500 maxt=500
 include_group sample
+tc_manual ../manual_tests/antigreedy/random_fail_g2.in
+tc_manual ../manual_tests/antishuffle/small_manyshuffles.in
+tc_manual ../manual_tests/antishuffle/antishuffle_g2.in
 tc g2-1 chatgpt_killer n=500 t=500
 tc g2-2 gen_rand n=500 l=3 t=500 mode=random
 tc g2-3 gen_rand n=500 l=4 t=500 mode=random
@@ -41,6 +44,8 @@ tc g2-12 gen_rand n=500 l=5 t=500 mode=stair len=3 scale=50
 group group3 24
 limits maxn=5000
 include_group group2
+tc_manual ../manual_tests/antigreedy/random_fail_g3.in
+tc_manual ../manual_tests/antishuffle/antishuffle_g3.in
 tc g3-1 chatgpt_killer n=5000 t=$MAX_T
 tc g3-2 gen_rand n=5000  l=4 t=$MAX_T mode=random
 tc g3-3 gen_rand n=5000  l=5 t=$MAX_T mode=random
@@ -55,6 +60,7 @@ tc g3-10 gen_rand n=5000 l=5 t=$MAX_T mode=stair len=3 scale=50
 group group4 17
 limits maxl=2
 include_group group1
+tc_manual ../manual_tests/antigreedy/21_bait.in
 tc g4-1 gen_rand n=200000 l=2 t=$MAX_T mode=random
 tc g4-2 gen_rand n=200000 l=2 t=$MAX_T mode=random
 tc g4-3 gen_rand n=200000 l=2 t=$MAX_T mode=corr mul=100 add=10
@@ -68,6 +74,14 @@ tc g4-9 gen_rand n=200000 l=2 t=$MAX_T mode=stair len=3 scale=5
 group group5 40
 include_group group3
 include_group group4
+tc_manual ../manual_tests/antigreedy/random_fail_g5.in
+tc_manual ../manual_tests/antishuffle/antishuffle_g5.in
+tc_manual ../manual_tests/antigreedy/11_bait.in
+tc_manual ../manual_tests/antigreedy/22_bait.in
+tc_manual ../manual_tests/antigreedy/31_bait.in
+tc_manual ../manual_tests/antigreedy/41_bait.in
+tc_manual ../manual_tests/antigreedy/312_bait.in
+tc_manual ../manual_tests/antigreedy/antigreedy_weak.in
 tc g5-1 chatgpt_killer n=200000 t=$MAX_T
 tc g5-2 gen_rand n=200000 l=3 t=$MAX_T mode=random
 tc g5-3 gen_rand n=200000 l=4 t=$MAX_T mode=random
