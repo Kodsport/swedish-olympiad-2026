@@ -6,7 +6,7 @@ a=int(input())
 b=int(input())
 BFS = [0]
 for cur in BFS:
-  for dx in [a,b,-a,-b]:
+  for dx in [a,b]:
     nei = cur+dx
     nei %= 360
     if vis[nei]: continue
