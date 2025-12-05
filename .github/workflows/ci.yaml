@@ -1,0 +1,42 @@
+name: Check Subtask Inclusion
+
+on:
+  push:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo (workflow repo) into root
+        uses: actions/checkout@v4
+      
+      - name: Checkout the subtask_inclusion repo
+        uses: actions/checkout@v4
+        with:
+          repository: Matistjati/subtask_inclusion_github_action
+          path: subtask_repo
+
+      - name: Move Python script to root
+        run: |
+          mv subtask_repo/check_subtask_inclusion.py ./
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -r subtask_repo/requirements.txt || true
+
+      - name: Run subtask inclusion check
+        run: python3 check_subtask_inclusion.py
+
+      - name: Upload full log
+        uses: actions/upload-artifact@v4
+        with:
+          name: log
+          path: output/test_group_inclusions.log
+
+      - name: Upload summary markdown
+        uses: actions/upload-artifact@v4
+        with:
+          name: summary-md
+          path: summary.md
