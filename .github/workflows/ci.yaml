@@ -26,6 +26,11 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install -r subtask_repo/requirements.txt || true
 
+      - name: Disable apport crash reporting
+        run: |
+          sudo systemctl stop apport.service || true
+          echo 'enabled=0' | sudo tee /etc/default/apport
+
       - name: Debug run of checker (unbuffered + tee + timeout)
         run: |
           echo "PWD: $(pwd)"
