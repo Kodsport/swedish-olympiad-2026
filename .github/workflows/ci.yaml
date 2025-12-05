@@ -15,16 +15,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Matistjati/subtask_inclusion_github_action
-          path: subtask_repo
+          path: subtask_inclusion_repo
 
       - name: Move Python script to root
         run: |
-          mv subtask_repo/check_subtask_inclusion.py ./
+          mv subtask_inclusion_repo/check_subtask_inclusion.py ./
 
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          pip install -r subtask_repo/requirements.txt || true
+          pip install -r subtask_inclusion_repo/requirements.txt || true
 
       - name: Disable systemd-coredump and apport
         run: |
@@ -32,16 +32,10 @@ jobs:
           sudo systemctl stop systemd-coredump.socket systemd-coredump.service || true
           echo '|/bin/false' | sudo tee /proc/sys/kernel/core_pattern
 
-      - name: Debug run of checker (unbuffered + tee + timeout)
+      - name: Check Subtask Inclusions
+          # Add a timeout for safety
         run: |
-          echo "PWD: $(pwd)"
-          echo "Python version: $(python3 --version)"
-          ls -la check_subtask_inclusion.py
-          head -n 40 check_subtask_inclusion.py
-          # Run unbuffered, capture both stdout+stderr, and stream to log file
-          # timeout prevents indefinite hanging
-          timeout 1m python3 -u check_subtask_inclusion.py 2>&1 | tee out.txt
-
+          timeout 10m python3 -u check_subtask_inclusion.py
 
       - name: Upload full log
         uses: actions/upload-artifact@v4
