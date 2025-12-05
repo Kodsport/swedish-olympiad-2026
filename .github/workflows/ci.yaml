@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout current repo (workflow repo) into root
+      - name: Checkout repo with problems into root
         uses: actions/checkout@v4
       
       - name: Checkout the subtask_inclusion repo
