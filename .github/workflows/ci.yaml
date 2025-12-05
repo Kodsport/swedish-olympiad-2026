@@ -34,7 +34,7 @@ jobs:
           head -n 40 check_subtask_inclusion.py
           # Run unbuffered, capture both stdout+stderr, and stream to log file
           # timeout prevents indefinite hanging
-          timeout 1m python3 -u check_subtask_inclusion.py 2>&1 | tee out.txt
+          timeout 2m python3 -u check_subtask_inclusion.py 2>&1 | tee out.txt
 
 
       - name: Upload full log
