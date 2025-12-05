@@ -26,8 +26,16 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install -r subtask_repo/requirements.txt || true
 
-      - name: Run subtask inclusion check
-        run: python3 check_subtask_inclusion.py
+      - name: Debug run of checker (unbuffered + tee + timeout)
+        run: |
+          echo "PWD: $(pwd)"
+          echo "Python version: $(python3 --version)"
+          ls -la check_subtask_inclusion.py
+          head -n 40 check_subtask_inclusion.py
+          # Run unbuffered, capture both stdout+stderr, and stream to log file
+          # timeout prevents indefinite hanging
+          timeout 1m python3 -u check_subtask_inclusion.py 2>&1 | tee out.txt
+
 
       - name: Upload full log
         uses: actions/upload-artifact@v4
