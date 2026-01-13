@@ -3,7 +3,7 @@
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-use_solution joshua_n2f2.cpp
+use_solution joshua.cpp
 
 compile gen_rand.py
 
@@ -18,6 +18,11 @@ sample 5
 M=50
 group group2 40
 limits maxn=50 maxh=50 maxf=50 maxp=15
-for i in {1..10}; do
+for i in {1..30}; do
+    #tc g1-$i gen_rand n=10 p=15 h=10 f=10
     tc g1-$i gen_rand n=$M p=15 h=$M f=$M
+done
+for i in {31..60}; do
+    #tc g1-$i gen_rand n=10 p=15 h=10 f=10
+    tc g1-$i gen_rand n=10 p=15 h=$M f=$M
 done

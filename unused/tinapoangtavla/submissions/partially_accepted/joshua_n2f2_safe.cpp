@@ -16,8 +16,7 @@ const ll inf = 1e18;
 struct Team
 {
     p2 score = p2(0, 0);
-    vi problem_tries;
-    vi solved;
+    vi solved,problem_tries;
     Team(int p) : solved(p), problem_tries(p) {}
     Team() {}
 
@@ -50,8 +49,6 @@ int main()
 {
     cin.tie(0)->sync_with_stdio(0);
 
-    const int BIG = 1e7;
-
     int n, p, h, f;
     cin >> n >> p >> h >> f;
 
@@ -70,7 +67,6 @@ int main()
     vi done(n);
 
     // per problem and team, frozen submissions compress to a potential +(0,0) or +(1, t)
-
     vector<tuple<int, int, char>> frozensubs;
     rep(i, f)
     {
@@ -83,38 +79,38 @@ int main()
     }
 
     auto team_lowerbound = [&](int team_ind)
-    {
-        return public_scores[team_ind].score;
-    };
-
-    vvi numsubs(n, vi(p));
-    vvi totsubs(n, vi(p));
-    vector<Team> public_upperbound = public_scores;
-    for (auto [team, prob, verdict] : frozensubs)
-    {
-        totsubs[team][prob]++;
-        numsubs[team][prob]++;
-    }
-    rep(team, n)
-    {
-        rep(prob, p)
         {
-            if (numsubs[team][prob])
-            {
-                rep(j, numsubs[team][prob] - 1) public_upperbound[team].fail(prob);
-                public_upperbound[team].solve(prob);
-            }
-        }
-    }
+            return public_scores[team_ind].score; // p2 (solved, penalty)
+        };
 
     auto team_upperbound = [&](int team_ind)
-    {
-        return public_upperbound[team_ind].score;
-    };
+        {
+            Team me = public_scores[team_ind];
+            vi any(p);
+            vi numsubs(p);
+            for (auto [team, prob, verdict] : frozensubs)
+            {
+                if (team == team_ind)
+                {
+                    any[prob] = 1;
+                    numsubs[prob]++;
+                }
+            }
+            rep(i, p)
+            {
+                if (any[i])
+                {
+                    rep(j, numsubs[i] - 1) me.fail(i);
+                    me.solve(i);
+                }
+            }
+            return me.score; // p2 (solved, penalty)
+        };
 
-    auto canonicalize = [&](p2 p)
+    // key: larger is better => compare (solved, -penalty) lexicographically
+    auto key = [&](p2 a)
     {
-        return BIG * p.first + (BIG-p.second);
+        return pair<ll,ll>(a.first, -a.second);
     };
 
     int num_subs = 0;
@@ -127,11 +123,11 @@ int main()
             rep(j, n)
             {
                 if (i == j) continue;
-                int otherteam_lb = canonicalize(team_lowerbound(j));
-                int otherteam_ub = canonicalize(team_upperbound(j));
-                if (otherteam_lb == otherteam_ub) continue;
-                int my_final = canonicalize(private_scores[i].score);
-                if (my_final >= otherteam_lb && my_final < otherteam_ub)
+                auto other_lb_key = key(team_lowerbound(j));
+                auto other_ub_key = key(team_upperbound(j));
+                if (other_lb_key == other_ub_key) continue;
+                auto my_final_key = key(private_scores[i].score);
+                if (my_final_key >= other_lb_key && my_final_key < other_ub_key)
                 {
                     any_cover = 1;
                     break;
@@ -141,23 +137,6 @@ int main()
         }
         num_subs++;
         public_scores[get<0>(frozensubs[0])].apply(frozensubs[0]);
-        {
-            auto [team, prob, verdict] = frozensubs[0];
-            if (numsubs[team][prob] == 1)
-            {
-                numsubs[team][prob]--;
-                if (verdict=='W')
-                {
-                    public_upperbound[team].score.first--;
-                    public_upperbound[team].score.second-=totsubs[team][prob]-1;
-                }
-            }
-            else
-            {
-                assert(verdict=='W');
-                numsubs[team][prob]--;
-            }
-        }
         frozensubs.erase(begin(frozensubs));
     }
 
@@ -166,7 +145,7 @@ int main()
         assert(t != -1);
         cout << t << ' ';
     }
-
+    cout << '\n';
 
     return 0;
 }

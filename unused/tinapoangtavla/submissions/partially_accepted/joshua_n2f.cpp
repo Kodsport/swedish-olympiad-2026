@@ -1,4 +1,3 @@
-// incorrectly applies frozen submissions
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,18 +15,18 @@ const ll inf = 1e18;
 
 struct Team
 {
-    p2 score=p2(0,0);
+    p2 score = p2(0, 0);
     vi problem_tries;
     vi solved;
     Team(int p) : solved(p), problem_tries(p) {}
     Team() {}
 
-    void solve(int p, int t)
+    void solve(int p)
     {
         assert(!solved[p]);
         solved[p] = 1;
         score.first++;
-        score.second += t + 20 * problem_tries[p];
+        score.second += problem_tries[p];
     }
 
     void fail(int p)
@@ -36,13 +35,13 @@ struct Team
         problem_tries[p]++;
     }
 
-    void apply(tuple<int, int, int, char> sub)
+    void apply(tuple<int, int, char> sub)
     {
-        auto [team, prob, tim, verdict] = sub;
+        auto [team, prob, verdict] = sub;
         if (verdict == 'W') fail(prob);
         else
         {
-            solve(prob, tim);
+            solve(prob);
         }
     }
 };
@@ -57,13 +56,15 @@ int main()
     cin >> n >> p >> h >> f;
 
     vector<Team> public_scores(n, Team(p));
-    rep(i, n)
+    vvi totsubs(n, vi(p));
+    rep(i, h)
     {
-        int team, prob, tim;
+        int team, prob;
         char verdict;
-        cin >> team >> prob >> tim >> verdict;
+        cin >> team >> prob >> verdict;
         team--; prob--;
-        public_scores[team].apply(make_tuple(team, prob, tim, verdict));
+        totsubs[team][prob]++;
+        public_scores[team].apply(make_tuple(team, prob, verdict));
     }
     vector<Team> private_scores = public_scores;
 
@@ -72,14 +73,14 @@ int main()
 
     // per problem and team, frozen submissions compress to a potential +(0,0) or +(1, t)
 
-    vector<tuple<int, int, int, char>> frozensubs;
+    vector<tuple<int, int, char>> frozensubs;
     rep(i, f)
     {
-        int team, prob, tim;
+        int team, prob;
         char verdict;
-        cin >> team >> prob >> tim >> verdict;
+        cin >> team >> prob >> verdict;
         team--; prob--;
-        frozensubs.emplace_back(team, prob, tim, verdict);
+        frozensubs.emplace_back(team, prob, verdict);
         private_scores[team].apply(frozensubs.back());
     }
 
@@ -88,22 +89,34 @@ int main()
         return public_scores[team_ind].score;
     };
 
-    auto team_upperbound = [&](int team_ind)
+    vvi numsubs(n, vi(p));
+    vector<Team> public_upperbound = public_scores;
+    for (auto [team, prob, verdict] : frozensubs)
     {
-        Team me = public_scores[team_ind];
-        for (auto [team, prob, tim, verdict] : frozensubs)
+        totsubs[team][prob]++;
+        numsubs[team][prob]++;
+    }
+
+    rep(team, n)
+    {
+        rep(prob, p)
         {
-            if (team == team_ind)
+            if (numsubs[team][prob])
             {
-                me.apply(make_tuple(team, prob, tim, verdict));
+                rep(j, numsubs[team][prob] - 1) public_upperbound[team].fail(prob);
+                public_upperbound[team].solve(prob);
             }
         }
-        return me.score;
+    }
+
+    auto team_upperbound = [&](int team_ind)
+    {
+        return public_upperbound[team_ind].score;
     };
 
     auto canonicalize = [&](p2 p)
     {
-        return BIG*p.first+p.second;
+        return BIG * p.first + (BIG - p.second);
     };
 
     int num_subs = 0;
@@ -118,17 +131,35 @@ int main()
                 if (i == j) continue;
                 int otherteam_lb = canonicalize(team_lowerbound(j));
                 int otherteam_ub = canonicalize(team_upperbound(j));
+                if (otherteam_lb == otherteam_ub) continue;
                 int my_final = canonicalize(private_scores[i].score);
-                if (my_final >= otherteam_lb && my_final <= otherteam_ub)
+                if (my_final >= otherteam_lb && my_final < otherteam_ub)
                 {
                     any_cover = 1;
                     break;
                 }
             }
-            if (!any_cover) ans[i] = num_subs, done[i]=1;
+            if (!any_cover) ans[i] = num_subs, done[i] = 1;
         }
         num_subs++;
         public_scores[get<0>(frozensubs[0])].apply(frozensubs[0]);
+        {
+            auto [team, prob, verdict] = frozensubs[0];
+            if (numsubs[team][prob] == 1)
+            {
+                numsubs[team][prob]--;
+                if (verdict == 'W')
+                {
+                    public_upperbound[team].score.first--;
+                    public_upperbound[team].score.second -= totsubs[team][prob] - 1;
+                }
+            }
+            else
+            {
+                assert(verdict == 'W');
+                numsubs[team][prob]--;
+            }
+        }
         frozensubs.erase(begin(frozensubs));
     }
 

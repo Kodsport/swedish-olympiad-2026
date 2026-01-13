@@ -71,7 +71,7 @@ som beskriver att laget med index $w$ skickade in till problem $p$,
 vars resultat var $r$. Om $r$ är A betyder det att inskicket fick Accepted, annars fick det inte det.
 Dessa inskick är ordnade i kronologisk ordning, det vill säga är de sorterade på $t$.
 
-De följande $F$ raderna beskriver inskicken som skedde före frysen.
+De följande $F$ raderna beskriver inskicken som skedde under frysen.
 Formatet på dessa är identiska till inskicken som skedde innan poängtavlan frystes.
 Dessa är givna i ordningen som Lidia undrar om.
 Det är garanterat att problemen är ordnade så att varje lags inskick på ett visst problem kommer i kronologisk ordning.
@@ -88,6 +88,17 @@ Notera att om ett lag vet sin slutposition innan tiningen påbörjats ska du skr
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
 För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+% # easier correctness-wise:
+% H=0
+% varje lag gör som mest ett inskick per problem.
+% P=1
+
+% # Complexities
+% N^2F^2
+% N^2F
+% NF (log?)
+% (N+F)log
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
