@@ -1,0 +1,13 @@
+uuid: 1b15b1e6-bf09-4ede-8196-a584bac5d769
+author: Nils Gustafsson, Björn Martinsson
+source: Programmeringsolympiadens final 2026
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+    show_test_data_groups: true
+
+limits:
+    time_multiplier: 5
+

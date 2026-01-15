@@ -1,0 +1,44 @@
+\problemname{Duplantis}
+\noindent
+
+Duplantis har ett problem. Han kan inte bestämma sig för om han ska slå så många världsrekord som möjligt eller ett 
+världsrekord som är så bra som möjligt.
+
+Just nu är hans världsrekord på $v$ cm. Duplantis har förutspått hur hans form kommer vara de resterande $N$ tävlingarna 
+i karriären, och har räknat fram de positiva heltalen $a_1, a_2, \dots, a_N$. Talet $a_i$ innebär att Duplantis kan 
+hoppa mellan $0$ och $a_i$ cm i den $i$:te tävlingen. Han kan bestämma fritt hur högt han kommer hoppa i en viss tävling,
+så länge som höjden är ett heltal mellan $0$ och $a_i$ cm.
+
+För att slå ett världsrekord måste Duplantis hoppa strikt högre än sitt förra världsrekord. Det är bara möjligt att slå som mest 
+ett världsrekord i en och samma tävling. I stavhopp så hoppar man alltid ett helt antal centimeter.
+
+Din uppgift är att räkna fram $r$, det maximala antalet fler världsrekord Duplantis kan slå. 
+Du ska också räkna ut talen $b_1, b_2, \dots, b_r$, där $b_i$ är det maximala möjliga slutgiltiga världsrekordet 
+givet att Duplantis slår exakt $i$ fler världsrekord.
+
+\section*{Indata}
+Den första raden innehåller två heltal $N$ och $v$ ($1 \leq N \leq 3 \cdot 10^5$, $0 \leq v \leq 10^9$), där $N$ är antalet tävlingar och $v$ 
+är Duplantis nuvarande världsrekord.
+
+Den andra raden innehåller $N$ heltal $a_1, a_2, \dots, a_N$ ($0 \leq a_i \leq 10^9$). 
+
+\section*{Utdata}
+På den första raden, skriv ut $r$, det maximala antalet fler världsrekord Duplantis kan slå.
+På den andra raden, skriv ut de $r$ talen $b_1, b_2, \dots, b_r$, där $b_i$ är det maximala möjliga slutgiltiga världsrekordet om Duplantis 
+slår exakt $i$ fler världsrekord.
+
+Notera att $r$ kan vara noll, i så fall ska du lämna den andra raden tom (att inte skriva ut en tom rad är också OK).
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & $v < a_1 < a_2 < \dots < a_N$ \\ \hline
+  $2$    & $20$        & $a_1 > a_2 > \dots > a_N$ \\ \hline
+  $3$    & $17$        & $N = 2$ \\ \hline
+  $4$    & $43$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}

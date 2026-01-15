@@ -1,0 +1,62 @@
+\problemname{Circlemerge}
+\noindent
+
+Emil har $N$ påsar av stenar placerade i en cirkel. 
+I varje påse finns ett antal stenar, där antalet i påse $i$ är $a_i$ för $1 \leq i \leq N$. 
+Påsarna är ordnade enligt en cirkeln, så att påse $1$ är intill påse $2$ och $N$, påse $2$ är intill påse $1$ och $3$, \dots, och påse $N$ är intill påse $N-1$ och $1$.
+
+Emil vill att alla påsar ska innehålla lika många stenar. 
+I ett drag kan Emil slå ihop två intilliggande påsar till en påse som innehåller summan av stenarna i de två ursprungliga påsarna.
+
+Vad är det minsta antal drag man behöver göra för att alla påsar ska innehålla lika många stenar?
+
+\section*{Indata}
+Den första raden innehåller ett heltal $N$ ($1 \le N \le 2\cdot10^5$), antalet påsar i cirkeln från början.
+
+Den andra raden innehåller $N$ heltal $a_1, a_2, \ldots, a_N$ ($1 \le a_i \le 5 \cdot 10^{12}$), där $a_i$ är antalet stenar i påse $i$.
+
+
+\section*{Utdata}
+Skriv ut ett heltal, det minsta antalet drag som krävs för att alla påsar ska innehålla lika många stenar.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $4$        & Det finns en lösning med minimalt antal drag, där antalet stenar i varje påse är $a_1$. \\ \hline
+  $2$    & $15$       & $N \le 100$ \\ \hline 
+  $3$    & $22$       & $N \le 3000, a_i \le 200$ \\ \hline
+  $4$    & $29$       & $a_i \le 200$ \\ \hline
+  $5$    & $30$       & Inga ytterligare begränsningar \\ \hline 
+\end{tabular}
+
+
+\section*{Förklaring av exempelfall 1}
+I första fallet är det optimalt att slå ihop påsarna enligt följande:
+\begin{itemize}
+    \item Slå ihop sista och första påsen: [1, 2, 3, 4, 5] $\to$ [6, 2, 3, 4] (notera att det är en cirkel)
+    \item Slå ihop första och andra påsen: [6, 2, 3, 4] $\to$ [8, 3, 4]
+    \item Slå ihop andra och tredje påsen: [8, 3, 4] $\to$ [8, 7]
+    \item Slå ihop de sista två påsarna: [8, 7] $\to$ [15].
+\end{itemize}
+
+Totalt krävs alltså 4 drag för att alla påsar ska innehålla lika många stenar. Det går att visa att det inte går att göra på färre drag.
+
+
+\section*{Förklaring av exempelfall 2}
+9
+5 2 3 1 4 2 1 1 1
+I andra fallet är det optimalt att slå ihop påsarna enligt följande:
+\begin{itemize}
+    \item Slå ihop påse 4 och 5: [5, 2, 3, 1, 4, 2, 1, 1, 1] $\to$ [5, 2, 3, 5, 2, 1, 1, 1]
+    \item Slå ihop påse 6 och 7: [5, 2, 3, 5, 2, 1, 1, 1] $\to$ [5, 2, 3, 5, 2, 2, 1]
+    \item Slå ihop påse 7 och 8: [5, 2, 3, 5, 2, 2, 1] $\to$ [5, 2, 3, 5, 2, 3]
+    \item Slå ihop påse 2 och 3: [5, 2, 3, 5, 2, 3] $\to$ [5, 5, 5, 2, 3]
+    \item Slå ihop påse 4 och 5: [5, 5, 5, 2, 3] $\to$ [5, 5, 5, 5].
+\end{itemize}
+Totalt krävs alltså 5 drag för att alla påsar ska innehålla lika många stenar. Det går att visa att det inte går att göra på färre drag.
+

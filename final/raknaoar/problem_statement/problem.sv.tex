@@ -1,0 +1,54 @@
+\problemname{Räkna öar}
+\noindent
+
+Visste du att Sverige är landet som har flest öar i världen? Det finns ca $267000$ stycken sammanlagt.
+Många av dessa är dock väldigt små.
+Kanske är det mer relevant att fråga vilket land som har flest öar om man bara räknar de öar med en landyta större än $100 m^2$, eller varför inte $1000 m^2$?
+
+Det finns $N$ stycken länder, numrerade från $1$ till $N$.
+Med hjälp av internet har du tagit reda på storleken av alla öarna i länderna.
+För att tillfredställa din nyfikenhet vill du snabbt kunna hitta landet med flest öar om man bara räknar de som har minst $A$ kvadratmeter av landyta.
+Du har $Q$ stycken värden på $A$ som du undrar över.
+
+\section*{Indata}
+Den första raden av indatan innehåller heltalen $N$ och $Q$ ($1 \leq N, Q \leq 10^5$),
+antalet länder och antalet frågor.
+
+De följande $N$ raderna beskriver vardera ett lands öar.
+Varje av dessa rader börjar med ett heltal $c$ ($1 \leq c \leq 3 \cdot 10^5$),
+antalet öar i det här landet.
+Därefter följer $c$ heltal $s_1, \dots, s_c$ ($1 \leq s_i \leq 10^9$), storlekarna av landets öar. 
+
+Till sist följer $Q$ rader som vardera innehåller ett heltal $A$ ($1 \leq A \leq 10^9$), vilket beskriver värdet av $A$ för en fråga.
+
+Låt $T$ vara totala antalet öar, det vill säga är $T = \sum c$. Det håller att $T \leq 3 \cdot 10^5$.
+
+\section*{Utdata}
+För varje fråga, skriv ut ett heltal: numret på landet som har flest öar om man bara räknar de med minst $A$ kvadratmeter av landyta.
+Om två länder har lika många öar så ska du svara med landet med högst nummer.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N, T, Q \leq 1000$ \\ \hline
+  $2$    & $13$       & $s_i, A \leq 10$ \\ \hline
+  $3$    & $16$       & $N \leq 2$ \\ \hline
+  $4$    & $22$       & $N \leq 25$ \\ \hline
+  $5$    & $39$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall $1$}
+I första frågan i exempelfall $1$ har land $1$ tre öar med minst $1 m^2$ area: $3 7 9$.
+Land $2$ har fyra öar med minst $1 m^2$ area: $1 2 2 3$.
+Därmed har land $1$ flest öar.
+
+I den andra frågan har land $1$ två öar som räknas, medan land $2$ inte har några öar alls.
+
+\section*{Förklaring av exempelfall $2$}
+I första frågan i exempelfall $2$ finns inga öar alls med area som minst $4 m^2$.
+Därmed har alla länder samma antal öar och svaret är $2$, landet med höst nummer.

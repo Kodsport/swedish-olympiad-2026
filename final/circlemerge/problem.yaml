@@ -1,0 +1,11 @@
+author: Emil Sandberg
+source: Programmeringsolympiadens ...
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+limits:
+  time_multiplier: 1
+
+grading:
+  show_test_data_groups: yes

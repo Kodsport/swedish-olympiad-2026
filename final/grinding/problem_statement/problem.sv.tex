@@ -1,0 +1,68 @@
+\problemname{Grinding}
+\noindent
+
+Efter att ha testat på AI-verktyget ''PO kodbankare'' insåg Johan att jobbsäkerheten för programmerare är högst tveksam.
+Därmed har han bytt karriär till äventyrare.
+En äventyrares främsta arbetsuppgift är att döda monster.
+Det finns $N$ stycken grottor, numrerade från $1$ till $N$.
+Varje grotta har ett visst antal monster som står på rad.
+Varje monster har en viss styrka och XP-värde.
+
+Johan börjar med styrka $1$ och har endast tillgång till grotta $1$ i början.
+För att döda monster kan han \texttt{anfalla} en grotta.
+När han anfaller strider han först mot det första monstret.
+Om han har samma eller mer styrka än monstret vinner han, och då ökar hans styrka med monstrets XP, och går sedan vidare till nästa monster.
+Om han någonsin förlorar en strid eller besegrar alla monster lämnar han grottan.
+När han lämnar grottan kommer alla monster tillbaka, precis som de var från början.
+Om han besegrar alla monster i grotta $i$ och $i \neq N$, så låser han upp grotta $i+1$, och kan anfalla den i framtiden.
+
+Hans slutgiltiga mål är att kunna besegra demonkungen, som han vet kräver styrka som minst $B$.
+Avgör minsta antalet anfall som han behöver göra för att få styrka som minst $B$.
+
+\section*{Indata}
+Den första raden av indata innehåller heltalen $N$ och $B$ ($1 \leq N \leq 2 \cdot 10^5$, $1 \leq B \leq 10^9$),
+antalet grottor och din målstyrka.
+
+Därefter följer beskrivningar av de $N$ grottorna.
+Beskrivningen av varje grotta börjar med en rad som innehåller heltalet $M$ ($1 \leq M \leq 3 \cdot 10^5$), antalet monster i grotten.
+Därefter följer $M$ rader som vardera innehåller heltalen $s$ och $e$ ($1 \leq s,e \leq 10^9$),
+styrkan och exp-värdet av ett monster.
+Dessa är angivna i samma ordning som du kommer strida mot monstrena i grottan.
+
+Det är även garanterat att första monstret i första grotten har styrka $1$.
+Därmed går det alltid att uppnå styrka $B$.
+
+Låt $T$ vara summan av alla $M$, det vill säga totala antalet monster. Då håller det att $1 \leq T \leq 3 \cdot 10^5$.
+
+\section*{Utdata}
+Skriv ut ett heltal: det minsta antalet anfall som Johan behöver göra för att styrka $B$ eller mer.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N, B, T \leq 100$ \\ \hline
+  $2$    & $18$       & $N \leq 2000$, $B, T \leq 5000$ \\ \hline
+  $3$    & $20$       & $B \leq 1000$ \\ \hline
+  $4$    & $15$       & $N=1$ \\ \hline
+  $5$    & $10$       & Each dungeon has at most 10 monsters in it. \\ \hline
+  $6$    & $27$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall $1$}
+I exempelfall $1$ kan Johan anfalla grotta $1$.
+Eftersom han börjar med styrka $1$ vinner han isåfall striden och ökar sin styrka med $1$.
+Det inte finns fler grottor eller och därmed får Johan aldrig mer än $1$ styrka per anfall.
+Alltså tar det $99$ stycken anfall att få $B=100$ eller mer styrka.
+
+\section*{Förklaring av exempelfall $2$}
+Till att börja med har Johan endast tillgång till grotta $1$.
+Om han anfaller den besegrar han både monstrena och ökar sin styrka med $3$.
+Han låser dessutom upp grotta $2$, men kan ännu inte besegra monstret i den.
+Om han anfaller grotta $1$ två gånger till blir hans styrka $10$.
+Han kan nu anfalla grotta $2$ två gånger till för att få $18$ styrka, vilket är tillräckligt.
+Det går inte att utföra färre anfall.

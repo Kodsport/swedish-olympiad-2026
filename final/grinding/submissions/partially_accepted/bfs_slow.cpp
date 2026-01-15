@@ -1,0 +1,87 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+using vi = vector<ll>;
+using vvi = vector<vi>;
+using p2 = pair<ll, ll>;
+const ll inf = 1e18;
+
+#define rep(i,n) for (ll i = 0; i < (n); i++)
+#define repp(i,a,n) for (ll i = (a); i < (n); i++)
+#define repe(i, arr) for (auto& i : arr)
+#define all(x) begin(x),end(x)
+#define sz(x) ((ll)(x).size())
+
+
+int main()
+{
+    cin.tie(0)->sync_with_stdio(0);
+
+    int k, b;
+    cin >> k >> b;
+    vector<vector<p2>> dungeons(k);
+    rep(i, k)
+    {
+        int n;
+        cin >> n;
+        dungeons[i].resize(n);
+        repe(x, dungeons[i]) cin >> x.first >> x.second;
+        for (auto [strength, xp] : dungeons[i]) {
+            assert(strength >= 1);
+            assert(xp >= 1);
+        }
+    }
+
+    auto simulate_dungeon = [&](int dungeon_index, ll strength)
+    {
+        bool wins = true;
+        for (auto [req, reward] : dungeons[dungeon_index])
+        {
+            if (strength >= req)
+            {
+                strength += reward;
+            }
+            else
+            {
+                wins = false;
+                break;
+            }
+        }
+        return make_pair(strength, wins);
+    };
+
+    ll tot_work = 0;
+    ll num_states = 0;
+    vvi vis(k + 1, vi(b + 1));
+    queue<tuple<int, int, ll>> q;
+    q.emplace(1, 0, 1);
+    while (sz(q))
+    {
+        auto [unlocked, runs, strength] = q.front();
+        q.pop();
+        if (strength >= b)
+        {
+            cerr << "Num states: " << tot_work << ", num states: " << num_states << '\n';
+            cout << runs << "\n";
+            return 0;
+        }
+        if (vis[unlocked][strength]) continue;
+        vis[unlocked][strength] = 1;
+        
+        ll best_strength = strength;
+        rep(i, unlocked) best_strength = max(best_strength, simulate_dungeon(i, strength).first);
+        num_states++;
+        tot_work += unlocked;
+
+        q.emplace(unlocked, runs + 1, best_strength);
+        if (unlocked < k)
+        {
+            auto [new_strength, wins] = simulate_dungeon(unlocked - 1, strength);
+            if (wins) q.emplace(unlocked + 1, runs + 1, new_strength);
+        }
+    }
+    assert(0);
+
+    return 0;
+}
