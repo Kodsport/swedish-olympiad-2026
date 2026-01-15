@@ -1,0 +1,11 @@
+author: Harry Zhang, Joshua Andersson
+source: Programmeringsolympiadens final 2026
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+limits:
+  time_multiplier: 2
+
+grading:
+  show_test_data_groups: yes
