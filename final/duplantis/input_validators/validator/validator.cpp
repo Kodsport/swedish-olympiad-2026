@@ -19,10 +19,11 @@ void run() {
 
     int maxx = 1000000000;
     int maxn = Arg("maxn", 300000);
+    int minn = Arg("minn", 1);
     int sub1 = Arg("sub1", 0);
     int sub2 = Arg("sub2", 0);
 
-    int n = Int(1, maxn);
+    int n = Int(minn, maxn);
     Space();
     int v = Int(0, maxx);
     Endl();

@@ -36,7 +36,7 @@ tc g2-5 gen n=$MAXN mode=sub2 amax=$MAXN
 tc g2-6 gen n=$MAXN mode=sub2
 
 group group3 17
-limits maxn=2
+limits maxn=2 minn=2
 tc g3-1 gen mode=sub3
 tc g3-2 gen mode=sub3
 tc g3-3 gen mode=sub3 a1=10 a2=10 v=10
