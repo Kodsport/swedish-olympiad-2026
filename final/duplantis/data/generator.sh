@@ -37,13 +37,15 @@ tc g2-6 gen n=$MAXN mode=sub2
 
 group group3 17
 limits maxn=2
-tc g3-1 gen n=2
-tc g3-2 gen n=2
-tc g3-3 gen n=2
-tc g3-4 gen n=2 amin=100000 amax=100001
-tc g3-5 gen n=2 amax=1
-tc g3-6 gen n=2 amax=0
-tc g3-7 gen n=2
+tc g3-1 gen mode=sub3
+tc g3-2 gen mode=sub3
+tc g3-3 gen mode=sub3 a1=10 a2=10 v=10
+tc g3-4 gen mode=sub3 a1=10 a2=10 v=9
+tc g3-5 gen mode=sub3 a1=10 a2=10 v=8
+tc g3-6 gen mode=sub3 a1=12 a2=11 v=9
+tc g3-7 gen mode=sub3 a1=10 a2=11 v=9
+tc g3-8 gen mode=sub3
+tc g3-9 gen mode=sub3
 
 group group4 43
 include_group group1

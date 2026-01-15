@@ -35,6 +35,13 @@ elif mode == "sub2":
         a[n-i-1] += i
     v = random.randint(a_min, a_max)
 
+elif mode == "sub3":
+    n = 2
+    a1 = int(cmdlinearg('a1', random.randint(a_min,a_max)))
+    a2 = int(cmdlinearg('a2', random.randint(a_min,a_max)))
+    v = int(cmdlinearg('v', random.randint(a_min,a_max)))
+    a = [a1, a2]
+
 else:
     a = [random.randint(a_min,a_max) for _ in range(n)]
     v = random.randint(a_min, a_max)
