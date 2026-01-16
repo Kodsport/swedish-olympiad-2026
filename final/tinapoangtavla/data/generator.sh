@@ -30,7 +30,8 @@ tc g1-2 gen_rand mode=one_sub_per_problem n=50 p=1 h=25 f=25 p_ac=0.25
 tc g1-3 gen_rand mode=one_sub_per_problem n=50 p=1 h=25 f=25 p_ac=0.5
 tc g1-4 gen_rand mode=one_sub_per_problem n=50 p=1 h=25 f=25 p_ac=0.75
 tc g1-5 gen_rand mode=one_sub_per_problem n=50 p=1 h=25 f=25 p_ac=1
-
+tc g1-6 gen_rand mode=one_sub_per_problem n=50 p=1 h=0 f=50 
+tc g1-7 gen_rand mode=one_sub_per_problem n=50 p=1 h=49 f=1 
 # Implied: F,H <= N * P
 group group2 6
 limits maxn=50 once_per_problem=1
@@ -40,16 +41,21 @@ tc g2-2 gen_rand mode=one_sub_per_problem n=50 p=15 h=25 f=25 p_ac=0.25
 tc g2-3 gen_rand mode=one_sub_per_problem n=50 p=15 h=25 f=25 p_ac=0.5
 tc g2-4 gen_rand mode=one_sub_per_problem n=50 p=15 h=25 f=25 p_ac=0.75
 tc g2-5 gen_rand mode=one_sub_per_problem n=50 p=15 h=25 f=25 p_ac=1
+tc g2-6 gen_rand mode=one_sub_per_problem n=50 p=15 h=0 f=50 
+tc g2-7 gen_rand mode=one_sub_per_problem n=50 p=15 h=49 f=1 
+
+tc g3-5 gen_rand mode=random n=50 p=15 h=50 f=50 p_ac=1
 
 MAXVAL=50
 group group3 15
 limits maxn=$MAXVAL maxh=$MAXVAL maxf=$MAXVAL
 include_group sample
+include_group group2
 tc g3-1 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0
 tc g3-2 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.25
 tc g3-3 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.5
 tc g3-4 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.75
-tc g3-5 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=1
+tc g3-5 # moved to group2
 tc g3-6 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL 
 tc g3-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
 tc g3-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=20
