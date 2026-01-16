@@ -1,7 +1,7 @@
 \problemname{Tina poängtavla}
 
-ICPC är en programmeringstävling där man får fem timmar på sig att lösa så många problem som möjligt.
-I denna får man inte poäng per inskick, utan antingen får man \textit{Accepted} eller inte.
+ICPC är en programmeringstävling där man får fem timmar på sig att lösa så många problem som möjligt. Reglerna i det här problemet är liknande, men inte exakt samma som officiella ICPC.
+I denna får man inte poäng per inskick, utan antingen får man \textit{Accepted} eller \textit{Wrong Answer}.
 
 I slutet av tävlingen etablerar man en rangordning av lag på följande vis.
 Först räknar man hur många problem som varje lag löst, låt detta betecknas av $p$.
@@ -9,7 +9,7 @@ Sedan beräknar man varje lags \textit{inskick-straff}.
 För varje problem där ett lag får Accepted är inskick-straffet lika med antal felaktiga inskick laget gjorde på problemet.
 Inskick-straffet för ett lag är summan av inskick-straff över alla problem de löste, vilket vi betecknar med $t$.
 Varje lags resultat kan därmed beskrivas med talparet $(p,t)$.
-Notera att inskick på problem som ett lag inte löser under hela tävlingen inte ökar inskick-straffet.
+Notera att om ett lager aldrig löser ett vistt problem under hela tävlingen, så får de inget inskicks-straff från det problemet.
 
 Rangen av ett visst lag är antalet lag som är \textit{strikt bättre}.
 Ett lag $i$ är strikt bättre över ett annat lag $j$ om antingen
@@ -66,7 +66,7 @@ antalet lag, antalet problem, antalet inskick före frysen och antalet inskick u
 
 De följande $H$ raderna beskriver inskicken som skedde före frysen.
 Varje sådant inskick beskrivs av heltalen $w$, $p$ och $r$
-($1 \leq w \leq N$, $1 \leq p \leq P$, $r \in \{A,W\}$),
+($1 \leq w \leq N$, $1 \leq p \leq P$, $r \in \{AC,WA\}$),
 som beskriver att laget med index $w$ skickade in till problem $p$,
 vars resultat var $r$. Om $r$ är A betyder det att inskicket fick Accepted, annars fick det inte det.
 Dessa inskick är ordnade i kronologisk ordning, det vill säga är de sorterade på $t$.
@@ -104,11 +104,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $7$        & $N,F \leq 50$, $H=0$, $P=1$ och varje lag gör som mest ett inskick per problem. \\ \hline
-  $2$    & $9$        & $N,F \leq 50$, $P=1$ och varje lag gör som mest ett inskick per problem. \\ \hline
-  $3$    & $15$       & $N,F,H \leq 50$ och varje lag gör som mest ett inskick per problem. \\ \hline
-  $4$    & $30$       & $N,F,H \leq 50$ \\ \hline
-  $4$    & $80$       & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $5$        & $N \leq 50$, $P=1$ och varje lag gör som mest ett inskick per problem. \\ \hline
+  $2$    & $6$        & $N \leq 50$, och varje lag gör som mest ett inskick per problem. \\ \hline
+  $3$    & $15$       & $N,F,H \leq 50$ \\ \hline
+  $4$    & $8$        & $N,F,H \leq 500$ \\ \hline
+  $5$    & $30$       & $N,F,H \leq 5000$ \\ \hline
+  $6$    & $36$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
 % Add description of sample cases

@@ -60,11 +60,11 @@ int main()
     rep(i, h)
     {
         int team, prob;
-        char verdict;
+        string verdict;
         cin >> team >> prob >> verdict;
         team--; prob--;
         totsubs[team][prob]++;
-        public_scores[team].apply(make_tuple(team, prob, verdict));
+        public_scores[team].apply(make_tuple(team, prob, verdict=="AC"?'A':'W'));
     }
     vector<Team> private_scores = public_scores;
 
@@ -77,10 +77,10 @@ int main()
     rep(i, f)
     {
         int team, prob;
-        char verdict;
+        string verdict;
         cin >> team >> prob >> verdict;
         team--; prob--;
-        frozensubs.emplace_back(team, prob, verdict);
+        frozensubs.emplace_back(team, prob, verdict=="AC"?'A':'W');
         private_scores[team].apply(frozensubs.back());
     }
 

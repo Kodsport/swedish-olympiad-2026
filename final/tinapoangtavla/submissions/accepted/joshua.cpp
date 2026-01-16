@@ -15,8 +15,8 @@ const ll inf = 1e18;
 
 struct Team
 {
-    vi problem_tries;
     vi solved;
+    vi problem_tries;
     p2 score = p2(0, 0);
     Team(int p) : solved(p), problem_tries(p) {}
     Team() {}
@@ -60,11 +60,11 @@ int main()
     rep(i, h)
     {
         int team, prob;
-        char verdict;
+        string verdict;
         cin >> team >> prob >> verdict;
         team--; prob--;
         totsubs[team][prob]++;
-        public_scores[team].apply(make_tuple(team, prob, verdict));
+        public_scores[team].apply(make_tuple(team, prob, verdict=="AC"?'A':'W'));
     }
     vector<Team> private_scores = public_scores;
 
@@ -77,10 +77,10 @@ int main()
     rep(i, f)
     {
         int team, prob;
-        char verdict;
+        string verdict;
         cin >> team >> prob >> verdict;
         team--; prob--;
-        frozensubs.emplace_back(team, prob, verdict);
+        frozensubs.emplace_back(team, prob, verdict=="AC"?'A':'W');
         private_scores[team].apply(frozensubs.back());
     }
 
@@ -119,11 +119,9 @@ int main()
     };
 
 
-    ll max_val = 1e14;
     multimap<ll, ll> finalpos;
     rep(i, n) finalpos.emplace(canonicalize(private_scores[i].score), i);
 
-    int num_subs = 0;
     vector<tuple<Team, Team, int>> changes;
     rep(frozen_idx, sz(frozensubs))
     {
@@ -200,6 +198,7 @@ int main()
     {
         cout << ans[i] << ' ';
     }
+    cout << '\n';
 
 
     return 0;

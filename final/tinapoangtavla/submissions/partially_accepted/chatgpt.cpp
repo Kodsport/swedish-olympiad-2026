@@ -1,3 +1,4 @@
+// O(N * F * P log P)
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -16,9 +17,9 @@ int main(){
     vector<ll> base_pre_t(N,0);
 
     for(int i=0;i<H;i++){
-        int w,p; char r; cin >> w >> p >> r; --w; --p;
+        int w,p; string r; cin >> w >> p >> r; --w; --p;
         if(solvedH[w][p]) continue;
-        if(r == 'W') wrongH[w][p]++;
+        if(r == "WA") wrongH[w][p]++;
         else {
             solvedH[w][p] = true;
             base_pre_p[w] += 1;
@@ -28,8 +29,8 @@ int main(){
 
     vector<Sub> Fsubs(F);
     for(int i=0;i<F;i++){
-        int w,p; char r; cin >> w >> p >> r; --w; --p;
-        Fsubs[i] = {w,p,r};
+        int w,p; string r; cin >> w >> p >> r; --w; --p;
+        Fsubs[i] = {w,p,r=="AC"?'A':'W'};
     }
 
     // find last frozen submission position for each (team,problem) and count frozen per (team,problem)

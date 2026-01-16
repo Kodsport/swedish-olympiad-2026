@@ -59,8 +59,8 @@ struct Node{
         if(rnode->best<rnode->sbest) swap(rnode->best, rnode->sbest);
     }
 };
-    
-    
+
+
 int main(){
     cin.tie(0)->sync_with_stdio(0);
     // cout << fixed << setprecision(20);
@@ -70,14 +70,14 @@ int main(){
 
     
     ll team, prob;
-    char resin;
+    string resin;
     vector<vl> submissions(n, vl(p, 0));
     vector<vl> ac(n, vl(p, 0));
     vector<pl> scores(n, {0, 0});
     fo(i, h){
         cin >> team >> prob >> resin;
         submissions[--team][--prob]++;
-        if(resin == 'A'){
+        if(resin == "AC"){
             scores[team].first++;
             scores[team].second+=submissions[team][prob];
         }
@@ -88,15 +88,16 @@ int main(){
     fo(i, f){
         cin >> team >> prob >> resin;
         submissions[--team][--prob]++;
-        saved.pb({team, prob, resin});
-        if(resin == 'A'){
+        saved.pb({team, prob, resin=="AC"?'A':'W'});
+        if(resin == "AC"){
             final[team].first++;
             final[team].second+=submissions[team][prob];
         }
     }
     
+    char verdict;
     fo(i, f){
-        tie(team, prob, resin) = saved[f-1-i];
+        tie(team, prob, verdict) = saved[f-1-i];
         if(ac[team][prob]) continue;
         ac[team][prob] = f-i;
         optimal[team].first++;
@@ -106,11 +107,11 @@ int main(){
     Node st(0, (p+1)*subs);
     
     fo(i, f){
-        tie(team, prob, resin) = saved[i];
+        tie(team, prob, verdict) = saved[i];
         // deb2(team, prob);
         // deb2(scores[team].first, optimal[team].first);
         st.update(scores[team].first*subs+subs-scores[team].second, optimal[team].first*subs+subs-optimal[team].second, {i+1, team});
-        if(resin == 'A'){
+        if(verdict == 'A'){
             scores[team].first++;
             scores[team].second+=submissions[team][prob];
         }else if(ac[team][prob] == i+1){
