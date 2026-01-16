@@ -29,6 +29,7 @@ tc g1-7 gen_rand n=2 s=1235 mint=1235 maxt=1236
 
 group g2 19
 limits maxt=1
+tc 1
 tc g1-6 
 tc g2-1 gen_rand n=3 s=100 maxt=1
 tc g2-2 gen_rand n=100 s=1000 maxt=1
