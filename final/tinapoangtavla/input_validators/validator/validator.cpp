@@ -22,8 +22,8 @@ void run() {
 
     auto add_sub = [&](int team, int problem, string verdict) {
         assert(!solved[team][problem]);
-        if (once_per_problem) assert(num_submissions[team][problem] == 1);
         num_submissions[team][problem]++;
+        if (once_per_problem) assert(num_submissions[team][problem] == 1);
         if (verdict=="AC") solved[team][problem]=1;
     };
 
