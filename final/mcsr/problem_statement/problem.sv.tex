@@ -3,20 +3,19 @@
 
 \illustration{.3}{mcsr.png}{Filmklipp från Harrys Minecraft-speedrunning.}
 
-Harry och hans vänner har på sistone börjar spela Minecraft tillsammans, och försöker klara av spelet så snabbt som möjligt tillsammans.
+Harry och hans vänner har på sistone börjar spela Minecraft tillsammans, och försöker klara av spelet så snabbt som möjligt.
 
-Nu har Harrys gäng lyckats samla ihop alla resurser de behöver för att nå \textit{The Stronghold}, där man behöver nå för att spelet ska kunna avslutas.
+Nu har Harrys gäng lyckats samla ihop alla resurser de behöver för att nå \textit{The Stronghold}, dit man behöver nå för att spelet ska kunna avslutas.
 
 Positionerna mellan gängets nuvarande position och The Strongholds position kan modelleras på en tallinje, 
-där Harrys gäng befinner just nu sig vid position $0$, och The Stronghold befinner sig vid position $S$.
+där Harrys gäng just nu befinner sig vid position $0$, och The Stronghold är beläget vid position $S$.
 
 I Minecraft finns två världar: \textit{Overworld} och \textit{Nether}. Harrys gäng och The Stronghold befinner sig i Overworld.
 Nether kan också modelleras som en tallinje, men alla koordinater är komprimerade med en faktor $8$:
 en position $x$ i Nether motsvarar positionen $8x$ i Overworld.
 
 Längs tallinjen i Nether finns $N$ förstörda \textit{Netherportaler}. Portal $i$ ligger vid position $x_i$ i Nether och leder till position $8x_i$ i Overworld.
-För att kunna använda portal $i$ måste den först repareras, vilket tar $t_i$ sekunder. Om gänget väljer att faktiskt använda portalen
-(med andra ord gå igenom den) krävs dessutom ytterligare $t_i$ tid för att förbereda och aktivera den. 
+För att kunna använda portal $i$ måste den först repareras, vilket tar $t_i$ sekunder. 
 Notera att portalen behöver repareras oavsett om man går igenom från Overworld till Nether, eller Nether till Overworld.
 
 Harrys gäng kan gå längs tallinjen i Overworld till valfri portalutgång (position $8x_i$) eller direkt till Stronghold vid position $S$.
@@ -58,12 +57,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{figure}
 
 
-Vi set att det snabbaste sättet att nå The Stronghold är att gå
+Vi ser att det snabbaste sättet att nå The Stronghold är att gå
 \begin{itemize}
   \item från position $0$ till position $16$ vid portal $2$, (tar $16$ sekunder),
   \item reparera portal $2$ och gå genom portal $2$ till position $2$ i Nether (tar $t_2 = 5$ sekunder),
-  \item sedan gå till position $4$ in nether (tar $2$ sekunder),
-  \item reparera portal $4$ och gå igenom den portalen (tar $t_4 = 5$ sekunder),
+  \item sedan gå till position $4$ i Nether (tar $2$ sekunder),
+  \item reparera portal $4$ och gå igenom den (tar $t_4 = 5$ sekunder),
   \item och slutligen gå från position $32$ i Overworld till The Stronghold vid position $41$ (tar $9$ sekunder).
 \end{itemize}
 
