@@ -24,11 +24,12 @@ tc g1-3 gen n=$MAXN mode=sub1
 tc g1-4 gen n=$MAXN mode=sub1
 tc g1-5 gen n=$MAXN mode=sub1 amax=$MAXN
 tc g1-6 gen n=$MAXN mode=sub1 amax=1000000
-
+tc g3-1 gen mode=sub3
 
 group group2 20
 limits sub2=1
 tc 2
+tc g1-1
 tc g2-1 gen n=1 mode=sub2
 tc g2-2 gen n=$MAXN mode=sub2
 tc g2-3 gen n=$MAXN mode=sub2
@@ -38,7 +39,7 @@ tc g2-6 gen n=$MAXN mode=sub2 amax=$(($MAXN * 2))
 
 group group3 17
 limits maxn=2 minn=2
-tc g3-1 gen mode=sub3
+tc g3-1
 tc g3-2 gen mode=sub3
 tc g3-3 gen mode=sub3 a1=10 a2=10 v=10
 tc g3-4 gen mode=sub3 a1=10 a2=10 v=9
