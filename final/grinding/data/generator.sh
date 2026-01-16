@@ -2,16 +2,17 @@
 
 PPATH=$(realpath ..)
 
-. ../../testdata_tools/gen.sh
+. ../../../testdata_tools/gen.sh
 
 ulimit -s unlimited
 
-use_solution joshua.cpp
+use_solution joshua.cpp opt
 
 compile gen_rand.py
 compile gen_many.py
 compile gen_one.py
 compile gen_tailheavy.py
+compile gen_expensive.py
 
 samplegroup
 limits maxn=10 maxb=1000 maxt=10
@@ -53,6 +54,11 @@ tc g1-many6 gen_many n=$N b=$B num_weird=50
 tc g1-one1 gen_one b=$B t=$T mul=1 add=0
 tc g1-one2 gen_one b=$B t=$T mul=2 add=5
 tc g1-tailheavy1 gen_tailheavy n=$N b=$B t=$T
+tc g1-expensive-good-1 gen_expensive n=10 b=97
+tc g1-expensive-good-2 gen_expensive n=4 b=97
+tc g1-expensive-good-3 gen_expensive n=5 b=96
+tc g1-expensive-good-4 gen_expensive n=20 b=99
+tc g1-expensive-good-5 gen_expensive n=40 b=50
 tc_manual ../manual_testcases/bug
 tc_manual ../manual_testcases/bug2
 tc_manual ../manual_testcases/bug3
@@ -79,6 +85,7 @@ tc g2-many5 gen_many n=$N   b=$B num_weird=100
 tc g2-one1 gen_one b=$B t=$T mul=1 add=0
 tc g2-one2 gen_one b=$B t=$T mul=2 add=5
 tc g2-tailheavy1 gen_tailheavy n=$N b=$B t=$T
+tc g2-expensive-good-1 gen_expensive n=$N b=$B
 
 B=1000
 group group3 20
