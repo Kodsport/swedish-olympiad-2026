@@ -86,6 +86,7 @@ tc g2-one1 gen_one b=$B t=$T mul=1 add=0
 tc g2-one2 gen_one b=$B t=$T mul=2 add=5
 tc g2-tailheavy1 gen_tailheavy n=$N b=$B t=$T
 tc g2-expensive-good-1 gen_expensive n=$N b=$B
+tc g6-tailheavy gen_tailheavy n=1 b=1000 t=5000
 
 B=1000
 group group3 20
@@ -106,6 +107,7 @@ tc g3-many4 gen_many n=$MAXN b=$B num_weird=1000
 tc g3-one1 gen_one b=$B t=$MAXT mul=1 add=0
 tc g3-one2 gen_one b=$B t=$MAXT mul=2 add=5
 tc g3-tailheavy1 gen_tailheavy n=$MAXN b=$B t=$MAXT
+tc g6-tailheavy 
 
 N=1
 group group4 15
@@ -124,6 +126,7 @@ tc g4-one4 gen_one b=$MAXB t=$MAXT mul=5 add=100
 tc g4-one5 gen_one b=$MAXB t=100 mul=1 add=0
 tc g4-one6 gen_one b=$MAXB t=1 mul=1 add=0
 tc_manual ../manual_testcases/staircase_bug
+tc g6-tailheavy 
 
 group group5 10
 limits max_dungeon=10
@@ -142,6 +145,7 @@ tc bug
 tc bug2
 tc bug3
 
+
 group group6 27
 include_group group2
 include_group group3
@@ -154,4 +158,4 @@ tc g6-4 gen_rand n=10    b=$MAXB t=$MAXT monster_distribution=spiky spikes=2 sta
 tc g6-5 gen_rand n=$MAXN b=$MAXB t=$MAXT monster_distribution=backloaded stat_mode=weak
 tc g6-6 gen_rand n=$MAXN b=$MAXB t=$MAXT monster_distribution=backloaded stat_mode=single_great
 tc g6-7 gen_rand n=$MAXN b=$MAXB t=$MAXT monster_distribution=random stat_mode=weak
-tc g6-tailheavy gen_tailheavy n=$N b=$B t=$T
+tc g6-tailheavy 
