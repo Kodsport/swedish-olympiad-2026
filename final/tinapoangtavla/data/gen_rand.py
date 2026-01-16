@@ -19,7 +19,7 @@ n = int(cmdlinearg('n'))
 p = int(cmdlinearg('p'))
 h = int(cmdlinearg('h'))
 f = int(cmdlinearg('f'))
-p_ac = float(cmdlinearg('p_ac', '0.5'))
+p_ac = float(cmdlinearg('p_ac', random.random()))
 mode = cmdlinearg('mode')
 
 from heapq import *

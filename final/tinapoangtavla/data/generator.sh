@@ -9,6 +9,9 @@ compile gen_rand.py
 compile gen_highpenalty.py
 compile gen_adversarial.py
 
+# TODO intervals cover each other a long time
+# TODO brute bug5 and bug6
+
 # Samples
 samplegroup
 limits maxn=10 maxp=10 maxf=10 maxh=10
@@ -47,8 +50,13 @@ tc g3-2 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.25
 tc g3-3 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.5
 tc g3-4 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.75
 tc g3-5 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=1
-#tc g3-6 gen_h
-
+tc g3-6 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL 
+tc g3-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
+tc g3-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=20
+tc g3-9 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL seed=1
+tc_manual ../manual_testcases/n50_1.in
+tc_manual ../manual_testcases/n50_2.in
+tc_manual ../manual_testcases/n50_3.in
 
 MAXVAL=500
 group group4 8
@@ -59,8 +67,14 @@ tc g4-2 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.25
 tc g4-3 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.5
 tc g4-4 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.75
 tc g4-5 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=1
+tc g4-6 gen_highpenalty n=$MAXVAL p=3 h=$MAXVAL f=$MAXVAL 
+tc g4-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
+tc g4-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=250
+tc_manual ../manual_testcases/n500_1.in
+tc_manual ../manual_testcases/n500_2.in
+tc_manual ../manual_testcases/n500_3.in
 
-MAXVAL=5000
+MAXVAL=2000
 group group5 30
 limits maxn=$MAXVAL maxh=$MAXVAL maxf=$MAXVAL
 include_group group4
@@ -69,6 +83,15 @@ tc g5-2 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.25
 tc g5-3 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.5
 tc g5-4 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.75
 tc g5-5 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=1
+tc g5-6 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL 
+tc g5-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
+tc g5-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=600
+tc g5-9 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=1450
+tc g5-10 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=12
+tc_manual ../manual_testcases/n2000_1.in
+tc_manual ../manual_testcases/n2000_2.in
+tc_manual ../manual_testcases/n2000_3.in
+
 
 MAXVAL=200000
 group group6 36
@@ -79,3 +102,8 @@ tc g6-2 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.25
 tc g6-3 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.5
 tc g6-4 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=0.75
 tc g6-5 gen_rand mode=random n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL p_ac=1
+tc g6-6 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL 
+tc g6-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
+tc g6-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=66666
+tc g6-9 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=420
+tc_manual ../manual_testcases/n200000_1.in

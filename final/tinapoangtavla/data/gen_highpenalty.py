@@ -55,8 +55,10 @@ for i in range(d-1):
         if nxtsolve[ind] > p:
             continue
         break
+    
+    amt = int(cmdlinearg('amt',random.randint(0,(f-1)//d)))
 
-    secondbatch += [(ind,nxtsolve[ind],WA) for _ in range((f-1)//d)] + [(ind,nxtsolve[ind],AC)]
+    secondbatch += [(ind,nxtsolve[ind],WA) for _ in range(amt)] + [(ind,nxtsolve[ind],AC)]
     nxtsolve[ind] += 1
 
 while len(secondbatch) < f:
