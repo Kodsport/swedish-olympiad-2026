@@ -7,10 +7,10 @@ Harry och hans vänner har på sistone börjat spela Minecraft tillsammans, och 
 
 Nu har Harrys gäng lyckats samla ihop alla resurser de behöver för att nå \textit{The Stronghold}, dit man behöver nå för att spelet ska kunna avslutas.
 
-Positionerna mellan gängets nuvarande position och The Strongholds position kan modelleras på en tallinje, 
-där Harrys gäng just nu befinner sig vid position $0$, och The Stronghold är beläget vid position $S$.
+Positionerna mellan gängets nuvarande position och Strongholds position kan modelleras på en tallinje, 
+där Harrys gäng just nu befinner sig vid position $0$, och Stronghold är beläget vid position $S$.
 
-I Minecraft finns två världar: \textit{Overworld} och \textit{Nether}. Harrys gäng och The Stronghold befinner sig i Overworld.
+I Minecraft finns två världar: \textit{Overworld} och \textit{Nether}. Harrys gäng och Stronghold befinner sig i Overworld.
 Nether kan också modelleras som en tallinje, men alla koordinater är komprimerade med en faktor $8$:
 en position $x$ i Nether motsvarar positionen $8x$ i Overworld.
 
@@ -21,7 +21,7 @@ Notera att portalen behöver repareras oavsett om man går igenom från Overworl
 Harrys gäng kan gå längs tallinjen i Overworld till valfri portalutgång (position $8x_i$) eller direkt till Stronghold vid position $S$.
 Gånghastigheten är $1$, så det tar lika lång tid att gå som avståndet på tallinjen.
 
-Vad är det minsta antalet sekunder det kan ta för Harrys gäng att nå The Stronghold från position $0$ i Overworld?
+Vad är det minsta antalet sekunder det kan ta för Harrys gäng att nå Stronghold från position $0$ i Overworld?
 
 \section*{Indata}
 Första raden innehåller två heltal $N$ och $S$ ($2 \le N \le 2 \cdot 10^5$), ($1 \le S \le 10^9$), antalet förstörda Netherportaler och positionen för The Stronghold i Overworld.
@@ -57,13 +57,13 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{figure}
 
 
-Vi ser att det snabbaste sättet att nå The Stronghold är att gå
+Vi set att det snabbaste sättet att nå Stronghold är att gå
 \begin{itemize}
   \item från position $0$ till position $16$ vid portal $2$, (tar $16$ sekunder),
   \item reparera portal $2$ och gå genom portal $2$ till position $2$ i Nether (tar $t_2 = 5$ sekunder),
-  \item sedan gå till position $4$ i Nether (tar $2$ sekunder),
-  \item reparera portal $4$ och gå igenom den (tar $t_4 = 5$ sekunder),
-  \item och slutligen gå från position $32$ i Overworld till The Stronghold vid position $41$ (tar $9$ sekunder).
+  \item sedan gå till position $4$ in nether (tar $2$ sekunder),
+  \item reparera portal $4$ och gå igenom den portalen (tar $t_4 = 5$ sekunder),
+  \item och slutligen gå från position $32$ i Overworld till Stronghold vid position $41$ (tar $9$ sekunder).
 \end{itemize}
 
 Totalt tar detta $16 + 5 + 2 + 5 + 9 = 37$ sekunder, vilket går att är det minsta möjliga.
