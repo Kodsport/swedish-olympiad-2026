@@ -1,9 +1,37 @@
 \problemname{Duplantis}
 \noindent
 
+Duplantis has a problem. He can't decide if he should beat as many world records as possible, or set one world record that is as good 
+as possible.
+
+At the moment, his world record is $v$ centimeters. Duplantis has predicted how well he will perform in the remaining $N$ competitions
+of his career. To do that, he calculated the positive integers $a_1, a_2, \dots, a_N$. The number $a_i$ means that Duplantis can jump between 
+$0$ and $a_i$ centimeters in the $i$th competition. He can decide freely how high he should jump in a competition, as long as the height is 
+an integer between $0$ and $a_i$ centimeters.
+
+In order to beat the world record, Duplantis has to jump strictly higher than his previous world record. It is only allowed to beat at most 
+one world record in the same competition. In pole vaulting, you always jump an integer number of centimeters.
+
+Your task is to calculate $r$, the maximum number of additional world records that Duplantis can beat. You should also find the numbers 
+$b_1, b_2, \dots, b_r$, where $b_i$ is the highest possible final world record given that Duplantis beats exactly $i$ more world records.
+
 \section*{Input}
 
+The first line contains two integers $N$ and $v$ ($1 \leq N \leq 3 \cdot 10^5$, $0 \leq v \leq 10^9$), where $N$ is the number of competitions
+and $v$ is Duplantis' current world record. 
+
+The second line contains $N$ integers $a_1, a_2, \dots, a_N$ ($0 \leq a_i \leq 10^9$). 
+
+
 \section*{Output}
+
+On the first line, print $r$, the maximum number of additional world records Duplantis can beat.
+
+On the second line, print the $r$ numbers $b_1, b_2, \dots, b_r$, where $b_i$ is the maximum possible final world record if Duplantis
+beats exactly $i$ more world records.
+
+Note that $r$ can be zero, in that case you should leave the second line empty (it is also OK to not print this empty line).
+
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
@@ -18,3 +46,12 @@ a set of test cases. To get the points for a test group you need to solve all te
   $3$    & $17$        & $N = 2$ \\ \hline
   $4$    & $43$       & No additional constraints. \\ \hline
 \end{tabular}
+
+\section*{Sample explanation}
+
+In the first example, Duplantis can beat at most $3$ more world records. He can for example jump $635$ in the first competition, 
+$640$ in the second, and finally $650$ in the fourth competition. In the other competitions he can do whatever he wants. 
+On the other hand, if he only beats one more world record, then he can achieve a height of $700$ centimeters by jumping as high as possible
+in the first competition.
+
+In the second example it unfortunately seems like Duplantis has already peaked, and cannot beat any more world records.
