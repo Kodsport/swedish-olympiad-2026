@@ -1,15 +1,17 @@
 \problemname{Tina poängtavla}
 
-ICPC är en programmeringstävling där man får fem timmar på sig att lösa så många problem som möjligt. Reglerna i det här problemet är liknande, men inte exakt samma som officiella ICPC.
-I denna tävling får man inte poäng per inskick, utan antingen får man \textit{Accepted} eller \textit{Wrong Answer}.
+ICPC är en programmeringstävling där man får fem timmar på sig att lösa så många problem som möjligt.
+Detta problem handlar om en tävling som är lik, men inte exakt samma som officiella ICPC.
 
+I denna tävling gör lag inskick på problem.
+För varje inskick får man inte poäng, utan bara \textit{Accepted} eller \textit{Wrong Answer}.
 I slutet av tävlingen etablerar man en rangordning av lag på följande vis.
 Först räknar man hur många problem som varje lag löst, låt detta betecknas av ett heltal $p$.
 Sedan beräknar man varje lags \textit{inskick-straff}.
 För varje problem där ett lag får Accepted är inskick-straffet lika med antal felaktiga inskick laget gjorde på problemet.
 Inskick-straffet för ett lag är summan av inskick-straff över alla problem \underline{de löste}, vilket vi betecknar med ett heltal $t$.
 Varje lags resultat kan därmed beskrivas med talparet $(p,t)$.
-Notera att om ett lager aldrig löser ett visst problem under hela tävlingen, så får de inget inskicks-straff från det problemet.
+Notera att om ett lag aldrig löser ett visst problem under hela tävlingen, så får de inget inskicks-straff från det problemet.
 
 Rangen av ett visst lag är antalet lag som är \textit{strikt bättre}.
 Ett lag $i$ är strikt bättre över ett annat lag $j$ om antingen
@@ -28,7 +30,8 @@ I nedanstående tabell följer ett exempel på rangen olika lag får, givet en u
   $2$ & $8$ & $500$ \\ \hline
   $3$ & $7$ & $300$ \\ \hline
   $3$ & $7$ & $300$ \\ \hline
-  $5$ & $6$ & $250$ \\ \hline
+  $5$ & $7$ & $376$ \\ \hline
+  $6$ & $6$ & $250$ \\ \hline
 \end{tabular}
 \end{center}
 
