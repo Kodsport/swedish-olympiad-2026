@@ -13,6 +13,7 @@ compile gen_evil2.py
 compile gen_1s.py
 compile gen_2s.py
 compile gen_reverse.py
+compile gen_23.py
 
 samplegroup
 sample 1
@@ -40,6 +41,15 @@ tc g4-allsame1 gen_reverse m=200000 d=187 lim=187 r=0
 tc_manual ../manual/allsame.in
 tc_manual ../manual/allsame2.in
 
+tc g1-twothree gen_23 mode=ver3 mult=50000 base=4497552259200
+tc g1-twothree2 gen_23 mode=ver3 mult=32399 base=4497552259200
+tc g1-twothree3 gen_23 mode=ver3 mult=36281 base=4497552259200
+tc g1-twothree4 gen_23 mode=ver3 mult=36960 base=4497552259200
+
+
+tc g1-HCN1 gen_reverse m=714 d=3142900857096 r=4 start=1
+tc g1-HCN2 gen_reverse m=714 d=3142900857096 r=20 lim=22900857096 start=1
+tc g1-HCN3 gen_reverse m=714 d=3142900857096 r=20 lim=22390010096 start=1
 # for i in {1..10}; do
 #     tc g1-$i gen_rand n=5 mode=rand m=100000
 # done
@@ -72,6 +82,12 @@ tc g2-HCN04 gen_reverse m=31 d=6987268688400 lim=5000000000000 r=20000 shift=98
 tc g2-rand4 gen_rand n=100 mode=1and2 base=160626866400
 tc_manual ../manual/specialn100.in
 tc_manual ../manual/special2n100.in
+tc g2-manyprimes1 gen_reverse m=66 d=4609852477685 lim=4609852477684 r=0 shift=63
+tc g2-manyprimes2 gen_reverse m=77 d=3951302123730 lim=4609852477684 r=0 shift=63
+tc g2-manyprimes3 gen_reverse m=33 d=4609852477685 lim=3500000000000 r=1000000 shift=63
+tc g2-twothree1 gen_23 mode=ver2 mult=20 shift=3 base=4497552259200
+tc g2-twothree2 gen_23 mode=ver1 maxn=100 shift=3 base=4497552259200
+
 
 group g3 22
 limits maxn=3000 maxa=200
@@ -90,6 +106,14 @@ tc g3-HCN01 gen_reverse m=1309 d=156 lim=155 r=0 shift=5
 tc_manual ../manual/specialn3000.in
 tc_manual ../manual/special2n3000.in
 #187
+tc g3-BIGPRIME gen_reverse m=1 d=269981 lim=198 r=20000 shift=123
+tc g3-powertwo1 gen_reverse m=32 d=8192 lim=200 r=20000 shift=123
+tc g3-powertwo2 gen_reverse m=1024 d=128 lim=10 r=0 shift=123
+tc g3-powertwo3 gen_reverse m=1024 d=64 lim=10 r=0 shift=123
+tc g3-powertwo4 gen_reverse m=1024 d=128 lim=50 r=0 shift=1000
+tc g3-powertwo5 gen_reverse m=2048 d=128 lim=128 r=0 shift=1000
+tc g3-twothree1 gen_23 mode=ver2 mult=598 shift=3 base=200
+tc g3-twothree2 gen_23 mode=ver1 maxn=3000 shift=3 base=200
 
 
 group g4 29
@@ -106,6 +130,15 @@ tc g4-big2 gen_reverse m=5712 d=2145 r=20 lim=200 shift=11
 tc g4-big3 gen_reverse m=2145 d=5712 r=40 lim=123 shift=3
 tc g4-allsame1
 tc g4-rand5 gen_rand n=200000 mode=1and2 base=91
+tc g4-BIGPRIME1 gen_reverse m=1 d=20000003 r=20000 lim=200 shift=2
+tc g4-BIGPRIME2 gen_reverse m=2 d=10000019 r=20000 lim=200 shift=10245
+tc g4-powertwo1 gen_reverse m=1 d=16777216 lim=200 r=20000 shift=12345
+tc g4-powertwo2 gen_reverse m=131072 d=128 lim=127 r=0 shift=123
+tc g4-powertwo3 gen_reverse m=128 d=131072 lim=200 r=20000 shift=123
+tc g4-powertwo4 gen_reverse m=131072 d=128 lim=128 r=0 shift=123
+tc g4-twothree1 gen_23 mode=ver2 mult=40000 shift=3 base=200
+tc g4-twothree2 gen_23 mode=ver1 maxn=200000 shift=3 base=200
+
 
 group g5 30
 include_group g1
@@ -150,11 +183,43 @@ tc g6-HCN23 gen_reverse m=11 d=40800567490300800 r=2000 lim=4500000000000 shift=
 tc g6-HCN24 gen_reverse m=323 d=1543881122784000 r=2000 lim=5000000000000 shift=49124
 tc g6-HCN25 gen_reverse m=37638 d=9316358251200 r=2000 lim=3510000000000 shift=66667
 tc g6-HCN26 gen_reverse m=66667 d=963761198400 r=0 lim=49000000000 shift=66667
+tc g6-HCN27 gen_reverse m=667 d=747636585696000 r=2000 lim=5000000000000 shift=49124
+tc g6-HCN28 gen_reverse m=143 d=3487227990624000 r=2000 lim=5000000000000 shift=49124
+
+tc g6-HCN29 gen_reverse m=1147 d=434763385056000 r=2000 lim=5000000000000 shift=49124 # 2 large
+tc g6-HCN30 gen_reverse m=2431 d=205131058272000 r=2000 lim=5000000000000 shift=49124 # 3 small, but product large
+tc g6-HCN31 gen_reverse m=33263 d=14991840864000 r=2000 lim=5000000000000 shift=49124 # 3 small, but product largeer
+
+tc g6-BIGPRIME gen_reverse m=1 d=300000000000000011 r=2000 lim=5000000000000 shift=1258
 tc_manual ../manual/allsame3.in                         
 tc_manual ../manual/allsame4.in
 tc_manual ../manual/allsame5.in
 tc_manual ../manual/special.in
 tc_manual ../manual/special2.in
+
+tc g5-powertwo1 gen_reverse m=1 d=288230376151711744 lim=5000000000000 r=2000000 shift=12345
+tc g5-powertwo2 gen_reverse m=131072 d=2199023255552 lim=2199023255551 r=0 shift=131071
+tc g5-powertwo3 gen_reverse m=256 d=1125899906842624 lim=5000000000000 r=2000000 shift=123
+tc g5-powertwo4 gen_reverse m=131072 d=2199023255552 lim=5000000000000 r=0 shift=131071
+
+
+# another hcn24
+
+# a lot of unique primes
+
+tc g5-manyprimes1 gen_reverse m=33 d=9316511857401385 lim=5000000000000 r=1000000 shift=10000
+tc g5-manyprimes2 gen_reverse m=77 d=3992790796029165 lim=5000000000000 r=1000000 shift=100000
+tc g5-manyprimes3 gen_reverse m=105 d=1863302371480277 lim=5000000000000 r=1000000 shift=5182
+tc g5-manyprimes4 gen_reverse m=1147 d=268042625365515 lim=5000000000000 r=100000 shift=5182
+tc g5-manyprimes5 gen_reverse m=24087 d=12763934541215 lim=5000000000000 r=100000 shift=9000
+tc g5-manyprimes6 gen_reverse m=3441 d=89347541788505 lim=5000000000000 r=100000 shift=9000
+tc g5-manyprimes7 gen_reverse m=17205 d=17869508357701 lim=5000000000000 r=100000 shift=9000
+
+tc g5-twothree1 gen_23 mode=ver2 mult=39971 shift=3 base=4497552259200
+tc g5-twothree2 gen_23 mode=ver1 maxn=200000 shift=3 base=4497552259200
+tc g5-twothree3 gen_23 mode=ver2 mult=32399 shift=3 base=4497552259200
+tc g5-twothree4 gen_23 mode=ver2 mult=36281 shift=3 base=4497552259200
+tc g5-twothree5 gen_23 mode=ver2 mult=36960 shift=3 base=4497552259200
 
 # 2 3 5 7...
 #tc g5-
