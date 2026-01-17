@@ -16,15 +16,15 @@ Let $P[i]$ denote the value of mushroom $i$ before the round, and $A[i]$ the val
 The available operations for mushroom $i$ are:
 
 \begin{table}[h!]\centering
-\begin{tabular}{l l l}
+\begin{tabular}{l p{2.7cm} l}
 \textbf{Instruction} & \textbf{Operation} & \textbf{Description} \\ \hline
-\texttt{p:}       & $A[i] = P[i]$ & keep the previous value \\
-\texttt{< j:}     & $A[i] = P[j] \ll 1$ & where \texttt{<<} denotes bitwise left shift \\
-\texttt{> j:}     & $A[i] = P[j] \gg 1$ & where \texttt{>>} denotes bitwise right shift \\
-\texttt{+ j:}     & $A[i] = P[j] + 1$ & where \texttt{+} denotes addition \\
-\texttt{\^{} j:}  & $A[i] = P[i] \oplus P[j]$ & where \texttt{\^} denotes bitwise XOR \\
-\texttt{\& j:}    & $A[i] = P[i] \land P[j]$ & where \texttt{\&} denotes bitwise AND \\
-\texttt{| j:}     & $A[i] = P[i] \lor P[j]$ & where \texttt{|} denotes bitwise OR \\
+\texttt{p}       & $A[i] = P[i]$ & keep the previous value \\
+\texttt{< j}     & $A[i] = P[j]$ \texttt{<<} $1$ & where \texttt{<<} denotes bitwise left shift \\
+\texttt{> j}     & $A[i] = P[j]$ \texttt{>>} $1$ & where \texttt{>>} denotes bitwise right shift \\
+\texttt{+ j}     & $A[i] = P[j] + 1$ & where \texttt{+} denotes addition \\
+\texttt{\^{} j}  & $A[i] = P[i]$ \texttt{\^} $P[j]$ & where \texttt{\^} denotes bitwise XOR \\
+\texttt{\& j}    & $A[i] = P[i]$ \texttt{\&} $P[j]$ & where \texttt{\&} denotes bitwise AND \\
+\texttt{| j}     & $A[i] = P[i]$ \texttt{|} $P[j]$ & where \texttt{|} denotes bitwise OR \\
 \end{tabular}
 \end{table}
 
@@ -49,9 +49,10 @@ the weights of the neural network.
 First, print the integer $r$, the number of rounds your solution uses.
 
 Then print $r$ lines, where each line describes one round.
-For each round, print each operation to be executed, from left to right.
-An operation is printed in the same format as in the description above.
-For each operation, it is required that $1 \leq j \leq N$.
+For each round, print the $N$ operations, separated by spaces.
+The first operation is the one that mushroom $1$ should execute, the second that mushroom $2$ should execute, and so on.
+Each operation should be printed in the same format as in the table above, where $j$ ($1 \leq j \leq N$) is the index of a mushroom.
+Two examples of how valid single operations could look like are ''\texttt{p}'' and ''\texttt{< 10}''.
 
 \section*{Scoring}
 Your solution will be tested on a number of test cases.
@@ -81,7 +82,12 @@ The score values for $9 \leq R_{\max} \leq 20$ are also given in the table below
 \end{tabular}
 \end{center}
 
-\section*{Explanation of Sample Case}
+\section*{Sample Judge}
+To make it easier to test your program, a sample judge is provided in the attachments at the bottom.
+This is not the same judge code that is used on Kattis.
+A description of how to run the code is given in the comment at the beginning of the code.
+
+\section*{Explanation of Sample}
 
 \textbf{Note}: the following sample case will not be run against your submission since $N \neq 512$.
 It exists only to demonstrate the input and output format; all input that your solution is tested on has $N = 512$.
