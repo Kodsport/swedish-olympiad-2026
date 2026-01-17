@@ -5,12 +5,12 @@
 
 För att kunna driva din nya AI-startup behöver du kunna utföra parallella beräkningar på stor skala.
 En stark kandidat för detta visar sig vara svampar!
-För att beräkna saker har du ett kluster av $N$ stycken svampar numrerade från $1$ till $N$.
+För att beräkna saker har du ett kluster bestående av $N$ stycken svampar numrerade från $1$ till $N$.
 Du vill nu ladda in vikterna för ett neuralt nätverk i svamparna.
 Varje svamp förvarar ett tal, som till början är $0$.
 
 För att ändra på svamparnas tal kan du utföra en \textit{runda}.
-För varje runda anger du en instruktion till varje svamp.
+För att utföra en runda anger du en instruktion till varje svamp.
 Alla dessa instruktioner utförs sedan samtidigt.
 Låt $P[i]$ beteckna värdet på svamp $i$ innan rundan och $A[i]$ värdet på svamp $i$ efter rundan.
 De tillgängliga operationerna för svamp $i$ är då:
@@ -31,15 +31,15 @@ De tillgängliga operationerna för svamp $i$ är då:
 Se till att läsa beskrivningen av operationerna noggrant. Du kan hitta en definition av alla bitvisa operationer här
 \footnote{\href{https://en.wikipedia.org/wiki/Bitwise\_operations\_in\_C\#Bitwise\_operators}{https://en.wikipedia.org/wiki/Bitwise\_operations\_in\_C\#Bitwise\_operators}}.
 Svamparna kan förvara godtyckligt stora tal.
-Detta innebär att bitvis vänsterskift och addition alltid till att talet blir större.
+Detta innebär att bitvis vänsterskift och addition alltid leder till att talet blir större.
 
 Du får nu $N$ vikter $w_1, w_2, \dots, w_N$ och behöver hitta en sekvens rundor som får $A[i]=w_i$ för alla $i$.
 
 Ju färre rundor du använder, desto mer poäng får du. I testdatan är $N$ alltid $512$.
 
 \section*{Indata}
-Den första raden av indata innehåller heltalet $N$ ($N=512$), antalet svampar.
-Anledningen att detta är en del av indata är för att underlätta testning av din lösning på mindre $N$.
+Den första raden av indatan innehåller heltalet $N$ ($N=512$), antalet svampar.
+Anledningen att detta är en del av indatan är för att underlätta testning av din lösning på mindre $N$.
 
 Den andra raden innehåller heltalen $w_1, w_2, \dots, w_N$ ($0 \leq w_i \leq 255$),
 vikterna i det neurala nätverket.
@@ -48,13 +48,13 @@ vikterna i det neurala nätverket.
 Skriv först ut heltalet $r$, antalet rundor din lösning använder.
 
 Skriv därefter ut $r$ rader, där varje rad beskriver en runda.
-För varje runda, skriv ut $N$ mellanslags-separerade operationer.
+För varje runda, skriv ut $N$ mellanslagsseparerade operationer.
 Den första operationen är den som ska utföras för svamp $1$, den andra för svamp $2$ och så vidare.
 Varje operation ska skrivas ut på samma format som tabellen ovan, där $j$ ($1 \leq j \leq N$) är numret på en svamp.
 Exempelvis kan detta vara ''\texttt{p}'' eller ''\texttt{< 10}''.
 
 \section*{Poängsättning}
-Din lösning kommer att testas på ett antal testfall.
+Din lösning kommer testas på ett antal testfall.
 Om den någonsin skriver ut en sekvens rundor som är ogiltig eller som inte producerar rätt vikter får du noll poäng.
 
 Annars, låt $R_{max}$ beteckna det största antalet rundor du använder över alla testfall.
@@ -82,17 +82,17 @@ Poängvärdet för $9 \leq R_{max} \leq 20$ anges även i nedanstående tabell.
 \end{center}
 
 \section*{Exempeldomare}
-För att underlätta testning av ditt program tillhålls en exempeldomare i attachments längst ner.
+För att underlätta testning av ditt program tillhandahålls en exempeldomare vid attachments längst ner.
 Detta är inte samma domarkod som körs i Kattis.
-För en beskrivning av hur man kör koden, läs kommentar i toppen av koden.
+En beskrivning av hur man kör koden ges i kommentaren i början av koden.
 
 \section*{Förklaring av exempelfall}
 
-\textbf{Not}: följande exempelfall kommer inte att köras mot din inskickning eftersom $N \neq 512$.
+\textbf{Not}: din inskickning kommer inte köras mot följande exempelfall eftersom $N \neq 512$.
 Det finns endast för att demonstrera in- och utdataformatet, all indata som din lösning testas på har $N = 512$.
 
-Till en början alla har svampar talet $0$.
-Nedan beskriver svamparnas tal innan och efter att varje operation i exempel-utdatan applicerats.
+Till en början har alla svampar talet $0$.
+Nedan beskrivs svamparnas tal innan och efter varje operation i exempel-utdatan applicerats.
 
 \begin{center}
   \noindent
