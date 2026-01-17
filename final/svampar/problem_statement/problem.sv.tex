@@ -1,7 +1,7 @@
 \problemname{Svampar}
 \noindent
 
-\illustration{0.30}{mycelial_network.jpg}{}{}
+\illustration{0.35}{mycelial_network.jpg}{}{}
 
 För att kunna driva din nya AI-startup behöver du kunna utföra parallella beräkningar på stor skala.
 En stark kandidat för detta visar sig vara svampar!
@@ -14,20 +14,24 @@ För varje runda anger du en instruktion till varje svamp.
 Alla dessa instruktioner utförs sedan samtidigt.
 Låt $P[i]$ beteckna värdet på svamp $i$ innan rundan och $A[i]$ värdet på svamp $i$ efter rundan.
 De tillgängliga operationerna för svamp $i$ är då:
-\begin{alignat*}{3}
-\texttt{\makebox[2em][l]{p\ \ :}}             & A[i] & = & P[i] & & \quad \text{behåll värdet från innan.} \\
-\texttt{\makebox[2em][l]{< j:}}           & A[i] & = & P[j]\ \texttt{<<}\ 1 & & \quad \text{där \texttt{<<} betecknar bitvis  vänsterskift.} \\
-\texttt{\makebox[2em][l]{> j:}}           & A[i] & = & P[j]\ \texttt{>>}\ 1 & & \quad \text{där \texttt{>>} betecknar bitvis högerskift.} \\
-\texttt{\makebox[2em][l]{+ j:}}           & A[i] & = & P[j] + 1 & & \quad \text{där \texttt{+} betecknar addition.} \\
-\texttt{\makebox[2em][l]{\textasciicircum\ j:}} & A[i] & = & P[i]\ \texttt{\textasciicircum}\ P[j] & & \quad \text{där \texttt{\textasciicircum} betecknar bitvis XOR.} \\
-\texttt{\makebox[2em][l]{\& j:}}          & A[i] & = & P[i]\ \&\ P[j] & & \quad \text{där \texttt{\&} betecknar bitvis AND.} \\
-\texttt{\makebox[2em][l]{| j:}}           & A[i] & = & P[i]\ |\ P[j] & & \quad \text{där \texttt{|} betecknar bitvis OR.} 
-\end{alignat*}
+\begin{table}[h!]\centering
+\begin{tabular}{l l l}
+\textbf{Instruktion} & \textbf{Operation} & \textbf{Beskrivning} \\ \hline
+\texttt{p:}       & $A[i] = P[i]$ & behåll värdet från innan \\
+\texttt{< j:}     & $A[i] = P[j]$ \texttt{<<} $1$ & där \texttt{<<} betecknar bitvis vänsterskift \\
+\texttt{> j:}     & $A[i] = P[j]$ \texttt{>>} $1$ & där \texttt{>>} betecknar bitvis högerskift \\
+\texttt{+ j:}     & $A[i] = P[j] + 1$ & där \texttt{+} betecknar addition \\
+\texttt{\^{} j:}  & $A[i] = P[i]$ \texttt{\^} $P[j]$ & där \texttt{\^} betecknar bitvis XOR \\
+\texttt{\& j:}    & $A[i] = P[i]$ \texttt{\&} $P[j]$ & där \texttt{\&} betecknar bitvis AND \\
+\texttt{| j:}     & $A[i] = P[i]$ \texttt{|} $P[j]$ & där \texttt{|} betecknar bitvis OR \\
+\end{tabular}
+\end{table}
 
 
 Se till att läsa beskrivningen av operationerna noggrant. Du kan hitta en definition av alla bitvisa operationer här
 \footnote{\href{https://en.wikipedia.org/wiki/Bitwise\_operations\_in\_C\#Bitwise\_operators}{https://en.wikipedia.org/wiki/Bitwise\_operations\_in\_C\#Bitwise\_operators}}.
-Svamparna kan förvara godtyckligt stora tal. 
+Svamparna kan förvara godtyckligt stora tal.
+Detta innebär att bitvis vänsterskift och addition alltid till att talet blir större.
 
 Du får nu $N$ vikter $w_1, w_2, \dots, w_N$ och behöver hitta en sekvens rundor som får $A[i]=w_i$ för alla $i$.
 
@@ -57,7 +61,7 @@ Då får du poäng enligt följande styckvis linjär funktion.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.4\textwidth]{scoring-se.pdf}
+  \includegraphics[width=0.7\textwidth]{scoring-se.pdf}
 
   \parbox{0.4\textwidth}{\centering
     Antalet poäng du får för en given $R_{max}$.\\
@@ -69,21 +73,28 @@ Om $R_{max} \leq 9$ så får du 100 poäng.
 Poängvärdet för $9 \leq R_{max} \leq 20$ anges även i nedanstående tabell.
 
 \begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $R_{\text{max}}$ & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\ \hline
+  Poäng & 100 & 70 & 60 & 50 & 48 & 47 & 46 & 45 & 44 & 43 & 42 & 41 \\ \hline
+\end{tabular}
+\end{center}
+
+
+\section*{Förklaring av exempelfall}
+
+\textbf{Not}: följande exempelfall kommer inte att köras mot din inskickning eftersom $N \neq 512$.
+Det finns endast för att demonstrera in- och utdataformatet, all indata som din lösning testas på har $N = 512$.
+
+Till en början alla har svampar talet $0$.
+Nedan beskriver svamparnas tal innan och efter varje operation.
+
+\begin{center}
   \noindent
-  \begin{tabular}{| l | l |}
+  \begin{tabular}{|c|}
     \hline
-    $R_{max}$ & Poäng \\ \hline
-    $9$            & $100$ \\ \hline
-    $10$           & $70$ \\ \hline
-    $11$           & $60$ \\ \hline
-    $12$           & $50$ \\ \hline
-    $13$           & $48$ \\ \hline
-    $14$           & $47$ \\ \hline
-    $15$           & $46$ \\ \hline
-    $16$           & $45$ \\ \hline
-    $17$           & $44$ \\ \hline
-    $18$           & $43$ \\ \hline
-    $19$           & $42$ \\ \hline
-    $20$           & $41$ \\ \hline
+    0 0 0 0\\ \hline
+    0 1 0 1\\ \hline
+    0 1 2 2\\ \hline
   \end{tabular}
 \end{center}

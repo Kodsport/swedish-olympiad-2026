@@ -1,3 +1,34 @@
+#!/usr/bin/env python3
+#
+# Judge for the task Svampar.
+#
+# Usage:
+#
+#   python3 judge.py <input_file> < output
+#
+# input.txt uses the following format:
+#
+#   N
+#   w_1 w_2 ... w_N
+#
+# where N is the number of mushrooms, and w_i is the desired final
+# weight at position i
+#
+# For example, if you have a Python solution that you would run using
+# "python3 file.py", you could test it as follows:
+#
+#   python3 file.py < input.txt > ans.txt
+#   python3 judge.py input.txt < ans.txt
+#
+# where input.txt is a file that contains e.g.
+#
+# 5
+# 10 5 2 5 2
+#
+# The tool is provided as-is, and you should feel free to make
+# whatever alterations or augmentations you like to it.
+# Notably, this is not the program used to test your solution in Kattis
+#
 
 import sys
 
@@ -5,7 +36,7 @@ if len(sys.argv) != 2:
     print("Usage: python3 judge.py <input_file> < output")
     exit(1)
 
-with open(sys.argv[1], 'r') as f:   
+with open(sys.argv[1], 'r') as f:
     n = int(f.readline().strip())
     arr = list(map(int, f.readline().strip().split()))
 
@@ -80,8 +111,4 @@ else:
     print("Incorrect")
     print(f"Target array: {arr}")
     print(f"Final array: {curr_arr}")
-    diff_pos = [i for i in range(n) if arr[i] != curr_arr[i]]
-    if len(diff_pos) < 30:
-        print(curr_arr[256], arr[256])
-        print(f"Positions with differences: {diff_pos} (0-indexed)")
     exit(1)
