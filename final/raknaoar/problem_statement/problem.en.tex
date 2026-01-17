@@ -1,0 +1,71 @@
+\problemname{Counting Islands}
+\noindent
+
+Did you know that Sweden is the country with the most islands in the world?
+There are about $267{,}000$ in total.
+However, many of these islands are very small.
+
+Perhaps it is more relevant to ask which country has the most islands if we only count islands with a land area larger than $100\,\text{m}^2$, or maybe $1000\,\text{m}^2$?
+
+There are $N$ countries, numbered from $1$ to $N$.
+Using the internet, you have found the sizes of all islands in these countries.
+
+To satisfy your curiosity, you want to quickly determine which country has the most islands when counting only those with at least $A$ square meters of land area.
+You have $Q$ different values of $A$ that you are curious about.
+
+
+\section*{Input}
+
+The first line of the input contains the integers $N$ and $Q$
+($1 \leq N, Q \leq 10^5$),
+the number of countries and the number of queries.
+
+The next $N$ lines each describe the islands of one country.
+Each of these lines starts with an integer $c$
+($1 \leq c \leq 3 \cdot 10^5$),
+the number of islands in that country.
+This is followed by $c$ integers
+$s_1, \dots, s_c$
+($1 \leq s_i \leq 10^9$),
+the sizes of the country's islands.
+
+Finally, $Q$ lines follow, each containing an integer $A$
+($1 \leq A \leq 10^9$), describing the value of $A$ for a query.
+
+Let $T$ be the total number of islands, that is, $T = \sum c$.
+It is guaranteed that $T \leq 3 \cdot 10^5$.
+
+
+\section*{Output}
+For each query, print one integer: the index of the country that has the most islands if you only count the ones with a land area of at least $A$
+square meters. If two countries are tied for first place (have the same number of islands), then you should answer the one with the higher index.
+
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $N, T, Q \leq 1000$ \\ \hline
+  $2$    & $13$       & $s_i, A \leq 10$ \\ \hline
+  $3$    & $16$       & $N \leq 2$ \\ \hline
+  $4$    & $22$       & $N \leq 25$ \\ \hline
+  $5$    & $39$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample $1$}
+
+In the first query of sample case $1$, country $1$ has three islands with an area of at least $1\,\text{m}^2$: $3, 7, 9$.
+Country $2$ has four islands with an area of at least $1\,\text{m}^2$: $1, 2, 2, 3$.
+Therefore, country $2$ has the most islands.
+
+In the second query, country $1$ has two islands that are counted, while country $2$ has no islands at all.
+
+\section*{Explanation of sample $2$}
+
+In the first query of sample case $2$, there are no islands at all with an area of at least $4\,\text{m}^2$.
+Therefore, all countries have the same number of islands, and the answer is $2$, the country with the highest index.
+
