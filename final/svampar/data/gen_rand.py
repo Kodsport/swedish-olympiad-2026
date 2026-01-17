@@ -31,7 +31,29 @@ elif mode=="num_big":
     num_big = int(cmdlinearg('num_big'))
     for _ in random.sample(range(n), num_big):
         shrooms[_] = randint(128, 255)
+elif mode=="concentrated":
+    amounts = int(cmdlinearg('amounts'))
+    cands = random.sample(range(0, 256), k=amounts)
+    shrooms = [random.choice(cands) for _ in range(n)]
+elif mode=="spread":
+    shrooms = [i for i in range(256)] + [i for i in range(256)]
+elif mode=="concentrated_2":
+    concentrate_around = int(cmdlinearg('target'))
+    num_other = int(cmdlinearg('other'))
+
+    specific_other = int(cmdlinearg('specific_other'))
+
+    shrooms = [concentrate_around] * n
+    for i in range(num_other):
+        if specific_other != -1:
+            shrooms[randint(0, n-1)] = specific_other
+        else:
+            shrooms[randint(0, n-1)] = randint(0, 255)
+elif mode=="single_dup":
+    dup=int(cmdlinearg('dup'))
+    shrooms = [i for i in range(256)] + [dup] * 256
 else:
     assert 0
+random.shuffle(shrooms)
 print(*shrooms)
 

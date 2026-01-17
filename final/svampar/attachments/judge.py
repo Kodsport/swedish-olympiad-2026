@@ -105,7 +105,7 @@ for round in range(rounds):
     curr_arr = new_arr
 
 if curr_arr == arr:
-    print("Correct")
+    print(f"Correct: uses {rounds} rounds")
     exit(0)
 else:
     print("Incorrect")

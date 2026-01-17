@@ -104,9 +104,11 @@ int main(int argc, char **argv) {
                 else if (c=='^') new_shrooms[j] = shrooms[j] ^ shrooms[a];
                 else if (c=='&') new_shrooms[j] = shrooms[j] & shrooms[a];
                 else if (c=='|') new_shrooms[j] = shrooms[j] | shrooms[a];
-                else assert(0 && "Unknown character type slipped by");
+                else judge_error("Unknown character type slipped by");
 
-                assert(!new_shrooms[j][MAX_ROUNDS]);
+                if (new_shrooms[j][MAX_ROUNDS]) {
+                    judge_error("Impossibly large value set");
+                }
             }
 
             shrooms = new_shrooms;

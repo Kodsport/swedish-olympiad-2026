@@ -15,15 +15,15 @@ Alla dessa instruktioner utförs sedan samtidigt.
 Låt $P[i]$ beteckna värdet på svamp $i$ innan rundan och $A[i]$ värdet på svamp $i$ efter rundan.
 De tillgängliga operationerna för svamp $i$ är då:
 \begin{table}[h!]\centering
-\begin{tabular}{l l l}
+\begin{tabular}{l p{2.7cm} l}
 \textbf{Instruktion} & \textbf{Operation} & \textbf{Beskrivning} \\ \hline
-\texttt{p:}       & $A[i] = P[i]$ & behåll värdet från innan \\
-\texttt{< j:}     & $A[i] = P[j]$ \texttt{<<} $1$ & där \texttt{<<} betecknar bitvis vänsterskift \\
-\texttt{> j:}     & $A[i] = P[j]$ \texttt{>>} $1$ & där \texttt{>>} betecknar bitvis högerskift \\
-\texttt{+ j:}     & $A[i] = P[j] + 1$ & där \texttt{+} betecknar addition \\
-\texttt{\^{} j:}  & $A[i] = P[i]$ \texttt{\^} $P[j]$ & där \texttt{\^} betecknar bitvis XOR \\
-\texttt{\& j:}    & $A[i] = P[i]$ \texttt{\&} $P[j]$ & där \texttt{\&} betecknar bitvis AND \\
-\texttt{| j:}     & $A[i] = P[i]$ \texttt{|} $P[j]$ & där \texttt{|} betecknar bitvis OR \\
+\texttt{p}       & $A[i] = P[i]$ & behåll värdet från innan \\
+\texttt{< j}     & $A[i] = P[j]$ \texttt{<<} $1$ & där \texttt{<<} betecknar bitvis vänsterskift \\
+\texttt{> j}     & $A[i] = P[j]$ \texttt{>>} $1$ & där \texttt{>>} betecknar bitvis högerskift \\
+\texttt{+ j}     & $A[i] = P[j] + 1$ & där \texttt{+} betecknar addition \\
+\texttt{\^{} j}  & $A[i] = P[i]$ \texttt{\^} $P[j]$ & där \texttt{\^} betecknar bitvis XOR \\
+\texttt{\& j}    & $A[i] = P[i]$ \texttt{\&} $P[j]$ & där \texttt{\&} betecknar bitvis AND \\
+\texttt{| j}     & $A[i] = P[i]$ \texttt{|} $P[j]$ & där \texttt{|} betecknar bitvis OR \\
 \end{tabular}
 \end{table}
 
@@ -48,9 +48,10 @@ vikterna i det neurala nätverket.
 Skriv först ut heltalet $r$, antalet rundor din lösning använder.
 
 Skriv därefter ut $r$ rader, där varje rad beskriver en runda.
-För varje runda, skriv ut varje operation som ska utföras, från vänster till höger.
-En operation skrivs ut på samma format som i beskrivningen ovan.
-För varje operation krävs det att $1 \leq j \leq N$.
+För varje runda, skriv ut $N$ mellanslags-separerade operationer.
+Den första operationen är den som ska utföras för svamp $1$, den andra för svamp $2$ och så vidare.
+Varje operation ska skrivas ut på samma format som tabellen ovan, där $j$ ($1 \leq j \leq N$) är numret på en svamp.
+Exempelvis kan detta vara ''\texttt{p}'' eller ''\texttt{< 10}''.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på ett antal testfall.
@@ -80,6 +81,10 @@ Poängvärdet för $9 \leq R_{max} \leq 20$ anges även i nedanstående tabell.
 \end{tabular}
 \end{center}
 
+\section*{Exempeldomare}
+För att underlätta testning av ditt program tillhålls en exempeldomare i attachments längst ner.
+Detta är inte samma domarkod som körs i Kattis.
+För en beskrivning av hur man kör koden, läs kommentar i toppen av koden.
 
 \section*{Förklaring av exempelfall}
 
@@ -87,7 +92,7 @@ Poängvärdet för $9 \leq R_{max} \leq 20$ anges även i nedanstående tabell.
 Det finns endast för att demonstrera in- och utdataformatet, all indata som din lösning testas på har $N = 512$.
 
 Till en början alla har svampar talet $0$.
-Nedan beskriver svamparnas tal innan och efter varje operation.
+Nedan beskriver svamparnas tal innan och efter att varje operation i exempel-utdatan applicerats.
 
 \begin{center}
   \noindent

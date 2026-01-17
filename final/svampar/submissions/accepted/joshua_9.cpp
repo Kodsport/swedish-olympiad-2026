@@ -18,8 +18,8 @@ struct Action
     char kind;
     ll j;
     void print() {
-        if (kind == 'p') cout << kind << '\n';
-        else cout << kind << ' ' << j + 1 << '\n';
+        if (kind == 'p') cout << kind << ' ';
+        else cout << kind << ' ' << j + 1 << ' ';
     }
     Action() : kind('p'), j(-1) {}
     Action(char c, ll i) : kind(c), j(i) {}
@@ -71,6 +71,7 @@ void solve(int n, vi& targets, int hibit) // solves it in hibit + 1 rounds
     repe(round, rounds)
     {
         repe(v, round) v.print();
+        cout << '\n';
     }
 }
 
@@ -161,6 +162,7 @@ int main()
         repe(round, rounds)
         {
             repe(v, round) v.print();
+            cout << '\n';
         }
     }
     else // build one 128. the rest build their low bits. COLLIDE!
@@ -221,6 +223,7 @@ int main()
         repe(round, rounds)
         {
             repe(v, round) v.print();
+            cout << '\n';
         }
     }
 
