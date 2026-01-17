@@ -6,7 +6,7 @@ PPATH=$(realpath ..)
 
 #ulimit -s unlimited
 
-use_solution joshua_9.cpp
+use_solution joshua_9.cpp opt
 
 compile gen_rand.py
 
