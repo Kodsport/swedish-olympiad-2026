@@ -1,0 +1,136 @@
+\problemname{Tina Scoreboard}
+
+ICPC is a programming contest where teams have five hours to solve as many problems as possible.
+The rules in this problem are similar, but not exactly the same as official ICPC.
+
+In this contest, you don't get points for each submission; instead, a submission is either
+\textit{Accepted} or \textit{Wrong Answer}.
+
+At the end of the contest, a ranking of the teams is established in the following way.
+First, we count how many problems each team has solved; let this be denoted by an integer $p$.
+Then we compute each team's \textit{submission penalty}.
+For each problem that a team gets Accepted on, the submission penalty is equal to the number of
+incorrect submissions the team made on that problem.
+The total submission penalty for a team is the sum of the submission penalties over all problems
+\underline{that they solved}, which we denote by an integer $t$.
+Each team's result can therefore be described by the ordered pair $(p, t)$.
+Note that if a team never solves a certain problem during the entire contest, then they receive
+no submission penalty from that problem.
+
+The rank of a given team is the number of teams that are \textit{strictly better}.
+A team $i$ is strictly better than another team $j$ if either
+\[
+(p_i > p_j) \text{ or } (p_i = p_j \text{ and } t_i < t_j)
+\]
+holds.
+
+The table below shows an example of the ranks that different teams receive, given a set of $p$
+and $t$ values.
+
+\begin{center}
+\begin{tabular}{| c | c | c |}
+  \hline
+  Rank & $p$ & $t$ \\ \hline
+  $0$ & $10$ & $500$ \\ \hline
+  $1$ & $9$ & $1000$ \\ \hline
+  $2$ & $8$ & $500$ \\ \hline
+  $3$ & $7$ & $300$ \\ \hline
+  $3$ & $7$ & $300$ \\ \hline
+  $5$ & $6$ & $250$ \\ \hline
+\end{tabular}
+\end{center}
+
+Note that if two teams have exactly the same result, they receive the same rank.
+
+During the first four hours of the contest, each team can see whether their submissions were Accepted.
+They can also see the results of other teams' submissions via the scoreboard.
+
+During the last hour, the scoreboard is \textit{frozen}, and thus teams can only see the results
+of their own submissions.
+Each team can still see when new submissions are made by other teams, but not their results.
+
+When the contest is over, it is time to \textit{unfreeze} the scoreboard.
+This is done by revealing the result of each submission one at a time.
+Depending on the order in which this is done, it can be more or less exciting for the teams.
+This is because the rank of a team is primarily determined by how many problems they have solved.
+For example, if a certain team has solved $4$ problems and it is revealed that all other teams
+have solved more, then that team loses interest.
+If the submissions had instead been revealed in an order such that it takes longer for them to
+find this out, it would of course be more exciting.
+
+Tina aims to make ICPC more exciting.
+She has therefore proposed an order in which the results of submissions should be revealed.
+Given this order, she wants to compute for each team the number of submissions that are revealed
+before they lose interest.
+
+More precisely, assume that after each revealed submission, every team considers all possible
+outcomes of finishing the unfreezing of the scoreboard.
+If a given team has the same final position in all these outcomes, then that team loses interest.
+Tina then wants to know, for each team, the number of submissions that were revealed before they
+lost interest.
+
+For the order to be reasonable, she guarantees that each team's submissions on a given problem
+are ordered by time, so that earlier submissions come first.
+
+\section*{Input}
+The first line contains four integers $N$, $P$, $H$, and $F$
+($1 \leq N \leq 2 \cdot 10^5$, $1 \leq P \leq 15$, $0 \leq H \leq 2 \cdot 10^5$, $1 \leq F \leq 2 \cdot 10^5$),
+the number of teams, the number of problems, the number of submissions before the freeze,
+and the number of submissions during the freeze.
+
+The following $H$ lines describe the submissions that occurred before the freeze.
+Each such submission is described by the integers $w$, $p$, and $r$
+($1 \leq w \leq N$, $1 \leq p \leq P$, $r \in \{AC, WA\}$),
+meaning that the team with index $w$ submitted to problem $p$, and the result was $r$.
+If $r$ is AC, the submission was Accepted; otherwise it was not.
+These submissions are given in chronological order.
+
+The following $F$ lines describe the submissions that occurred during the freeze.
+Their format is identical to the submissions that occurred before the freeze.
+They are given in the order that Tina is curious about.
+It is guaranteed that for each team, submissions to a given problem appear in chronological order.
+No other guarantees are given.
+
+\textbf{Note:} it is also guaranteed that a team will never submit to a problem that they have
+already solved, either before or during the freeze.
+
+\section*{Output}
+For each team, output the number of submissions that were revealed before the team lost interest.
+Print these values space-separated on a single line.
+Note that if a team knows its final position before the unfreezing begins, you should output $0$
+for that team.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\begin{center}
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$ & $5$ & $N \leq 50$, $P = 1$, and each team makes at most one submission per problem. \\ \hline
+  $2$ & $6$ & $N \leq 50$, and each team makes at most one submission per problem. \\ \hline
+  $3$ & $15$ & $N, F, H \leq 50$ \\ \hline
+  $4$ & $8$ & $N, F, H \leq 500$ \\ \hline
+  $5$ & $30$ & $N, F, H \leq 2000$ \\ \hline
+  $6$ & $36$ & No additional constraints. \\ \hline
+\end{tabular}
+\end{center}
+
+\section*{Explanation of the sample cases}
+Sample case 1: before the scoreboard is frozen, team $2$ already knows that they will finish with
+$1$ solved problem and $0$ submission penalty.
+Thus, they already know their final rank.
+Team $1$ does not know whether team $2$ will solve the problem or not, but even if the other team
+solves the problem, their result cannot worsen the rank of team $1$.
+
+Sample case 2: similarly to sample case $1$, team $2$ already has all the information.
+Team $1$, however, cannot be certain of its final position immediately after the contest,
+since if team $2$ solves the problem, team $1$ loses one rank.
+When the result is finally revealed, they become certain.
+
+Sample case 3: even though it may not seem so, team $1$ can immediately figure out that they have
+won the contest.
+Since a team never submits to a problem they have already solved, team $1$ knows that the only
+submission from team $2$ that could be Accepted is the last one.
+Even if that submission is Accepted, it will not affect their rank.
