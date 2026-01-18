@@ -3,12 +3,12 @@
 
 Emil has $N$ bags of stones placed in a circle.
 Each bag contains some number of stones, where the number of stones in bag $i$ is $a_i$ for $1 \leq i \leq N$.
-The bags are arranged in a circle, so that bag $1$ is adjacent to bags $2$ and $N$, bag $2$ is adjacent to bags $1$ and $3$, $\dots$, and bag $N$ is adjacent to bags $N-1$ and $1$.
+The bags are arranged in a circle, such that bag $1$ is adjacent to bags $2$ and $N$, bag $2$ is adjacent to bags $1$ and $3$, $\dots$, and bag $N$ is adjacent to bags $N-1$ and $1$.
 
 Emil wants all bags to contain the same number of stones.
 In one move, Emil can merge two adjacent bags into a single bag containing the sum of the stones from the two original bags.
 
-What is the minimum number of moves required so that all bags contain the same number of stones?
+What is the minimum number of moves required to make all bags contain the same number of stones?
 
 \section*{Input}
 The first line contains an integer $N$ ($1 \le N \le 2 \cdot 10^5$), the number of bags in the circle initially.
@@ -16,7 +16,7 @@ The first line contains an integer $N$ ($1 \le N \le 2 \cdot 10^5$), the number 
 The second line contains $N$ integers $a_1, a_2, \ldots, a_N$ ($1 \le a_i \le 5 \cdot 10^{12}$), where $a_i$ is the number of stones in bag $i$.
 
 \section*{Output}
-Print a single integer, the minimum number of moves required so that all bags contain the same number of stones.
+Print a single integer, the minimum number of moves required to make all bags contain the same number of stones.
 
 
 \section*{Scoring}
@@ -27,7 +27,7 @@ a set of test cases. To get the points for a test group you need to solve all te
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
-  $1$    & $4$        & There is a solution with the minimum number of moves, where the number of stones in every bag is $a_1$. \\ \hline
+  $1$    & $4$        & There exist a solution with the minimum number of moves, where the number of stones in every bag is $a_1$. \\ \hline
   $2$    & $15$       & $N \le 100$ \\ \hline 
   $3$    & $22$       & $N \le 3000, a_i \le 200$ \\ \hline
   $4$    & $29$       & $a_i \le 200$ \\ \hline
@@ -48,9 +48,6 @@ In total, 4 moves are required for all bags to contain the same number of stones
 
 
 \section*{Explanation of Sample 2}
-9 \\
-5 2 3 1 4 2 1 1 1
-
 In the second case, it is optimal to merge the bags as follows:
 \begin{itemize}
     \item Merge bags 4 and 5: [5, 2, 3, 1, 4, 2, 1, 1, 1] $\to$ [5, 2, 3, 5, 2, 1, 1, 1]
