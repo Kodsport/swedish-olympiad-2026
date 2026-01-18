@@ -8,6 +8,7 @@ use_solution joshua.cpp opt
 compile gen_rand.py
 compile gen_highpenalty.py
 compile gen_adversarial.py
+compile gen_nils.py
 
 # TODO intervals cover each other a long time
 # TODO brute bug5 and bug6
@@ -113,3 +114,7 @@ tc g6-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
 tc g6-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=66666
 tc g6-9 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=420
 tc_manual ../manual_testcases/n200000_1.in
+tc g6-nils-1 gen_nils n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL
+tc g6-nils-2 gen_nils n=$MAXVAL p=15 h=0 f=$MAXVAL
+tc g6-nils-3 gen_nils n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL shuffle=1
+tc g6-nils-4 gen_nils n=$MAXVAL p=15 h=0 f=$MAXVAL shuffle=1
