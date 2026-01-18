@@ -36,7 +36,7 @@ class UnionFind:
         self.parent[self.find(b)] = self.find(a)
 
 import random
-random.seed(2)
+random.seed(3)
 random.shuffle(factors)
 
 smallest = 1e18
