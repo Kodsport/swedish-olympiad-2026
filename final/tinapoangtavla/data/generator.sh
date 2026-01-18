@@ -113,6 +113,10 @@ tc g6-6 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL
 tc g6-7 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=10
 tc g6-8 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=66666
 tc g6-9 gen_highpenalty n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL prob=420
+tc g6-10 gen_rand mode=random n=1000 p=13 h=100 f=$MAXVAL p_ac=0.01
+tc g6-11 gen_rand mode=random n=2000 p=15 h=$MAXVAL f=$MAXVAL p_ac=0.01
+tc g6-12 gen_rand mode=random n=500 p=15 h=20000 f=$MAXVAL p_ac=0.007
+tc g6-13 gen_rand mode=random n=500 p=15 h=$MAXVAL f=$MAXVAL p_ac=0.001
 tc_manual ../manual_testcases/n200000_1.in
 tc g6-nils-1 gen_nils n=$MAXVAL p=15 h=$MAXVAL f=$MAXVAL
 tc g6-nils-2 gen_nils n=$MAXVAL p=15 h=0 f=$MAXVAL
