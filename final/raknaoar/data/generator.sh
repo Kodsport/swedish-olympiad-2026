@@ -59,6 +59,7 @@ tc g2-15 gen_manyans n=100000 noise=1 m=300000 q=100000 maxw=10
 
 group group3 16
 limits maxn=2
+include_group sample
 tc g3-1 gen_rand n=2 m=1000 q=100000 maxw=1000000000
 tc g3-2 gen_switches n=2 m=5000 q=100000 maxw=1000000000
 tc g3-3 gen_even n=2 m=10000 q=100000 maxw=1000000000
