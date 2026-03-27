@@ -88,7 +88,7 @@ const int MAX_M = 2e5;
 void run() {
     int n = Int(3, Arg("maxn", MAX_N));
     Space();
-    int m = Int(3, Arg("maxm", MAX_M));
+    int m = Int(2, Arg("maxm", MAX_M));
     Endl();
 
     assert(m%2==0);
