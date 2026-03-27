@@ -1,0 +1,41 @@
+\problemname{Stad i ljus}
+\noindent
+
+I en stad står $N$ fyrtorn på rad, numrerade från $1$ till $N$.
+Fyrtorn $i$ har höjd $p_i$, och höjderna bildar en permutation av talen $1$ till $N$.
+
+Om du tänder ett fyrtorn blir det upplyst, och dessutom blir alla fyrtorn som det kan se upplysta.
+
+Två fyrtorn kan se varandra om varje fyrtorn mellan dem är lägre än \emph{båda} två.
+Formellt, om $i < j$ så kan fyrtorn $i$ och $j$ se varandra precis när
+\[
+\max(p_{i+1}, p_{i+2}, \dots, p_{j-1}) < \min(p_i, p_j).
+\]
+Samma regel gäller förstås även när $j < i$.
+
+Din uppgift är att hitta det minsta antalet fyrtorn som måste tändas för att alla fyrtorn i staden ska bli upplysta.
+
+\section*{Indata}
+
+Första raden innehåller ett heltal $N$ $(1 \leq N \leq 3 \cdot 10^5)$, antalet fyrtorn.
+
+Andra raden innehåller $N$ heltal $p_1, p_2, \dots, p_N$, en permutation av talen $1$ till $N$.
+
+\section*{Utdata}
+
+Skriv ut ett heltal: det minsta antalet fyrtorn som måste tändas för att alla fyrtorn ska bli upplysta.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$ & $8$ & $N \leq 15$ \\ \hline
+  $2$ & $12$ & $N \leq 200$ \\ \hline
+  $3$ & $17$ & $N \leq 1000$ \\ \hline
+  $4$ & $28$ & $N \leq 3 \cdot 10^5$, permutationen är vald uniformt slumpmässigt. \\ \hline
+  $5$ & $35$ & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}

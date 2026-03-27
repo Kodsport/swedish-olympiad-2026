@@ -1,0 +1,12 @@
+uuid: 551bd448-1891-4964-81e2-1a2e68e737cd
+author: Joshua Andersson
+source: Programmeringsolympiaden
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+  show_test_data_groups: yes
+
+limits:
+  time_multiplier: 2
