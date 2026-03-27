@@ -1,0 +1,66 @@
+\problemname{Bracket Ring}
+\noindent
+
+Louise loves her cat Lulli very much and therefore plants lots of catnip.
+
+Now Louise wants to create a beautiful necklace for Lulli with $N$ charms placed in a ring.
+On each charm is either \texttt{(} or \texttt{)}.
+The necklace also has a bell that marks where to start reading, so the symbols form a string.
+
+To make the necklace extra beautiful, Louise wants the string to be balanced.
+For help, Louise hires a jeweler who can modify the necklace. As payment, she uses catmints.
+
+The jeweler can remove any charm for a cost of $a$ catmints per charm.
+The jeweler can also rotate the necklace one step, so that the first symbol in the string moves to the end, which costs $b$ catmints.
+Louise is also satisfied if the necklace becomes completely empty, but then she must pay to remove each charm.
+
+Louise therefore wants to make the necklace balanced at the lowest possible cost.
+
+A parenthesis string is balanced if:
+\begin{itemize}
+    \item It is empty, or
+    \item It can be written as $AB$, where both $A$ and $B$ are balanced strings, or
+    \item It can be written as $(A)$, where $A$ is a balanced string.
+\end{itemize}
+
+
+\section*{Input}
+The first line contains three integers $N$, $a$ and $b$ ($1 \leq N \leq 5 \cdot 10^5$, $1 \leq a \leq 10^9$, $0 \leq b \leq 10^9$).
+
+The second line contains a string $s$ of length $N$.
+Each character in $s$ is either \texttt{(} or \texttt{)}.
+
+\section*{Output}
+Print one integer: the minimum possible total cost to make the string balanced.
+
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $5$        & $a = 1, b = 10^9$ \\ \hline
+  $2$    & $7$        & $N \le 100$  \\ \hline
+  $3$    & $8$        & $N \le 2000$ \\ \hline
+  $4$    & $19$       & $b = 0$ \\ \hline
+  $5$    & $11$       & $a = 10^9, b = 1$, there are equally many \texttt{(} as \texttt{)} in the input string. \\ \hline
+  $6$    & $14$       & $a = 10^9, b = 1$ \\ \hline
+  $7$    & $12$       & There are equally many \texttt{(} as \texttt{)} in the input string. \\ \hline
+  $8$    & $24$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In sample $1$, you can first rotate the necklace two steps.
+Then the string becomes \texttt{)(())}.
+If you then remove the first symbol, which is \texttt{)}, you get \texttt{(())}, which is balanced.
+The total cost is $3 + 3 + 2 = 8$ catmints.
+
+In sample $2$, you can remove the second symbol, which is \texttt{)}, and then the last symbol, which is \texttt{(}.
+Then the string becomes \texttt{()()()}, which is balanced.
+The total cost is $4 + 4 = 8$ catmints.
+
+In sample $3$, you can rotate the necklace three steps, so that the string becomes \texttt{()()(())}.
+It is already balanced, so the total cost is $3 + 3 + 3 = 9$ catmints.
