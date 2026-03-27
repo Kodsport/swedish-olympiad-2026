@@ -1,7 +1,77 @@
 \problemname{Jordgubbar}
 
+\illustration{0.35}{jordgubbar.jpg}{}{}
+
 Mikaela har skördat de första jordgubbarna i hela Sverige, och tänker nu sälja dem för ett skyhögt pris.
 Men för att lagligt kunna sälja jordgubbar måste man väga dem först. Tyvärr så har inte Mikaela någon våg 
 hemma. Det enda lämpliga verktyg hon har är en dammsugare.
 
+Det finns $N$ jordgubbar, där den $i$:te har vikt $w_i$. Jordgubbarna är sorterade med avseende på vikt, så 
+
+$$w_1 \leq w_2 \leq \dots \leq w_N.$$ 
+
+Alla vikter är heltal mellan $1$ och $M$, där $M \leq N$. Du kan utföra följande typ av drag
+\begin{itemize}
+    \item \verb|? i s|: Du ställer in styrkan hos dammsugaren till $s$, och använder den
+    på jordgubben med index $i$. Om $w_i \leq s$, så sugs jordgubben upp av dammsugaren och 
+    går förlorad. Annars stannar jordgubben kvar.
+\end{itemize}
+
+Målet är att hitta vikterna hos alla jordgubbar som inte gick förlorade, samtidigt som du förlorar 
+högst $M-1$ jordgubbar. För att få full poäng måste du utöver detta göra som mest $300$ drag.
+
+Notera att du inte ska hitta vikten hos de förlorade jordgubbarna. När en jordgubbe är förlorad så kan du inte 
+utföra fler drag på den, men den behåller fortfarande sin position i listan.
+
+
+\section*{Interaktion}
+
+Detta är ett interaktivt problem.
+\begin{itemize}
+    \item Ditt program ska first läsa in en rad som innehåller heltalen $N$ och $M$ ($2 \leq M \leq N \leq 300$).
+    \item Sedan ska ditt program börja interagera med domaren. För att göra ett drag, skriv ut två heltal $i$ och 
+    $s$, på formatet \verb|? i s|. Dessa två heltal måste uppfylla $1 \leq i \leq N$ och $1 \leq s \leq M$.
+
+    Därefter ska du läsa in en rad som innehåller en sträng, som är resultatet av det drag du gjorde. Strängen är antingen
+    \verb|borta| eller \verb|kvar|, beroende på om jordgubben sögs upp av dammsugaren eller inte.
+
+    Om du försöker göra ett drag som inte uppfyller formatet, eller försöker göra ett drag på en jordgubbe som gått förlorad, 
+    så får du Wrong Answer.
+
+    \item När du är redo att rapportera vad vikterna hos alla kvarvarande jordgubbar är, skriv ut en rad på formatet \verb|! w1 w2 w3 ... wN|.
+    Vikterna hos de förlorade bären måste skrivas ut som $-1$, annars får du Wrong Answer.
+
+\end{itemize}
+
+Om du använder fler än $10^5$ drag så får du Wrong Answer. Om fler än $M-1$ jordgubbar går förlorade så får du Wrong Answer. 
+Att rapportera svaret räknas inte som ett drag.
+
+Domaren är inte adaptiv. Med andra ord så är listan av vikter $w_1, w_2, \dots, w_N$ bestämd innan interaktionen börjar.
+
+\section*{Poängsättning}
+
+För varje testgrupp så får du $50\%$ av poängen om ditt program använder mellan $301$ och $10^5$ drag. Om du använder 
+högst $300$ drag så får du full poäng på testgruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$      & $16$      & $M = 2$  \\ \hline
+  $2$      & $30$      & $M = N$ \\ \hline
+  $3$      & $54$      & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+
+
+\section*{Förklaring av exempelfall}
+
+I det första draget så använder vi dammsugaren på jordgubbe $2$, med $s = 1$. Jordgubben går förlorad. Sedan så använder 
+vi dammsugaren på den sista jordgubben, med $s = 2$. Den sista jordgubben stannar kvar.
+
+Slutligen, så rapporterar vi att vikterna är $w_1 = 1$ och $w_3 = 3$. Notera att vi skriver ut $-1$ som vikten hos jordgubbe $2$, 
+trots att vi egentligen vet att den måste ha vikt $1$.
+
+Eftersom $M = 3$ i detta testfall, så har vi råd att förlora som mest $M-1 = 2$ jordgubbar. Vi förlorade bara en jordgubbe, så 
+detta räknas som Accepted.
 

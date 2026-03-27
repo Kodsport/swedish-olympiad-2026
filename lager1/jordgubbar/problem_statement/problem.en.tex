@@ -21,8 +21,8 @@ All weights are integers between $1$ and $M$, where $M \leq N$. You can make que
 The goal is to find the weights of all of the strawberries that did not get lost, while also losing 
 at most $M-1$ strawberries. In addition, in order to get full score you must use at most $300$ queries.
 
-Note that you do not have to find the weights of the lost strawberries. Once a strawberry is lost, no more 
-queries can be performed on it, but it still keeps its index in the list.
+Note that you should not find the weights of the lost strawberries. Once a strawberry is lost, no more 
+queries can be performed on it, but it still keeps its position in the list.
 
 \section*{Interaction}
 
@@ -42,7 +42,8 @@ This is an interactive problem.
     The weights of lost berries should be printed as $-1$, otherwise you will get Wrong Answer.
 \end{itemize}
 
-If you use more than $10^5$ queries, then you will get Wrong Answer. Reporting the final answer does not count as a query.
+If you use more than $10^5$ queries, you get Wrong Answer. If more than $M-1$ strawberries are lost, you get Wrong Answer. 
+Reporting the final answer does not count as a query.
 
 The grader is not adaptive. This means that the list of weights $w_1, w_2, \dots, w_N$ is fixed before the interaction starts.
 
