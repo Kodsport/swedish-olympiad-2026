@@ -1,0 +1,12 @@
+uuid: cc5b4945-c759-48d6-9bde-b548816629ed
+author: Joshua Andersson
+source: Programmeringsolympiadens lägertävling 2026 - tävling 1
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+    show_test_data_groups: true
+
+limits:
+    time_multiplier: 1 # Joshua_radixsort is super slow
