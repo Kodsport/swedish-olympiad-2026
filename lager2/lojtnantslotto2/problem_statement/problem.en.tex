@@ -1,0 +1,46 @@
+\problemname{Löjtnantslotto}
+\noindent
+
+ Löjtnantslotto is a game whose rules are as follows:
+ You are given a positive integer $N$ and a list of numbers $p_1, p_2, \dots, p_N$ such that every integer from $1$ to 
+ $N$ is present in the list (i.e. it is a permutation). The objective is to find an $N \times N$ grid of zeroes and ones, 
+ such that 
+ \begin{enumerate}
+    \item No two rows are identical, and
+    \item The $i$th row is equal to the $p_i$th column, for every $1 \leq i \leq N$.
+ \end{enumerate}
+
+ Your task is to construct such a grid, if possible.
+
+\section*{Input}
+
+The first line contains one integer $N$ ($2 \leq N \leq 1000$).
+
+The second line contains $N$ integers $p_1, p_2, \dots, p_N$ ($1 \leq p_i \leq N$). Every integer from $1$ to $N$
+is present in this list of numbers.
+
+\section*{Output}
+
+If a valid grid exists, print one line with ``\texttt{YES}'', followed by $N$ lines, each containing a string of 
+length $N$. These $N$ lines constitute the grid.
+
+
+If a valid grid does not exist, print ``\texttt{NO}''.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $11$       & $p_i = i$ for all $1 \leq i \leq N$. \\ \hline
+  $2$    & $12$       & $N \leq 5$ \\ \hline
+  $3$    & $15$       & $p_i = i+1$ for every $1 \leq i \leq N-1$, and $p_N = 1$.  \\ \hline
+  $4$    & $24$       & $p_{p_i} \neq i$ for all $1 \leq i \leq N$. \\ \hline
+  $5$    & $38$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+

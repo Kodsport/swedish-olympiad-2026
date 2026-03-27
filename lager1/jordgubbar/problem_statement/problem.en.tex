@@ -1,0 +1,74 @@
+\problemname{Strawberries}
+
+\illustration{0.35}{jordgubbar.jpg}{}{}
+
+Mikaela has harvested the first strawberries in all of Sweden, and wants to sell them for 
+a high price. But in order to legally sell strawberries, she must first weigh them.
+Unfortunately, Mikaela doesn't own a scale of any kind. The only tool she has that is up 
+for this job is a vacuum cleaner.
+
+There are $N$ strawberries, where the $i$th one has weight $w_i$. The strawberries are sorted by weight, 
+so 
+$$w_1 \leq w_2 \leq \dots \leq w_N.$$ 
+
+All weights are integers between $1$ and $M$, where $M \leq N$. You can make queries of the form
+\begin{itemize}
+    \item \verb|? i s|: You set the strength of the vacuum cleaner to $s$, and use
+    it on the strawberry with index $i$. If $w_i \leq s$, then the strawberry
+    gets sucked up by the vacuum cleaner and is lost. Otherwise, the strawberry remains.
+\end{itemize}
+
+The goal is to find the weights of all of the strawberries that did not get lost, while also losing 
+at most $M-1$ strawberries. In addition, in order to get full score you must use at most $300$ queries.
+
+Note that you do not have to find the weights of the lost strawberries. Once a strawberry is lost, no more 
+queries can be performed on it, but it still keeps its index in the list.
+
+\section*{Interaction}
+
+This is an interactive problem.
+\begin{itemize}
+    \item Your program should first read one line containing the integers $N$ and $M$ ($2 \leq M \leq N \leq 300$).
+    \item Then, your program starts interacting with the grader. In order to make a query, print two integers $i$ and 
+    $s$, on the format \verb|? i s|. These two integers must satisfy $1 \leq i \leq N$ and $1 \leq s \leq M$.
+
+    After that, read one line containing a string, the answer to your query. This string is either \verb|borta| (lost)
+    or \verb|kvar| (remaining), which indicates that strawberry $i$ was lost or remained. 
+
+    If you try to print a query that doesn't follow the format, or try to query a strawberry that was already lost earlier,
+    then you will get Wrong Answer.
+
+    \item When you are ready to report the weights of all the remaining berries, print one line on the format \verb|! w1 w2 w3 ... wN|.
+    The weights of lost berries should be printed as $-1$, otherwise you will get Wrong Answer.
+\end{itemize}
+
+If you use more than $10^5$ queries, then you will get Wrong Answer. Reporting the final answer does not count as a query.
+
+The grader is not adaptive. This means that the list of weights $w_1, w_2, \dots, w_N$ is fixed before the interaction starts.
+
+\section*{Scoring}
+For every subtask, you will get $50\%$ of the score if your program uses between $301$ and 
+$10^5$ queries. If you use at most $300$ queries, you get full score for that test group. 
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$      & $16$      & $M = 2$  \\ \hline
+  $2$      & $30$      & $M = N$ \\ \hline
+  $3$      & $54$      & No additional constraints.  \\ \hline
+\end{tabular}
+
+
+
+\section*{Explanation of Sample}
+
+In the first query, we use the vacuum cleaner on berry $2$, with $s = 1$. The berry gets lost. Then, we use the vacuum
+cleaner on the last berry, with $s = 2$. The last berry remains.
+
+Finally, we report the answer that $w_1 = 1$ and $w_3 = 3$. Note that we print $-1$ for the weight of berry $2$ 
+because it got lost, even though we know that it must have had weight $1$.
+
+Since $M = 3$ in this case, we can afford to lose at most $M-1 = 2$ berries. We only lost one berry, so this 
+counts as Accepted.
+

@@ -1,0 +1,14 @@
+uuid: 3f456626-c4b4-4e47-8440-ffe440e99aca
+author: Nils Gustafsson
+source: 
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+    show_test_data_groups: true
+    
+validation: custom score interactive
+
+limits:
+    time_multiplier: 5

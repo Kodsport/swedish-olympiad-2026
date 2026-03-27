@@ -1,0 +1,11 @@
+author: Joshua Andersson
+source: ...
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+    show_test_data_groups: true
+
+limits:
+    time_multiplier: 4
