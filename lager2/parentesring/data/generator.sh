@@ -66,6 +66,11 @@ tc g2-06 gen_rand n=100 mode=equal a=29 b=50
 tc g2-07 gen_rand n=100 mode=sorted l=60 r=40 swaps=10 a=420 b=100
 tc g2-08 gen_rand n=100 mode=sorted rev=1 swaps=50 a=112 b=223
 tc g2-09 gen_targeted n=100 mode=half_half a=37 b=75
+# Targeted counterexamples for equal.py's greedy excess-removal choice.
+tc g2-10 gen_set n=12 a=170 b=160 s=")))()())))(("
+tc g2-11 gen_set n=20 a=136 b=49 s="())))()))()()())(()("
+tc g2-12 gen_set n=50 a=188 b=173 s=")((((()))))(((())))))))))((())))()(()))()((()()(()"
+tc g2-13 gen_set n=100 a=23 b=35 s="))))()()))))()))()))(()()(()(())()))((())()))(((((()()((())()((()((((()))((((()())))))()())(((()))(("
 
 group g3 8
 limits maxn=2000
@@ -79,6 +84,9 @@ tc g3-05 gen_rand n=1999 mode=rand a=1000000000 b=1000000000
 tc g3-06 gen_targeted n=2000 mode=half_half a=100 b=1
 tc g3-07 gen_rand n=2000 mode=sorted rev=1 swaps=500 a=7 b=3
 tc g3-08 gen_targeted n=2000 mode=half_half a=37 b=75
+# Larger equal.py counterexamples, to avoid only killing n<=100 special-cases.
+tc g3-09 gen_rand n=500 mode=rand a=137 b=41 seed=3
+tc g3-10 gen_rand n=2000 mode=rand a=137 b=41 seed=1
 
 group g4 19
 limits minb=0 maxb=0
@@ -108,6 +116,8 @@ tc g6-03 gen_targeted n=500000 mode=skewed a=1000000000 b=1 left=200000
 tc g6-04 gen_targeted n=499999 mode=all_left a=1000000000 b=1
 tc g6-05 gen_rand n=500000 mode=sorted rev=1 swaps=10000 a=1000000000 b=1
 tc g6-06 gen_targeted n=500000 mode=all_right a=1000000000 b=1
+# Large equal.py counterexample under the g6 cost regime.
+tc g6-07 gen_rand n=500000 mode=rand a=1000000000 b=1 seed=2
 
 group g7 12
 limits equal=1
@@ -132,3 +142,5 @@ tc g8-03 gen_full n=499000 k=1000 mode=fractal a=7 b=3
 tc g8-04 gen_targeted n=500000 mode=skewed a=100 b=50 left=100000
 tc g8-05 gen_rand n=499999 mode=sorted swaps=100000 a=42 b=17
 tc g8-06 gen_targeted n=1 mode=all_left a=1 b=1
+# Large arbitrary-constraints equal.py counterexample.
+tc g8-07 gen_rand n=500000 mode=rand a=73 b=29 seed=2

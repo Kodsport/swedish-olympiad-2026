@@ -1,4 +1,4 @@
-# @EXPECTED_GRADES@ WA WA WA WA AC WA WA WA
+# @EXPECTED_GRADES@ WA WA WA AC AC WA WA WA
 # Greedy removal (first excess ) from start, excess ( from end) is suboptimal
 # for unequal parens - a different removal choice can reduce rotation cost.
 
