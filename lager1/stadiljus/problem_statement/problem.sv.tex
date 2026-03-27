@@ -1,29 +1,30 @@
-\problemname{Stad i ljus}
+\problemname{Under uppsikt}
 \noindent
 
-I en stad står $N$ fyrtorn på rad, numrerade från $1$ till $N$.
-Fyrtorn $i$ har höjd $p_i$, och höjderna bildar en permutation av talen $1$ till $N$.
+I staten Oceanien står $N$ medborgare på rad, numrerade från $1$ till $N$.
+Medborgare $i$ har längd $p_i$, och längderna bildar en permutation av talen $1$ till $N$.
 
-Om du tänder ett fyrtorn blir det upplyst, och dessutom blir alla fyrtorn som det kan se upplysta.
+Partiet vill utse så få observatörer som möjligt för att säkerställa att ingen medborgare någonsin befinner sig utanför uppsikt.
+Om en medborgare utses till observatör räknas den personen som övervakad, och dessutom blir alla medborgare som observatören kan se också övervakade.
 
-Två fyrtorn kan se varandra om varje fyrtorn mellan dem är lägre än \emph{båda} två.
-Formellt, om $i < j$ så kan fyrtorn $i$ och $j$ se varandra precis när
+Två medborgare kan se varandra om varje person mellan dem är kortare än \emph{båda} två.
+Formellt, om $i < j$ så kan medborgare $i$ och $j$ se varandra precis när
 \[
 \max(p_{i+1}, p_{i+2}, \dots, p_{j-1}) < \min(p_i, p_j).
 \]
 Samma regel gäller förstås även när $j < i$.
 
-Din uppgift är att hitta det minsta antalet fyrtorn som måste tändas för att alla fyrtorn i staden ska bli upplysta.
+Din uppgift är att hitta det minsta antalet observatörer som Partiet måste utse för att alla $N$ medborgare ska hållas under uppsikt.
 
 \section*{Indata}
 
-Första raden innehåller ett heltal $N$ $(1 \leq N \leq 3 \cdot 10^5)$, antalet fyrtorn.
+Första raden innehåller ett heltal $N$ $(1 \leq N \leq 3 \cdot 10^5)$, antalet medborgare.
 
 Andra raden innehåller $N$ heltal $p_1, p_2, \dots, p_N$, en permutation av talen $1$ till $N$.
 
 \section*{Utdata}
 
-Skriv ut ett heltal: det minsta antalet fyrtorn som måste tändas för att alla fyrtorn ska bli upplysta.
+Skriv ut ett heltal: det minsta antalet observatörer som Partiet måste utse för att alla medborgare ska hållas under uppsikt.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -36,6 +37,18 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $1$ & $8$ & $N \leq 15$ \\ \hline
   $2$ & $12$ & $N \leq 200$ \\ \hline
   $3$ & $17$ & $N \leq 1000$ \\ \hline
-  $4$ & $28$ & $N \leq 3 \cdot 10^5$, permutationen är vald uniformt slumpmässigt. \\ \hline
+  $4$ & $28$ & $N \leq 3 \cdot 10^5$, permutationen är vald likformigt slumpmässigt.\footnote{Det vill säga att varje permutation av talen $1,2,\dots,N$ väljs med samma sannolikhet, alltså $1/N!$.}
+ \\ \hline
   $5$ & $35$ & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempelfall}
+I exempelfall $1$ finns bara en medborgare, så det krävs en observatör.
+
+I exempelfall $2$ räcker det att utse medborgare $3$ (med längd $3$) till observatör.
+Hen kan se medborgare $2$ eftersom de står bredvid varandra, och kan även se medborgare $1$ eftersom den enda personen mellan dem (medborgare $2$, med längd $1$) är kortare än båda ($1 < \min(3, 2) = 2$).
+Alltså hålls alla tre under uppsikt.
+
+I exempelfall $3$ kan varje medborgare bara se dem som står direkt bredvid.
+Till exempel kan medborgare $1$ (längd $1$) inte se medborgare $3$ (längd $3$) eftersom medborgare $2$ (längd $2$) mellan dem inte är kortare än båda ($2 \geq 1$).
+En optimal lösning är att utse medborgare $2$ och $4$: medborgare $2$ övervakar medborgare $1$, $2$ och $3$, medan medborgare $4$ övervakar medborgare $3$, $4$ och $5$.

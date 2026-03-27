@@ -1,0 +1,54 @@
+\problemname{Under Supervision}
+\noindent
+
+In the state of Oceania, $N$ citizens stand in a line, numbered from $1$ to $N$.
+Citizen $i$ has height $p_i$, and the heights form a permutation of the integers $1$ to $N$.
+
+The Party wants to appoint as few observers as possible to ensure that no citizen is ever out of sight.
+If a citizen is appointed as an observer, that person is considered supervised, and additionally all citizens that the observer can see also become supervised.
+
+Two citizens can see each other if every person between them is shorter than \emph{both} of them.
+Formally, if $i < j$ then citizens $i$ and $j$ can see each other precisely when
+\[
+\max(p_{i+1}, p_{i+2}, \dots, p_{j-1}) < \min(p_i, p_j).
+\]
+The same rule naturally applies when $j < i$ as well.
+
+Your task is to find the minimum number of observers that the Party must appoint so that all $N$ citizens are kept under supervision.
+
+\section*{Input}
+
+The first line contains an integer $N$ $(1 \leq N \leq 3 \cdot 10^5)$, the number of citizens.
+
+The second line contains $N$ integers $p_1, p_2, \dots, p_N$, a permutation of the integers $1$ to $N$.
+
+\section*{Output}
+
+Print a single integer: the minimum number of observers that the Party must appoint so that all citizens are kept under supervision.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$ & $8$ & $N \leq 15$ \\ \hline
+  $2$ & $12$ & $N \leq 200$ \\ \hline
+  $3$ & $17$ & $N \leq 1000$ \\ \hline
+  $4$ & $28$ & $N \leq 3 \cdot 10^5$, the permutation is chosen uniformly at random.\footnote{That is, every permutation of the integers $1,2,\dots,N$ is chosen with equal probability, namely $1/N!$.}
+ \\ \hline
+  $5$ & $35$ & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In Sample $1$ there is only one citizen, so one observer is needed.
+
+In Sample $2$ it suffices to appoint citizen $3$ (with height $3$) as an observer.
+They can see citizen $2$ since they stand next to each other, and can also see citizen $1$ since the only person between them (citizen $2$, with height $1$) is shorter than both ($1 < \min(3, 2) = 2$).
+Thus all three citizens are kept under supervision.
+
+In Sample $3$ each citizen can only see those standing directly next to them.
+For example, citizen $1$ (height $1$) cannot see citizen $3$ (height $3$) since citizen $2$ (height $2$) between them is not shorter than both ($2 \geq 1$).
+An optimal solution is to appoint citizens $2$ and $4$: citizen $2$ supervises citizens $1$, $2$ and $3$, while citizen $4$ supervises citizens $3$, $4$ and $5$.
