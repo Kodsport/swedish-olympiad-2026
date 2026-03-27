@@ -51,3 +51,18 @@ tc g3-9 gen_random T=3 m=$MAXN mode=list w="[100]*150 + [150]*150"
 tc g3-10 gen_random T=3 m=100 mode=list w="[1]*10 + [97]*290"
 tc g3-11 gen_random T=3 m=3 mode=list w="[1,1,2,3,3]"
 
+tc g3-12 gen_random T=3 n=$MAXN mode=m2 ones=0
+tc g3-13 gen_random T=3 n=$MAXN mode=m2 ones=1
+tc g3-14 gen_random T=3 n=$MAXN mode=m2 ones=299
+tc g3-15 gen_random T=3 n=$MAXN mode=m2 ones=300
+tc g3-16 gen_random n=$MAXN m=$MAXN mode=list w="list(range(1,m+1))" T=3
+tc g3-17 gen_random n=$MAXN m=$MAXN T=3
+tc g3-18 gen_random T=3 m=2 mode=list w="[1,1]"
+tc g3-19 gen_random T=3 m=2 mode=list w="[1,2]"
+tc g3-20 gen_random T=3 m=2 mode=list w="[2,2]"
+
+tc g3-21 gen_random T=3 n=$MAXN m=50 mode=uneven
+tc g3-22 gen_random T=3 n=$MAXN m=50 mode=uneven rev=1
+tc g3-23 gen_random T=3 n=$MAXN m=250 mode=uneven
+tc g3-24 gen_random T=3 n=$MAXN m=250 mode=uneven rev=1
+

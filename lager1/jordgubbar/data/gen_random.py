@@ -34,6 +34,20 @@ elif mode == "list":
     weights = eval(cmdlinearg('w', '[]'))
     weights.sort()
 
+elif mode == "uneven":
+    tot = []
+    for i in range(m):
+        tot += [i+1] * (m-i)
+    
+    if int(cmdlinearg("rev",0)) == 1:
+        for i in range(len(tot)):
+            tot[i] = m+1-tot[i]
+
+    random.shuffle(tot)
+    for i in range(n):
+        weights.append(tot[i])
+    weights.sort()
+
 n = len(weights)
 
 print(n,m,T)
