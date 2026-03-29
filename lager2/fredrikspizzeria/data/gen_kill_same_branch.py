@@ -51,11 +51,10 @@ add_edge(prev, 3)
 for i in range(K):
     pair_edges(right_branch[i], path12_edges[i])
 
-# Pair Left branch with dummy safe edges
+# Pair Left branch with dummy safe edges attached to node 2
 for i in range(K):
     n += 1; d1 = n
-    n += 1; d2 = n
-    d_edge = add_edge(d1, d2)
+    d_edge = add_edge(2, d1)
     pair_edges(left_branch[i], d_edge)
 
 # Pair remaining unpaired edges safely

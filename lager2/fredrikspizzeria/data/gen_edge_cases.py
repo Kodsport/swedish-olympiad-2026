@@ -243,7 +243,7 @@ elif mode == 'kill_nicecactus':
     # Create: path 1->2 goes through cycle A, path 1->3 goes through cycle B
     # Edges in B paired with edges in A in a way that the bug mishandles
     
-    n = 10
+    n = 9
     # Cycle A: 4-5-6-4 on path 1->2
     # Cycle B: 7-8-9-7 on path 1->3
     

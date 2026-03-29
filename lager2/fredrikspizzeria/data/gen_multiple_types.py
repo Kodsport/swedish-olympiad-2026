@@ -153,7 +153,7 @@ def build_special_ops_cap(common_left, common_right):
 
     left_len = common_left + 1
     right_len = max(common_right, left_len + 1)
-    add_two_path_cycle(edges, next_vertex, 1, 3, left_len, right_len)
+    _, _, next_vertex = add_two_path_cycle(edges, next_vertex, 1, 3, left_len, right_len)
 
     n = next_vertex - 1
     
