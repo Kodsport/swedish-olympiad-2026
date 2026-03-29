@@ -149,7 +149,6 @@ int main() {
         return sides;
     };
 
-    
     vi forced_alive(m);
     rep(i,m) if (edge_in_p1[i] && is_bridge[i]) forced_alive[i] = 1;
 
@@ -162,6 +161,7 @@ int main() {
         cout << "Ja\n";
         return 0;
     }
+
 
     // we have to cut two sides of a cycle
     vector<pair<vi, vi>> cycles_p1 = get_cycles(edge_in_p1);
@@ -184,74 +184,53 @@ int main() {
         vi rside = cycles_p2[cycle].second;
         assert(sz(lside) && sz(rside));
 
-        // Remove those that cut bridge on my escape path
-        lside.erase(remove_if(all(lside), [&](int e) {
-            return forced_alive[e] || forced_alive[other[e]];
-        }), lside.end());
-
-        rside.erase(remove_if(all(rside), [&](int e) {
-            return forced_alive[e] || forced_alive[other[e]];
-        }), rside.end());
-
-        if (lside.empty() || rside.empty()) continue;
-
-        // 3 cases:
-        //  - along common prefix
-        //  - last shared cycle
-        //  - no shared cycles
-
-
-        // case 3: i cut a no shared cycle:
-        //  - i cut left side of mine twice: is there any that cuts other side of my cycle and we win
-        //  - my linked edge cuts no-shared cycle: same check for both
-        //  - my linked edge cuts shared cycle. find any neighbour that doesnt cut opposite
-        
-
-        repe(e, lside) {
-            int oe = other[e];
-            if (is_player_cycle_edge[oe]) {
-                // take any rside edge that does not cut the other side
-                int forbidden_cycle = which_cycle[oe];
-                int is_left = is_left[oe];
-
+        auto get_B = [&](int x) {
+            vector<pair<int,int>> res;
+            if (is_player_cycle_edge[x]) res.push_back({which_cycle[x], is_left[x]});
+            int ox = other[x];
+            if (is_player_cycle_edge[ox]) {
+                pair<int,int> p = {which_cycle[ox], is_left[ox]};
+                if (res.empty() || res[0] != p) res.push_back(p);
             }
-            else {
-                cout << "Ja\n";
-                return 0;
+            return res;
+        };
+
+        int total_r = 0;
+        map<pair<int,int>, int> count_1;
+        map<pair<pair<int,int>, pair<int,int>>, int> count_2;
+
+        for (int e2 : rside) {
+            auto b = get_B(e2);
+            bool self_conflict = false;
+            if (sz(b) == 2 && b[0].first == b[1].first && b[0].second != b[1].second) self_conflict = true;
+            if (self_conflict) continue;
+            
+            total_r++;
+            for (auto p : b) count_1[p]++;
+            if (sz(b) == 2) {
+                auto p1 = b[0], p2 = b[1];
+                if (p1 > p2) swap(p1, p2);
+                count_2[{p1, p2}]++;
             }
         }
 
-        repe(e, rside) {
-            set<p2> cuts;
-            if (which_cycle[e] != -1) {
-                cuts.emplace(which_cycle[e], is_left[e]);
+        for (int e : lside) {
+            auto b = get_B(e);
+            bool self_conflict = false;
+            if (sz(b) == 2 && b[0].first == b[1].first && b[0].second != b[1].second) self_conflict = true;
+            if (self_conflict) continue;
+
+            int bad = 0;
+            if (sz(b) == 1) {
+                bad = count_1[{b[0].first, 1 - b[0].second}];
+            } else if (sz(b) == 2) {
+                auto p1 = make_pair(b[0].first, 1 - b[0].second);
+                auto p2 = make_pair(b[1].first, 1 - b[1].second);
+                if (p1 > p2) swap(p1, p2);
+                bad = count_1[p1] + count_1[p2] - count_2[{p1, p2}];
             }
 
-            int oe = other[e];
-            if (which_cycle[oe] != -1) {
-                cuts.emplace(which_cycle[oe], is_left[oe]);
-            }
-            rside_cuts.insert(cuts);
-        }
-
-        
-        repe(c1, lside_cuts) {
-            repe(c2, rside_cuts) {
-                map<int, p2> damaged_cycles;
-                for (auto [cycle, left] : c1) {
-                    if (left) damaged_cycles[cycle].first = 1;
-                    else damaged_cycles[cycle].second = 1;
-                }
-                for (auto [cycle, left] : c2) {
-                    if (left) damaged_cycles[cycle].first = 1;
-                    else damaged_cycles[cycle].second = 1;
-                }
-
-                bool good = 1;
-                for (auto [cycle, sides] : damaged_cycles) {
-                    if (sides.first && sides.second) good=0;
-                }
-                if (!good) continue;
+            if (bad < total_r) {
                 cout << "Ja\n";
                 return 0;
             }

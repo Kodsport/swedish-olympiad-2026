@@ -10,7 +10,9 @@ use_solution codex.cpp
 compile gen_tree.py
 compile gen_rand.py
 compile gen_rand_vertexcactus.py
+compile gen_rand_edgecactus.py
 compile gen_kill_m2.py
+compile gen_y.py
 
 samplegroup
 sample 1
@@ -56,6 +58,31 @@ include_group sample group1
 tc g3-1 gen_rand n=90 seed=827
 tc g3-2 gen_rand n=90 seed=500
 tc g3-3 gen_rand n=90
+tc g3-4 gen_rand_vertexcactus n=90 cycles=1
+tc g3-5 gen_rand_vertexcactus n=91 cycles=2
+tc g3-6 gen_rand_vertexcactus n=90 cycles=3
+tc g3-7 gen_rand_vertexcactus n=81 cycles=10
+tc g3-8 gen_rand_vertexcactus n=47 cycles=40
+tc g3-9 gen_rand_edgecactus  n=90 cycles=1
+tc g3-10 gen_rand_edgecactus n=91 cycles=2
+tc g3-11 gen_rand_edgecactus n=90 cycles=3
+tc g3-12 gen_rand_edgecactus n=81 cycles=10
+tc g3-13 gen_rand_edgecactus n=47 cycles=40
+tc_manual ../manual_testcases/bug1_killer.in
+tc g3-y1-edge gen_y type=edge parts=1 k=3 extra-edges=5
+tc g3-y2-edge gen_y type=edge parts=2 k=3 extra-edges=5
+tc g3-y3-edge gen_y type=edge parts=3 k=5 extra-edges=5
+tc g3-y4-edge gen_y type=edge parts=5 k=4 extra-edges=5
+for i in {1..10}; do
+    tc g3-y-edge$i gen_y type=edge parts=2 k=5 extra-edges=1
+done
+tc g3-y1-vertex gen_y type=vertex parts=1 k=3 extra-edges=5
+tc g3-y2-vertex gen_y type=vertex parts=2 k=3 extra-edges=5
+tc g3-y3-vertex gen_y type=vertex parts=3 k=5 extra-edges=5
+tc g3-y4-vertex gen_y type=vertex parts=4 k=4 extra-edges=5
+for i in {1..10}; do
+    tc g3-y-vertex$i gen_y type=vertex parts=2 k=5 extra-edges=1
+done
 
 N=2000
 M=2000
@@ -68,6 +95,14 @@ tc g4-2 gen_rand_vertexcactus n=1951 cycles=2
 tc g4-3 gen_rand_vertexcactus n=1950 cycles=3
 tc g4-4 gen_rand_vertexcactus n=1951 cycles=10
 tc g4-5 gen_rand_vertexcactus n=1851 cycles=100
+for p in 10 15 20 22; do
+    for k in 10 15 20 22; do
+        tc g4-y-vertex-p$p-k$k gen_y type=vertex parts=$p k=$k extra-edges=1
+    done
+done
+for i in {1..10}; do
+    tc g4-y-vertex-small$i gen_y type=vertex parts=2 k=5 extra-edges=1
+done
 
 N=2000
 M=2000
@@ -76,6 +111,11 @@ limits maxn=$N maxm=$M
 include_group group3 group4
 tc g5-1 gen_rand n=1950 seed=902
 tc g5-2 gen_rand n=1950
+for p in 10 15 20 22; do
+    for k in 10 15 20 22; do
+        tc g5-y-vertex-p$p-k$k gen_y type=edge parts=$p k=$k extra-edges=1
+    done
+done
 
 group group6 19
 limits vertexcactus=1

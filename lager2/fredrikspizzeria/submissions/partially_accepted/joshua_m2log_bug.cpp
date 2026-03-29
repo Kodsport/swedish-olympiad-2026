@@ -55,7 +55,7 @@ void dc(int l, int r, vi& candidates, vi& canonical, vi& other, vector<p2>& edge
 
     // left half
     repp(i,l,mid+1) {
-        int e = candidates[i];
+        int e = canonical[i];
         int eother = other[e];
         uf.merge(edges[e].first, edges[e].second);
         uf.merge(edges[eother].first, edges[eother].second);
@@ -70,7 +70,7 @@ void dc(int l, int r, vi& candidates, vi& canonical, vi& other, vector<p2>& edge
 
     // right half
     repp(i,mid+1, r+1) {
-        int e = candidates[i];
+        int e = canonical[i];
         int eother = other[e];
         uf.merge(edges[e].first, edges[e].second);
         uf.merge(edges[eother].first, edges[eother].second);
@@ -136,7 +136,6 @@ int main() {
             candidates.push_back(canonical[j]);
         }
 
-        if (candidates.empty()) continue;
         UF uf(n);
         dc(0, sz(candidates)-1, candidates, canonical, other, edges, uf);
     }
