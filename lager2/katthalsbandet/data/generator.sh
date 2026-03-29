@@ -19,6 +19,7 @@ sample 2
 sample 3
 
 group g1 5
+limits maxa=1 minb=1000000000
 tc g1-01 gen_set n=1 mode=rand a=1 b=1000000000 s="("
 tc g1-02 gen_full n=20 k=0 mode=rand a=1 b=1000000000 
 tc g1-03 gen_full n=100 k=0 mode=rand a=1 b=1000000000 
@@ -53,6 +54,7 @@ tc g1-31 gen_rand n=500000 mode=sorted rev=1 swaps=250000 a=1 b=1000000000
 
 
 group g2 7
+limits maxn=100
 # include_group sample
 # for i in {01..14}; do
 #     tc g1-$i 
@@ -100,7 +102,7 @@ tc g4-07 gen_targeted n=499999 mode=skewed a=7 b=0 left=200000
 tc g4-08 gen_targeted n=500000 mode=all_right a=1000000000 b=0
 
 group g5 11
-limits equal=1
+limits mina=1000000000 minb=1 maxb=1 equal=1
 tc g5-01 gen_rand n=100 mode=equal a=1000000000 b=1
 tc g5-02 gen_targeted n=100 mode=half_half a=1000000000 b=1
 tc g5-03 gen_targeted n=500000 mode=half_half a=1000000000 b=1
@@ -109,6 +111,7 @@ tc g5-05 gen_targeted n=500000 mode=alternating a=1000000000 b=1
 tc g5-06 gen_rand n=500000 mode=sorted swaps=10 a=1000000000 b=1
 
 group g6 14
+limits mina=1000000000 minb=1 maxb=1
 include_group g5
 tc g6-01 gen_rand n=100 mode=rand a=1000000000 b=1
 tc g6-02 gen_rand n=500000 mode=rand a=1000000000 b=1
