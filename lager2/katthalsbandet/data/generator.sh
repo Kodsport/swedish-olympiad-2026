@@ -121,6 +121,9 @@ tc g6-05 gen_rand n=500000 mode=sorted rev=1 swaps=10000 a=1000000000 b=1
 tc g6-06 gen_targeted n=500000 mode=all_right a=1000000000 b=1
 # Large equal.py counterexample under the g6 cost regime.
 tc g6-07 gen_rand n=500000 mode=rand a=1000000000 b=1 seed=2
+tc g6-08 gen_rand n=500000 mode=sorted swaps=50000 a=1000000000 b=1
+tc g6-09 gen_targeted n=500000 mode=skewed a=1000000000 b=1 left=300000
+tc g6-10 gen_full n=499000 k=1000 mode=fractal a=1000000000 b=1
 
 group g7 12
 limits equal=1
@@ -132,6 +135,10 @@ tc g7-04 gen_targeted n=500000 mode=half_half a=1 b=1
 tc g7-05 gen_rand n=500000 mode=equal a=1000000000 b=1000000000
 tc g7-06 gen_rand n=500000 mode=equal a=100 b=7
 tc g7-07 gen_targeted n=500000 mode=half_half a=37 b=75
+tc g7-08 gen_rand n=500000 mode=equal a=50 b=51
+tc g7-09 gen_rand n=500000 mode=equal a=7 b=3 seed=7
+tc g7-10 gen_targeted n=500000 mode=alternating a=100 b=37
+tc g7-11 gen_rand n=500000 mode=sorted swaps=100000 a=42 b=17
 
 group g8 24
 include_group sample
@@ -147,3 +154,7 @@ tc g8-05 gen_rand n=499999 mode=sorted swaps=100000 a=42 b=17
 tc g8-06 gen_targeted n=1 mode=all_left a=1 b=1
 # Large arbitrary-constraints equal.py counterexample.
 tc g8-07 gen_rand n=500000 mode=rand a=73 b=29 seed=2
+tc g8-08 gen_rand n=500000 mode=rand a=50 b=51 seed=5
+tc g8-09 gen_targeted n=500000 mode=skewed a=37 b=75 left=150000
+tc g8-10 gen_full n=490000 k=10000 mode=rand a=3 b=7 p=0.6
+tc g8-11 gen_targeted n=499999 mode=half_half a=100 b=100
