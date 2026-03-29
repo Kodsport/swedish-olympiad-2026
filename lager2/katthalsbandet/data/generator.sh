@@ -55,7 +55,7 @@ tc g1-31 gen_rand n=500000 mode=sorted rev=1 swaps=250000 a=1 b=1000000000
 
 group g2 7
 limits maxn=100
-# include_group sample
+include_group sample
 # for i in {01..14}; do
 #     tc g1-$i 
 # done
@@ -144,6 +144,7 @@ group g8 24
 include_group sample
 include_group g1
 include_group g3
+include_group g4
 include_group g6
 include_group g7
 tc g8-01 gen_rand n=500000 mode=rand a=1000000000 b=1000000000
