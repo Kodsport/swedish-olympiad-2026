@@ -3,7 +3,7 @@
 void run() {
     int n = Int(1, Arg("maxn", 500000));
     Space();
-    int a = Int(Arg("mina", 1), Arg("maxa", 1000000000));
+    int a = Int(Arg("mina", 0), Arg("maxa", 1000000000));
     Space();
     int b = Int(Arg("minb", 0), Arg("maxb", 1000000000));
     Endl();

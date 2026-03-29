@@ -1,4 +1,4 @@
-# @EXPECTED_GRADES@ AC WA WA AC AC WA AC WA
+# @EXPECTED_GRADES@ AC WA WA WA AC AC WA WA
 
 from collections import Counter
 
