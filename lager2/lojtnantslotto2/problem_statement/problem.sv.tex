@@ -1,0 +1,53 @@
+\problemname{Löjtnantslotto}
+\noindent
+
+Löjtnantslotto är ett spel vars regler är följande:
+Du får givet ett positivt heltal $N$ och en lista av tal $p_1, p_2, \dots, p_N$ sådan att varje heltal mellan 
+$1$ och $N$ förekommer i listan (det är med andra ord en permutation). Målet är att hitta ett $N \times N$-rutnät
+med ettor och nollor sådant att
+\begin{enumerate}
+  \item Inga två rader är identiska, och 
+  \item Den $i$:te raden är lika med den $p_i$:te kolumnen, för varje $1 \leq i \leq N$.
+\end{enumerate}
+
+Din uppgift är att hitta ett sådant rutnät om det är möjligt.
+
+
+\section*{Indata}
+
+Den första raden innehåller ett heltal $N$ ($2 \leq N \leq 1000$).
+
+Den andra raden innehåller $N$ heltal $p_1, p_2, \dots, p_N$ ($1 \leq p_i \leq N$). Varje heltal från $1$ till $N$
+förekommer i denna lista av heltal.
+
+\section*{Utdata}
+
+Om ett giltigt rutnät existerar, skriv ut en rad med ``\texttt{YES}'', följt av $N$ rader som var och en innehåller 
+en sträng av längd $N$. Dessa $N$ rader utgör rutnätet.
+
+Om ett giltigt rutnät inte existerar, skriv ut ``\texttt{NO}''.
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $11$       & $p_i = i$ för alla $1 \leq i \leq N$. \\ \hline
+  $2$    & $12$       & $N \leq 5$ \\ \hline
+  $3$    & $15$       & $p_i = i+1$ för varje $1 \leq i \leq N-1$, and $p_N = 1$.  \\ \hline
+  $4$    & $24$       & $p_{p_i} \neq i$ för alla $1 \leq i \leq N$. \\ \hline
+  $5$    & $38$       & Inga ytterligare begränsningar.  \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+
+I det första exemplet är den första raden och den andra kolumnen båda \texttt{1100}, vilket gör att de 
+är lika. De andra raderna motsvarar också sina kolumner.
+
+I det andra exemplet finns det bara ett sätt att få raderna att vara lika med sina kolumner, och det är att ha 
+bara ettor eller bara nollor i hela rutnätet. Men då blir inte raderna olika.
+
