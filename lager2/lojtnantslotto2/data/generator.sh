@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PPATH=$(realpath ..)
-. ../../testdata_tools/gen.sh
+. ../../../testdata_tools/gen.sh
 
 #ulimit -s unlimited
 
@@ -77,6 +77,10 @@ tc g4-13 gen n=4 mode=partition part="[4]"
 tc g4-14 gen n=4 mode=partition part="[4]"
 tc g4-15 gen n=4 mode=partition part="[4]"
 tc g4-16 gen n=4 mode=partition part="[4]"
+tc g4-17 gen n=999 mode=partition part="[3,4,5,7,11,13,907]"
+tc g4-18 gen n=999 mode=partition part="[3,4,5,7,11,13,907]"
+tc g4-19 gen n=999 mode=partition part="[3,4,5,7,11,13,907]"
+tc g4-20 gen n=999 mode=partition part="[3,4,5,7,11,13,907]"
 
 group group5 38
 include_group group1
@@ -101,5 +105,39 @@ tc g5-15 gen n=999 mode=partition part="[2,2]+[3]*300"
 tc g5-16 gen n=999 mode=partition part="[2,2]+[1]*990"
 tc g5-17 gen n=999 mode=partition part="[2,2]+[3]*300"
 tc g5-18 gen n=999 mode=partition part="[2,2]+[1]*990"
+tc g5-19 gen n=1000 mode=primes
+tc g5-20 gen n=1000 mode=primes twos=1
+tc g5-21 gen n=999 mode=partition part="[3,4,5,7,11,13]"
+tc g5-22 gen n=999 mode=partition part="[2,3,4,5,7,11,13,907]" shuff=0
+tc g5-23 gen n=999 mode=partition part="[3,4,5,7,11,13] + [1]*950" shuff=0
+tc g5-24 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-25 gen n=1000 mode=partition part="[2,2,3,5,7,11,13] + [1]*955" shuff=0
+tc g5-26 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-27 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-28 gen n=999 mode=partition part="[2]*256"
+tc g5-29 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-30 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-31 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-32 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-33 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-34 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-35 gen n=1000 mode=partition part="[2,3,4,5,7] + [1]*950"
+tc g5-36 gen n=1000 mode=primes twos=-1
+
+tc g5-37 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-38 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-39 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-40 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-41 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-42 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-43 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-44 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-45 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-46 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-47 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-48 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-49 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-50 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
+tc g5-51 gen n=1000 mode=partition part="[2,3,4,5,7,11,13] + [1]*955" shuff=0
 
 

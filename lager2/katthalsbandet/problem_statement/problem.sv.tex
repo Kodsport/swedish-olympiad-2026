@@ -6,18 +6,19 @@
 Louise tycker mycket om sin katt Lulli och planterar därför mycket kattmynta.
 
 Nu vill Louise skapa ett fint halsband åt Lulli med $N$ berlocker placerade i en ring.
-På varje berlock står antingen \texttt{(} eller \texttt{)}.
-Halsbandet har också en bjällra som visar var man börjar läsa, så symbolerna bildar på så sätt en sträng.
+På varje berlock finns exakt en symbol, antingen \texttt{(} eller \texttt{)}.
+Halsbandet har också en bjällra som visar var man börjar läsa.
 
-För att halsbandet ska bli extra fint vill Louise att strängen ska vara balanserad.
+För att halsbandet ska bli extra fint vill Louise att halsbandet ska vara balanserat.
 För att få hjälp anlitar Louise en smyckesmakare som kan bygga om halsbandet. Som betalning använder hon kattmynt.
 
 Smyckesmakaren kan ta bort valfri berlock för en kostnad av $a$ kattmynt per berlock.
-Smyckesmakaren kan också vrida halsbandet ett steg, så att den första symbolen i strängen flyttas sist, vilket kostar $b$ kattmynt.
+Smyckesmakaren kan också vrida halsbandet ett steg, så att den första berlocken i ringen hamnar sist, vilket kostar $b$ kattmynt.
 Louise är även nöjd om halsbandet blir helt tomt, men då måste hon betala för att få bort varje berlock.
 
 Louise vill därför göra halsbandet balanserat till så låg kostnad som möjligt.
 
+Ett halsband är balanserat om symbolerna, lästa i ordning från bjällran, bildar en balanserad parentessträng.
 En parentessträng är balanserad om:
 \begin{itemize}
     \item Den är tom, eller
@@ -30,10 +31,10 @@ En parentessträng är balanserad om:
 Den första raden innehåller tre heltal $N$, $a$ och $b$ ($1 \leq N \leq 5 \cdot 10^5$, $1 \leq a \leq 10^9$, $0 \leq b \leq 10^9$).
 
 Den andra raden innehåller en sträng $s$ av längd $N$.
-Varje tecken i $s$ är antingen \texttt{(} eller \texttt{)}.
+Varje symbol i $s$ är antingen \texttt{(} eller \texttt{)}.
 
 \section*{Utdata}
-Skriv ut ett heltal: den minsta möjliga totalkostnaden för att göra strängen balanserad.
+Skriv ut ett heltal: den minsta möjliga totalkostnaden för att göra halsbandet balanserat.
 
 
 \section*{Poängsättning}
@@ -56,13 +57,22 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 \section*{Förklaring av exempelfall}
 I exempelfall $1$ kan du först vrida halsbandet två steg.
-Då blir strängen \texttt{)(())}.
-Om du sedan tar bort den första symbolen, som är \texttt{)}, får du \texttt{(())}, som är balanserad.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{sample1_1.png}
+\end{center}
+Då läses halsbandet som \texttt{)(())}.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{step1_rotate.png}
+\end{center}
+Om du sedan tar bort den första berlocken, som är \texttt{)}, läses halsbandet som \texttt{(())}, vilket är balanserat.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{step2_remove.png}
+\end{center}
 Den totala kostnaden blir $3 + 3 + 2 = 8$ kattmynt.
 
-I exempelfall $2$ kan du ta bort den andra symbolen, som är \texttt{)}, och därefter den sista symbolen, som är \texttt{(}.
-Då blir strängen \texttt{()()()}, som är balanserad.
+I exempelfall $2$ kan du ta bort den andra berlocken, som är \texttt{)}, och därefter den sista berlocken, som är \texttt{(}.
+Då läses halsbandet som \texttt{()()()}, vilket är balanserat.
 Den totala kostnaden blir $4 + 4 = 8$ kattmynt.
 
-I exempelfall $3$ kan du vrida halsbandet tre steg, så att strängen blir \texttt{()()(())}.
-Den är redan balanserad, så den totala kostnaden blir $3 + 3 + 3 = 9$ kattmynt.
+I exempelfall $3$ kan du vrida halsbandet tre steg, så att halsbandet läses som \texttt{()()(())}.
+Det är redan balanserat, så den totala kostnaden blir $3 + 3 + 3 = 9$ kattmynt.

@@ -66,7 +66,18 @@ elif mode == "random_no_short":
 
 elif mode == "partition":
     part = eval(cmdlinearg('part', '[]'))
-    P = to_permutation(part)
+    shuff = int(cmdlinearg('shuff', 1))
+    if shuff == 0:
+        ones = []
+        no_ones = []
+        for p in part:
+            if p == 1:
+                ones.append(p)
+            else:
+                no_ones.append(p)
+        random.shuffle(no_ones)
+        part = ones + no_ones
+    P = to_permutation(part, shuff)
 
 elif mode == "p23":
     assert n%3 == 2
@@ -77,6 +88,26 @@ elif mode == "p23_reverse":
     assert n%3 == 2
     part = [2] + [3]*(n // 3)
     P = to_permutation(part, 0)
+
+elif mode == "primes":
+    twos = int(cmdlinearg('twos', 2))
+    part = [2]*twos
+    if twos == -1:
+        part = [4]
+    for p in range(3, n):
+        if sum(part)+p > n:
+            break
+        good = True
+        for i in range(2,p):
+            if p%i == 0:
+                good = False
+        if good:
+            part.append(p)
+    if twos == -1:
+        part += [1]*(n-sum(part))
+    P = to_permutation(part, 0)
+
+
 
 
 for i in range(len(P)):
