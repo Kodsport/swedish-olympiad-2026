@@ -8,13 +8,13 @@ The night shift just ended, and she wants to go home through the exit in room $2
 Unfortunately, there is a malicious rat in room $3$ that is trying to stop her.
 To protect herself, each corridor has an electronic door that she can close.
 Neither Elsa nor the rat can pass through a closed door.
-She can open and close doors as she wishes, with one constraint:
-each door is linked with exactly one other door.
+She can open and close doors however she wants, with one requirement:
+each door is linked to \textbf{exactly} one other door.
 If two doors are linked, it means that if one is closed, the other must also be closed.
 Likewise, if one is open, the other must also be open.
-A door cannot be linked with more than one other door.
+Doors being linked with each other is symmetric, which means that if door $a$ is linked to door $b$, then door $b$ is linked to door $a$.
 
-Since the control panel is in her office in room $1$, she must decide which corridors to open before leaving the office.
+Since the control panel is in her office in room $1$, she must decide which corridors to open or close before leaving the office.
 Once she has left the office, her only chance is to have closed doors so that the rat cannot reach her through corridors with open doors, while she can reach the exit through corridors with open doors.
 Even if her office were right next to the exit, the rat is so fast that she would not be able to get out in time if the rat could reach her.
 
