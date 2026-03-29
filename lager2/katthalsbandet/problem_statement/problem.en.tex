@@ -6,18 +6,19 @@
 Louise loves her cat Lulli very much and therefore plants lots of catnip.
 
 Now Louise wants to create a beautiful necklace for Lulli with $N$ charms placed in a ring.
-On each charm is either \texttt{(} or \texttt{)}.
-The necklace also has a bell that marks where to start reading, so the symbols form a string.
+On each charm there is exactly one symbol, either \texttt{(} or \texttt{)}.
+The necklace also has a bell that marks where to start reading.
 
-To make the necklace extra beautiful, Louise wants the string to be balanced.
+To make the necklace extra beautiful, Louise wants the necklace to be balanced.
 For help, Louise hires a jeweler who can modify the necklace. As payment, she uses catmints.
 
 The jeweler can remove any charm for a cost of $a$ catmints per charm.
-The jeweler can also rotate the necklace one step, so that the first symbol in the string moves to the end, which costs $b$ catmints.
+The jeweler can also rotate the necklace one step, so that the first charm moves to the end, which costs $b$ catmints.
 Louise is also satisfied if the necklace becomes completely empty, but then she must pay to remove each charm.
 
 Louise therefore wants to make the necklace balanced at the lowest possible cost.
 
+A necklace is balanced if its symbols, read in order from the bell, form a balanced parenthesis string.
 A parenthesis string is balanced if:
 \begin{itemize}
     \item It is empty, or
@@ -30,10 +31,10 @@ A parenthesis string is balanced if:
 The first line contains three integers $N$, $a$ and $b$ ($1 \leq N \leq 5 \cdot 10^5$, $1 \leq a \leq 10^9$, $0 \leq b \leq 10^9$).
 
 The second line contains a string $s$ of length $N$.
-Each character in $s$ is either \texttt{(} or \texttt{)}.
+Each symbol in $s$ is either \texttt{(} or \texttt{)}.
 
 \section*{Output}
-Print one integer: the minimum possible total cost to make the string balanced.
+Print one integer: the minimum possible total cost to make the necklace balanced.
 
 
 \section*{Scoring}
@@ -56,13 +57,22 @@ To earn points for a group, you must pass all test cases in that group.
 
 \section*{Explanation of Samples}
 In sample $1$, you can first rotate the necklace two steps.
-Then the string becomes \texttt{)(())}.
-If you then remove the first symbol, which is \texttt{)}, you get \texttt{(())}, which is balanced.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{sample1_1.png}
+\end{center}
+Then the necklace reads as \texttt{)(())}.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{step1_rotate.png}
+\end{center}
+If you then remove the first charm, which is \texttt{)}, the necklace reads as \texttt{(())}, which is balanced.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{step2_remove.png}
+\end{center}
 The total cost is $3 + 3 + 2 = 8$ catmints.
 
-In sample $2$, you can remove the second symbol, which is \texttt{)}, and then the last symbol, which is \texttt{(}.
-Then the string becomes \texttt{()()()}, which is balanced.
+In sample $2$, you can remove the second charm, which is \texttt{)}, and then the last charm, which is \texttt{(}.
+Then the necklace reads as \texttt{()()()}, which is balanced.
 The total cost is $4 + 4 = 8$ catmints.
 
-In sample $3$, you can rotate the necklace three steps, so that the string becomes \texttt{()()(())}.
+In sample $3$, you can rotate the necklace three steps, so that the necklace reads as \texttt{()()(())}.
 It is already balanced, so the total cost is $3 + 3 + 3 = 9$ catmints.
