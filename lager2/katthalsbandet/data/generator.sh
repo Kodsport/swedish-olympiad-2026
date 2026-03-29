@@ -2,7 +2,7 @@
 
 PPATH=$(realpath ..)
 
-. ../../testdata_tools/gen.sh
+. ../../../testdata_tools/gen.sh
 
 # ulimit -s unlimited
 
@@ -73,6 +73,7 @@ tc g2-10 gen_set n=12 a=170 b=160 s=")))()())))(("
 tc g2-11 gen_set n=20 a=136 b=49 s="())))()))()()())(()("
 tc g2-12 gen_set n=50 a=188 b=173 s=")((((()))))(((())))))))))((())))()(()))()((()()(()"
 tc g2-13 gen_set n=100 a=23 b=35 s="))))()()))))()))()))(()()(()(())()))((())()))(((((()()((())()((()((((()))((((()())))))()())(((()))(("
+tc g8-06 gen_targeted n=1 mode=all_left a=1 b=1
 
 group g3 8
 limits maxn=2000
@@ -127,6 +128,8 @@ tc g6-10 gen_full n=499000 k=1000 mode=fractal a=1000000000 b=1
 
 group g7 12
 limits equal=1
+tc 2
+tc 3
 include_group g5
 tc g7-01 gen_rand n=100 mode=equal a=5 b=3
 tc g7-02 gen_targeted n=100 mode=half_half a=1 b=1000000000
@@ -152,7 +155,7 @@ tc g8-02 gen_full n=490000 k=10000 mode=rand a=500000 b=500000 p=0.3
 tc g8-03 gen_full n=499000 k=1000 mode=fractal a=7 b=3
 tc g8-04 gen_targeted n=500000 mode=skewed a=100 b=50 left=100000
 tc g8-05 gen_rand n=499999 mode=sorted swaps=100000 a=42 b=17
-tc g8-06 gen_targeted n=1 mode=all_left a=1 b=1
+tc g8-06 
 # Large arbitrary-constraints equal.py counterexample.
 tc g8-07 gen_rand n=500000 mode=rand a=73 b=29 seed=2
 tc g8-08 gen_rand n=500000 mode=rand a=50 b=51 seed=5
