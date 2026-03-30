@@ -57,6 +57,7 @@ limits maxn=15
 include_group sample
 tc g1-01
 tc g1-05
+tc_manual ../manual/small.in
 tc g2-01 gen_targeted n=1 mode=all_left a=1 b=1
 tc g2-02 gen_targeted n=1 mode=all_right a=1000000000 b=1000000000
 tc g2-03 gen_set n=2 a=5 b=3 s="()"
@@ -77,6 +78,10 @@ tc g2-16 gen_set n=7 a=0 b=5 s="()))((("
 group g3 19
 limits maxn=100
 include_group g2
+tc_manual ../manual/n100_1.in
+tc_manual ../manual/n100_2.in
+tc_manual ../manual/n100_3.in
+tc_manual ../manual/n100_4.in
 tc g1-01 
 tc g1-02 
 tc g1-03
@@ -110,6 +115,8 @@ tc_manual ../manual/low.in
 group g4 21
 limits maxn=2000
 include_group g3
+tc_manual ../manual/n2000_1.in
+tc_manual ../manual/n2000_2.in
 tc g4-01 gen_full n=500 k=100 mode=rand a=100 b=50 p=0.4
 tc g4-02 gen_full n=1000 k=0 mode=rand a=5 b=3 p=0.7
 tc g4-03 gen_full n=1800 k=200 mode=rand a=1000000000 b=1 p=0.5
@@ -151,6 +158,10 @@ include_group g1
 include_group g4
 include_group g5
 include_group g6
+tc_manual ../manual/n5e5_1.in
+tc_manual ../manual/n5e5_2.in
+tc_manual ../manual/lowb_1.in
+tc_manual ../manual/lowb_2.in
 tc g7-01 gen_rand n=100 mode=rand a=1000000000 b=1
 tc g7-02 gen_rand n=500000 mode=rand a=1000000000 b=1
 tc g7-03 gen_targeted n=500000 mode=skewed a=1000000000 b=1 left=200000
