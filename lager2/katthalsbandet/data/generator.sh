@@ -19,7 +19,7 @@ sample 2
 sample 3
 
 group g1 11
-limits maxa=1 minb=1000000000
+limits mina=1 maxa=1 minb=1000000000
 tc g1-01 gen_set n=1 mode=rand a=1 b=1000000000 s="("
 tc g1-02 gen_full n=20 k=0 mode=rand a=1 b=1000000000
 tc g1-03 gen_full n=100 k=0 mode=rand a=1 b=1000000000
