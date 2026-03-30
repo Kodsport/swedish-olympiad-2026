@@ -105,6 +105,7 @@ tc g3-11 gen_set n=50 a=188 b=173 s=")((((()))))(((())))))))))((())))()(()))()((
 tc g3-12 gen_set n=100 a=23 b=35 s="))))()()))))()))()))(()()(()(())()))((())()))(((((()()((())()((()((((()))((((()())))))()())(((()))(("
 tc g3-13 gen_rand n=50 mode=rand a=137 b=41 seed=3
 tc g3-14 gen_rand n=100 mode=rand a=137 b=41 seed=1
+tc_manual ../manual/low.in
 
 group g4 21
 limits maxn=2000
@@ -119,6 +120,7 @@ tc g4-07 gen_rand n=2000 mode=sorted rev=1 swaps=500 a=7 b=3
 tc g4-08 gen_targeted n=2000 mode=half_half a=37 b=75
 tc g4-09 gen_rand n=2000 mode=rand a=73 b=29 seed=2
 tc g4-10 gen_rand n=2000 mode=rand a=50 b=51 seed=5
+tc_manual ../manual/medium.in
 
 group g5 9
 limits minb=0 maxb=0
@@ -176,3 +178,4 @@ tc g8-09 gen_full n=490000 k=10000 mode=rand a=3 b=7 p=0.6
 tc g8-10 gen_targeted n=499999 mode=half_half a=100 b=100
 tc g8-11 gen_rand n=500000 mode=rand a=100 b=37 seed=3
 tc g8-12 gen_rand n=500000 mode=rand a=0 b=1000000000
+tc_manual ../manual/big.in
