@@ -17,11 +17,16 @@ compile gen_multiple_types.py
 compile gen_stack_overflow.py
 compile gen_edge_cases.py
 compile gen_kill_heuristic.py
+compile gen_kill_heuristic2.py
+compile gen_kill_heuristic_fixed.py
 compile gen_kill_dfs_branches.py
 compile gen_hard.py
 compile gen_kill_same_branch.py
 compile gen_big_cycles.py
 compile gen_kill_cheese.py
+compile gen_kill_cheese2.py
+compile gen_kill_cheese3.py
+compile gen_kill_cheese4.py
 
 samplegroup
 sample 1
@@ -151,6 +156,11 @@ done
 tc g4-mt1 gen_multiple_types n=1800 m=2000 structure=hub dep=cross vertex_disjoint=1
 tc g4-mt2 gen_multiple_types n=1500 m=1998 structure=deep dep=mixed vertex_disjoint=1
 tc g4-kc gen_kill_cheese n=2000
+tc g4-killcheese2 gen_kill_cheese2 n=499
+tc g4-killcheese3 gen_kill_cheese3
+tc g4-killcheese4 gen_kill_cheese4
+tc g4-kh3 gen_kill_heuristic_fixed p=498 mode=vertex
+
 
 N=2000
 M=2000
@@ -186,6 +196,10 @@ tc g5-bc-3cnx gen_big_cycles mode=three_cycles_no_cross n=600
 tc g5-bc-3cnd gen_big_cycles mode=three_cycles_no_direct n=600
 tc g5-bc-3cns gen_big_cycles mode=three_cycles_no_shared n=600
 tc g5-kc gen_kill_cheese n=2000
+tc g4-killcheese2
+tc g4-killcheese3
+tc g4-killcheese4
+tc g4-kh3
 
 group group6 19
 limits vertexcactus=1
