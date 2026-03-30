@@ -125,8 +125,13 @@ tc g6-04 gen_rand n=500000 mode=equal a=1000000000 b=1
 tc g6-05 gen_targeted n=500000 mode=alternating a=1000000000 b=1
 tc g6-06 gen_rand n=500000 mode=sorted swaps=10 a=1000000000 b=1
 
-group g7 5
-limits mina=1000000000 minb=1 maxb=1
+
+
+group g7 16
+include_group sample
+include_group g1
+include_group g4
+include_group g5
 include_group g6
 tc g7-01 gen_rand n=100 mode=rand a=1000000000 b=1
 tc g7-02 gen_rand n=500000 mode=rand a=1000000000 b=1
@@ -143,12 +148,6 @@ tc g7-12 gen_set n=16 a=1000000000 b=1 s="())))))(((((((()"
 tc g7-13 gen_set n=34 a=1000000000 b=1 s="())(()((((()(((()(()))(())()())()("
 tc g7-14 gen_rand n=500000 mode=rand a=1000000000 b=1 seed=7
 
-group g8 11
-include_group sample
-include_group g1
-include_group g4
-include_group g5
-include_group g7
 tc g8-01 gen_rand n=500000 mode=rand a=1000000000 b=1000000000
 tc g8-02 gen_full n=490000 k=10000 mode=rand a=500000 b=500000 p=0.3
 tc g8-03 gen_full n=499000 k=1000 mode=fractal a=7 b=3
