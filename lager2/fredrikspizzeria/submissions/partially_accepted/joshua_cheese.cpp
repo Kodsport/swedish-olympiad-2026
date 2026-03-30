@@ -184,15 +184,6 @@ int main() {
         vi rside = cycles_p2[cycle].second;
         assert(sz(lside) && sz(rside));
 
-        // Remove those that cut bridge on my escape path
-        lside.erase(remove_if(all(lside), [&](int e) {
-            return forced_alive[e] || forced_alive[other[e]];
-        }), lside.end());
-
-        rside.erase(remove_if(all(rside), [&](int e) {
-            return forced_alive[e] || forced_alive[other[e]];
-        }), rside.end());
-
         auto get_B = [&](int x) {
             vector<pair<int,int>> res;
             if (is_player_cycle_edge[x]) res.push_back({which_cycle[x], is_left[x]});

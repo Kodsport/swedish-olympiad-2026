@@ -74,7 +74,7 @@ struct DSU {
     }
 };
 
-const int K = 700000; 
+const int K = 500000;
 const int MAX_QUERIES = K+100005;
 
 struct Event {

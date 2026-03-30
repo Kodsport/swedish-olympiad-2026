@@ -21,6 +21,7 @@ compile gen_kill_dfs_branches.py
 compile gen_hard.py
 compile gen_kill_same_branch.py
 compile gen_big_cycles.py
+compile gen_kill_cheese.py
 
 samplegroup
 sample 1
@@ -126,6 +127,7 @@ tc g3-gg-srand gen_multiple_types n=40 m=55 structure=random cycle_style=mixed d
 tc g3-gg-shub gen_multiple_types n=75 m=100 structure=hub cycle_style=small dep=mixed
 tc g3-bc-1cy gen_big_cycles mode=one_cycle_yes n=40
 tc g3-bc-1cn gen_big_cycles mode=one_cycle_no n=40
+tc g3-kc gen_kill_cheese n=98
 
 N=2000
 M=2000
@@ -148,6 +150,7 @@ for i in {1..10}; do
 done
 tc g4-mt1 gen_multiple_types n=1800 m=2000 structure=hub dep=cross vertex_disjoint=1
 tc g4-mt2 gen_multiple_types n=1500 m=1998 structure=deep dep=mixed vertex_disjoint=1
+tc g4-kc gen_kill_cheese n=2000
 
 N=2000
 M=2000
@@ -158,7 +161,7 @@ tc g5-1 gen_rand n=1950 seed=902
 tc g5-2 gen_rand n=1950
 for p in 10 15 20 22; do
     for k in 10 15 20 22; do
-        tc g5-y-vertex-p$p-k$k gen_y type=edge parts=$p k=$k extra-edges=1
+        tc g5-y-edge-p$p-k$k gen_y type=edge parts=$p k=$k extra-edges=1
     done
 done
 tc g5-mt1 gen_multiple_types n=1500 m=2000 structure=hub dep=cross
@@ -182,6 +185,7 @@ tc g5-bc-3cy gen_big_cycles mode=three_cycles_yes n=600
 tc g5-bc-3cnx gen_big_cycles mode=three_cycles_no_cross n=600
 tc g5-bc-3cnd gen_big_cycles mode=three_cycles_no_direct n=600
 tc g5-bc-3cns gen_big_cycles mode=three_cycles_no_shared n=600
+tc g5-kc gen_kill_cheese n=2000
 
 group group6 19
 limits vertexcactus=1
@@ -203,6 +207,7 @@ tc g6-gg-path gen_multiple_types n=160000 m=200000 structure=path cycle_style=sm
 tc g6-gg-near gen_multiple_types n=199500 m=200000 structure=random cycle_style=small vertex_disjoint=1 dep=path12
 tc g6-gg-mid gen_multiple_types n=120001 m=160000 structure=deep cycle_style=mixed vertex_disjoint=1 dep=path13
 tc g6-gg-hub gen_multiple_types n=150001 m=200000 structure=hub cycle_style=small vertex_disjoint=1 dep=mixed
+tc g6-kc gen_kill_cheese n=200000
 
 group group7 31
 include_group group5 group6
@@ -233,4 +238,5 @@ tc g7-bc-3cy gen_big_cycles mode=three_cycles_yes n=60000
 tc g7-bc-3cnx gen_big_cycles mode=three_cycles_no_cross n=60000
 tc g7-bc-3cnd gen_big_cycles mode=three_cycles_no_direct n=60000
 tc g7-bc-3cns gen_big_cycles mode=three_cycles_no_shared n=60000
+tc g7-kc gen_kill_cheese n=200000
 
