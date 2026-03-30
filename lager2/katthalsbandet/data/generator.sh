@@ -55,6 +55,8 @@ tc g1-31 gen_rand n=500000 mode=sorted rev=1 swaps=250000 a=1 b=1000000000
 group g2 16
 limits maxn=15
 include_group sample
+tc g1-01
+tc g1-05
 tc g2-01 gen_targeted n=1 mode=all_left a=1 b=1
 tc g2-02 gen_targeted n=1 mode=all_right a=1000000000 b=1000000000
 tc g2-03 gen_set n=2 a=5 b=3 s="()"
@@ -75,6 +77,20 @@ tc g2-16 gen_set n=7 a=0 b=5 s="()))((("
 group g3 19
 limits maxn=100
 include_group g2
+tc g1-01 
+tc g1-02 
+tc g1-03
+tc g1-04 
+tc g1-05 
+tc g1-06 
+tc g1-07 
+tc g1-08
+tc g1-09 
+tc g1-10
+tc g1-11 
+tc g1-12 
+tc g1-13 
+tc g1-14 
 tc g3-01 gen_full n=40 k=60 mode=rand a=999999999 b=1000000000 p=0.1
 tc g3-02 gen_full n=70 k=30 spin=50 mode=rand a=50 b=20 p=0.5
 tc g3-03 gen_full n=90 k=10 spin=10 mode=rand a=15 b=12 p=0.9
