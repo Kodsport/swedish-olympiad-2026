@@ -72,6 +72,4 @@ void run() {
     }
 
 	assert(hasatleastone);
-
-	Eof();
 }

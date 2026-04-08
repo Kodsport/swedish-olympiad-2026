@@ -10,17 +10,17 @@ sample 1
 sample 2
 sample 3
 
-group group1 20
+group group1 31
 limits maxn=1
 tc 2
 tc_manual ../skolkval_tests/skol_1.in
 tc line-1 gen_rand n=1 m=8 p=2
 
-group group2 20
+group group2 21
 limits rectangle=1
 tc_manual ../skolkval_tests/skol_2.in
 
-group group3 60
+group group3 48
 include_group group1
 include_group group2
 tc 1
