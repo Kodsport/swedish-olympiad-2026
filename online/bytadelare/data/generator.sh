@@ -19,8 +19,7 @@ MAXN=1000
 
 group group1 17
 limits maxn=10
-tc 1
-tc 2
+include_group sample
 tc g1-1 gen n=1
 tc g1-2 gen n=4 maxx=4
 tc g1-3 gen n=5 maxx=4
