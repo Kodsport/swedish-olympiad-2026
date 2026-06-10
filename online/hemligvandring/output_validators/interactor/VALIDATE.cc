@@ -197,10 +197,10 @@ int main(int argc, char **argv) {
     judge_message("Accepted, used %d queries.\n", usedQueries);
 
     if (T < 4) {
-        accept_with_score_integer(test_group_score(T));
+        accept_with_score(test_group_score(T));
     } 
     else if (T == 4){
-        accept_with_score_integer(compute_score(usedQueries));
+        accept_with_score(compute_score(usedQueries));
     }
   	
     assert(0);
