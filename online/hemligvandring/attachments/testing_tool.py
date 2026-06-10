@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Testing tool for the task Quack.
+# Testing tool for the task Secret Walk.
 #
 # Usage:
 #

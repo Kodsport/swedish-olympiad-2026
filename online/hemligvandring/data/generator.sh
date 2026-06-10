@@ -1,9 +1,9 @@
 #!/bin/bash
 REQUIRE_SAMPLE_REUSE=0
 PPATH=$(realpath ..)
-. gen.sh
+. ../../../testdata_tools/gen.sh
 
-use_solution harry.py
+use_solution ../print_nothing.py
 
 compile gen_rand.py
 
@@ -15,17 +15,17 @@ sample 2
 group group1 5
 limits maxn=5 graded=1
 #tc 1
-tc g1-01 gen_rand T=1 n=5 x1=3 y1=3 x2=1 y1=1
-tc g1-02 gen_rand T=1 n=5 x1=1 y1=3 x2=3 y1=1
-tc g1-03 gen_rand T=1 n=5 x1=1 y1=1 x2=3 y1=3
-tc g1-04 gen_rand T=1 n=5 x1=3 y1=1 x2=1 y1=3
+tc g1-01 gen_rand T=1 n=5 x1=3 y1=3 x2=1 y2=1
+tc g1-02 gen_rand T=1 n=5 x1=1 y1=3 x2=3 y2=1
+tc g1-03 gen_rand T=1 n=5 x1=1 y1=1 x2=3 y2=3
+tc g1-04 gen_rand T=1 n=5 x1=3 y1=1 x2=1 y2=3
 
 group group2 9
 limits maxn=9 graded=2
-tc g2-01 gen_rand T=2 n=5 x1=3 y1=3 x2=1 y1=1
-tc g2-02 gen_rand T=2 n=5 x1=1 y1=3 x2=3 y1=1
-tc g2-03 gen_rand T=2 n=5 x1=1 y1=1 x2=3 y1=3
-tc g2-04 gen_rand T=2 n=5 x1=3 y1=1 x2=1 y1=3
+tc g2-01 gen_rand T=2 n=5 x1=3 y1=3 x2=1 y2=1
+tc g2-02 gen_rand T=2 n=5 x1=1 y1=3 x2=3 y2=1
+tc g2-03 gen_rand T=2 n=5 x1=1 y1=1 x2=3 y2=3
+tc g2-04 gen_rand T=2 n=5 x1=3 y1=1 x2=1 y2=3
 tc g2-05 gen_rand T=2 n=7 x1=1 y1=1 x2=3 y2=3
 tc g2-06 gen_rand T=2 n=7 x1=1 y1=1 x2=3 y2=5
 tc g2-07 gen_rand T=2 n=7 x1=1 y1=1 x2=5 y2=3
@@ -77,7 +77,7 @@ tc g2-49 gen_rand T=2 n=9 x1=5 y1=5 x2=7 y2=7
 group group3 11
 limits corner=1 graded=3
 #tc 1
-tc g3-01 gen_rand T=3 n=5 x1=1 y1=1 x2=3 y1=3
+tc g3-01 gen_rand T=3 n=5 x1=1 y1=1 x2=3 y2=3
 tc g3-02 gen_rand T=3 n=7 x1=1 y1=1 x2=3 y2=3
 tc g3-03 gen_rand T=3 n=7 x1=1 y1=1 x2=3 y2=5
 tc g3-04 gen_rand T=3 n=7 x1=1 y1=1 x2=5 y2=3
@@ -110,10 +110,10 @@ tc g3-38 gen_rand T=3 n=75 x1=1 y1=1 x2=69 y2=67
 
 group group4 75
 limits graded=4
-tc g4-01 gen_rand T=4 n=5 x1=3 y1=3 x2=1 y1=1
-tc g4-02 gen_rand T=4 n=5 x1=1 y1=3 x2=3 y1=1
-tc g4-03 gen_rand T=4 n=5 x1=1 y1=1 x2=3 y1=3
-tc g4-04 gen_rand T=4 n=5 x1=3 y1=1 x2=1 y1=3
+tc g4-01 gen_rand T=4 n=5 x1=3 y1=3 x2=1 y2=1
+tc g4-02 gen_rand T=4 n=5 x1=1 y1=3 x2=3 y2=1
+tc g4-03 gen_rand T=4 n=5 x1=1 y1=1 x2=3 y2=3
+tc g4-04 gen_rand T=4 n=5 x1=3 y1=1 x2=1 y2=3
 tc g4-05 gen_rand T=4 n=7 x1=1 y1=1 x2=3 y2=3
 tc g4-06 gen_rand T=4 n=7 x1=1 y1=1 x2=3 y2=5
 tc g4-07 gen_rand T=4 n=7 x1=1 y1=1 x2=5 y2=3

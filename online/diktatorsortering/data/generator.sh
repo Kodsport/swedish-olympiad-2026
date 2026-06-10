@@ -46,7 +46,7 @@ tc g3-3 gen_rand n=$MAXN mode=random maxv=2
 tc g3-4 gen_rand n=$MAXN mode=random maxv=2
 
 group group4 14
-limits maxval=20
+limits maxval=10
 include_group group3
 tc g4-1 gen_rand n=$MAXN mode=random maxv=10
 tc g4-2 gen_rand n=$MAXN mode=random maxv=10

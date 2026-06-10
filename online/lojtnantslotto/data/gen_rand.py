@@ -13,7 +13,7 @@ def cmdlinearg(name, default=None):
         sys.exit(1)
     return default
 
-#random.seed(int(cmdlinearg('seed', sys.argv[-1])))
+random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 n = int(cmdlinearg('n'))
 t = int(cmdlinearg('t'))

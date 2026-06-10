@@ -146,9 +146,8 @@ def get_leaves(parents):
     child_count = [0] * n
 
     for child_idx, par in enumerate(parents):
-        p = par - 1
-        if p != child_idx:
-            child_count[p] += 1
+        if par != child_idx:
+            child_count[par] += 1
 
     leaves = [i for i in range(n) if child_count[i] == 0]
     return leaves

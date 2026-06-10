@@ -1,9 +1,11 @@
 \problemname{Divisor Swap}
-\noindent
+
 You are given a list of $N$ positive integers $a_1, a_2, \dots, a_N$. Your goal is to sort the list. In one move, you may swap
 two numbers in the list if one of them is a divisor of the other. In other words, you may swap $a_i$ and $a_j$ if $a_i \equiv 0 \pmod{a_j}$ or 
 $a_j \equiv 0 \pmod{a_i}$.
 In many programming languages, you can check $a_i \equiv 0 \pmod{a_j}$ by testing whether $a_i \% a_j$ equals $0$ (i.e., the remainder of integer division is zero).
+
+Determine if it is possible to sort the list, and if so, output a sequence of moves that sorts the list.
 
 \section*{Input}
 The first line contains two integers $N$ and $X$ ($1 \leq N \leq 1000$, $0 \leq X \leq 1$), where $N$ is the number of elements in the list and $X$

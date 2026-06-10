@@ -22,8 +22,7 @@ tc g1-5 gen_rand n=100 m=100 q=100 treemode=prufer querymode=random mint=2
 
 group group2 7
 limits maxn=100 maxm=100 maxq=100
-include_group sample
-include_group group1
+include_group sample group1
 tc g2-1 gen_rand n=100 m=100 q=100 treemode=errichto lo=0 hi=1 querymode=random
 tc g2-2 gen_rand n=100 m=100 q=100 treemode=errichto lo=0 hi=0.1 querymode=random
 tc g2-3 gen_rand n=100 m=100 q=100 treemode=errichto lo=0.6 hi=0.8 querymode=random
@@ -42,6 +41,7 @@ tc g3-5 gen_rand n=2000 m=2000 q=2000 treemode=broomstick querymode=leafs mint=2
 tc g3-6 gen_rand n=2000 m=2000 q=2000 treemode=prufer querymode=random
 
 group group4 15
+limits is_line=1
 tc g4-1 gen_rand n=$MAX m=$MAX q=$MAX treemode=line querymode=random
 tc g4-2 gen_rand n=$MAX m=$MAX q=$MAX treemode=line querymode=random mint=2
 tc g4-3 gen_rand n=$MAX m=$MAX q=$MAX treemode=line querymode=line
@@ -64,6 +64,7 @@ tc g5-12 gen_rand n=$MAX m=$MAX q=$MAX treemode=errichto lo=0 hi=0.00001 querymo
 
 group group6 20
 limits maxm=100
+include_group group1 group2
 tc g6-1 gen_rand n=$MAX m=100 q=$MAX treemode=errichto lo=0 hi=1 querymode=random
 tc g6-2 gen_rand n=$MAX m=100 q=$MAX treemode=errichto lo=0 hi=0.1 querymode=random
 tc g6-3 gen_rand n=$MAX m=100 q=$MAX treemode=errichto lo=0.6 hi=0.8 querymode=random

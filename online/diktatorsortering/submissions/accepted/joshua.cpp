@@ -45,9 +45,9 @@ int main()
     }
 
     reverse(all(stacks));
-    repe(s, stacks)
-    {
-        repe(v, s) cout << v << ' ';
+    repe(s, stacks) {
+        bool f = 1;
+        repe(v, s) cout << (f ? "" : " ") << v, f = 0;
         cout << '\n';
     }
     

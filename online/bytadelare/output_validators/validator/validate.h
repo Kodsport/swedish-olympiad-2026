@@ -18,22 +18,22 @@
  * - accept_with_score(double score):
  *        exit with Accepted and give a score (for scoring problems)
  *
- * - judge_message(std::string msg, ...):
+ * - judge_message(const char* msg, ...):
  *        printf-style function for emitting a judge message (a
  *        message that gets displayed to a privileged user with access
  *        to secret data etc).
  *
- * - wrong_answer(std::string msg, ...):
+ * - wrong_answer(const char* msg, ...):
  *        printf-style function for exitting and giving Wrong Answer,
  *        and emitting a judge message (which would typically explain
  *        the cause of the Wrong Answer)
  *
- * - judge_error(std::string msg, ...):
+ * - judge_error(const char* msg, ...):
  *        printf-style function for exitting and giving Judge Error,
  *        and emitting a judge message (which would typically explain
  *        the cause of the Judge Error)
  *
- * - author_message(std::string msg, ...):
+ * - author_message(const char* msg, ...):
  *        printf-style function for emitting an author message (a
  *        message that gets displayed to the author of the
  *        submission).  (Use with caution, and be careful not to let
@@ -50,14 +50,14 @@
 #include <fstream>
 #include <sstream>
 
-typedef void (*feedback_function)(const std::string &, ...);
+typedef void (*feedback_function)(const char*, ...);
 
 const int EXITCODE_AC = 42;
 const int EXITCODE_WA = 43;
-const std::string FILENAME_AUTHOR_MESSAGE = "teammessage.txt";
-const std::string FILENAME_JUDGE_MESSAGE = "judgemessage.txt";
-const std::string FILENAME_JUDGE_ERROR = "judgeerror.txt";
-const std::string FILENAME_SCORE = "score.txt";
+const char* FILENAME_AUTHOR_MESSAGE = "teammessage.txt";
+const char* FILENAME_JUDGE_MESSAGE = "judgemessage.txt";
+const char* FILENAME_JUDGE_ERROR = "judgeerror.txt";
+const char* FILENAME_SCORE = "score.txt";
 
 #define USAGE "%s: judge_in judge_ans feedback_dir < author_out\n"
 
@@ -66,8 +66,8 @@ std::istream author_out(std::cin.rdbuf());
 
 char *feedbackdir = NULL;
 
-void vreport_feedback(const std::string &category,
-                      const std::string &msg,
+void vreport_feedback(const char* category,
+                      const char* msg,
                       va_list pvar) {
     std::ostringstream fname;
     if (feedbackdir)
@@ -75,11 +75,11 @@ void vreport_feedback(const std::string &category,
     fname << category;
     FILE *f = fopen(fname.str().c_str(), "a");
     assert(f);
-    vfprintf(f, msg.c_str(), pvar);
+    vfprintf(f, msg, pvar);
     fclose(f);
 }
 
-void report_feedback(const std::string &category, const char* msg, ...) {
+void report_feedback(const char* category, const char* msg, ...) {
     va_list pvar;
     va_start(pvar, msg);
     vreport_feedback(category, msg, pvar);

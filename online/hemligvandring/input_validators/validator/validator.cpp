@@ -30,6 +30,4 @@ void run() {
     if (corner) {
         assert((x1 == 1 and y1 == 1) or (x2 == 1 and y2 == 1));
     }
-
-    Eof();
 }

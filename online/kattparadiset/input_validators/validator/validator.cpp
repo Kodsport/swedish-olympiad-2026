@@ -25,28 +25,27 @@ void run() {
 
 	if (sameAmount) assert(n % k == 0);
 
-	set<string> names;
-	int totbeds = 0;
+	set<string> colors;
+	ll totbeds = 0;
 
 	rep(i,0,k) {
-		string line = Line();
+		string color = Word();
 
-		int space_ind = line.find(' ');
-		assert(space_ind != string::npos);
-		string name = line.substr(0, space_ind);
-		assert(sz(name) >= 1 && sz(name) <= 6);
-		names.insert(name);
-		for (char c : name) {
+		assert(sz(color) >= 1 && sz(color) <= 6);
+		colors.insert(color);
+		for (char c : color) {
 			assert(c >= 'a' && c <= 'z');
 		}
 
-		int cnt = Int(1, n, line.substr(space_ind + 1));
+		Space();
+		int cnt = Int(1, n);
 		totbeds += cnt;
+		Endl();
 
 		if (sameAmount) assert(cnt == n / k);
 	}
 
 
-	assert(sz(names) == k);
+	assert(sz(colors) == k);
 	assert(totbeds == n);
 }

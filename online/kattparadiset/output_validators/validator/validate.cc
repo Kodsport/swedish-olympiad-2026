@@ -69,8 +69,7 @@ int main(int argc, char **argv) {
             // Check if the ring has no consecutive two that are the same color
             rep(i,0,n) {
                 if (ans[i] == ans[(i+1)%n]) {
-                    string temp = (string) ("Answer contains two beds next to each other with the same color at index " + to_string(i) + ". The colors are " + ans[i] + " and " + ans[(i+1)%n] + ".");
-                    feedback(temp.c_str());
+                    feedback("Answer contains two beds next to each other with the same color");
                 }
             }
 

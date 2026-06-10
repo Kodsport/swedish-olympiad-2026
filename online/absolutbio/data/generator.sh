@@ -29,8 +29,7 @@ tc g1-10 gen_rand N=10000 Q=1000 fillup=700
 
 group group2 25
 limits maxn=10000
-include_group sample
-include_group group1
+include_group sample group1
 tc g2-01 gen_rand N=100 Q=200000 fillup=20
 tc g2-02 gen_rand N=10000 Q=200000 fillup=500
 tc g2-03 gen_rand N=10000 Q=200000 fillup=9000
@@ -58,10 +57,7 @@ tc g3-09 gen_rand mode=onlyadd Q=200000 fillup=1 p=0.9
 tc g3-10 gen_rand mode=onlyadd Q=200000 fillup=5000 p=0.9
 
 group group4 40
-include_group sample
-include_group group1
-include_group group2
-include_group group2
+include_group sample group1 group2 group3
 tc g4-01 gen_rand fillup=1
 tc g4-02 gen_rand 
 tc g4-03 gen_rand fillup=1 p=0.5

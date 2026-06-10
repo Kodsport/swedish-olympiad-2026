@@ -132,7 +132,7 @@ elif mode == "prime_line":
     A.append(primes[-1])
 
     if len(A) > n:
-        A = A[::n]
+        A = A[:n]
 
     
     for i in range(n-len(A)):

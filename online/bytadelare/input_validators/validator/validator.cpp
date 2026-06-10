@@ -2,7 +2,6 @@
 
 #define sz(x) (int)(x).size()
 
-
 void run() {
 
     int maxn = Arg("maxn", 1000);

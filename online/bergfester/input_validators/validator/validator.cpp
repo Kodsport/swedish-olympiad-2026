@@ -39,6 +39,12 @@ void run() {
         par[i]--;
         num_fixpoints += par[i]==i;
     }
+
+    if (Arg("is_line", 0)) {
+        assert(par[0]==0);
+        for (int i = 1; i < n; i++) assert(par[i]==i-1);
+    }
+
     assert(num_fixpoints == 1);
     UF uf(n);
     rep(i,0,n) {
