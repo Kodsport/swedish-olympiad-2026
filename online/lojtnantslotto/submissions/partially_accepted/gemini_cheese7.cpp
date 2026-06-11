@@ -1,4 +1,5 @@
 #pragma GCC optimize("O3,unroll-loops")
+#include <bits/allocator.h>
 #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 
 #include <iostream>
