@@ -70,7 +70,9 @@ int main() {
     // W is our heuristic window limit. It heavily restrains DP sizes.
     // Weak testcases will almost never deviate more than 10 item swaps from greedy.
     // A strong test suite needs to force larger cascading shifts to WA this.
-    int W = 10;
+
+    // ^ above is wrong. W >= 5 is correct
+    int W = 5;
     
     vector<int> L(6, 0), R(6, 0);
     long long C_base = 0;
