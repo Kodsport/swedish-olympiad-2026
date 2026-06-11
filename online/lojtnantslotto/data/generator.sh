@@ -7,6 +7,7 @@ use_solution joshua.cpp
 
 compile gen_rand.py
 compile gen_1.py
+compile gen_anti_pisinger.py
 compile chatgpt_killer.py
 
 MAX_T=1000000
@@ -45,6 +46,7 @@ group group3 24
 limits maxn=5000
 include_group group2
 tc_manual ../manual_tests/antigreedy/random_fail_g3.in
+tc_manual ../manual_tests/antigreedy/anti_vincent.in
 tc_manual ../manual_tests/antishuffle/antishuffle_g3.in
 tc g3-1 chatgpt_killer n=5000 t=$MAX_T
 tc g3-2 gen_rand n=5000  l=4 t=$MAX_T mode=random
@@ -74,14 +76,9 @@ tc g4-9 gen_rand n=200000 l=2 t=$MAX_T mode=stair len=3 scale=5
 group group5 40
 include_group group3
 include_group group4
-tc_manual ../manual_tests/antigreedy/random_fail_g5.in
+tg_manual ../manual_tests/g5
+tg_manual ../manual_tests/anti_vlad
 tc_manual ../manual_tests/antishuffle/antishuffle_g5.in
-tc_manual ../manual_tests/antigreedy/11_bait.in
-tc_manual ../manual_tests/antigreedy/22_bait.in
-tc_manual ../manual_tests/antigreedy/31_bait.in
-tc_manual ../manual_tests/antigreedy/41_bait.in
-tc_manual ../manual_tests/antigreedy/312_bait.in
-tc_manual ../manual_tests/antigreedy/antigreedy_weak.in
 tc g5-1 chatgpt_killer n=200000 t=$MAX_T
 tc g5-2 gen_rand n=200000 l=3 t=$MAX_T mode=random
 tc g5-3 gen_rand n=200000 l=4 t=$MAX_T mode=random
@@ -93,3 +90,5 @@ tc g5-8 gen_rand n=200000 l=5 t=$MAX_T mode=corr mul=2 add=5
 tc g5-9 gen_rand n=200000 l=5 t=$MAX_T mode=stair len=25 scale=2
 tc g5-10 gen_rand n=200000 l=5 t=$MAX_T mode=stair len=50 scale=20
 tc g5-11 gen_rand n=200000 l=5 t=$MAX_T mode=stair len=3 scale=5
+tc g5-12 gen_anti_pisinger n=200000 t=800003 l=5
+
