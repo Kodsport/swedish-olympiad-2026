@@ -27,7 +27,7 @@ struct UF {
 void run() {
     int n = Int(1, Arg("maxn", int(1e5)));
     Space();
-    int m = Int(1, Arg("maxm", int(1e5)));
+    int m = Int(3, Arg("maxm", int(1e5)));
     Space();
     int q = Int(1, Arg("maxq", int(1e5)));
     Endl();
