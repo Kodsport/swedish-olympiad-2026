@@ -29,6 +29,14 @@ include_group sample
 tc_manual ../manual_tests/antigreedy/random_fail_g2.in
 tc_manual ../manual_tests/antishuffle/small_manyshuffles.in
 tc_manual ../manual_tests/antishuffle/antishuffle_g2.in
+tc_manual ../manual_tests/antigreedy/antigreedy_dp_g2.in
+tc_manual ../manual_tests/antigreedy/anti_convolution_g2.in
+tc_manual ../manual_tests/antigreedy/anti_chatgptgreedy_g2.in
+tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_g2.in
+tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_min_g2.in
+tc_manual ../manual_tests/antigreedy/anti_dc_holes_g2.in
+tc_manual ../manual_tests/antigreedy/antivlad_budget6_g2.in
+tc_manual ../manual_tests/antigreedy/antivlad_v5swap_g2.in
 tc g2-1 chatgpt_killer n=500 t=500
 tc g2-2 gen_rand n=500 l=3 t=500 mode=random
 tc g2-3 gen_rand n=500 l=4 t=500 mode=random
@@ -48,6 +56,9 @@ include_group group2
 tc_manual ../manual_tests/antigreedy/random_fail_g3.in
 tc_manual ../manual_tests/antigreedy/anti_vincent.in
 tc_manual ../manual_tests/antishuffle/antishuffle_g3.in
+tc_manual ../manual_tests/antigreedy/cheese_bait_g3.in
+tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_g3.in
+tc_manual ../manual_tests/antigreedy/anti_dc_holes_g3.in
 tc g3-1 chatgpt_killer n=5000 t=$MAX_T
 tc g3-2 gen_rand n=5000  l=4 t=$MAX_T mode=random
 tc g3-3 gen_rand n=5000  l=5 t=$MAX_T mode=random
@@ -79,6 +90,8 @@ include_group group4
 tg_manual ../manual_tests/g5
 tg_manual ../manual_tests/anti_vlad
 tc_manual ../manual_tests/antishuffle/antishuffle_g5.in
+tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_g5.in
+tc_manual ../manual_tests/antigreedy/anti_dc_holes_g5.in
 tc g5-1 chatgpt_killer n=200000 t=$MAX_T
 tc g5-2 gen_rand n=200000 l=3 t=$MAX_T mode=random
 tc g5-3 gen_rand n=200000 l=4 t=$MAX_T mode=random
