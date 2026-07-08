@@ -37,6 +37,11 @@ tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_min_g2.in
 tc_manual ../manual_tests/antigreedy/anti_dc_holes_g2.in
 tc_manual ../manual_tests/antigreedy/antivlad_budget6_g2.in
 tc_manual ../manual_tests/antigreedy/antivlad_v5swap_g2.in
+tc_manual ../manual_tests/strengthen/anti_convolution_g2.in
+tc_manual ../manual_tests/strengthen/anti_mans_martin_g2.in
+tc_manual ../manual_tests/strengthen/anti_teo_g2.in
+tc_manual ../manual_tests/strengthen/anti_vincent_window5_g2.in
+tc_manual ../manual_tests/strengthen/anti_vincent_smallwindow_g2.in
 tc g2-1 chatgpt_killer n=500 t=500
 tc g2-2 gen_rand n=500 l=3 t=500 mode=random
 tc g2-3 gen_rand n=500 l=4 t=500 mode=random
@@ -59,6 +64,7 @@ tc_manual ../manual_tests/antishuffle/antishuffle_g3.in
 tc_manual ../manual_tests/antigreedy/cheese_bait_g3.in
 tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_g3.in
 tc_manual ../manual_tests/antigreedy/anti_dc_holes_g3.in
+tc_manual ../manual_tests/strengthen/anti_heuristic_bb_g3.in
 tc g3-1 chatgpt_killer n=5000 t=$MAX_T
 tc g3-2 gen_rand n=5000  l=4 t=$MAX_T mode=random
 tc g3-3 gen_rand n=5000  l=5 t=$MAX_T mode=random
@@ -74,6 +80,7 @@ group group4 17
 limits maxl=2
 include_group group1
 tc_manual ../manual_tests/antigreedy/21_bait.in
+tc_manual ../manual_tests/strengthen/anti_edwin_g4.in
 tc g4-1 gen_rand n=200000 l=2 t=$MAX_T mode=random
 tc g4-2 gen_rand n=200000 l=2 t=$MAX_T mode=random
 tc g4-3 gen_rand n=200000 l=2 t=$MAX_T mode=corr mul=100 add=10
