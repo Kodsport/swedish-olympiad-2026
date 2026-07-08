@@ -37,7 +37,7 @@ tc_manual ../manual_tests/antigreedy/anti_vincent_rollback_min_g2.in
 tc_manual ../manual_tests/antigreedy/anti_dc_holes_g2.in
 tc_manual ../manual_tests/antigreedy/antivlad_budget6_g2.in
 tc_manual ../manual_tests/antigreedy/antivlad_v5swap_g2.in
-tc_manual ../manual_tests/strengthen/anti_convolution_g2.in
+tc_manual ../manual_tests/strengthen/anti_convolution_g2_2.in
 tc_manual ../manual_tests/strengthen/anti_mans_martin_g2.in
 tc_manual ../manual_tests/strengthen/anti_teo_g2.in
 tc_manual ../manual_tests/strengthen/anti_vincent_window5_g2.in
