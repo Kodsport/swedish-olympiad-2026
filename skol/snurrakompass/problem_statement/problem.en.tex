@@ -1,27 +1,36 @@
 \problemname{Compass Rotations}
 
-You have a compass that can point in $360$ different directions.
+You have a compass that can point in $360$ different directions. Right now it points straight up, at the number $0$.
 
-At first, it points straight up, at the number $360$.
+Unfortunately, the compass is broken! The only way you can make it point in other directions
+is by lifting the whole compass and rotating it a number of degrees counterclockwise. To help you, you have
+two robot arms. Unfortunately, these are not perfect: the first robot arm can
+spin the compass exactly $a$ degrees counterclockwise and the second robot arm can spin it $b$ degrees counterclockwise.
+The robot arms can only rotate the compass exactly $a$ and $b$ degrees, respectively, each time
+they are used, no more and no less.
+Because of this, it may not be possible to make the compass point
+in all $360$ directions.
 
-Unfortunately, the compass is broken, and the only way to get it to point in other directions is to lift the compass and rotate it a certain number of degrees counter-clockwise.
+This makes you wonder, how many unique directions can the compass point in? Write a program
+that figures this out given the numbers $a$ and $b$. Note that since we rotate in a circle,
+a rotation of $10$ degrees counterclockwise is the same as a rotation of $370$ degrees counterclockwise;
+that is, $0$ and $360$ are the same number of degrees.
+More generally, we only care about the remainder of the number of degrees rotated divided by $360$.
 
-Luckily, you have two robot arms, where the first robot arm can rotate the compass $a$ degrees counter-clockwise, and the other robot arm can rotate the compass $b$ degrees counter-clockwise.
-
-By using these robot arms as many times as you want, how many directions can the compass be pointed in?
 
 \section*{Input}
 The first line of input contains the integer $a$ ($1 \leq a \leq 360$),
-the amount of degrees that the first robot arm rotates the compass.
+the number of degrees the first robot arm spins the compass.
 
 The second line contains the integer $b$ ($1 \leq b \leq 360$),
-the amount of degrees that the second robot arm rotates the compass.
+the number of degrees the second robot arm spins the compass.
 
 \section*{Output}
 Print an integer: the number of unique directions the compass can be pointed in.
 
 \section*{Scoring}
-Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
@@ -31,3 +40,4 @@ Your solution will be tested on a set of test groups, each worth a number of poi
   $2$    & $40$  & $a = b$ \\ \hline
   $3$    & $40$  & No additional constraints. \\ \hline
 \end{tabular}
+

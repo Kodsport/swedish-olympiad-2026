@@ -1,18 +1,20 @@
 \problemname{Snurra kompass}
 
-Du har en kompass som kan peka i $360$ olika riktningar. Just nu pekar den rakt uppåt, på talet $360$.
+Du har en kompass som kan peka i $360$ olika riktningar. Just nu pekar den rakt uppåt, på talet $0$.
 
-Tyvärr så funkar inte kompassen, och det enda sättet du kan få den att peka i andra riktningar
-är genom lyfta på hela kompassen och rotera den ett antal grader motsols. Till din hjälp har du
+Tyvärr så fungerar inte kompassen! Det enda sättet du kan få den att peka i andra riktningar
+är genom att lyfta på hela kompassen och rotera den ett antal grader motsols. Till din hjälp har du
 två robotarmar. Dessa är tyvärr inte perfekta: den första robotarmen kan
 snurra kompassen exakt $a$ grader motsols och den andra robotarmen kan snurra $b$ grader motsols.
-Eftersom robotarmarna inte bara kan rotera kompassen exakt $a$ eller $b$ grader varje gång
-de används, varken mer eller mindre, så går det ibland inte att få kompassen att peka
-i alla riktningar.
+Robotarmarna kan endast rotera kompassen exakt $a$ respektive $b$ grader varje gång
+de används, varken mer eller mindre.
+På grund av detta går det kanske inte att få kompassen att peka
+i alla $360$ riktningar.
 
 Detta får dig att undra, hur många unika riktningar kan kompassen peka åt? Skriv ett program
 som listar ut detta givet talen $a$ och $b$. Notera att eftersom vi roterar i en cirkel,
-så är en rotation av $10$ grader motsols samma som en rotation av $370$ grader motsols.
+så är en rotation av $10$ grader motsols samma som en rotation av $370$ grader motsols;
+$0$ och $360$ är alltså samma gradtal.
 Mer allmänt bryr vi oss alltså bara om resten av antalet grader roterade delade med $360$.
 
 
