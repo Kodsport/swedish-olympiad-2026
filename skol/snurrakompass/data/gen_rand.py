@@ -15,22 +15,30 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-ab = int(cmdlinearg('ab', 0))
-prime = int(cmdlinearg('prime', 0))
+mode = cmdlinearg('mode')
 
-if prime == 1:
+if mode == 'prime':
     a = 13
     b = randint(1, 360)
     print(a)
     print(b)
-elif ab == 1:
+elif mode == 'ab':
     a = randint(1, 360) 
     print(a)
     print(a)
-else:
+elif mode == 'random':
     a = randint(1, 360)
     b = randint(1, 360)
     print(a)
     print(b)
-
+elif mode == 'hardcode':
+    print(cmdlinearg('a'))
+    print(cmdlinearg('b'))
+elif mode == 'multiple':
+    a = randint(1, 360)
+    b = a * randint(1, 100)
+    print(a)
+    print(((b-1) % 360)+1)
+else:
+    assert 0
 
