@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-use_solution raunak.cpp
+use_solution harry1.py
 
 compile gen_rand.py
 
