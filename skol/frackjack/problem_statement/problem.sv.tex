@@ -1,9 +1,9 @@
 \problemname{Frack Jack}
-Alice och Bertil kastar boll i en park. Exakt $21$ meter framför Alice och Bertil finns en stolpe, och Jack utmanar Alice och Bertil till en liten utmaning.
+Alice och Bertil kastar boll i en park. Exakt $21$ meter framför Alice och Bertil finns en stolpe och Jack ger en utmaning till Alice och Bertil.
 
 Utmaningen är att Alice och Bertil ska kasta varsin boll så nära stolpen som möjligt, men bollen får inte kastas förbi stolpen.
-Den som kastar närmast $21$ meter, utan att kasta förbi $21$ meter, vinner. Om både Alice och Bertil kastar över $21$ meter, eller om de kastar lika långt så vinner Jack.
-De har nu kastat och hjälp att avgöra vem som vann.
+Den som kastar närmast $21$ meter, utan att kasta förbi $21$ meter, vinner. Om både Alice och Bertil kastar över $21$ meter, eller om de kastar lika långt så vinner Jack istället.
+De har nu kastat och behöver hjälp att avgöra vem som vann.
 
 \section*{Indata}
 Den första raden av indata innehåller heltalet $A$ ($0 \leq A \leq 30$),
@@ -17,9 +17,9 @@ antal meter som Bertil har kastat.
 \begin{itemize}
   \item Om Alice vunnit, skriv ''Alice''.
   \item Om Bertil vunnit, skriv ''Bertil''.
-  \item Om Jack vunnit, skriv, print ''Jack''.
+  \item Om Jack vunnit, skriv ''Jack''.
 \end{itemize}
-Notera att du ska inte skriva ut några citationstecken.
+Notera att du inte ska skriva ut några citationstecken.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -29,8 +29,15 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $20$       & $A \neq B$, $A, B \leq 21$ \\ \hline
+  $1$    & $20$       & $A \neq B$ och $A, B \leq 21$ \\ \hline
   $2$    & $20$       & $A, B \leq 21$ \\ \hline
   $3$    & $20$       & Jack vinner inte. \\ \hline
   $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempelfall}
+I exempelfall $1$ kastar Alice $7$ meter och Bertil $5$ meter.
+Ingen av dem kastar förbi stolpen, och Alice kastar närmast $21$ meter, så Alice vinner.
+
+I exempelfall $2$ kastar Alice $26$ meter och Bertil $22$ meter.
+Båda kastar förbi stolpen, så Jack vinner.

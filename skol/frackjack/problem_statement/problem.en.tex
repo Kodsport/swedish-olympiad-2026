@@ -1,34 +1,43 @@
 \problemname{Frack Jack}
-Alice and Bertil are playing a game in a park. There is a lamp post exactly 21 meters in front of them, and Jack gives them a challenge.
+Alice and Bertil are throwing a ball in a park. Exactly $21$ meters in front of Alice and Bertil there is a post, and Jack gives Alice and Bertil a challenge.
 
-The challenge is for Alice and Bertil to each throw a ball as close to the lamp post as possible. However, the ball is not allowed to pass the lamp post.
-The one who throws closest to 21 meters without exceeding it wins. If both Alice and Bertil throw farther than 21 meters, or if they throw equally far, then Jack wins.
+The challenge is for Alice and Bertil to each throw a ball as close to the post as possible, but the ball may not be thrown past the post.
+Whoever throws closest to $21$ meters, without throwing past $21$ meters, wins. If both Alice and Bertil throw farther than $21$ meters, or if they throw equally far, then Jack wins instead.
+They have now thrown and need help determining who won.
 
-\section*{Input}  
+\section*{Input}
 The first line of input contains the integer $A$ ($0 \leq A \leq 30$),
 the number of meters that Alice has thrown.
 
 The second line contains the integer $B$ ($0 \leq B \leq 30$),
 the number of meters that Bertil has thrown.
 
-\section*{Output}  
+\section*{Output}
 
 \begin{itemize}
-  \item If Alice wins, print ``Alice''.
-  \item If Bertil wins, print ``Bertil''.
-  \item If Jack wins, print ``Jack''.
+  \item If Alice won, print ``Alice''.
+  \item If Bertil won, print ``Bertil''.
+  \item If Jack won, print ``Jack''.
 \end{itemize}
-Note that you should not print the quotation marks.
+Note that you should not print any quotation marks.
 
 \section*{Scoring}
-Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
-  $1$    & $20$       & $A \neq B$, $A, B \leq 21$ \\ \hline
+  $1$    & $20$       & $A \neq B$ and $A, B \leq 21$ \\ \hline
   $2$    & $20$       & $A, B \leq 21$ \\ \hline
   $3$    & $20$       & Jack does not win. \\ \hline
   $4$    & $40$       & No additional constraints. \\ \hline
 \end{tabular}
+
+\section*{Explanation of Samples}
+In sample $1$, Alice throws $7$ meters and Bertil throws $5$ meters.
+Neither of them throws past the post, and Alice throws closest to $21$ meters, so Alice wins.
+
+In sample $2$, Alice throws $26$ meters and Bertil throws $22$ meters.
+Both of them throw past the post, so Jack wins.
