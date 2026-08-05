@@ -1,7 +1,5 @@
 #include "validator.h"
 
-using namespace std;
-
 void run() {
 	int n = Int(1, 8);
 	Space();
@@ -14,7 +12,7 @@ void run() {
 
 	if (Arg("same_coord", 0)) {
 		for (int i = 0; i < n; i++) {
-			assert(coords[i] = coords[0]);
+			assert(coords[i] == coords[0]);
 		}
 	}
 
