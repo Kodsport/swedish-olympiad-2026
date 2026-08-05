@@ -21,13 +21,17 @@ c = int(cmdlinearg('c'))
 mode = cmdlinearg('mode')
 print(r, c)
 
+MAXF = 10**9
+
 if mode=='3x':
-    print(*(randint(r-1, (r-1)*3) for i in range(c)))
+    print(*(randint(r-1, min(MAXF, (r-1)*3)) for i in range(c)))
 elif mode=='exp':
     base = float(cmdlinearg('base'))
-    lo = int(1+math.log(r)/math.log(base))
-    hi = int(math.log(1e9)/math.log(base))
-    print(*(randint(r-1, max(r-1, int(base**random.randint(lo,hi)))) for i in range(c)))
+    hi = int(math.log(MAXF)/math.log(base))
+    # r-1 may already need a larger exponent than MAXF allows, in which case
+    # every f_i is pinned to r-1
+    lo = min(int(1+math.log(r)/math.log(base)), hi)
+    print(*(randint(r-1, max(r-1, min(MAXF, int(base**random.randint(lo,hi))))) for i in range(c)))
 else:
     assert 0
 

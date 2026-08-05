@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# @EXPECTED_GRADES@ AC AC TLE TLE TLE
+# @EXPECTED_GRADES@ AC AC TLE
 
 a,b,k = map(int,input().split())
 

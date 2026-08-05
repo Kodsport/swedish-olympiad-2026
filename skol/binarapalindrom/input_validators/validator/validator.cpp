@@ -1,8 +1,6 @@
 #include "validator.h"
-#include <cstring>
-#include <vector>
 
-typedef long long ll;
+using ll = long long;
 
 void run() {
     ll maxn = Arg("maxn", (ll)1e18);
@@ -16,6 +14,4 @@ void run() {
     Endl();
 
     assert(a <= b);
-
-    Eof();
 }

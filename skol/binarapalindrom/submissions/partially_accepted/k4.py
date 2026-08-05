@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# @EXPECTED_GRADES@ TLE AC TLE TLE TLE
+# @EXPECTED_GRADES@ TLE AC TLE
 
 
 from itertools import combinations

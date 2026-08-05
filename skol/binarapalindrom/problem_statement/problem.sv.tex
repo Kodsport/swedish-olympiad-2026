@@ -1,16 +1,12 @@
 \problemname{Binära palindrom}
 \noindent
 
-Mikaela studerar intressanta positiva heltal, och vill nu undersöka tal som är ett \emph{binärt palindrom}. 
+Mikaela studerar intressanta positiva heltal, och vill nu undersöka tal som är \emph{binära palindrom}.
 För att formellt beskriva detta definierar vi följande funktioner:
-
-\[
-\text{bin}(n) = \text{den binära representationen av heltalet } n \text{ utan inledande nollor},
-\]
-
-\[
-\text{reverse}(s) = \text{strängen } s \text{ skriven baklänges}.
-\]
+\begin{align*}
+\text{bin}(n) &= \text{den binära representationen av heltalet } n \text{ utan inledande nollor},\\
+\text{reverse}(s) &= \text{strängen } s \text{ skriven baklänges}.
+\end{align*}
 
 Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
 \[
@@ -20,13 +16,13 @@ Ett heltal $n$ är alltså ett \emph{binärt palindrom} om
 Notera att ett palindrom är en sträng som läses likadant framifrån som bakifrån.
 
 
-Mikaela gillar de binära palindromer som innehåller exakt $k$ ettor i dess binära representation, 
+Mikaela är särskilt intresserad av de binära palindrom som innehåller exakt $k$ ettor i sin binära representation,
 och vill nu veta hur många sådana tal som finns inom intervallet $[l,r]$.
 
 Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
 \begin{enumerate}
     \item Talet $x$ är mellan $l$ och $r$, alltså att $l \leq x \leq r$,
-    \item Talet $x$ är ett tal som Mikaela gillar (dvs.\ ett binärt palindrom),
+    \item Talet $x$ är ett binärt palindrom,
     \item Binärrepresentationen av $x$ innehåller exakt $k$ ettor.
 \end{enumerate}
 
@@ -34,10 +30,10 @@ Givet tre heltal $l$, $r$ och $k$, bestäm hur många heltal $x$ som uppfyller:
 
 
 \section*{Indata}
-Indatan består av en rad med tre heltal $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
+Indatan består av en rad med tre heltal $l, r, k$ ($1 \leq l \leq r \leq 10^{18}$, $1 \leq k < 60$).
 
 \section*{Utdata}
-Skriv ut ett heltal, antalet tal i intervallet $[l, r]$ som är binära palindromer och har exakt $k$ ettor i sin binära representation.
+Skriv ut ett heltal: antalet heltal i intervallet $[l, r]$ som är ett binärt palindrom och har exakt $k$ ettor i sin binära representation.
 
 
 \section*{Poängsättning}
@@ -53,11 +49,9 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $3$    & $60$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
-\section*{Förklaring av exempelfall 1}
-
-Vi söker tal i intervallet $[7, 10]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
-
-Det finns endast 4 tal i intervallet:
+\section*{Förklaring av exempelfall}
+I exempelfall $1$ söker vi tal i intervallet $[7, 10]$ som både är ett binärt palindrom och har exakt två ettor i sin binära representation.
+Det finns endast $4$ tal i intervallet, och deras binära representation är:
 
 \begin{align*}
 7 &= 111_2 \quad (\text{palindrom, tre ettor}) \\
@@ -66,13 +60,10 @@ Det finns endast 4 tal i intervallet:
 10 &= 1010_2 \quad (\text{ej palindrom})
 \end{align*}
 
-Det enda talet som uppfyller båda villkoren är $9$, så svaret är $1$.
+Det enda talet som uppfyller båda villkoren är talet $9$, så svaret är $1$.
 
-\section*{Förklaring av exempelfall 2}
-
-Vi söker tal i intervallet $[1, 6]$ som både är binära palindromer och har exakt två ettor i sin binära representation.
-
-Det finns endast 6 tal i intervallet:
+I exempelfall $2$ söker vi tal i intervallet $[1, 6]$ som både är ett binärt palindrom och har exakt två ettor i sin binära representation.
+Det finns endast $6$ tal i intervallet:
 
 \begin{align*}
 1 &= 1_2 \quad (\text{palindrom, en etta}) \\
@@ -83,4 +74,4 @@ Det finns endast 6 tal i intervallet:
 6 &= 110_2 \quad (\text{ej palindrom})
 \end{align*}
 
-Talen som uppfyller båda villkoren är $3$ och $5$, så svaret är $2$.
+Talen som uppfyller båda villkoren är talen $3$ och $5$, så svaret är $2$.

@@ -1,43 +1,39 @@
 \problemname{Binary Palindromes}
 \noindent
 
-Mikaela is investigating interesting positive integers, and has now stumbled upon \emph{binary palindromes}. 
+Mikaela studies interesting positive integers, and now wants to investigate numbers that are \emph{binary palindromes}.
 To formally describe this, we define the following functions:
+\begin{align*}
+\text{bin}(n) &= \text{the binary representation of the integer } n \text{ without leading zeros},\\
+\text{reverse}(s) &= \text{the string } s \text{ written backwards}.
+\end{align*}
 
-\[
-\text{bin}(n) = \text{the binary representation of the integer } n \text{ without leading zeros},
-\]
-
-\[
-\text{reverse}(s) = \text{the string } s \text{ written backwards}.
-\]
-
-An integer $n$ is therefore a \emph{binary palindromes} if
+An integer $n$ is thus a \emph{binary palindrome} if
 \[
 \text{bin}(n) = \text{reverse}(\text{bin}(n)).
 \]
 
 Note that a palindrome is a string that reads the same forwards and backwards.
 
-Mikaela likes the binary palindromes that contain exactly $k$ ones in their binary representation, 
+Mikaela is particularly interested in binary palindromes that contain exactly $k$ ones in their binary representation,
 and now wants to know how many such numbers exist in the interval $[l, r]$.
 
 Given three integers $l$, $r$, and $k$, determine how many integers $x$ satisfy:
 \begin{enumerate}
-    \item The integer $x$ is between $l$ and $r$, i.e.\ $l \leq x \leq r$,
-    \item The integer $x$ is a number Mikaela likes (i.e.\ a binary palindrome),
+    \item The number $x$ is between $l$ and $r$, i.e.\ $l \leq x \leq r$,
+    \item The number $x$ is a binary palindrome,
     \item The binary representation of $x$ contains exactly $k$ ones.
 \end{enumerate}
 
 \section*{Input}
-The input consists of a single line containing three integers $l, r, k$ ($1 \leq l \leq r \leq 10^{18}, 1 \leq k < 60$).
+The input consists of a single line containing three integers $l, r, k$ ($1 \leq l \leq r \leq 10^{18}$, $1 \leq k < 60$).
 
 \section*{Output}
-Output a single integer, the number of integers in the interval $[l, r]$ that are binary palindromes and contain exactly $k$ ones in their binary representation.
+Print an integer: the number of integers in the interval $[l, r]$ that are binary palindromes and have exactly $k$ ones in their binary representation.
 
 \section*{Scoring}
-Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
-a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
@@ -48,14 +44,12 @@ a set of test cases. To get the points for a test group you need to solve all te
   $3$    & $60$       & No additional constraints. \\ \hline
 \end{tabular}
 
-\section*{Explanation of Sample 1}
-
-We seek numbers in the interval $[7, 10]$ that are binary palindromes and have exactly two ones in their binary representation.
-
-There are only 4 numbers in the interval:
+\section*{Explanation of Samples}
+In sample $1$, we seek numbers in the interval $[7, 10]$ that are both binary palindromes and have exactly two ones in their binary representation.
+There are only $4$ numbers in the interval, and their binary representations are:
 
 \begin{align*}
-7 &= 111_2 \quad (\text{palindrome, three ones}) \\ 
+7 &= 111_2 \quad (\text{palindrome, three ones}) \\
 8 &= 1000_2 \quad (\text{not a palindrome}) \\
 9 &= 1001_2 \quad (\text{palindrome, two ones}) \\
 10 &= 1010_2 \quad (\text{not a palindrome})
@@ -63,11 +57,8 @@ There are only 4 numbers in the interval:
 
 The only number satisfying both conditions is $9$, so the answer is $1$.
 
-\section*{Explanation of Sample 2}
-
-We seek numbers in the interval $[1, 6]$ that are binary palindromes and have exactly two ones in their binary representation.
-
-There are 6 numbers in the interval:
+In sample $2$, we seek numbers in the interval $[1, 6]$ that are both binary palindromes and have exactly two ones in their binary representation.
+There are only $6$ numbers in the interval:
 
 \begin{align*}
 1 &= 1_2 \quad (\text{palindrome, a single one}) \\

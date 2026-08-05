@@ -1,0 +1,66 @@
+\problemname{Long Staircases}
+
+It is said that high up in the Alps live $C$ sisters, each of whom has her own favorite number $f$.
+Every sister has therefore built a house $f$ units of height above the surface of the water.
+The houses are built on a grid of size $R \times C$, such that the bottom left cell is $(0,0)$ and the top right cell is $(C-1,R-1)$.
+The first sister has built her house at $(0,0)$, the second at $(1,0)$, and so on, so that the last sister has built her house at $(C-1,0)$.
+In other words, the houses are built along the bottom row of the grid.
+
+With the houses located so high up, it becomes difficult to get up and down.
+Every sister has therefore built a staircase from her house up through the $R-1$ rows above it, where the height decreases by $1$ for every step.
+So for every cell that is not on the bottom row, there is a cell below it whose height is $1$ greater.
+For example, if a sister's house is at $(2,0)$ and has height $10$, she builds a step at $(2,1)$ with height $9$, a step at $(2,2)$ with height $8$, and so on.
+
+You are currently on this grid.
+More precisely, you are at the coordinates $(s_x, s_y)$ and want to get to $(g_x, g_y)$.
+You can move to cells that are adjacent either up, left, down or right.
+Going right or left is never a problem, even if there may be large differences in height.
+Naturally, you cannot move to a coordinate outside the grid.
+
+High altitudes are quite strenuous, so your goal is to minimize the time you spend at high altitude.
+More precisely, if your walk from $(s_x, s_y)$ to $(g_x, g_y)$ visits a certain set of cells, we define the strain of the walk as the sum of the heights of all the cells you visit.
+If you walk optimally, what is the smallest possible strain?
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.3\textwidth]{sample1.pdf}
+    \\The picture shows what the grid looks like in sample $1$. The bottom row contains the sisters' houses.
+    The start and the goal are also marked, along with the least straining walk between them.
+\end{figure}
+
+\section*{Input}
+The first line of input contains $R$ and $C$ ($1 \leq R \leq 10^9$, $1 \leq C \leq 10$),
+the dimensions of the grid.
+
+The second line contains $C$ integers $f_1, \dots, f_C$ ($R-1 \leq f_i \leq 10^9$),
+the height at which each sister's house is located.
+$f_1$ is the height of the house at $(0,0)$, $f_2$ of the house at $(1,0)$, and so on.
+\textbf{Note} that the heights $f_i$ are chosen so that the remaining heights in the grid are not negative.
+
+The third line contains the integers $s_x$ and $s_y$ ($0 \leq s_x < C$, $0 \leq s_y < R$),
+the coordinate where you start.
+
+The fourth line contains the integers $g_x$ and $g_y$ ($0 \leq g_x < C$, $0 \leq g_y < R$),
+the coordinate you want to get to.
+
+\section*{Output}
+Print an integer: the strain of the least straining walk from the start to the coordinate you want to get to.
+\textbf{Note: the answer does not necessarily fit in a 32-bit integer.}
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$  & $C = 2$ \\ \hline
+  $2$    & $40$  & $R \leq 10\,000$ \\ \hline
+  $3$    & $40$  & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+Sample $1$ is the grid shown in the picture above.
+The least straining walk goes right, right, up, up, up, up, left, left.
+The strain is $15+12+5+4+3+2+1+8+11=61$.

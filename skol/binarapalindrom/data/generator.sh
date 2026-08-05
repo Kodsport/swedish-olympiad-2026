@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-PPATH=$(realpath ..)
-
-REQUIRE_SAMPLE_REUSE=0
-
 . ../../../testdata_tools/gen.sh
-
-#ulimit -s unlimited
 
 use_solution harry.py
 
@@ -22,10 +16,11 @@ sample 3
 
 group group1 20
 limits maxn=1000000000
+include_group sample
 tc_manual ../skolkval_tests/skol_1.in
 
 for i in {01..05}; do
-  tc g1-$i gen_rand a=$((RANDOM * RANDOM % 1000 + 1))  b=$((RANDOM * RANDOM % 1000000 + 1)) 
+  tc g1-$i gen_rand maxa=1000 maxb=1000000
 done
 tc g1-06 gen_rand a=297 b=297 k=4 
 tc g1-07 gen_rand a=297 b=297 k=3 
@@ -47,7 +42,7 @@ tc_manual ../skolkval_tests/skol_2.in
 tc g1-06
 tc g1-07
 for i in {01..05}; do
-  tc g2-$i gen_rand a=$((RANDOM + 1)) b=$((1000000000000000000 - RANDOM )) k=$((RANDOM % 4 + 1))
+  tc g2-$i gen_rand maxa=32768 minb=999999999999967232 k=$((10#$i % 4 + 1))
 done
 
 tc g2-06 gen_rand a=1 b=1000000000000000000 k=4
