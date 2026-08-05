@@ -1,0 +1,80 @@
+\problemname{Arborist}
+
+Teo has finally landed his dream job; he has started working as an arborist!
+An important part of an arborist's job is planting trees.
+
+Teo now needs help planting $N$ trees at integer positions along a number line.
+The number line starts at position $0$, and the value increases by $1$ for every step to the right (and decreases by $1$ to the left).
+
+For all $N$ trees, Teo has already decided exactly which integer positions on the number line they should be planted at.
+These positions are all positive integers.
+
+Teo is currently at position $0$, together with $N$ large tree saplings.
+To plant the trees, he can do the following:
+\begin{itemize}
+  \item Move one step to the right (increase the position by $1$).
+  \item Move one step to the left (decrease the position by $1$).
+  \item If Teo is at position $0$, he can pick up one of the $N$ tree saplings.
+  \item Plant one of the saplings he is carrying at the position he is currently at.
+\end{itemize}
+Each such action takes exactly one second.
+
+Unfortunately, Teo can carry at most $K$ kilograms of trees at a time.
+Each tree weighs either $20$ or $40$ kilograms.
+Once all trees have been planted, Teo must also return to position $0$.
+
+Your task is to compute how long it takes for Teo to plant all the trees and then return to position $0$, if he works in the fastest possible way.
+
+\section*{Input}
+The first line of input contains $N$ and $K$ ($1 \leq N \leq 8$, $20 \leq K \leq 50$),
+the number of trees to be planted and the number of kilograms Teo can carry, respectively.
+
+The second line contains $N$ integers $x_1, \dots, x_N$ ($1 \leq x_i \leq 30$), the positions
+where each sapling should be planted.
+
+The third line contains $N$ integers $k_1, \dots, k_N$ ($k_i \in \{20, 40\}$, $k_i \leq K$),
+the weight of each sapling in kilograms.
+
+The input thus describes $N$ trees numbered $1$ to $N$, where tree $i$ should be planted at
+position $x_i$ and weighs $k_i$ kilograms.
+
+\section*{Output}
+Print an integer: the minimum number of seconds Teo needs to plant all the trees and then
+return to position $0$.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$  & $K = 25$ \\ \hline
+  $2$    & $20$  & $k_i = 20$ for all $i$. \\ \hline
+  $3$    & $20$  & All trees should be planted at the same position. \\ \hline
+  $4$    & $40$  & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In sample $1$ there are two trees.
+One of the trees weighs $20$ kilograms and should be planted at position $1$.
+The other tree weighs $40$ kilograms and should be planted at position $2$.
+An optimal solution for Teo is to do the following:
+\begin{itemize}
+  \item Pick up the tree that should be planted at position $1$.
+  \item Go right.
+  \item Plant the tree that should be planted at position $1$.
+  \item Go left.
+  \item Pick up the tree that should be planted at position $2$.
+  \item Go right.
+  \item Go right.
+  \item Plant the tree that should be planted at position $2$.
+  \item Go left.
+  \item Go left. He has now returned to position $0$ and is thus done.
+\end{itemize}
+There are other ways to plant the trees equally fast, but it is not possible to do it in
+fewer than $10$ seconds.
+
+In sample $2$, an optimal solution is to first plant the tree at position $9$, then the
+trees at positions $10$ and $8$ in the same trip, and finally the one at position $7$.
