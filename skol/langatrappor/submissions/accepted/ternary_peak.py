@@ -2,20 +2,33 @@
 # Enumerates both turning columns correctly, but finds the peak row by ternary
 # search -- i.e. it assumes the cost is convex in the peak row, when it is in fact
 # concave.  This *looks* unsound and is not, which is why it lives here rather than
-# being something the data ought to kill.  Writing T = max(sy,gy):
+# being something the data ought to kill.  Writing T = max(sy,gy), L = |c1-c2|+1:
 #
-#   delta(t -> t+1) = (f[c1] - (t+1)) + (f[c2] - (t+1)) - (L-2),  L = |c1-c2|+1
+#   staple(c1, c2, T + k) = staple(c1, c2, T) + k*(B - k),
+#   B = f[c1] + f[c2] - L - 2T + 1,   0 <= k <= R-1-T
 #
-# is decreasing in t, so the cost is concave and its minimum over [T, R-1] sits at
-# an end -- a ternary search may discard the winning one.  But f_i >= R-1 forces
-# the concave maximum to t* >= R-6, so the cost is monotonically increasing over
-# any interval long enough for the search to make a real decision, and it
-# correctly walks to T.  Conversely the top row only wins when R-1-T is single
-# digits, and then hi-lo is small enough that the trailing brute force covers it.
+# is a downward parabola, so the minimum over the range is at an end and a ternary
+# search may discard the winning one.  What saves this is that the probes are
+# exactly symmetric: m1 + m2 == lo + hi identically, so for any concave f
 #
-# Verified against data_generation/ref.py over ~1400 targeted inputs sweeping
-# R-1-T in [0,24] with flat/near-flat/cheap-column/random profiles.  If this ever
-# starts failing, the interesting question is which of the two bounds above broke.
+#   f(m1) <= f(m2)  <=>  f(lo) <= f(hi)
+#
+# (both sides have the sign of -(m1-m2)*(lo+hi-2v) around the vertex v).  Each
+# comparison therefore reports which *end* of the current range is better, and the
+# branch taken keeps that end as an endpoint of the next range -- so the winning
+# end survives every iteration and the trailing brute force over [lo, hi] hits it.
+# Concavity also gives f(x) >= min(f(lo), f(hi)) in between, so nothing better is
+# ever thrown away.
+#
+# Note what this does *not* rely on: the search does make real decisions on inputs
+# where the top row wins (g2-peak-* / g3-peak-*, where the range is up to C-2 rows
+# long and B = n-1), and the trailing brute force does not cover those on its own.
+# The symmetry is the whole argument -- moving either probe, e.g. to lo + d//4 and
+# lo + 3*d//4, breaks it (see partially_accepted/ternary_quartile.py).
+#
+# Verified against data_generation/ref.py exhaustively for R <= 6, C <= 3, and
+# against nils.py over ~220k targeted inputs sweeping R-1-T in [0,40] with
+# flat/near-flat/cheap-column/random profiles.
 
 def f(r, c):
     return F[c] - r

@@ -6,6 +6,24 @@ use_solution joshua.cpp
 
 compile gen_rand.py
 compile gen_struct.py
+compile gen_peak.py
+
+# One knife-edge peak row per range length.  For a fixed turning pair the cost is
+# cost(T+k) = cost(T) + k*(B-k) with B = f[c1]+f[c2]-L-2T+1, so a search over the
+# peak row is only sound when its two probes satisfy k1+k2 == lo+hi; anything else
+# silently returns the wrong end of the range for some B.  The *-peak-* cases put
+# B exactly one unit past the flip, which catches every such misplacement -- but
+# only at their own range length R-1-max(sy,gy), since a probe pair can be
+# accidentally symmetric at one length and off by one at the next.  Hence the
+# sweep over gap; see data/gen_peak.py.  gap <= C-2 is forced, so C = 2 (group 1)
+# cannot express any of this.
+PEAK_SWEEP=("gap=2 c=10 drop=0 swap=0"
+            "gap=3 c=5 drop=1 swap=0"
+            "gap=4 c=10 drop=2 swap=1"
+            "gap=5 c=7 drop=0 swap=1"
+            "gap=6 c=10 drop=3 swap=0"
+            "gap=7 c=9 drop=1 swap=1"
+            "gap=8 c=10 drop=2 swap=1")
 
 samplegroup
 sample 1
@@ -136,6 +154,13 @@ done
 for cc in 1 2 3 5 7 9; do
     tc g2-w$cc gen_rand r=10000 c=$cc mode=3x seed=$((600 + cc))
 done
+# Sweep of knife-edge peak rows (see the top of this file).  The wider cases wall
+# the cheap block off with f_i = 10^9 columns, so the turning pair has to be found
+# rather than read off the edges of the grid.
+for spec in "${PEAK_SWEEP[@]}"; do
+    gap=${spec#gap=}; gap=${gap%% *}
+    tc g2-peak-$gap gen_peak r=10000 $spec
+done
 
 group group3 40
 include_group sample group1 group2
@@ -198,4 +223,13 @@ for rr in 100000000 500000000 999999999; do
 done
 for cc in 1 2 3 5 7 9; do
     tc g3-w$cc gen_rand r=$MAXR c=$cc mode=3x seed=$((1000 + cc))
+done
+# The knife-edge peak rows again at full height.  The shape is the same as in
+# group 2 -- the peak row is decided by the gap to the top and by the width of the
+# cheap block, neither of which R touches -- but here the walk up the column is
+# 10^9 rows long, so the answer no longer fits in 32 bits and nothing about the
+# climb can be brute forced.
+for spec in "${PEAK_SWEEP[@]}"; do
+    gap=${spec#gap=}; gap=${gap%% *}
+    tc g3-peak-$gap gen_peak r=$MAXR $spec
 done
